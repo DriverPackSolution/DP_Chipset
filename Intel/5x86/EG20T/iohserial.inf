@@ -1,0 +1,159 @@
+*++
+;
+;Copyright (c) 2009-2012, LAPIS SEMICONDUCTOR CO., LTD.  All rights reserved.
+;
+;Module Name:
+;
+;    iohserial.INF
+;
+;Abstract:
+;    INF file to specify another PNP ID for serial ports
+;
+;--*/
+
+[version]
+signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%OEM%
+DriverVer=07/20/2012,2.6.0.0
+CatalogFile=iohserial.cat
+
+[DestinationDirs]
+ComPort.OEM.NT.Copy = 12
+System_Dir = 11
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+; Drivers
+;----------------------------------------------------------
+[Manufacturer]
+%OEM%=OEM
+
+[OEM]
+%PCI\VEN_8086&DEV_8811.DeviceDesc% = ComPort0.OEM, "PCI\VEN_8086&DEV_8811" ; Communications Port
+%PCI\VEN_8086&DEV_8812.DeviceDesc% = ComPort.OEM, "PCI\VEN_8086&DEV_8812" ; Communications Port
+%PCI\VEN_8086&DEV_8813.DeviceDesc% = ComPort.OEM, "PCI\VEN_8086&DEV_8813" ; Communications Port
+%PCI\VEN_8086&DEV_8814.DeviceDesc% = ComPort.OEM, "PCI\VEN_8086&DEV_8814" ; Communications Port
+
+
+;-------------------------------------------------------------------------------
+; UART0 Installation section
+;-------------------------------------------------------------------------------
+
+[ComPort0.OEM.NT]
+; NT install section, redirect
+; we also need to add this for benefit of Ports class
+AddReg=ComPort.OEM.AddReg
+CopyFiles=ComPort.OEM.NT.Copy
+
+[ComPort0.OEM.NT.HW.AddReg]
+HKR,,UpperFilters,0x00010000,serenum
+HKR,,"ClockRate",%FLG_ADDREG_TYPE_DWORD%,192000000
+HKR,,"EnablePowerManagement",%FLG_ADDREG_TYPE_DWORD%,1
+HKR,,"Modem Enable",%FLG_ADDREG_TYPE_DWORD%,1
+HKR,,"Enable DMA",%FLG_ADDREG_TYPE_DWORD%,0
+HKR,,"TL16C550C Auto Flow Control",%FLG_ADDREG_TYPE_DWORD%,0
+
+[ComPort0.OEM.NT.HW]
+AddReg=ComPort0.OEM.NT.HW.AddReg
+
+[ComPort0.OEM.NT.CoInstallers]
+CopyFiles=System_Dir
+AddReg = ComPort0.CoInstallers.reg
+
+[ComPort0.CoInstallers.reg]
+HKR,,CoInstallers32,0x00010000,"Uartco.dll,IohUartCoInstaller"
+
+[System_Dir]
+Uartco.dll
+
+[ComPort0.OEM.NT.Services]
+AddService = IOH_Serial, 0x00000002, IOH_Serial_Service_Inst, IOH_Serial_EventLog_Inst
+
+;-------------------------------------------------------------------------------
+; UART1-3 Installation section
+;-------------------------------------------------------------------------------
+
+[ComPort.OEM.NT]
+; NT install section, redirect
+; we also need to add this for benefit of Ports class
+AddReg=ComPort.OEM.AddReg
+CopyFiles=ComPort.OEM.NT.Copy
+
+; addreg and copy files for PnP serenum.sys
+Include=msports.inf
+Needs=SerialEnumerator.NT
+
+[ComPort.OEM.AddReg]
+; Let Ports class know this is a serial port
+HKR,,PortSubClass,1,01
+HKR,,"DebugLevel",%FLG_ADDREG_TYPE_DWORD%,0x40
+HKR,,"BreakOnEntry",%FLG_ADDREG_TYPE_DWORD%,0
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[ComPort.OEM.NT.Copy]
+iohserial.sys
+
+
+[ComPort.OEM.NT.HW.AddReg]
+HKR,,UpperFilters,0x00010000,serenum
+HKR,,"ClockRate",%FLG_ADDREG_TYPE_DWORD%,192000000
+HKR,,"EnablePowerManagement",%FLG_ADDREG_TYPE_DWORD%,1
+HKR,,"Modem Enable",%FLG_ADDREG_TYPE_DWORD%,0
+HKR,,"Enable DMA",%FLG_ADDREG_TYPE_DWORD%,0
+[ComPort.OEM.NT.HW]
+AddReg=ComPort.OEM.NT.HW.AddReg
+
+[ComPort.OEM.NT.CoInstallers]
+CopyFiles=System_Dir
+AddReg = ComPort.CoInstallers.reg
+
+[ComPort.CoInstallers.reg]
+HKR,,CoInstallers32,0x00010000,"Uartco.dll,IohUartCoInstaller"
+
+[System_Dir]
+Uartco.dll
+
+[ComPort.OEM.NT.Services]
+AddService = IOH_Serial, 0x00000002, IOH_Serial_Service_Inst, IOH_Serial_EventLog_Inst
+
+; install the serenum service itself
+Include=msports.inf
+Needs=SerialEnumerator.NT.Services
+
+; -------------- Serial Port Driver install sections
+[IOH_Serial_Service_Inst]
+DisplayName    = %IOH_Serial.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 0               ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %12%\iohserial.sys
+LoadOrderGroup = Extended base
+
+[IOH_Serial_EventLog_Inst]
+AddReg = IOH_Serial_EventLog_AddReg
+
+[IOH_Serial_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\iohserial.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+iohserial.sys  = 1,,
+Uartco.DLL = 1,,
+
+; User readable strings
+;----------------------------------------------------------
+[Strings]
+OEM= "Intel"
+PCI\VEN_8086&DEV_8811.DeviceDesc 	= "Intel(R) Platform Controller Hub EG20T UART Controller - 8811"
+PCI\VEN_8086&DEV_8812.DeviceDesc 	= "Intel(R) Platform Controller Hub EG20T UART Controller - 8812"
+PCI\VEN_8086&DEV_8813.DeviceDesc 	= "Intel(R) Platform Controller Hub EG20T UART Controller - 8813"
+PCI\VEN_8086&DEV_8814.DeviceDesc 	= "Intel(R) Platform Controller Hub EG20T UART Controller - 8814"
+IOH_Serial.SVCDESC   	= "Intel(R) Platform Controller Hub EG20T UART Controller Device Driver"
+FLG_ADDREG_TYPE_DWORD = 0x00010001
+DiskId1 = "Intel(R) Platform Controller Hub EG20T Installation Disk"

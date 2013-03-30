@@ -1,0 +1,223 @@
+;
+;---------------------------------------------
+; AmdShpc.inf
+; AMD-813x Bus-Filter Driver
+; version 1.3.9
+; (C) Copyright 2002-2004  AMD, Inc.
+;---------------------------------------------
+;
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%AMD%
+CatalogFile=AmdShpc.cat
+DriverVer=09/02/2004, 1.3.9.0
+
+;
+; Identify the installation media
+;
+[SourceDisksNames]
+1 = %AMDSHPC_DRV_DESC%,,
+
+;
+; Identify the files on the installation media
+;
+[SourceDisksFiles]
+AmdPci32.sys = 1
+AmdPci64.sys = 1
+AmdHpSrv.exe = 1
+HotPlugApplet.cpl = 1
+;HotPlugApplet64.cpl = 1
+Hotplug_Control_Utility.chm = 1
+
+[DestinationDirs]
+HotPlug_Driver.Files  = 12
+HotPlug_Driver64.Files  = 12
+HotPlug_Service.Files = 11
+HotPlug_Applet.Files = 11
+;HotPlug_Applet64.Files = 11
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD_MFG%=AmdShpc,NTx86.5.1,NTamd64
+
+;
+;---------------------------------------------
+; Default (Windows 2000)
+;---------------------------------------------
+;
+[AmdShpc]
+%PCI\VEN_1022&DEV_7450&CC_0604.DeviceDesc% = AmdShpc_Inst, PCI\VEN_1022&DEV_7450&CC_0604
+%PCI\VEN_1022&DEV_7458&CC_0604.DeviceDesc% = AmdShpc_Inst, PCI\VEN_1022&DEV_7458&CC_0604
+
+[AmdShpc_Inst]
+Include = machine.inf
+Needs = PCI_DRV
+CopyFiles = HotPlug_Driver.Files
+CopyFiles = HotPlug_Applet.Files
+
+[AmdShpc_Inst.Services]
+Include= machine.inf
+Needs= PCI_DRV.Services
+AddService = AmdPCI, 0, AmdShpc_Driver_Inst, AmdShpc_EventLog_Inst
+
+[AmdShpc_Inst.HW]
+AddReg = AmdShpc_Inst.AddReg
+
+;
+;---------------------------------------------
+; Other 32-bit
+;---------------------------------------------
+;
+[AmdShpc.NTx86.5.1]
+%PCI\VEN_1022&DEV_7450&CC_0604.DeviceDesc% = AmdShpc_Inst32, PCI\VEN_1022&DEV_7450&CC_0604
+%PCI\VEN_1022&DEV_7458&CC_0604.DeviceDesc% = AmdShpc_Inst32, PCI\VEN_1022&DEV_7458&CC_0604
+
+[AmdShpc_Inst32]
+Include = machine.inf
+Needs = PCI_DRV
+CopyFiles = HotPlug_Driver.Files
+CopyFiles = HotPlug_Applet.Files
+CopyFiles = HotPlug_Service.Files
+
+[AmdShpc_Inst32.Services]
+Include= machine.inf
+Needs= PCI_DRV.Services
+AddService = AmdPCI, 0, AmdShpc_Driver_Inst, AmdShpc_EventLog_Inst
+AddService = AmdShpcSrv, 0, AmdShpc_Srv_Inst
+
+[AmdShpc_Inst32.HW]
+AddReg = AmdShpc_Inst.AddReg
+
+;
+;---------------------------------------------
+; Amd64
+;---------------------------------------------
+;
+[AmdShpc.NTamd64]
+%PCI\VEN_1022&DEV_7450&CC_0604.DeviceDesc% = AmdShpc_Inst64, PCI\VEN_1022&DEV_7450&CC_0604
+%PCI\VEN_1022&DEV_7458&CC_0604.DeviceDesc% = AmdShpc_Inst64, PCI\VEN_1022&DEV_7458&CC_0604
+
+[AmdShpc_Inst64]
+Include = machine.inf
+Needs = PCI_DRV
+CopyFiles = HotPlug_Driver64.Files
+CopyFiles = HotPlug_Applet64.Files
+CopyFiles = HotPlug_Service.Files
+
+[AmdShpc_Inst64.Services]
+Include= machine.inf
+Needs= PCI_DRV.Services
+AddService = AmdPCI64, 0, AmdShpc_Driver_Inst64, AmdShpc_EventLog_Inst64
+AddService = AmdShpcSrv, 0, AmdShpc_Srv_Inst
+
+[AmdShpc_Inst64.HW]
+AddReg = AmdShpc_Inst64.AddReg
+
+[AmdShpc_Inst64.AddReg]
+HKR,,"UpperFilters",0x00010000,"AmdPCI64"
+
+[HotPlug_Driver64.Files]
+AmdPci64.sys
+
+[HotPlug_Applet64.Files]
+HotPlugApplet64.cpl
+Hotplug_Control_Utility.chm
+
+[AmdShpc_Driver_Inst64]
+DisplayName    = %AMDSHPC_DRV_DESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\AmdPci64.sys
+
+[AmdShpc_EventLog_Inst64]
+AddReg = AmdShpc_EventLog_Inst64.AddReg
+
+[AmdShpc_EventLog_Inst64.AddReg]
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\AmdPci64.sys"
+HKR,,TypesSupported,%REG_TYPE_DWORD%,7
+
+;
+;---------------------------------------------
+; 32-bit Common
+;---------------------------------------------
+;
+[AmdShpc_Inst.AddReg]
+HKR,,"UpperFilters",0x00010000,"AmdPCI"
+
+[HotPlug_Driver.Files]
+AmdPci32.sys
+
+[HotPlug_Applet.Files]
+HotPlugApplet.cpl
+Hotplug_Control_Utility.chm
+
+[AmdShpc_Driver_Inst]
+DisplayName    = %AMDSHPC_DRV_DESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\AmdPci32.sys
+
+[AmdShpc_EventLog_Inst]
+AddReg = AmdShpc_EventLog_Inst.AddReg
+
+[AmdShpc_EventLog_Inst.AddReg]
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\AmdPci32.sys"
+HKR,,TypesSupported,%REG_TYPE_DWORD%,7
+
+;
+;---------------------------------------------
+; Win32 Service
+;---------------------------------------------
+;
+[HotPlug_Service.Files]
+AmdHpSrv.exe
+
+[AmdShpc_Srv_Inst]
+DisplayName    = %AmdShpc_SRV_DISPLAY_NAME%
+ServiceType    = %SERVICE_WIN32_OWN_PROCESS%
+StartType      = %SERVICE_AUTO_START%
+ErrorControl   = %SERVICE_ERROR_IGNORE%
+ServiceBinary  = %11%\AmdHpSrv.exe
+Description    = %AMDSHPC_SRV_DESC%
+
+;
+;---------------------------------------------
+; Localizable strings
+;---------------------------------------------
+;
+[Strings]
+AMD = "AMD"
+AMD_MFG = "AMD"
+AmdShpc_SRV_DISPLAY_NAME = "AMD-813x Hot-Plug Service"
+AMDSHPC_SRV_DESC = "Provides user-mode services for the AMD-813x Bus-Filter Driver"
+AMDSHPC_DRV_DESC = "AMD-813x Bus-Filter Driver"
+PCI\VEN_1022&DEV_7450&CC_0604.DeviceDesc = "AMD-8131™ HyperTransport™ PCI-X® Tunnel"
+PCI\VEN_1022&DEV_7458&CC_0604.DeviceDesc = "AMD-8132™ HyperTransport™ PCI-X® 2.0 Tunnel"
+
+;
+;---------------------------------------------
+;Handy macro substitutions (non-localizable)
+;---------------------------------------------
+;
+REG_TYPE_SZ		= 0x00000000
+REG_TYPE_MULTI_SZ	= 0x00010000
+REG_TYPE_DWORD		= 0x00010001
+REG_EXPAND_SZ		= 0x00020000 
+
+SPSVCINST_ASSOCSERVICE    = 0x00000002
+SERVICE_WIN32_OWN_PROCESS = 0x10
+SERVICE_KERNEL_DRIVER     = 1
+SERVICE_BOOT_START	  = 0
+SERVICE_SYSTEM_START	  = 1
+SERVICE_AUTO_START	  = 2
+SERVICE_DEMAND_START	  = 3
+SERVICE_ERROR_IGNORE	  = 0
+SERVICE_ERROR_NORMAL	  = 1
+SERVICE_ERROR_SEVERE	  = 2
+SERVICE_ERROR_CRITICAL	  = 3

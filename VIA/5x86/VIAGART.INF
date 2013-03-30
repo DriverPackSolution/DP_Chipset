@@ -1,0 +1,88 @@
+[Version]
+signature="$CHICAGO$"
+SetupClass=Base
+;CatalogFile=viagart.cat
+Class=System
+ClassGUID={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%VIA%
+DriverVer=07/24/2002,5.00.00.0430
+
+[SourceDisksNames]
+222=%DiskDescription%,,,
+
+[SourceDisksFiles]
+viagart.vxd=222
+
+[DefaultInstall]
+CopyFiles=VIAGART.File
+AddReg=VIAGART.AddReg
+
+[DestinationDirs]
+VIAGART.File=11
+
+[Manufacturer]
+%VIA_MFG%=VIA_AGP
+
+[VIA_AGP]
+%PCI\VEN_1106&DEV_8598.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_8598
+%PCI\VEN_1106&DEV_8501.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_8501
+%PCI\VEN_1106&DEV_8601.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_8601
+%PCI\VEN_1106&DEV_8305.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_8305
+%PCI\VEN_1106&DEV_8605.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_8605
+%PCI\VEN_1106&DEV_8391.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_8391
+%PCI\VEN_1106&DEV_8602.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_8602
+%PCI\VEN_1106&DEV_B091.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B091
+%PCI\VEN_1106&DEV_B099.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B099
+%PCI\VEN_1106&DEV_B101.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B101
+%PCI\VEN_1106&DEV_B112.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B112
+%PCI\VEN_1106&DEV_B116.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B116
+%PCI\VEN_1106&DEV_B148.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B148
+%PCI\VEN_1106&DEV_B156.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B156
+%PCI\VEN_1106&DEV_B158.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B158
+%PCI\VEN_1106&DEV_B168.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B168
+%PCI\VEN_1106&DEV_B188.DeviceDesc% = VIAAGP_Install1,PCI\VEN_1106&DEV_B188
+
+
+[VIAAGP_Install1]
+CopyFiles=VIAGART.File
+AddReg=VIAGART.AddReg
+
+[BaseWinOptions]
+VIA_Inst
+
+[VIA_Inst]
+CopyFiles=VIAGART.File
+AddReg=VIAGART.AddReg
+
+[VIAGART.File]
+viagart.vxd,,,4
+
+[VIAGART.AddReg]
+HKLM,"System\CurrentControlSet\Services\VxD\VIAGART","StaticVxD",0,"viagart.vxd"
+HKLM,"System\CurrentControlSet\Services\VxD\VIAGART","Turbo",1,01
+HKLM,"System\CurrentControlSet\Services\VxD\VIAGART","SideBand",1,01
+HKLM,"System\CurrentControlSet\Services\VxD\VIAGART","OEMVersion",1,01
+
+[Strings]
+VIA="VIA Technologies, Inc."
+VIA_MFG="VIA"
+PCI\VEN_1106&DEV_8598.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_8501.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_8601.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_8305.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_8605.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_8391.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_8602.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_B091.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_B099.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_B101.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_B112.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_B116.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_B148.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_B156.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_B158.DeviceDesc = "VIA CPU to AGP controller"
+PCI\VEN_1106&DEV_B168.DeviceDesc = "VIA CPU to AGP2.0/AGP3.0 Controller"
+PCI\VEN_1106&DEV_B188.DeviceDesc = "VIA CPU to AGP2.0/AGP3.0 Controller"
+
+
+DiskDescription = "AGP VxD Disk"

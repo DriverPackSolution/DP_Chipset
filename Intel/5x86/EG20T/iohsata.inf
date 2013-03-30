@@ -1,0 +1,88 @@
+*++
+;
+;Copyright (c) 2009-2012, LAPIS SEMICONDUCTOR CO., LTD.  All rights reserved.
+;
+;Module Name:
+;
+;    iohsata.INF
+;
+;Abstract:
+;    INF file for installing SATA device driver
+;
+;--*/
+
+[Version]
+CatalogFile=iohsata.cat
+signature="$Windows NT$"
+Class=hdc
+ClassGuid={4D36E96A-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+DriverVer=07/20/2012, 2.6.0.0
+
+[SourceDisksNames]
+1 = %DiskId1%,iohsata.sys,,
+
+[SourceDisksFiles]
+iohsata.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[DriverFiles_XP]
+iohsata.sys,,,0x20
+
+[Manufacturer]
+%INTEL%=OKISEMI,NTx86.5.1
+
+[OKISEMI]
+%PCI\VEN_8086&DEV_880B.DeviceDesc%=IOHSATA, PCI\VEN_8086&DEV_880B&CC_010601
+
+[OKISEMI.NTx86.5.1]
+%PCI\VEN_8086&DEV_880B.DeviceDesc%=IOHSATA, PCI\VEN_8086&DEV_880B&CC_010601
+
+[IOHSATA]
+CopyFiles=DriverFiles_XP
+
+[IOHSATA.Services]
+AddService = IOHSATA, 0x00000002, IOHSATA_Service_Inst, Miniport_EventLog_Inst
+
+[IOHSATA_Service_Inst]
+DisplayName=%IOHSATA.SvcDesc%
+ServiceType    = 1      ; SERVICE_KERNEL_DRIVER
+StartType      = 0      ; SERVICE_BOOT_START
+ErrorControl   = 1      ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\iohsata.sys
+LoadOrderGroup = SCSI Miniport
+AddReg         = IOHSATA_Addreg
+AddReg         = bus_type_ide
+
+[IOHSATA_Addreg]
+HKR, "Parameters\PnpInterface", "5", 0x00010001, 0x00000001
+HKR, "Parameters\Device", "MaximumSGList", 0x00010001, 0x00000020
+HKR, "Parameters\Device", "NumberOfRequests", 0x00010001, 0x40
+HKLM,"System\CurrentControlSet\Services\Disk","TimeOutValue",0x00010001,0x00000014
+HKR, "Parameters\Device", "DriverParameters", 0x00000000, "ForceResetOnResume=0;ForcePowerStateTransition=0;EnableActivityLED=0;FlushCacheThreshold=50;ForceRemovable=0;BlowHPA=0;SetModeTimeoutOnResume=30"
+
+[Miniport_EventLog_Inst]
+AddReg = Miniport_EventLog_AddReg
+
+[Miniport_EventLog_AddReg]
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,%11%%IOLOGMSGDLL%
+HKR,,TypesSupported,%REG_DWORD%,7
+
+;*************************************************************
+;These addreg sections should be used for non-SCSI miniports
+;to indicate what STORAGE_BUS_TYPE they actually do support.
+
+[bus_type_ide]
+HKR, "Parameters", "BusType", 0x00010001, 0x00000003
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_880B.DeviceDesc="Intel(R) Platform Controller Hub EG20T SATA AHCI Controller - 880B"
+IOHSATA.SvcDesc="SCSI Miniport Driver for Intel(R) Platform Controller Hub EG20T AHCI SATA Controller"
+DiskId1="Intel(R) Platform Controller Hub EG20T SATA AHCI Driver Installation Disk"
+
+REG_EXPAND_SZ=0x00020000
+REG_DWORD=0x00010001
+IOLOGMSGDLL="\IoLogMsg.dll"

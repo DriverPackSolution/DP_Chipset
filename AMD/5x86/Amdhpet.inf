@@ -1,0 +1,48 @@
+; AMDHPET.INF 
+; Copyright 2002-2003, AMD Corporation
+; Version 1.00
+; Windows 2K/XP/2003/ME/98SE
+
+
+[Version]
+Signature="$Chicago$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+CatalogFile=amdhpet.cat
+Provider=%AMD_MFG%
+DriverVer=02/28/2003, 1.0.0.0
+
+[DestinationDirs]
+DefaultDestDir = 12      
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD_MFG%=AMD_SYS
+
+;[GENDEV_SYS]
+[AMD_SYS]
+%*PNP0103.DeviceDesc% = NO_DRV, *PNP0103; AMD-8111 High Precision Event Timer
+
+[SourceDisksFiles]
+amdhpet.inf=1
+
+[SourceDisksNames]
+1=%DISK_ID%,,
+
+;*******************************************
+; DO NOTHING SECTION
+[NO_DRV]
+
+[NO_DRV.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%   ; null service install
+
+[Strings]
+AMD_MFG = "AMD"
+*PNP0103.DeviceDesc = "AMD-8111 High Precision Event Timer"
+DISK_ID="AMD Installation Disk"
+
+;*******************************************
+;macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002

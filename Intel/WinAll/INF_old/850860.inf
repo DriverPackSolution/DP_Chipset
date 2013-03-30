@@ -1,0 +1,80 @@
+; ****************************************************************************
+; ****************************************************************************
+; **    Filename:  850860.inf                                                 
+; **    Abstract:  Windows* XP INF File for Intel(R) 850, 860 Chipset 
+; **               Memory Controller Hub
+; **    Last Update:  July 30, 2001 (Version 3.20 Build 1001)
+; ****************************************************************************
+; ****************************************************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=850860.cat
+DriverVer=07/30/2001, 3.20.1001
+
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL_MFG%=INTEL_SYS
+
+[INTEL_SYS]
+%PCI\VEN_8086&DEV_2532.DeviceDesc%=AGP440_Install,PCI\VEN_8086&DEV_2532
+
+;**************************************************************************
+; AGP filters that sit on top of PCI
+;
+[AGP440_Install]
+Include=machine.inf
+Needs=AGP440_Install
+
+[AGP440_Install.HW]
+Include=machine.inf
+Needs=AGP440_Install.HW
+
+[AGP440_Install.Services]
+Include=machine.inf
+Needs=AGP440_Install.Services
+
+
+[Strings]
+INTEL         ="Intel"
+INTEL_MFG="Intel"
+PCI\VEN_8086&DEV_2532.DeviceDesc="Intel(R) 82850/82860 Processor to AGP Controller - 2532"
+
+
+; Copyright (c) 2000 Intel Corporation
+
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.

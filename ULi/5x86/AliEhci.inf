@@ -1,0 +1,193 @@
+;;/////////////////////////////////////////////;;
+;;              AliEhci.inf                    ;;
+;;              Copyright (c)  ULI.            ;;
+;;              09/07/2005                     ;;
+;;/////////////////////////////////////////////;;
+
+[Version]
+Signature="$CHICAGO$"
+Provider=%ALi%
+Class=ALiUSB
+ClassGuid={4B571702-E6C6-4db1-A2C6-FD1D53A70FC3} 
+DriverVer = 09/07/2005,5.1.2600.0176
+;CatalogFile=aliehci.cat
+
+[SourceDisksNames]
+1="EHCI Driver Installation Disk",,,
+
+[SourceDisksFiles]
+AliEhci.sys = 1
+AliHub.sys = 1
+AliRtHub.sys = 1
+ALiGP.sys=1
+GreenMk.exe = 1
+RunQFE.EXE = 1
+
+[Manufacturer]
+%MfgName%=ALi
+
+[ALi]
+%ALI_USBEHCD.DeviceDesc%=ALIEHCD,PCI\VEN_10B9&DEV_5239&CC_0C03
+%OEM0_USBEHCD.DeviceDesc%=ALIEHCD,PCI\VEN_10B9&DEV_5239&SUBSYS_11021735
+%ALIHUB.DeviceDesc%=ALIHUB,{4B571702-E6C6-4db1-A2C6-FD1D53A70FC3}\CLASS_09&SUBCLASS_00
+%ALIROOTHUB.DeviceDesc%=ALIROOTHUB,{4B571702-E6C6-4db1-A2C6-FD1D53A70FC3}\EHCI_ROOT_HUB
+%ALICOMPOSITE.DeviceDesc%=ALICOMPOSITE,{4B571702-E6C6-4db1-A2C6-FD1D53A70FC3}\ALICOMPOSITE
+
+[DestinationDirs]
+ALIEHCD.Files.Ext = 10,SYSTEM32\DRIVERS
+ALIEHCD.DelFiles.Ext = 10,SYSTEM32\DRIVERS
+ALIEHCD.GreenMark = 11,
+;QFERUN            = 1,
+
+[ClassInstall]
+Addreg=ALiUSB98_ClassReg
+
+[ALiUSB98_ClassReg]
+HKR,,,,%USBClassName%
+HKR,,Icon,,-20
+
+
+
+[ClassInstall32]
+Addreg=ALiUSBClassReg
+
+[ALiUSBClassReg]
+HKR,,,,%USBClassName%
+HKR,,Icon,,-20
+HKR,,NoInstallClass,,1
+
+[ALIEHCD]
+CopyFiles=ALIEHCD.Files.Ext,ALIEHCD.GreenMark
+DelFiles=ALIEHCD.DelFiles.Ext
+AddReg=ALIEHCD.AddReg,ALIEHCD.AddReg2
+
+[ALIEHCD.NT]
+CopyFiles=ALIEHCD.Files.Ext
+DelFiles=ALIEHCD.DelFiles.Ext
+AddReg=ALIEHCD.AddReg,ALIEHCD.AddReg.NT
+
+[ALIEHCD.NT.Services]
+AddService = ALIEHCD, 0x00000002, ALIEHCD.AddService
+
+[ALIEHCD.AddService]
+DisplayName    = %ALI_USBEHCD.DeviceDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 2                  ; SERVICE_AUTO_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\ALIEHCI.sys
+LoadOrderGroup = Base
+
+[ALIEHCD.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,AliEhci.sys
+;HKLM,Software\ULi,"FIFOEnable",,"1"
+
+[ALIEHCD.AddReg2]
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,"ALiUSBfix",,"%11%\GREENMK.exe"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RunONCE,"QFERUN",,"%1%\RunQfE.exe"
+;HKLM,Software\ULi,"ULiUSBID",,"1"
+
+
+[ALIEHCD.Files.Ext]
+AliEhci.sys
+AliHub.sys
+AliRtHub.sys
+AliGP.sys
+
+[ALIEHCD.GreenMark]
+GreenMk.exe
+
+[QFERUN]
+RunQFE.EXE
+
+[ALIEHCD.DelFiles.Ext]
+AliEhci.sys,,,1
+AliHub.sys,,,1
+AliRtHub.sys,,,1
+AliGP.sys,,,1
+
+[ALIHUB]
+AddReg=ALIHUB.AddReg
+
+[ALIHUB.NT]
+AddReg=ALIHUB.AddReg.NT
+
+[ALIHUB.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"AliHub.sys"
+
+[ALIHUB.AddReg.NT]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"AliHub.sys"
+
+[ALIHUB.NT.Services]
+AddService = alihub, 0x00000002, ALIHUB.AddService
+
+[ALIHUB.AddService]
+DisplayName    = %ALIHUB.DeviceDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\AliHub.sys
+LoadOrderGroup = Base
+
+[ALIROOTHUB]
+AddReg=ALIROOTHUB.AddReg
+
+[ALIROOTHUB.NT]
+AddReg=ALIROOTHUB.AddReg.NT
+
+[ALIROOTHUB.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"AliRtHub.sys"
+
+[ALIROOTHUB.AddReg.NT]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"AliRtHub.sys"
+
+[ALIROOTHUB.NT.Services]
+AddService = aliroothub, 0x00000002, ALIROOTHUB.AddService
+
+[ALIROOTHUB.AddService]
+DisplayName    = %ALIROOTHUB.DeviceDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\AliRtHub.sys
+LoadOrderGroup = Base
+
+[ALICOMPOSITE]
+AddReg=ALICOMPOSITE.AddReg
+
+[ALICOMPOSITE.NT]
+AddReg=ALICOMPOSITE.AddReg.NT
+
+[ALICOMPOSITE.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"AliGP.sys"
+
+[ALICOMPOSITE.AddReg.NT]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,"AliGP.sys"
+
+[ALICOMPOSITE.NT.Services]
+AddService = aligp, 0x00000002, ALICOMPOSITE.AddService
+
+[ALICOMPOSITE.AddService]
+DisplayName    = %ALICOMPOSITE.DeviceDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\AliGP.sys
+LoadOrderGroup = Base
+
+
+[Strings]
+USBClassName="Universal Serial Bus Controllers"
+ALi="ULi Corporation"
+ALIHUB.DeviceDesc="Generic Hub on USB 2.0 Bus"
+ALICOMPOSITE.DeviceDesc="USB Composite Device"
+MfgName="ULI"
+ALI_USBEHCD.DeviceDesc="ULi PCI to USB Enhanced Host Controller"
+OEM0_USBEHCD.DeviceDesc="USB2.0 PCI to USB Enhanced Host Controller"
+ALIROOTHUB.DeviceDesc="USB 2.0 Root Hub"

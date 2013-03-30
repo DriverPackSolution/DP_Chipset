@@ -1,0 +1,88 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: CentURT.inf                                            **
+; **           Abstract: Atom Processor S1200 Series UART                       **
+; **        Last Update: October 5, 2012 (Version 9.3.1 Build 1009)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Ports
+ClassGUID={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=CentURT.cat
+DriverVer=10/05/2012, 9.3.1.1009
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NT.5.1,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_0C5F.DeviceDesc%=COM,PCI\VEN_8086&DEV_0C5F
+
+
+[INTEL.NT.5.1]
+%PCI\VEN_8086&DEV_0C5F.DeviceDesc%=COM,PCI\VEN_8086&DEV_0C5F
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_0C5F.DeviceDesc%=COM,PCI\VEN_8086&DEV_0C5F
+
+
+[COM.NT]
+Include=msports.inf
+Needs=ComPort.NT
+
+[COM.NT.Services]
+Include=msports.inf
+Needs=ComPort.NT.Services
+
+[COM.NT.HW]
+Include=msports.inf
+Needs=ComPort.NT.HW
+
+[COM.NT.PosDup]
+Include=msports.inf
+Needs=ComPort.NT.PosDup
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_0C5F.DeviceDesc="Intel(R) Atom Processor S1200 Series UART - 0C5F"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

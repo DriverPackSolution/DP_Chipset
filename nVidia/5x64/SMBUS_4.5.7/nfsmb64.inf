@@ -1,0 +1,53 @@
+; nvsmb.INF
+
+; Copyright (c) 2001-2005, NVIDIA
+; Version 1.00
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %NVIDIA%
+CatalogFile = nfsmb64.cat
+DriverVer = 06/08/2006, 4.5.7
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%NVIDIA_MFG%=NVIDIA_SYS, ntamd64
+
+[SourceDisksFiles]
+
+[NVIDIA_SYS.ntamd64]
+%PCI\VEN_10de&DEV_01b4.DeviceDesc% = NO_DRV, PCI\VEN_10de&DEV_00D4
+%PCI\VEN_10de&DEV_01b4.DeviceDesc% = NO_DRV, PCI\VEN_10de&DEV_00E4
+%PCI\VEN_10de&DEV_01b4.DeviceDesc% = NO_DRV, PCI\VEN_10de&DEV_0052
+%PCI\VEN_10de&DEV_01b4.DeviceDesc% = NO_DRV, PCI\VEN_10de&DEV_0034
+%PCI\VEN_10de&DEV_01b4.DeviceDesc% = NO_DRV, PCI\VEN_10de&DEV_0264
+%PCI\VEN_10de&DEV_01b4.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_0368
+%PCI\VEN_10de&DEV_01b4.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_03EB
+%SMU51Desc%                        = NO_DRV, PCI\VEN_10DE&DEV_03F4
+%SMU51Desc%                        = NO_DRV, PCI\VEN_10DE&DEV_8352
+
+
+;**************************************************************************
+; Do-nothing section used to avoid "Unknown hardware" installation prompts.
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[NO_DRV.HW]
+Include=machine.inf
+Needs=NO_DRV.HW
+
+[Strings]
+SystemClassName = "System devices"
+NVIDIA          = "NVIDIA"
+NVIDIA_MFG      = "NVIDIA"
+PCI\VEN_10de&DEV_01b4.DeviceDesc = "NVIDIA nForce System Management"
+SMU51Desc = "NVIDIA nForce System Management Controller"

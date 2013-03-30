@@ -1,0 +1,97 @@
+;/*++
+;
+;Copyright (c) 2009-2012, LAPIS SEMICONDUCTOR CO., LTD.  All rights reserved.
+;
+;Module Name:
+;
+;    nodrv.inf
+;
+;Abstract:
+;    INF file for installing driver for unsupported device
+;
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+DriverVer=02/27/2012,2.3.0.1
+CatalogFile=nodrv.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[Manufacturer]
+%StdMfg%=INTEL
+
+
+;-------------- Install Section
+
+[INTEL]
+; DisplayName                        Section        DeviceId
+; -----------                        -------        --------
+%PCI\VEN_8086&DEV_8801.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8801
+%PCI\VEN_8086&DEV_8802.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8802
+%PCI\VEN_8086&DEV_8803.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8803
+%PCI\VEN_8086&DEV_8808.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8808
+%PCI\VEN_8086&DEV_8810.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8810
+%PCI\VEN_8086&DEV_880B.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_880B&CC_010601
+%PCI\VEN_8086&DEV_8811.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8811
+%PCI\VEN_8086&DEV_8812.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8812
+%PCI\VEN_8086&DEV_8813.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8813
+%PCI\VEN_8086&DEV_8814.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8814
+%PCI\VEN_8086&DEV_8815.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8815
+%PCI\VEN_8086&DEV_8816.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8816
+%PCI\VEN_8086&DEV_8817.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8817
+%PCI\VEN_8086&DEV_8818.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8818
+%PCI\VEN_8086&DEV_8819.DeviceDesc% = NO_DRV_Device, PCI\VEN_8086&DEV_8819
+
+
+;--------------	Dummy Entry for not supported device 
+
+[NO_DRV_Device]
+AddReg=NO_DRV_Device.AddReg
+CopyFiles=NO_DRV_Device.Copy
+
+[NO_DRV_Device.AddReg]
+
+[NO_DRV_Device.Copy]
+
+[NO_DRV_Device.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%
+
+
+;--------------
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+
+
+;--------------	Strings
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+INTEL = "Intel"
+StdMfg = "Intel"
+;ClassName = "System devices"
+DiskId1 = "Intel(R) Platform Controller Hub EG20T Installation Disk"
+
+PCI\VEN_8086&DEV_8801.DeviceDesc = "Intel(R) Platform Controller Hub EG20T Packet Hub - 8801 !"
+PCI\VEN_8086&DEV_8802.DeviceDesc = "Intel(R) Platform Controller Hub EG20T Gigabit Ethernet Controller - 8802 !"
+PCI\VEN_8086&DEV_8803.DeviceDesc = "Intel(R) Platform Controller Hub EG20T General Purpose IO Controller - 8803 !"
+PCI\VEN_8086&DEV_8808.DeviceDesc = "Intel(R) Platform Controller Hub EG20T USB Client Controller - 8808 !" 
+PCI\VEN_8086&DEV_880B.DeviceDesc = "Intel(R) Platform Controller Hub EG20T SATA AHCI Controller - 880B !"
+PCI\VEN_8086&DEV_8810.DeviceDesc = "Intel(R) Platform Controller Hub EG20T DMA Controller #1 - 8810 !"
+PCI\VEN_8086&DEV_8811.DeviceDesc = "Intel(R) Platform Controller Hub EG20T UART Controller - 8811 !"
+PCI\VEN_8086&DEV_8812.DeviceDesc = "Intel(R) Platform Controller Hub EG20T UART Controller - 8812 !"
+PCI\VEN_8086&DEV_8813.DeviceDesc = "Intel(R) Platform Controller Hub EG20T UART Controller - 8813 !"
+PCI\VEN_8086&DEV_8814.DeviceDesc = "Intel(R) Platform Controller Hub EG20T UART Controller - 8814 !"
+PCI\VEN_8086&DEV_8815.DeviceDesc = "Intel(R) Platform Controller Hub EG20T DMA Controller #2 - 8815"
+PCI\VEN_8086&DEV_8816.DeviceDesc = "Intel(R) Platform Controller Hub EG20T Serial Peripheral Interface Bus - 8816 !"
+PCI\VEN_8086&DEV_8817.DeviceDesc = "Intel(R) Platform Controller Hub EG20T I2C Controller - 8817 !"
+PCI\VEN_8086&DEV_8818.DeviceDesc = "Intel(R) Platform Controller Hub EG20T Controller Area Network (CAN) Controller - 8818 !" 
+PCI\VEN_8086&DEV_8819.DeviceDesc = "Intel(R) Platform Controller Hub EG20T IEEE 1588 Hardware Assist - 8819 !"
+

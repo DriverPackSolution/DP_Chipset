@@ -1,0 +1,165 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: ichausb.inf                                            **
+; **           Abstract: Windows* 2000 and XP INF, 2003 Server INF, Vista Update File for**
+; **                     Intel(R) 82801 USB devices                             **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%INTEL%
+CatalogFile=ichausb.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NT.5.1,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_3A64.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A64
+%PCI\VEN_8086&DEV_3A65.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A65
+%PCI\VEN_8086&DEV_3A66.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A66
+%PCI\VEN_8086&DEV_3A67.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A67
+%PCI\VEN_8086&DEV_3A68.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A68
+%PCI\VEN_8086&DEV_3A69.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A69
+%PCI\VEN_8086&DEV_3A6A.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A6A
+%PCI\VEN_8086&DEV_3A6C.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A6C
+%PCI\VEN_8086&DEV_3A34.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A34
+%PCI\VEN_8086&DEV_3A35.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A35
+%PCI\VEN_8086&DEV_3A36.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A36
+%PCI\VEN_8086&DEV_3A37.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A37
+%PCI\VEN_8086&DEV_3A38.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A38
+%PCI\VEN_8086&DEV_3A39.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A39
+%PCI\VEN_8086&DEV_3A3A.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A3A
+%PCI\VEN_8086&DEV_3A3C.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_3A3C
+
+
+[INTEL.NT.5.1]
+%PCI\VEN_8086&DEV_3A64.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A64
+%PCI\VEN_8086&DEV_3A65.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A65
+%PCI\VEN_8086&DEV_3A66.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A66
+%PCI\VEN_8086&DEV_3A67.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A67
+%PCI\VEN_8086&DEV_3A68.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A68
+%PCI\VEN_8086&DEV_3A69.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A69
+%PCI\VEN_8086&DEV_3A6A.DeviceDesc%=USB2,PCI\VEN_8086&DEV_3A6A
+%PCI\VEN_8086&DEV_3A6C.DeviceDesc%=USB2,PCI\VEN_8086&DEV_3A6C
+%PCI\VEN_8086&DEV_3A34.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A34
+%PCI\VEN_8086&DEV_3A35.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A35
+%PCI\VEN_8086&DEV_3A36.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A36
+%PCI\VEN_8086&DEV_3A37.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A37
+%PCI\VEN_8086&DEV_3A38.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A38
+%PCI\VEN_8086&DEV_3A39.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A39
+%PCI\VEN_8086&DEV_3A3A.DeviceDesc%=USB2,PCI\VEN_8086&DEV_3A3A
+%PCI\VEN_8086&DEV_3A3C.DeviceDesc%=USB2,PCI\VEN_8086&DEV_3A3C
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_3A64.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A64
+%PCI\VEN_8086&DEV_3A65.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A65
+%PCI\VEN_8086&DEV_3A66.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A66
+%PCI\VEN_8086&DEV_3A67.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A67
+%PCI\VEN_8086&DEV_3A68.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A68
+%PCI\VEN_8086&DEV_3A69.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A69
+%PCI\VEN_8086&DEV_3A6A.DeviceDesc%=USB2,PCI\VEN_8086&DEV_3A6A
+%PCI\VEN_8086&DEV_3A6C.DeviceDesc%=USB2,PCI\VEN_8086&DEV_3A6C
+%PCI\VEN_8086&DEV_3A34.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A34
+%PCI\VEN_8086&DEV_3A35.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A35
+%PCI\VEN_8086&DEV_3A36.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A36
+%PCI\VEN_8086&DEV_3A37.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A37
+%PCI\VEN_8086&DEV_3A38.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A38
+%PCI\VEN_8086&DEV_3A39.DeviceDesc%=USB,PCI\VEN_8086&DEV_3A39
+%PCI\VEN_8086&DEV_3A3A.DeviceDesc%=USB2,PCI\VEN_8086&DEV_3A3A
+%PCI\VEN_8086&DEV_3A3C.DeviceDesc%=USB2,PCI\VEN_8086&DEV_3A3C
+
+
+[USB_2K.NT]
+Include=usb.inf
+Needs=UniversalHCD.Dev.NT
+
+[USB_2K.NT.Services]
+Include=usb.inf
+Needs=UniversalHCD.Dev.NT.Services
+
+[USB.NT]
+Include=usbport.inf
+Needs=OHCI.Dev.NT.Services
+
+[USB.NT.Services]
+Include=usbport.inf
+Needs=OHCI.Dev.NT.Services.Services
+
+[USB.NT.CoInstallers]
+Include=usbport.inf
+Needs=OHCI.Dev.NT.Services.CoInstallers
+
+[USB2.NT]
+Include=usbport.inf
+Needs=EHCI.Dev.NT
+
+[USB2.NT.Services]
+Include=usbport.inf
+Needs=EHCI.Dev.NT.Services
+
+[USB2.NT.CoInstallers]
+Include=usbport.inf
+Needs=EHCI.Dev.NT.CoInstallers
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_3A64.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A64"
+PCI\VEN_8086&DEV_3A65.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A65"
+PCI\VEN_8086&DEV_3A66.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A66"
+PCI\VEN_8086&DEV_3A67.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A67"
+PCI\VEN_8086&DEV_3A68.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A68"
+PCI\VEN_8086&DEV_3A69.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A69"
+PCI\VEN_8086&DEV_3A6A.DeviceDesc="Intel(R) ICH10 Family USB Enhanced Host Controller - 3A6A"
+PCI\VEN_8086&DEV_3A6C.DeviceDesc="Intel(R) ICH10 Family USB Enhanced Host Controller - 3A6C"
+PCI\VEN_8086&DEV_3A34.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A34"
+PCI\VEN_8086&DEV_3A35.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A35"
+PCI\VEN_8086&DEV_3A36.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A36"
+PCI\VEN_8086&DEV_3A37.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A37"
+PCI\VEN_8086&DEV_3A38.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A38"
+PCI\VEN_8086&DEV_3A39.DeviceDesc="Intel(R) ICH10 Family USB Universal Host Controller - 3A39"
+PCI\VEN_8086&DEV_3A3A.DeviceDesc="Intel(R) ICH10 Family USB Enhanced Host Controller - 3A3A"
+PCI\VEN_8086&DEV_3A3C.DeviceDesc="Intel(R) ICH10 Family USB Enhanced Host Controller - 3A3C"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

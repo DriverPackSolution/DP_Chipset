@@ -1,0 +1,83 @@
+;
+; TMAGP.INF - Install file description for the Transmeta AGP Miniport.
+;            
+; Copyright (c) 2003 Transmeta Corporation.  All Rights Reserved 
+;
+; In order to install this driver, go to device manager, right-click on the
+; PCI-PCI bridge which represents the Transmeta AGP bridge and select
+; "Properties".  Then select the "Driver" page and push the "Update Driver"
+; button. Go through the update driver wizard and on the "Locate Driver
+; Files" page select "Specify a location" and then enter the location where
+; this INF and driver file are located.
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%TMTA%
+CatalogFile=tmagp.cat
+DriverVer=06/20/2003,1.2.0.3
+
+[SourceDisksNames]
+1=%DiskDescription%,,,
+
+[SourceDisksFiles]
+tmagp.sys=1
+
+[DestinationDirs]
+DefaultDestDir = 12        ; DIRID_DRIVERS
+
+[Manufacturer]
+%TMTA_MFG%=TMTA_AGP
+
+[AGP_Filter_Reg]
+HKR,,"UpperFilters", 0x00010000,"TMAGP"
+
+[pci_ServiceInstallSection]
+DisplayName    = %pci_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\pci.sys
+LoadOrderGroup = "Boot Bus Extender"
+
+[TMTA_AGP]
+%PCI\VEN_1279&DEV_0061.DeviceDesc%=TMTA_AGP_Install,PCI\VEN_1279&DEV_0061
+
+[TMTA_AGP_Install]
+CopyFiles=@TMAGP.SYS
+
+[TMTA_AGP_Install.HW]
+AddReg = AGP_Filter_Reg
+
+[TMTA_AGP_Install.Services]
+AddService = tmagp,0,tmta_agp_ServiceInstallSection
+AddService = pci, %SPSVCINST_ASSOCSERVICE%, pci_ServiceInstallSection
+
+[tmta_agp_ServiceInstallSection]
+DisplayName    = %agp_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\tmagp.sys
+LoadOrderGroup = PnP Filter
+
+[Strings]
+TMTA = "Transmeta Corporation"
+TMTA_MFG = "Transmeta"
+DiskDescription = "TM 8000 Driver Disk"
+PCI\VEN_1279&DEV_0061.DeviceDesc = "Transmeta TM 8000 AGP Controller"
+
+;service descriptions
+agp_svcdesc = "Transmeta TM 8000 AGP Filter Driver"
+pci_svcdesc = "PCI Bus Driver"
+
+;Handy macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+

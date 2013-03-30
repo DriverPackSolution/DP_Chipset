@@ -1,0 +1,65 @@
+
+[Version]
+Signature="$WINDOWS NT$"
+Provider=%LCD%
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+lucidpci.sys  = 1,,
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;*****************************************
+; Filter Driver Install Section
+;*****************************************
+
+[DefaultInstall]
+CopyFiles=DriverCopyFiles
+
+[DriverCopyFiles]
+lucidpci.sys,,,0x60		; replace newer, suppress dialog
+
+;-------------- Service installation
+
+[DefaultInstall.Services]
+AddService=lucidpci,,lucidpciService
+
+[lucidpciService]
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3
+ErrorControl   = 0               ; SERVICE_ERROR_IGNORE 
+ServiceBinary  = %12%\lucidpci.sys
+AddReg         = lucidpciAddReg
+
+[lucidpciAddReg]
+HKLM,%lucidpciSubKey%,"UpperFilters",0x10008,"lucidpci"
+
+;*****************************************
+; Filter Driver Uninstall Section
+;*****************************************
+
+[DefaultUninstall]
+DelFiles=DriverDelFiles
+DelReg=lucidpciDelReg
+
+[DriverDelFiles]
+lucidpci.sys,,,0x01 		
+
+[lucidpciDelReg]
+HKLM,%lucidpciSubKey%,"UpperFilters",,"lucidpci"
+
+;-------------- Service removal
+
+[DefaultUninstall.Services]
+DelService=lucidpci,
+
+
+[Strings]
+LCD = "Lucid"
+DiskId1 = "Lucid Virtu Kernel Mode Driver Installation Disk #1"
+lucidpciSubKey = "system\currentcontrolset\control\class\{4D36E97D-E325-11CE-BFC1-08002BE10318}"
+
+

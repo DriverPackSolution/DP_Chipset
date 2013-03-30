@@ -1,0 +1,142 @@
+;/*
+;
+;Copyright (c) 2004 STMicroelectronics All rights Reserved
+;
+;Module Name:
+;
+;    tpmdrv.INF
+;
+;Abstract:
+;    INF file for installing STMicroelectronics TPM driver
+;
+;*/
+
+[Version]
+CatalogFile=stmtpm.cat
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%STM%
+DriverVer=05/24/2007,1.00.04.15
+
+[DestinationDirs]
+DefaultDestDir = 12
+DllDestDir = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+HKR,,DeviceCharacteristics,0x10001,0x100     ;Use same security checks on relative opens
+HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)" ;Allow generic all access to system and built-in Admin.
+
+
+; ================= Device Install section =====================
+
+[Manufacturer]
+%STM%=STM
+
+[SourceDisksFiles]
+stm_tpm.sys=1
+tpmddl.dll=1
+
+[SourceDisksNames]
+1=%DISK_NAME%,
+
+[STM]
+; DisplayName            Section           DeviceId
+; -----------            -------           --------
+%stTPM.DRVDESC%=stTPM_Inst,root\stmtpm,*pnp0c31,*SMO1200
+
+[DefaultInstall]
+CopyFiles=stTPM.CopyFiles, DllDestDir
+
+[stTPM_Inst.NT]
+CopyFiles=stTPM.CopyFiles, DllDestDir
+LogConfig=stTPM.LC0, stTPM.LC1, stTPM.LC2, stTPM.LC3, stTPM.LC4, stTPM.LC5, stTPM.LC6, stTPM.LC7, stTPM.LC8, stTPM.LC9, stTPM.LC10
+
+[stTPM.CopyFiles]
+stm_tpm.sys
+
+[DllDestDir]
+tpmddl.dll
+
+[stTPM_Inst.NT.Services]
+AddService=stmtpm,0x00000002,stTPM_Service
+
+;Uncomment following lines if your device can only work with factory default settings
+;[stTPM.NT.FactDef]
+;ConfigPriority=HARDRECONFIG
+;IOConfig=300-303(3ff::)  ; 10 bit decode ranging from 300 - 303
+
+[stTPM.LC0]
+ConfigPriority=DESIRED
+IRQConfig=11,9,10,7,5,3,4,14,15
+
+[stTPM.LC1]
+ConfigPriority=NORMAL
+IOConfig=300-303(3ff::)  ; 10 bit decode ranging from 300 - 303
+IRQConfig=11,9,10,7,5,3,4,14,15
+
+[stTPM.LC2]
+ConfigPriority=NORMAL
+IOConfig=300-303(3ff::)  ; 10 bit decode ranging from 300 - 303
+
+[stTPM.LC3]
+ConfigPriority=NORMAL
+IOConfig=4E-4f(ffff::)
+IRQConfig=11,9,10,7,5,3,4,14,15
+
+[stTPM.LC4]
+ConfigPriority=NORMAL
+IOConfig=4E-4f(ffff::)
+
+[stTPM.LC5]
+ConfigPriority=NORMAL
+IOConfig=4@300-3ff(3ff::) ; 4 ports starting anywhere between 300 and 3fc
+IRQConfig=11,9,10,7,5,3,4,14,15
+
+[stTPM.LC6]
+ConfigPriority=NORMAL
+IOConfig=4@300-3ff(3ff::) ; 4 ports starting anywhere between 300 and 3fc
+
+[stTPM.LC7]
+ConfigPriority=NORMAL
+IOConfig=4@0-FFFF
+IRQConfig=11,9,10,7,5,3,4,14,15
+
+[stTPM.LC8]
+ConfigPriority=NORMAL
+IOConfig=4@0-FFFF
+
+[stTPM.LC9]
+ConfigPriority=NORMAL
+MemConfig=FED40000-FED44FFF
+IRQConfig=11,9,10,7,5,3,4,14,15
+
+[stTPM.LC10]
+ConfigPriority=NORMAL
+MemConfig=FED40000-FED44FFF
+
+
+[stTPM_Service]
+DisplayName    = %stTPM.SVCDESC%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 0                  ; SERVICE_SYSTEM_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\stm_tpm.sys
+AddReg = stTPM_InterruptEnable
+
+[stTPM_InterruptEnable]
+HKLM,"System\CurrentControlSet\Services\stmtpm",InterruptEnable,0x00010001 ,0
+
+[Strings]
+STM = "STMicroelectronics"
+ClassName = "TPM Drivers"
+stTPM.SVCDESC = "STM TPM Service"
+stTPM.DRVDESC = "STMicroelectronics Trusted Platform Module"
+DISK_NAME = "STM TPM Install Disk"

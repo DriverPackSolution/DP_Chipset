@@ -1,0 +1,171 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: patcore.inf                                            **
+; **           Abstract: Windows* 2K, XP, 2003 Server, Vista INF File for       **
+; **        Last Update: October 5, 2012 (Version 9.2.3 Build 1029)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=patcore.cat
+DriverVer=10/05/2012, 9.2.3.1029
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_1D24.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1D24
+%PCI\VEN_8086&DEV_1D73.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1D73
+%PCI\VEN_8086&DEV_1D76.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1D76
+%PCI\VEN_8086&DEV_1D77.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1D77
+%PCI\VEN_8086&DEV_1D10.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D10
+%PCI\VEN_8086&DEV_1D11.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D11
+%PCI\VEN_8086&DEV_1D12.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D12
+%PCI\VEN_8086&DEV_1D13.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D13
+%PCI\VEN_8086&DEV_1D14.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D14
+%PCI\VEN_8086&DEV_1D15.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D15
+%PCI\VEN_8086&DEV_1D16.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D16
+%PCI\VEN_8086&DEV_1D17.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D17
+%PCI\VEN_8086&DEV_1D18.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D18
+%PCI\VEN_8086&DEV_1D19.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D19
+%PCI\VEN_8086&DEV_1D1A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1A
+%PCI\VEN_8086&DEV_1D1B.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1B
+%PCI\VEN_8086&DEV_1D1C.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1C
+%PCI\VEN_8086&DEV_1D1D.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1D
+%PCI\VEN_8086&DEV_1D1E.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1E
+%PCI\VEN_8086&DEV_1D1F.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1F
+%PCI\VEN_8086&DEV_1D25.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D25
+%PCI\VEN_8086&DEV_1D3E.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D3E
+%PCI\VEN_8086&DEV_1D3F.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D3F
+%PCI\VEN_8086&DEV_1D74.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D74
+%PCI\VEN_8086&DEV_1D40.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1D40
+%PCI\VEN_8086&DEV_1D41.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1D41
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_1D24.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1D24
+%PCI\VEN_8086&DEV_1D73.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1D73
+%PCI\VEN_8086&DEV_1D76.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1D76
+%PCI\VEN_8086&DEV_1D77.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1D77
+%PCI\VEN_8086&DEV_1D10.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D10
+%PCI\VEN_8086&DEV_1D11.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D11
+%PCI\VEN_8086&DEV_1D12.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D12
+%PCI\VEN_8086&DEV_1D13.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D13
+%PCI\VEN_8086&DEV_1D14.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D14
+%PCI\VEN_8086&DEV_1D15.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D15
+%PCI\VEN_8086&DEV_1D16.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D16
+%PCI\VEN_8086&DEV_1D17.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D17
+%PCI\VEN_8086&DEV_1D18.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D18
+%PCI\VEN_8086&DEV_1D19.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D19
+%PCI\VEN_8086&DEV_1D1A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1A
+%PCI\VEN_8086&DEV_1D1B.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1B
+%PCI\VEN_8086&DEV_1D1C.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1C
+%PCI\VEN_8086&DEV_1D1D.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1D
+%PCI\VEN_8086&DEV_1D1E.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1E
+%PCI\VEN_8086&DEV_1D1F.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D1F
+%PCI\VEN_8086&DEV_1D25.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D25
+%PCI\VEN_8086&DEV_1D3E.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D3E
+%PCI\VEN_8086&DEV_1D3F.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D3F
+%PCI\VEN_8086&DEV_1D74.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1D74
+%PCI\VEN_8086&DEV_1D40.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1D40
+%PCI\VEN_8086&DEV_1D41.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1D41
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_1D24.DeviceDesc="Intel(R) C600/X79 series chipset Thermal Management Controller - 1D24"
+PCI\VEN_8086&DEV_1D73.DeviceDesc="Intel(R) C600/X79 series chipset Integrated NVSRAM Controller - 1D73"
+PCI\VEN_8086&DEV_1D76.DeviceDesc="Intel(R) C600/X79 series chipset Multi-Function Glue - 1D76"
+PCI\VEN_8086&DEV_1D77.DeviceDesc="Intel(R) C600/X79 series chipset PCI Data Acquisition and Signal Processing Controller - 1D77"
+PCI\VEN_8086&DEV_1D10.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 1 - 1D10"
+PCI\VEN_8086&DEV_1D11.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 1 - 1D11"
+PCI\VEN_8086&DEV_1D12.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 2 - 1D12"
+PCI\VEN_8086&DEV_1D13.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 2 - 1D13"
+PCI\VEN_8086&DEV_1D14.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 3 - 1D14"
+PCI\VEN_8086&DEV_1D15.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 3 - 1D15"
+PCI\VEN_8086&DEV_1D16.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 4 - 1D16"
+PCI\VEN_8086&DEV_1D17.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 4 - 1D17"
+PCI\VEN_8086&DEV_1D18.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 5 - 1D18"
+PCI\VEN_8086&DEV_1D19.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 5 - 1D19"
+PCI\VEN_8086&DEV_1D1A.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 6 - 1D1A"
+PCI\VEN_8086&DEV_1D1B.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 6 - 1D1B"
+PCI\VEN_8086&DEV_1D1C.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 7 - 1D1C"
+PCI\VEN_8086&DEV_1D1D.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 7 - 1D1D"
+PCI\VEN_8086&DEV_1D1E.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 8 - 1D1E"
+PCI\VEN_8086&DEV_1D1F.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Root Port 8 - 1D1F"
+PCI\VEN_8086&DEV_1D25.DeviceDesc="Intel(R) C600/X79 series chipset DMI to PCI Bridge - 1D25"
+PCI\VEN_8086&DEV_1D3E.DeviceDesc="Intel(R) C600/X79 series chipset PCI Express Virtual Root Port - 1D3E"
+PCI\VEN_8086&DEV_1D3F.DeviceDesc="Intel(R) C608/C606/X79 chipset Virtual Switch Port - 1D3F"
+PCI\VEN_8086&DEV_1D74.DeviceDesc="Intel(R) C608/C606/X79 chipset PCI Express Upstream Port - 1D74"
+PCI\VEN_8086&DEV_1D40.DeviceDesc="Intel(R) C600/X79 series chipset LPC Controller - 1D40"
+PCI\VEN_8086&DEV_1D41.DeviceDesc="Intel(R) C600/X79 series chipset LPC Controller - 1D41"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

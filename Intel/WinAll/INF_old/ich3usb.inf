@@ -1,0 +1,84 @@
+; ****************************************************************************
+; ****************************************************************************
+; **    Filename:  ICH3USB.INF                                              
+; **    Abstract:  Windows* XP INF Update File for Intel(R) 82801CA/CAM USB devices                                      
+; **    Last Update: July 30, 2001 (Version 3.20 Build 1001)
+; ****************************************************************************
+; ****************************************************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%INTEL%
+CatalogFile=ich3usb.cat
+DriverVer=07/30/2001, 3.20.1001
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+; =================== Table of content =========================
+
+[Manufacturer]
+%Intel.Mfg%=Intel.Section
+
+; =================== Intel ====================================
+
+[Intel.Section]
+%PCI\VEN_8086&DEV_2482.DeviceDesc%=INTEL_USB,PCI\VEN_8086&DEV_2482
+%PCI\VEN_8086&DEV_2484.DeviceDesc%=INTEL_USB,PCI\VEN_8086&DEV_2484
+%PCI\VEN_8086&DEV_2487.DeviceDesc%=INTEL_USB,PCI\VEN_8086&DEV_2487
+
+; For Windows 95/98
+[INTEL_USB]
+Include=usb.inf
+Needs=UniversalHCD.Dev
+
+; For Windowns NT
+[INTEL_USB.NT]
+Include=usbport.inf
+Needs=UHCI.Dev.NT
+
+[INTEL_USB.NT.Services]
+Include=usbport.inf
+Needs=UHCI.Dev.NT.Services
+
+
+[Strings]
+INTEL="Intel"
+Intel.Mfg="Intel"
+PCI\VEN_8086&DEV_2482.DeviceDesc="Intel(R) 82801CA/CAM USB Universal Host Controller - 2482 "
+PCI\VEN_8086&DEV_2484.DeviceDesc="Intel(R) 82801CA/CAM USB Universal Host Controller - 2484 "
+PCI\VEN_8086&DEV_2487.DeviceDesc="Intel(R) 82801CA/CAM USB Universal Host Controller - 2487 "
+
+; Copyright (c) 2000 Intel Corporation
+
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.

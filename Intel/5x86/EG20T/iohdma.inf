@@ -1,0 +1,103 @@
+;/*++
+;
+;Copyright (c) 2009-2012, LAPIS SEMICONDUCTOR CO., LTD.  All rights reserved.
+;
+;Module Name:
+;
+;    iohdma.INF
+;
+;Abstract:
+;    INF file for installing dma device driver
+;
+;--*/
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+DriverVer=07/20/2012,2.6.0.0
+CatalogFile=iohdma.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+
+;[ClassInstall32]
+;Addreg=INTEL_ClassReg     
+
+;[INTEL_ClassReg]
+;HKR,,,0,%ClassName%
+;HKR,,DeviceCharacteristics,0x10001,0x100     ;Use same security checks on relative opens
+;HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)" ;Allow generic all access to system and built-in Admin. 
+;                                             ;This one overrides the security set by the driver
+
+
+;*****************************************
+; PCH EG20T Device  Install Section
+;*****************************************
+
+[Manufacturer]
+%StdMfg%=INTEL
+
+[INTEL]
+; DisplayName               Section           DeviceId
+; -----------               -------           --------
+%PCI\VEN_8086&DEV_8810.DeviceDesc%=INTEL_Device, PCI\VEN_8086&DEV_8810
+%PCI\VEN_8086&DEV_8815.DeviceDesc%=NO_DRV_Device, PCI\VEN_8086&DEV_8815
+
+[INTEL_Device.NT]
+CopyFiles=INTEL_Device.NT.Copy
+
+[INTEL_Device.NT.Copy]
+iohdma.sys
+
+[INTEL_Device.NT.HW]
+AddReg=INTEL_Device.NT.HW.AddReg
+
+[INTEL_Device.NT.HW.AddReg]
+;Add configuration information to registry
+
+
+;-------------- Service installation
+
+[INTEL_Device.NT.Services]
+AddService = iohdma, %SPSVCINST_ASSOCSERVICE%, INTEL_Device_Service_Inst
+
+[INTEL_Device_Service_Inst]
+DisplayName    = %INTEL.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\iohdma.sys
+LoadOrderGroup = Extended Base
+
+;-------------- Dummy Entry for not supported device 
+[NO_DRV_Device]
+AddReg=NO_DRV_Device.AddReg
+CopyFiles=NO_DRV_Device.Copy
+
+[NO_DRV_Device.AddReg]
+
+[NO_DRV_Device.Copy]
+
+[NO_DRV_Device.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%
+
+;--------------
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+iohdma.sys  = 1,,
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+INTEL = "Intel"
+StdMfg = "Intel"
+;ClassName = "System devices"
+DiskId1 = "Intel(R) Platform Controller Hub EG20T Installation Disk"
+PCI\VEN_8086&DEV_8810.DeviceDesc = "Intel(R) Platform Controller Hub EG20T DMA Controller #1 - 8810"
+PCI\VEN_8086&DEV_8815.DeviceDesc = "Intel(R) Platform Controller Hub EG20T DMA Controller #2 - 8815"
+INTEL.SVCDESC = "Intel(R) Platform Controller Hub EG20T DMA Controller Device Driver"
+

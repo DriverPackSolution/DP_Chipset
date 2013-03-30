@@ -1,0 +1,101 @@
+;/*++
+;
+;Copyright (c) 2009-2011, LAPIS SEMICONDUCTOR CO., LTD.  All rights reserved.
+;
+;Module Name:
+;
+;    iohieee1588.INF
+;
+;Abstract:
+;    INF file for installing Intel(R) Platform Controller Hub EG20T IEEE 1588 Hardware Assist Device Driver
+;
+;--*/
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+DriverVer=07/20/2012,2.6.0.0
+CatalogFile=iohieee1588.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+System_Dir = 11
+
+; ================= Class section =====================
+
+;[ClassInstall32]
+;Addreg=INTEL_ClassReg     
+
+;[INTEL_ClassReg]
+;HKR,,,0,%ClassName%
+;HKR,,DeviceCharacteristics,0x10001,0x100     ;Use same security checks on relative opens
+;HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)" ;Allow generic all access to system and built-in Admin. 
+                                             ;This one overrides the security set by the driver
+
+
+;*****************************************
+; PCH EG20T Device  Install Section
+;*****************************************
+
+[Manufacturer]
+%StdMfg%=INTEL
+
+[INTEL]
+; DisplayName               Section           DeviceId
+; -----------               -------           --------
+%INTEL.DeviceDesc%=INTEL_Device, PCI\VEN_8086&DEV_8819
+
+[INTEL_Device.NT]
+CopyFiles=INTEL_Device.NT.Copy
+
+[INTEL_Device.NT.Copy]
+iohieee1588.sys
+
+[INTEL_Device.NT.HW]
+AddReg=INTEL_Device.NT.HW.AddReg
+
+[INTEL_Device.NT.HW.AddReg]
+HKR,,"EnableEthernet",0x00010001,0x1
+HKR,,"EnableCAN",0x00010001,0x0
+HKR,,"StationAddress",0x00000000,"00:00:00:00:00:00"
+
+[INTEL_Device.NT.CoInstallers]
+CopyFiles=System_Dir
+AddReg = INTEL_Device.CoInstallers.reg
+
+[INTEL_Device.CoInstallers.reg]
+HKR,,CoInstallers32,0x00010000,"Ieee1588co.dll,IohIeeeCoInstaller"
+
+[System_Dir]
+Ieee1588co.dll
+
+;-------------- Service installation
+
+[INTEL_Device.NT.Services]
+AddService = iohieee1588, %SPSVCINST_ASSOCSERVICE%, INTEL_Device_Service_Inst
+
+[INTEL_Device_Service_Inst]
+DisplayName    = %INTEL.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\iohieee1588.sys
+LoadOrderGroup = Extended Base
+
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+iohieee1588.sys  = 1,,
+Ieee1588co.DLL = 1,,
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+INTEL ="Intel"
+StdMfg = "Intel"
+DiskId1 = "Intel(R) Platform Controller Hub EG20T Installation Disk"
+INTEL.DeviceDesc = "Intel(R) Platform Controller Hub EG20T IEEE 1588 Hardware Assist - 8819"
+INTEL.SVCDESC = "Intel(R) Platform Controller Hub EG20T IEEE 1588 Hardware Assist Device Driver"
+

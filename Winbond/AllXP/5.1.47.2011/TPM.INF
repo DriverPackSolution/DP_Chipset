@@ -1,0 +1,176 @@
+;----------------------------------------------------------------------------------------;
+;                                                                                        ;
+; Copyright (c) 2005 by Winbond Electronics Corporation                                  ;
+; All rights reserved.                                                                   ;
+;                                                                                        ;
+;Module Name: TPM 1.1 and 1.2 module                                                     ;
+;                                                                                        ;
+;    wdtpm.inf                                                                           ;
+;                                                                                        ;
+;Abstract:                                                                               ;
+;    INF file for installing Winbond TPM 1.1/1.2 controllers                             ;
+;                                                                                        ;
+;----------------------------------------------------------------------------------------;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%Winbond%
+DriverPackageType=PlugAndPlay
+DriverPackageDisplayName=%PackageDesc%
+CatalogFile=tpm.cat
+DriverVer=06/30/2005,5.1.47.2011
+
+[DestinationDirs]
+CopyDll=11                  ; system32
+CopyDll64=10,syswow64       ; syswow64
+DefaultDestDir=12           ; drivers
+
+[Manufacturer]
+%Winbond%=WinbondModels, NTx86, NTamd64
+
+[SourceDisksFiles]
+tpm11x32.sys=1
+tpm12x32.sys=1
+Tddl.dll=1
+
+[SourceDisksFiles.x86]
+tpm11x32.sys=1
+tpm12x32.sys=1
+Tddl.dll=1
+
+[SourceDisksFiles.amd64]
+tpmx64.sys=1
+Tddl.dll=1
+
+[SourceDisksNames]
+1=%DISK_NAME%
+
+;----------------------------------------------------------------------------------------;
+; PnP IDs                                                                                ;
+;----------------------------------------------------------------------------------------;
+[WinbondModels]
+%PackageDesc% 1.1     = TPM11_Inst.NTx86,      root\tpm ; TPM 1.1
+%PackageDesc% 1.1     = TPM11_Inst.NTx86,      *NSC1100 ; TPM 1.1
+%PackageDesc% 1.2     = TPM12_Inst.NTx86,      *NSC1200 ; TPM 1.2
+%PackageDesc% 1.2     = TPM12_Inst.NTx86,      *PNP0C31 ; TPM 1.2
+
+[WinbondModels.NTx86]
+%PackageDesc% 1.1     = TPM11_Inst.NTx86,      root\tpm ; TPM 1.1
+%PackageDesc% 1.1     = TPM11_Inst.NTx86,      *NSC1100 ; TPM 1.1
+%PackageDesc% 1.2     = TPM12_Inst.NTx86,      *NSC1200 ; TPM 1.2
+%PackageDesc% 1.2     = TPM12_Inst.NTx86,      *PNP0C31 ; TPM 1.2
+
+[WinbondModels.NTamd64]
+%PackageDesc% 1.1     = TPM11_Inst.NTamd64,    root\tpm ; TPM 1.1
+%PackageDesc% 1.1     = TPM11_Inst.NTamd64,    *NSC1100 ; TPM 1.1
+%PackageDesc% 1.2     = TPM12_Inst.NTamd64,    *NSC1200 ; TPM 1.2
+%PackageDesc% 1.2     = TPM12_Inst.NTamd64,    *PNP0C31 ; TPM 1.2
+
+;----------------------------------------------------------------------------------------;
+; Installation sections                                                                  ;
+;----------------------------------------------------------------------------------------;
+
+;---------------------------------------------------------------;
+; Installation for all the platforms                            ;
+;---------------------------------------------------------------;
+
+[TPM11_Inst.NTx86]
+CopyFiles      = CopySysFile11.NTx86,CopyDll
+LogConfig      = TPM11_config
+
+[TPM12_Inst.NTx86]
+CopyFiles      = CopySysFile12.NTx86,CopyDll
+LogConfig      = TPM12_config
+
+[TPM11_Inst.NTamd64]
+CopyFiles      = CopySysFile.NTamd64,CopyDll64
+LogConfig      = TPM11_config
+
+[TPM12_Inst.NTamd64]
+CopyFiles      = CopySysFile.NTamd64,CopyDll64
+LogConfig      = TPM12_config
+
+;---------------------------------------------------------------;
+; Copying driver files for all the platforms                    ;
+;---------------------------------------------------------------;
+
+[CopySysFile11.NTx86]
+tpm.sys,tpm11x32.sys
+
+[CopySysFile12.NTx86]
+tpm.sys,tpm12x32.sys
+
+[CopySysFile.NTamd64]
+tpm.sys,tpmx64.sys
+
+[CopyDll]
+Tddl.dll
+
+[CopyDll64]
+Tddl.dll
+
+;---------------------------------------------------------------;
+; Service description for all the platforms                     ;
+;---------------------------------------------------------------;
+[TPM11_Inst.NTx86.Services]
+AddService=TPM, %SPSVCINST_ASSOCSERVICE%, TPM_Service
+
+[TPM12_Inst.NTx86.Services]
+AddService=TPM, %SPSVCINST_ASSOCSERVICE%, TPM_Service
+
+[TPM11_Inst.NTamd64.Services]
+AddService=TPM, %SPSVCINST_ASSOCSERVICE%, TPM_Service
+
+[TPM12_Inst.NTamd64.Services]
+AddService=TPM, %SPSVCINST_ASSOCSERVICE%, TPM_Service
+
+[TPM_Service]
+DisplayName    = %PackageDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\tpm.sys
+AddReg         = TPM_AddRegSection
+
+;---------------------------------------------------------------;
+; Registry entires                                              ;
+;---------------------------------------------------------------;
+
+[TPM_AddRegSection]
+HKR,,EnableDebug,0x00010001,0x00000002
+HKR,,PnPNodeCfg,0x00010001,0x00000001
+
+;---------------------------------------------------------------;
+; Configurations descriptions for all the platforms             ;
+;---------------------------------------------------------------;
+
+[TPM11_config]
+ConfigPriority=NORMAL
+IRQConfig=LS:3,4,5,6,7,9,10,11,12,14,15,17,18,19,20,21,22,23,24
+IOConfig=2@100-FFFF%FFFFE
+IOConfig=2@100-FFFF%FFFFE
+
+[TPM12_config]
+ConfigPriority=NORMAL 
+IRQConfig=LS:3,4,5,6,7,9,10,11,12,14,15,17,18,19,20,21,22,23,24
+;MemConfig=FED40000-FED40FFF
+
+;----------------------------------------------------------------------------------------;
+; Strings                                                                                ;
+;----------------------------------------------------------------------------------------;
+[Strings]
+Winbond     = "Winbond Electronics Corporation"
+DISK_NAME   = "Security Adapters Install Disk"
+PackageDesc = "Winbond Trusted Platform Module"
+
+
+;Handy macro substitutions
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_CRITICAL = 3

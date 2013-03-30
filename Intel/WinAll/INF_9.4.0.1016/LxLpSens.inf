@@ -1,0 +1,86 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: LyLpSens.inf                                           **
+; **           Abstract: LynxPoint LP Sensor                                    **
+; **        Last Update: December 20, 2012 (Version 9.4.0 Build 1013)           **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sensor
+ClassGUID={5175D334-C371-4806-B3BA-71FD53C9258D}
+Provider=%INTEL%
+CatalogFile=LxLpSens.cat
+DriverVer=12/20/2012, 9.4.0.1013
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstallDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%SensorsHIDClassDriver.Collection.DeviceDesc%=SensorsHIDClassDriver_Install,HID_DEVICE_UP:0020_U:0001
+
+[INTEL.NTamd64]
+%SensorsHIDClassDriver.Collection.DeviceDesc%=SensorsHIDClassDriver_Install,HID_DEVICE_UP:0020_U:0001
+
+[SensorsHIDClassDriver_Install]
+Include=SensorsHIDClassDriver.inf
+Needs=SensorsHIDClassDriver_Install
+
+[SensorsHIDClassDriver_Install.Services]
+Include=SensorsHIDClassDriver.inf
+Needs=SensorsHIDClassDriver_Install.Services
+
+[SensorsHIDClassDriver_Install.HW]
+Include=SensorsHIDClassDriver.inf
+Needs=SensorsHIDClassDriver_Install.HW
+
+[SensorsHIDClassDriver_Install.NT.CoInstallers]
+Include=SensorsHIDClassDriver.inf
+Needs=SensorsHIDClassDriver_Install.CoInstallers
+
+[SensorsHIDClassDriver_Install.NT.Wdf]
+Include=SensorsHIDClassDriver.inf
+Needs=SensorsHIDClassDriver_Install.Wdf
+
+[Strings]
+INTEL="Intel"
+SensorsHIDClassDriver.Collection.DeviceDesc= "Intel(R) Sensor Solution"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

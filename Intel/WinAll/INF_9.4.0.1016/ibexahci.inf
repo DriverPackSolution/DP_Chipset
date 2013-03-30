@@ -1,0 +1,116 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: ibexahci.inf                                           **
+; **           Abstract: Windows* Vista INF File for                            **
+; **                     Intel(R) 82801 IDE device                              **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=hdc
+ClassGUID={4D36E96A-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=ibexahci.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_2821.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2821
+%PCI\VEN_8086&DEV_2824.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2824
+%PCI\VEN_8086&DEV_2829.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2829
+%PCI\VEN_8086&DEV_2922.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2922
+%PCI\VEN_8086&DEV_2923.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2923
+%PCI\VEN_8086&DEV_2929.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2929
+%PCI\VEN_8086&DEV_3A02.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3A02
+%PCI\VEN_8086&DEV_3A03.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3A03
+%PCI\VEN_8086&DEV_3A22.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3A22
+%PCI\VEN_8086&DEV_3A23.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3A23
+%PCI\VEN_8086&DEV_3B22.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3B22
+%PCI\VEN_8086&DEV_3B23.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3B23
+%PCI\VEN_8086&DEV_3B29.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3B29
+%PCI\VEN_8086&DEV_3B2F.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3B2F
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_2821.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2821
+%PCI\VEN_8086&DEV_2824.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2824
+%PCI\VEN_8086&DEV_2829.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2829
+%PCI\VEN_8086&DEV_2922.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2922
+%PCI\VEN_8086&DEV_2923.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2923
+%PCI\VEN_8086&DEV_2929.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_2929
+%PCI\VEN_8086&DEV_3A02.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3A02
+%PCI\VEN_8086&DEV_3A03.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3A03
+%PCI\VEN_8086&DEV_3A22.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3A22
+%PCI\VEN_8086&DEV_3A23.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3A23
+%PCI\VEN_8086&DEV_3B22.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3B22
+%PCI\VEN_8086&DEV_3B23.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3B23
+%PCI\VEN_8086&DEV_3B29.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3B29
+%PCI\VEN_8086&DEV_3B2F.DeviceDesc%=msahci_Inst,PCI\VEN_8086&DEV_3B2F
+
+
+[msahci_Inst]
+Include=mshdc.inf
+Needs=msahci_Inst
+
+[msahci_Inst.Services]
+Include=mshdc.inf
+Needs=msahci_Inst.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_2821.DeviceDesc="Intel(R) ICH8R/DO/DH SATA AHCI Controller - 2821"
+PCI\VEN_8086&DEV_2824.DeviceDesc="Intel(R) ICH8 SATA AHCI Controller - 2824"
+PCI\VEN_8086&DEV_2829.DeviceDesc="Intel(R) ICH8M SATA AHCI Controller - 2829"
+PCI\VEN_8086&DEV_2922.DeviceDesc="Intel(R) ICH9R/DO/DH 6 Port SATA AHCI Controller - 2922"
+PCI\VEN_8086&DEV_2923.DeviceDesc="Intel(R) ICH9 Family 4 Port SATA AHCI Controller - 2923"
+PCI\VEN_8086&DEV_2929.DeviceDesc="Intel(R) ICH9M/M-E Family 4 Port SATA AHCI Controller - 2929"
+PCI\VEN_8086&DEV_3A02.DeviceDesc="Intel(R) ICH10 Family 6 Port SATA AHCI Controller - 3A02"
+PCI\VEN_8086&DEV_3A03.DeviceDesc="Intel(R) ICH10 Family 4 Port SATA AHCI Controller - 3A03"
+PCI\VEN_8086&DEV_3A22.DeviceDesc="Intel(R) ICH10 Family 6 Port SATA AHCI Controller - 3A22"
+PCI\VEN_8086&DEV_3A23.DeviceDesc="Intel(R) ICH10 Family 4 Port SATA AHCI Controller - 3A23"
+PCI\VEN_8086&DEV_3B22.DeviceDesc="Intel(R) 5 Series/3400 Series Chipset Family 6 Port SATA AHCI Controller - 3B22"
+PCI\VEN_8086&DEV_3B23.DeviceDesc="Intel(R) 5 Series/3400 Series Chipset Family 4 Port SATA AHCI Controller - 3B23"
+PCI\VEN_8086&DEV_3B29.DeviceDesc="Intel(R) 5 Series/3400 Series Chipset Family 4 Port SATA AHCI Controller - 3B29"
+PCI\VEN_8086&DEV_3B2F.DeviceDesc="Intel(R) 5 Series/3400 Series Chipset Family 6 Port SATA AHCI Controller - 3B2F"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

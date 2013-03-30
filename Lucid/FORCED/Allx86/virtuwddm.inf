@@ -1,0 +1,65 @@
+
+[Version]
+Signature="$WINDOWS NT$"
+Provider=%LCD%
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+VirtuWDDM.sys  = 1,,
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;*****************************************
+; Filter Driver Install Section
+;*****************************************
+
+[DefaultInstall]
+CopyFiles=DriverCopyFiles
+
+[DriverCopyFiles]
+VirtuWDDM.sys,,,0x60		; replace newer, suppress dialog
+
+;-------------- Service installation
+
+[DefaultInstall.Services]
+AddService=VirtuWDDM,,VirtuWDDMService
+
+[VirtuWDDMService]
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\VirtuWDDM.sys
+AddReg         = VirtuWDDMAddReg
+
+[VirtuWDDMAddReg]
+HKLM,%VirtuWDDMSubKey%,"LowerFilters",0x10008,"VirtuWDDM"
+
+;*****************************************
+; Filter Driver Uninstall Section
+;*****************************************
+
+[DefaultUninstall]
+DelFiles=DriverDelFiles
+DelReg=VirtuWDDMDelReg
+
+[DriverDelFiles]
+VirtuWDDM.sys,,,0x01 		
+
+[VirtuWDDMDelReg]
+HKLM,%VirtuWDDMSubKey%,"LowerFilters",,"VirtuWDDM"
+
+;-------------- Service removal
+
+[DefaultUninstall.Services]
+DelService=VirtuWDDM,
+
+
+[Strings]
+LCD = "Lucid"
+DiskId1 = "Lucid Virtu Kernel Mode Driver Installation Disk #1"
+VirtuWDDMSubKey = "system\currentcontrolset\control\class\{4D36E968-E325-11CE-BFC1-08002BE10318}"
+
+

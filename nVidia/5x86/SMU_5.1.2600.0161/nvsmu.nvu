@@ -1,0 +1,23 @@
+UninstallService nvpmu
+UninstallService nvsmu
+RemoveDevice pci,VEN_10DE&DEV_0271,System
+RemoveDevice pci,VEN_10DE&DEV_036B,System
+RemoveDevice pci,VEN_10DE&DEV_8353,System
+RemoveDevice pci,VEN_10DE&DEV_03F4,System
+RemoveDevice pci,VEN_10DE&DEV_0447,System
+RemoveDevice pci,VEN_10DE&DEV_0543,System
+RemoveDevice pci,VEN_10DE&DEV_0753,System
+RemoveDevice pci,VEN_10DE&DEV_07DA,System
+RemoveDevice pci,VEN_10DE&DEV_0AA3,System
+RemoveDevice pci,VEN_10DE&DEV_0BBC,System
+RemoveDevice pci,VEN_10DE&DEV_0C56,System
+RemoveDevice pci,VEN_10DE&DEV_0C96,System
+
+DelOemInfs nv*,Version,Provider,%NV%,Version,CatalogFile,nvpmu.cat
+DelOemInfs nv*,Version,Provider,%NV%,Version,CatalogFile,nvsmu.cat
+DelBoot {windir}\INF\pmuc.inf
+DelBoot {sysdir}\Drivers\nvpmu.sys
+DelBoot {sysdir}\nvcopmu.dll
+DelBoot {windir}\INF\smuc64.inf
+DelBoot {sysdir}\Drivers\nvsmu.sys
+DelBoot {sysdir}\nvcosmu.dll

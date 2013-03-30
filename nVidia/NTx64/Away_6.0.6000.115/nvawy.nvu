@@ -1,0 +1,11 @@
+DelOemInfs nv*,Version,Provider,%NV%,Version,CatalogFile,nvaway.cat
+RemoveDevice acpi,AWY0001,System
+RemoveDevice acpi,AWY0001,AMPC_Class
+Del {windir}\INF\nvawy.inf
+Del {windir}\INF\nvawy32.inf
+Del {windir}\INF\nvawy64.inf
+Del {sysdir}\nvcoawy.dll
+StopService nvamacpi, 1
+UninstallService nvamacpi
+Del {sysdir}\Drivers\nvamacpi.sys 
+

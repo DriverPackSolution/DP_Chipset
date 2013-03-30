@@ -1,0 +1,187 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: ich9core.inf                                           **
+; **           Abstract: Windows* 2K, XP, 2003, 2008, Vista INF File for        **
+; **                     Intel(R) 82801 core devices                            **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=ich9core.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_2932.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2932
+%PCI\VEN_8086&DEV_2A09.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A09
+%PCI\VEN_8086&DEV_2A19.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A19
+%PCI\VEN_8086&DEV_2A29.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A29
+%PCI\VEN_8086&DEV_2A39.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A39
+%PCI\VEN_8086&DEV_2A49.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A49
+%PCI\VEN_8086&DEV_2A59.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A59
+%PCI\VEN_8086&DEV_2A69.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A69
+%PCI\VEN_8086&DEV_2A79.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A79
+%PCI\VEN_8086&DEV_2A89.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A89
+%PCI\VEN_8086&DEV_2A99.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A99
+%PCI\VEN_8086&DEV_2AA9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AA9
+%PCI\VEN_8086&DEV_2AB9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AB9
+%PCI\VEN_8086&DEV_2AC9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AC9
+%PCI\VEN_8086&DEV_2AD9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AD9
+%PCI\VEN_8086&DEV_2AE9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AE9
+%PCI\VEN_8086&DEV_2AF9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AF9
+%PCI\VEN_8086&DEV_2940.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2940
+%PCI\VEN_8086&DEV_2942.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2942
+%PCI\VEN_8086&DEV_2944.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2944
+%PCI\VEN_8086&DEV_2946.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2946
+%PCI\VEN_8086&DEV_2948.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2948
+%PCI\VEN_8086&DEV_294A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_294A
+%PCI\VEN_8086&DEV_2910.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2910
+%PCI\VEN_8086&DEV_2911.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2911
+%PCI\VEN_8086&DEV_2912.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2912
+%PCI\VEN_8086&DEV_2914.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2914
+%PCI\VEN_8086&DEV_2916.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2916
+%PCI\VEN_8086&DEV_2917.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2917
+%PCI\VEN_8086&DEV_2918.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2918
+%PCI\VEN_8086&DEV_2919.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2919
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_2932.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2932
+%PCI\VEN_8086&DEV_2A09.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A09
+%PCI\VEN_8086&DEV_2A19.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A19
+%PCI\VEN_8086&DEV_2A29.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A29
+%PCI\VEN_8086&DEV_2A39.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A39
+%PCI\VEN_8086&DEV_2A49.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A49
+%PCI\VEN_8086&DEV_2A59.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A59
+%PCI\VEN_8086&DEV_2A69.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A69
+%PCI\VEN_8086&DEV_2A79.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A79
+%PCI\VEN_8086&DEV_2A89.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A89
+%PCI\VEN_8086&DEV_2A99.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2A99
+%PCI\VEN_8086&DEV_2AA9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AA9
+%PCI\VEN_8086&DEV_2AB9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AB9
+%PCI\VEN_8086&DEV_2AC9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AC9
+%PCI\VEN_8086&DEV_2AD9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AD9
+%PCI\VEN_8086&DEV_2AE9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AE9
+%PCI\VEN_8086&DEV_2AF9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2AF9
+%PCI\VEN_8086&DEV_2940.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2940
+%PCI\VEN_8086&DEV_2942.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2942
+%PCI\VEN_8086&DEV_2944.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2944
+%PCI\VEN_8086&DEV_2946.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2946
+%PCI\VEN_8086&DEV_2948.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2948
+%PCI\VEN_8086&DEV_294A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_294A
+%PCI\VEN_8086&DEV_2910.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2910
+%PCI\VEN_8086&DEV_2911.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2911
+%PCI\VEN_8086&DEV_2912.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2912
+%PCI\VEN_8086&DEV_2914.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2914
+%PCI\VEN_8086&DEV_2916.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2916
+%PCI\VEN_8086&DEV_2917.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2917
+%PCI\VEN_8086&DEV_2918.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2918
+%PCI\VEN_8086&DEV_2919.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2919
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_2932.DeviceDesc="Intel(R) ICH9 Family Thermal Subsystem - 2932"
+PCI\VEN_8086&DEV_2A09.DeviceDesc="Intel(R) Performance Counters - 2A09"
+PCI\VEN_8086&DEV_2A19.DeviceDesc="Intel(R) Performance Counters - 2A19"
+PCI\VEN_8086&DEV_2A29.DeviceDesc="Intel(R) Performance Counters - 2A29"
+PCI\VEN_8086&DEV_2A39.DeviceDesc="Intel(R) Performance Counters - 2A39"
+PCI\VEN_8086&DEV_2A49.DeviceDesc="Intel(R) Performance Counters - 2A49"
+PCI\VEN_8086&DEV_2A59.DeviceDesc="Intel(R) Performance Counters - 2A59"
+PCI\VEN_8086&DEV_2A69.DeviceDesc="Intel(R) Performance Counters - 2A69"
+PCI\VEN_8086&DEV_2A79.DeviceDesc="Intel(R) Performance Counters - 2A79"
+PCI\VEN_8086&DEV_2A89.DeviceDesc="Intel(R) Performance Counters - 2A89"
+PCI\VEN_8086&DEV_2A99.DeviceDesc="Intel(R) Performance Counters - 2A99"
+PCI\VEN_8086&DEV_2AA9.DeviceDesc="Intel(R) Performance Counters - 2AA9"
+PCI\VEN_8086&DEV_2AB9.DeviceDesc="Intel(R) Performance Counters - 2AB9"
+PCI\VEN_8086&DEV_2AC9.DeviceDesc="Intel(R) Performance Counters - 2AC9"
+PCI\VEN_8086&DEV_2AD9.DeviceDesc="Intel(R) Performance Counters - 2AD9"
+PCI\VEN_8086&DEV_2AE9.DeviceDesc="Intel(R) Performance Counters - 2AE9"
+PCI\VEN_8086&DEV_2AF9.DeviceDesc="Intel(R) Performance Counters - 2AF9"
+PCI\VEN_8086&DEV_2940.DeviceDesc="Intel(R) ICH9 Family PCI Express Root Port 1 - 2940"
+PCI\VEN_8086&DEV_2942.DeviceDesc="Intel(R) ICH9 Family PCI Express Root Port 2 - 2942"
+PCI\VEN_8086&DEV_2944.DeviceDesc="Intel(R) ICH9 Family PCI Express Root Port 3 - 2944"
+PCI\VEN_8086&DEV_2946.DeviceDesc="Intel(R) ICH9 Family PCI Express Root Port 4 - 2946"
+PCI\VEN_8086&DEV_2948.DeviceDesc="Intel(R) ICH9 Family PCI Express Root Port 5 - 2948"
+PCI\VEN_8086&DEV_294A.DeviceDesc="Intel(R) ICH9 Family PCI Express Root Port 6 - 294A"
+PCI\VEN_8086&DEV_2910.DeviceDesc="Intel(R) ICH9 LPC Interface Controller - 2910"
+PCI\VEN_8086&DEV_2911.DeviceDesc="Intel(R) ICH9M LPC Interface Controller - 2911"
+PCI\VEN_8086&DEV_2912.DeviceDesc="Intel(R) ICH9DH LPC Interface Controller - 2912"
+PCI\VEN_8086&DEV_2914.DeviceDesc="Intel(R) ICH9DO LPC Interface Controller - 2914"
+PCI\VEN_8086&DEV_2916.DeviceDesc="Intel(R) ICH9R LPC Interface Controller - 2916"
+PCI\VEN_8086&DEV_2917.DeviceDesc="Intel(R) ICH9M-E LPC Interface Controller - 2917"
+PCI\VEN_8086&DEV_2918.DeviceDesc="Intel(R) ICH9 LPC Interface Controller - 2918"
+PCI\VEN_8086&DEV_2919.DeviceDesc="Intel(R) ICH9M LPC Interface Controller - 2919"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

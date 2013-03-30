@@ -1,0 +1,243 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: LxLpCore.inf                                           **
+; **           Abstract: Intel(R) core devices                                  **
+; **        Last Update: December 14, 2012 (Version 9.4.0 Build 1012)           **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=LxLpCore.cat
+DriverVer=12/14/2012, 9.4.0.1012
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_9C24.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_9C24
+%PCI\VEN_8086&DEV_9C23.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_9C23
+%PCI\VEN_8086&DEV_9C10.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C10
+%PCI\VEN_8086&DEV_9C11.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C11
+%PCI\VEN_8086&DEV_9C12.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C12
+%PCI\VEN_8086&DEV_9C13.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C13
+%PCI\VEN_8086&DEV_9C14.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C14
+%PCI\VEN_8086&DEV_9C15.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C15
+%PCI\VEN_8086&DEV_9C16.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C16
+%PCI\VEN_8086&DEV_9C17.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C17
+%PCI\VEN_8086&DEV_9C18.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C18
+%PCI\VEN_8086&DEV_9C19.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C19
+%PCI\VEN_8086&DEV_9C1A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1A
+%PCI\VEN_8086&DEV_9C1B.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1B
+%PCI\VEN_8086&DEV_9C1C.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1C
+%PCI\VEN_8086&DEV_9C1D.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1D
+%PCI\VEN_8086&DEV_9C1E.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1E
+%PCI\VEN_8086&DEV_9C1F.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1F
+%PCI\VEN_8086&DEV_9C40.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C40
+%PCI\VEN_8086&DEV_9C41.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C41
+%PCI\VEN_8086&DEV_9C42.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C42
+%PCI\VEN_8086&DEV_9C43.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C43
+%PCI\VEN_8086&DEV_9C44.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C44
+%PCI\VEN_8086&DEV_9C45.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C45
+%PCI\VEN_8086&DEV_9C46.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C46
+%PCI\VEN_8086&DEV_9C47.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C47
+%PCI\VEN_8086&DEV_9C48.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C48
+%PCI\VEN_8086&DEV_9C49.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C49
+%PCI\VEN_8086&DEV_9C4A.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4A
+%PCI\VEN_8086&DEV_9C4B.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4B
+%PCI\VEN_8086&DEV_9C4C.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4C
+%PCI\VEN_8086&DEV_9C4D.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4D
+%PCI\VEN_8086&DEV_9C4E.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4E
+%PCI\VEN_8086&DEV_9C4F.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4F
+%PCI\VEN_8086&DEV_9C50.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C50
+%PCI\VEN_8086&DEV_9C51.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C51
+%PCI\VEN_8086&DEV_9C52.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C52
+%PCI\VEN_8086&DEV_9C53.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C53
+%PCI\VEN_8086&DEV_9C54.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C54
+%PCI\VEN_8086&DEV_9C55.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C55
+%PCI\VEN_8086&DEV_9C56.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C56
+%PCI\VEN_8086&DEV_9C57.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C57
+%PCI\VEN_8086&DEV_9C58.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C58
+%PCI\VEN_8086&DEV_9C59.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C59
+%PCI\VEN_8086&DEV_9C5A.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5A
+%PCI\VEN_8086&DEV_9C5B.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5B
+%PCI\VEN_8086&DEV_9C5C.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5C
+%PCI\VEN_8086&DEV_9C5D.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5D
+%PCI\VEN_8086&DEV_9C5E.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5E
+%PCI\VEN_8086&DEV_9C5F.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5F
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_9C24.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_9C24
+%PCI\VEN_8086&DEV_9C23.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_9C23
+%PCI\VEN_8086&DEV_9C10.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C10
+%PCI\VEN_8086&DEV_9C11.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C11
+%PCI\VEN_8086&DEV_9C12.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C12
+%PCI\VEN_8086&DEV_9C13.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C13
+%PCI\VEN_8086&DEV_9C14.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C14
+%PCI\VEN_8086&DEV_9C15.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C15
+%PCI\VEN_8086&DEV_9C16.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C16
+%PCI\VEN_8086&DEV_9C17.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C17
+%PCI\VEN_8086&DEV_9C18.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C18
+%PCI\VEN_8086&DEV_9C19.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C19
+%PCI\VEN_8086&DEV_9C1A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1A
+%PCI\VEN_8086&DEV_9C1B.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1B
+%PCI\VEN_8086&DEV_9C1C.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1C
+%PCI\VEN_8086&DEV_9C1D.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1D
+%PCI\VEN_8086&DEV_9C1E.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1E
+%PCI\VEN_8086&DEV_9C1F.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_9C1F
+%PCI\VEN_8086&DEV_9C40.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C40
+%PCI\VEN_8086&DEV_9C41.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C41
+%PCI\VEN_8086&DEV_9C42.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C42
+%PCI\VEN_8086&DEV_9C43.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C43
+%PCI\VEN_8086&DEV_9C44.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C44
+%PCI\VEN_8086&DEV_9C45.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C45
+%PCI\VEN_8086&DEV_9C46.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C46
+%PCI\VEN_8086&DEV_9C47.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C47
+%PCI\VEN_8086&DEV_9C48.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C48
+%PCI\VEN_8086&DEV_9C49.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C49
+%PCI\VEN_8086&DEV_9C4A.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4A
+%PCI\VEN_8086&DEV_9C4B.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4B
+%PCI\VEN_8086&DEV_9C4C.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4C
+%PCI\VEN_8086&DEV_9C4D.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4D
+%PCI\VEN_8086&DEV_9C4E.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4E
+%PCI\VEN_8086&DEV_9C4F.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C4F
+%PCI\VEN_8086&DEV_9C50.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C50
+%PCI\VEN_8086&DEV_9C51.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C51
+%PCI\VEN_8086&DEV_9C52.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C52
+%PCI\VEN_8086&DEV_9C53.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C53
+%PCI\VEN_8086&DEV_9C54.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C54
+%PCI\VEN_8086&DEV_9C55.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C55
+%PCI\VEN_8086&DEV_9C56.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C56
+%PCI\VEN_8086&DEV_9C57.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C57
+%PCI\VEN_8086&DEV_9C58.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C58
+%PCI\VEN_8086&DEV_9C59.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C59
+%PCI\VEN_8086&DEV_9C5A.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5A
+%PCI\VEN_8086&DEV_9C5B.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5B
+%PCI\VEN_8086&DEV_9C5C.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5C
+%PCI\VEN_8086&DEV_9C5D.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5D
+%PCI\VEN_8086&DEV_9C5E.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5E
+%PCI\VEN_8086&DEV_9C5F.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_9C5F
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_9C24.DeviceDesc="Intel(R) 8 Series Thermal - 9C24"
+PCI\VEN_8086&DEV_9C23.DeviceDesc="Intel(R) 8 Series CHAP Counters - 9C23"
+PCI\VEN_8086&DEV_9C10.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #1 - 9C10"
+PCI\VEN_8086&DEV_9C11.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #1 - 9C11"
+PCI\VEN_8086&DEV_9C12.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #2 - 9C12"
+PCI\VEN_8086&DEV_9C13.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #2 - 9C13"
+PCI\VEN_8086&DEV_9C14.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #3 - 9C14"
+PCI\VEN_8086&DEV_9C15.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #3 - 9C15"
+PCI\VEN_8086&DEV_9C16.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #4 - 9C16"
+PCI\VEN_8086&DEV_9C17.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #4 - 9C17"
+PCI\VEN_8086&DEV_9C18.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #5 - 9C18"
+PCI\VEN_8086&DEV_9C19.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #5 - 9C19"
+PCI\VEN_8086&DEV_9C1A.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #6 - 9C1A"
+PCI\VEN_8086&DEV_9C1B.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #6 - 9C1B"
+PCI\VEN_8086&DEV_9C1C.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #7 - 9C1C"
+PCI\VEN_8086&DEV_9C1D.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #7 - 9C1D"
+PCI\VEN_8086&DEV_9C1E.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #8 - 9C1E"
+PCI\VEN_8086&DEV_9C1F.DeviceDesc="Intel(R) 8 Series PCI Express Root Port #8 - 9C1F"
+PCI\VEN_8086&DEV_9C40.DeviceDesc="Intel(R) 8 Series LPC Controller (Unfused Part) - 9C40"
+PCI\VEN_8086&DEV_9C41.DeviceDesc="Intel(R) 8 Series LPC Controller (Super SKU) - 9C41"
+PCI\VEN_8086&DEV_9C42.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C42"
+PCI\VEN_8086&DEV_9C43.DeviceDesc="Intel(R) 8 Series LPC Controller (Premium SKU) - 9C43"
+PCI\VEN_8086&DEV_9C44.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C44"
+PCI\VEN_8086&DEV_9C45.DeviceDesc="Intel(R) 8 Series LPC Controller (Mainstream SKU) - 9C45"
+PCI\VEN_8086&DEV_9C46.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C46"
+PCI\VEN_8086&DEV_9C47.DeviceDesc="Intel(R) 8 Series LPC Controller (Value SKU) - 9C47"
+PCI\VEN_8086&DEV_9C48.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C48"
+PCI\VEN_8086&DEV_9C49.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C49"
+PCI\VEN_8086&DEV_9C4A.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C4A"
+PCI\VEN_8086&DEV_9C4B.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C4B"
+PCI\VEN_8086&DEV_9C4C.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C4C"
+PCI\VEN_8086&DEV_9C4D.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C4D"
+PCI\VEN_8086&DEV_9C4E.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C4E"
+PCI\VEN_8086&DEV_9C4F.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C4F"
+PCI\VEN_8086&DEV_9C50.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C50"
+PCI\VEN_8086&DEV_9C51.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C51"
+PCI\VEN_8086&DEV_9C52.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C52"
+PCI\VEN_8086&DEV_9C53.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C53"
+PCI\VEN_8086&DEV_9C54.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C54"
+PCI\VEN_8086&DEV_9C55.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C55"
+PCI\VEN_8086&DEV_9C56.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C56"
+PCI\VEN_8086&DEV_9C57.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C57"
+PCI\VEN_8086&DEV_9C58.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C58"
+PCI\VEN_8086&DEV_9C59.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C59"
+PCI\VEN_8086&DEV_9C5A.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C5A"
+PCI\VEN_8086&DEV_9C5B.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C5B"
+PCI\VEN_8086&DEV_9C5C.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C5C"
+PCI\VEN_8086&DEV_9C5D.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C5D"
+PCI\VEN_8086&DEV_9C5E.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C5E"
+PCI\VEN_8086&DEV_9C5F.DeviceDesc="Intel(R) 8 Series LPC Controller (LPC DID fusing) - 9C5F"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

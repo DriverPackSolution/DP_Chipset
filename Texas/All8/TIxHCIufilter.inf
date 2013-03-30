@@ -1,0 +1,90 @@
+;/*++
+;
+;Module Name:
+;
+;    TIxHCIufilter.inf
+;
+; Copyright (c) 2012 Texas Instruments, Inc.
+;
+;Abstract:
+;
+;    INF file for installing TI xHCI upper filter driver.
+;
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGuid={36fc9e60-c465-11cf-8056-444553540000}
+Provider=%TI%
+DriverVer=08/30/2012,1.0.0.0
+CatalogFile=TIxHCIufilter.cat
+
+
+;*****************************************
+; TI xHCI Upper Filter Install Section
+;*****************************************
+
+;For Win8 only (OS version 6.2.x).
+[Manufacturer]
+%TI%=TI,NTx86.6.2,NTamd64.6.2
+
+[TI.NTx86.6.2]
+%tiufilter.DeviceDesc%=tiufilter, PCI\VEN_104C&DEV_8241&REV_02
+
+[TI.NTamd64.6.2]
+%tiufilter.DeviceDesc%=tiufilter, PCI\VEN_104C&DEV_8241&REV_02
+
+[tiufilter.NT]
+Include=usbxhci.inf
+Needs=Generic.Install.NT
+CopyFiles=tiufilter.NT.Copy
+
+[tiufilter.NT.Copy]
+TIxHCIufilter.sys
+
+[tiufilter.NT.HW]
+AddReg=tiufilter.NT.HW.AddReg
+
+[tiufilter.NT.HW.AddReg]  
+HKR,,UpperFilters,0x00010000,"tiufilter"
+HKR,,ComplianceRecoveryTimerInterval, 0x10001, 2000
+
+[tiufilter.NT.Services]
+;Do not specify SPSVCINST_ASSOCSERVICE on filter drivers. 
+Include=usbxhci.inf
+Needs=Generic.Install.NT.Services
+AddService=tiufilter,,filter_Service_Inst 
+
+[filter_Service_Inst]
+DisplayName     = %filter.SvcDesc%                            
+ServiceType     = 1                  ; SERVICE_KERNEL_DRIVER
+StartType       = 3                  ; SERVICE_DEMAND_START
+ErrorControl    = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary   = %12%\TIxHCIufilter.sys                            
+
+
+;*************************
+; Source file information
+;*************************
+
+[SourceDisksNames.x86]
+1 = %DiskId1%,,,"x86"
+
+[SourceDisksNames.amd64]
+1 = %DiskId1%,,,"amd64"
+
+[SourceDisksFiles]
+TIxHCIufilter.sys = 1,,
+
+[DestinationDirs]
+DefaultDestDir = 12      ;system32/drivers
+
+[Strings]
+TI                    = "Texas Instruments"
+StdMfg                = "(Standard system devices)"
+DiskId1               = "TI xHCI Upper Filter Installation Disk #1"
+tiufilter.DeviceDesc  = "Texas Instruments USB 3.0 xHCI Host Controller"
+filter.SvcDesc        = "TI xHCI Upper Filter Driver Service"
+
+

@@ -1,0 +1,31 @@
+; Copyright (C) 2004  NVIDIA Corporation
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%NVDA%
+CatalogFile=nf4pcie.cat
+DriverVer=07/27/2004, 5.1.2600.0445
+
+[Manufacturer]
+%NVDA%=NVDA_NF4
+
+[NVDA_NF4]
+%NF4PCIE% = NVPCI_DRV, PCI\VEN_10DE&DEV_005D
+
+[NVPCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[NVPCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[NVPCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Strings]
+NVDA="NVIDIA"
+NF4PCIE="nForce4 PCI-Express Root Port"

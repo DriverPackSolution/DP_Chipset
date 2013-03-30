@@ -1,0 +1,21 @@
+xHCI Upper Filter Driver Electronic Software License Agreement:
+
+By choosing "I Agree" and using the software, you agree to abide by the following provisions. 
+
+1) PRODUCT - The software products and related documentation licensed hereunder ("Licensed Materials") have been developed for use specifically in conjunction with TI USB integrated circuit devices, and you acknowledge that the Licensed Materials were not designed for use with any other devices.  TI and its licensors retain title to the Licensed Materials and any patents, copyrights, trade secrets, and other intellectual property rights therein. 
+
+2) LICENSE - Texas Instruments Incorporated ("TI"), under TI's copyrights and trade secrets only, grants you a non-transferable, non-assignable, non-exclusive license solely to (a) if the Licensed Materials are provided in source code form, use, modify, compile, or otherwise develop as applicable, a software program ("Application Program"), which may be original or derivative with respect to the Licensed Materials; and (b) copy and distribute object code versions only of the Licensed Materials and/or Application Program for use in conjunction with systems integrating TI USB integrated circuit devices.  NO LICENSE UNDER ANY TI PATENT RIGHTS ARE GRANTED TO YOU IN CONNECTION WITH THE USE OF THE LICENSED MATERIALS.
+
+3) RESTRICTIONS - (a) You may copy the Licensed Materials for internal back-up purposes.  You must reproduce on all copies of the Licensed Materials, and on all copies of the Application Program, all copyright notices.  (b) You shall maintain any source code of the Licensed Materials as proprietary and confidential and shall not disclose, distribute, or disseminate the source code for the Licensed Materials to any third parties other than your contractors with a need to know for purposes of this Agreement.  (c) You may not make nor permit to be made any effort to reverse assemble, decompile or otherwise discover the source code for Licensed Materials provided in object code format.  (d) You may not sublicense, transfer, assign, rent, or lease the Licensed Materials or this Agreement without permission from TI. 
+
+4) COPYRIGHT - The Licensed Materials are the copyrighted property of TI and or it's licensors; except as licensed hereunder, all rights are reserved. 
+
+5) WARRANTY - TI does not warrant that the Licensed Materials will be free from error or will meet your specific requirements.   The Licensed Materials are provided and licensed "AS-IS", without warranty as to performance.
+
+6) LIMITATIONS - TI makes no warranty or condition either expressed or implied, including but not limited to any implied warranties of merchantability and fitness for a particular purpose, regarding the Licensed Materials. Information in this software is subject to change without notice and does not represent a commitment on the part of Texas Instruments. NEITHER TI NOR ANY APPLICABLE LICENSOR WILL BE LIABLE FOR ANY INCIDENTAL OR CONSEQUENTIAL DAMAGES, INCLUDING BUT NOT LIMITED TO LOST PROFITS. Because some states do not allow the exclusion or limitation of incidental or consequential damages or limitation on how long an implied warranty lasts, the above limitations or exclusions may not apply to you.
+
+7) EXPORT CONTROL - The re-export of United States original software and documentation is subject to the Export Administration Act of 1969 as amended. Compliance with such regulations is your responsibility. 
+
+8) CONSTRUCTION - This Agreement shall be construed in accordance with the laws of the State of Texas for contracts made to be performed in Texas.
+
+9) ENTIRE AGREEMENT - This Agreement constitutes the sole and complete Agreement between TI and you for use of the Licensed Materials.  Changes to this Agreement may be made only by written mutual consent.  

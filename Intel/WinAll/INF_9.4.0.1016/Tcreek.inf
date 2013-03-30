@@ -1,0 +1,141 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: Tcreek.inf                                             **
+; **           Abstract: Intel(R) Atom(TM) Processor E6xx                       **
+; **                     Intel(R) Platform Controller Hub EG20T                 **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=Tcreek.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NT.5.1,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_4114.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4114
+%PCI\VEN_8086&DEV_4115.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4115
+%PCI\VEN_8086&DEV_4116.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4116
+%PCI\VEN_8086&DEV_4117.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4117
+%PCI\VEN_8086&DEV_8183.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_8183
+%PCI\VEN_8086&DEV_8180.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8180
+%PCI\VEN_8086&DEV_8181.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8181
+%PCI\VEN_8086&DEV_8184.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8184
+%PCI\VEN_8086&DEV_8185.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8185
+%PCI\VEN_8086&DEV_8186.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_8186
+%PCI\VEN_8086&DEV_8800.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8800
+
+
+[INTEL.NT.5.1]
+%PCI\VEN_8086&DEV_4114.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4114
+%PCI\VEN_8086&DEV_4115.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4115
+%PCI\VEN_8086&DEV_4116.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4116
+%PCI\VEN_8086&DEV_4117.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4117
+%PCI\VEN_8086&DEV_8183.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_8183
+%PCI\VEN_8086&DEV_8180.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8180
+%PCI\VEN_8086&DEV_8181.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8181
+%PCI\VEN_8086&DEV_8184.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8184
+%PCI\VEN_8086&DEV_8185.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8185
+%PCI\VEN_8086&DEV_8186.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_8186
+%PCI\VEN_8086&DEV_8800.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8800
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_4114.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4114
+%PCI\VEN_8086&DEV_4115.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4115
+%PCI\VEN_8086&DEV_4116.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4116
+%PCI\VEN_8086&DEV_4117.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_4117
+%PCI\VEN_8086&DEV_8183.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_8183
+%PCI\VEN_8086&DEV_8180.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8180
+%PCI\VEN_8086&DEV_8181.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8181
+%PCI\VEN_8086&DEV_8184.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8184
+%PCI\VEN_8086&DEV_8185.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8185
+%PCI\VEN_8086&DEV_8186.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_8186
+%PCI\VEN_8086&DEV_8800.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_8800
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_4114.DeviceDesc="Intel(R) Atom(TM) Processor E6xx PCI Host Bridge - 4114"
+PCI\VEN_8086&DEV_4115.DeviceDesc="Intel(R) Atom(TM) Processor E6xx PCI Host Bridge - 4115"
+PCI\VEN_8086&DEV_4116.DeviceDesc="Intel(R) Atom(TM) Processor E6xx PCI Host Bridge - 4116"
+PCI\VEN_8086&DEV_4117.DeviceDesc="Intel(R) Atom(TM) Processor E6xx PCI Host Bridge - 4117"
+PCI\VEN_8086&DEV_8183.DeviceDesc="Intel(R) Atom(TM) Processor E6xx Configuration Unit - 8183"
+PCI\VEN_8086&DEV_8180.DeviceDesc="Intel(R) Atom(TM) Processor E6xx PCI Express Port 3 - 8180"
+PCI\VEN_8086&DEV_8181.DeviceDesc="Intel(R) Atom(TM) Processor E6xx PCI Express Port 4 - 8181"
+PCI\VEN_8086&DEV_8184.DeviceDesc="Intel(R) Atom(TM) Processor E6xx PCI Express Port 1 - 8184"
+PCI\VEN_8086&DEV_8185.DeviceDesc="Intel(R) Atom(TM) Processor E6xx PCI Express Port 2 - 8185"
+PCI\VEN_8086&DEV_8186.DeviceDesc="Intel(R) Atom(TM) Processor E6xx LPC Bridge - 8186"
+PCI\VEN_8086&DEV_8800.DeviceDesc="Intel(R) Platform Controller Hub EG20T PCI Express Port - 8800"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

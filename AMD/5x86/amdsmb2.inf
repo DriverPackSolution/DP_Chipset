@@ -1,0 +1,46 @@
+; AMDSMB2.INF 
+; Copyright 2002, AMD Corporation
+; Version 1.01
+; Windows 98Se, ME, 2K & XP
+
+[Version]
+Signature="$Chicago$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+CatalogFile = amdsmb2.cat
+Provider=%AMD_MFG%
+DriverVer=08/27/2002, 1.0.1.0
+
+[DestinationDirs]
+DefaultDestDir = 12      
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD_MFG%=AMD_SYS
+
+[AMD_SYS]
+%PCI\VEN_1022&DEV_746A.DeviceDesc%=NO_DRV,PCI\VEN_1022&DEV_746A
+
+[SourceDisksNames]
+1=%DISK_ID%,,
+
+[SourceDisksFiles]
+
+
+;*******************************************
+; DO NOTHING SECTION
+[NO_DRV]
+
+[NO_DRV.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%   ; null service install
+
+[Strings]
+AMD_MFG = "AMD"
+PCI\VEN_1022&DEV_746A.DeviceDesc = "AMD-8111 SMBus 2.0 Controller"
+DISK_ID="AMD Installation Disk"
+
+;*******************************************
+;macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002

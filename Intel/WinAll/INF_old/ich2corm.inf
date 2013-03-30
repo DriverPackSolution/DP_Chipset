@@ -1,0 +1,78 @@
+; ****************************************************************************
+; ****************************************************************************
+; **    Filename:  ICH2CORM.INF                                                 
+; **    Abstract:  Windows* XP INF Update File for Intel(R) 82801BAM 
+; **               core devices
+; **    Last Update:  October 23, 2000 (Version 2.80.002)
+; ****************************************************************************
+; ****************************************************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=ich2corm.cat
+DriverVer=03/24/2001, 2.80.002
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL_MFG%=INTEL_SYS
+
+[INTEL_SYS]
+%PCI\VEN_8086&DEV_244C.DeviceDesc% = INTEL_ISAPNP, PCI\VEN_8086&DEV_244C         ; INTEL 82801BAM LPC Interface Controller
+
+;****************************************************
+; Generic ISA Root Bus / PCI-ISA Bridge / PCI-EISA Bridge
+[INTEL_ISAPNP]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[INTEL_ISAPNP.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL           = "Intel"
+
+;*******************************************
+;device descriptions
+
+INTEL_MFG = "Intel"
+PCI\VEN_8086&DEV_244C.DeviceDesc="Intel(R) 82801BAM LPC Interface Controller - 244C"
+
+; Copyright (c) 2000 Intel Corporation
+
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.
+
+

@@ -1,0 +1,79 @@
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%ULiCorp%
+LayoutFile=layout.inf
+DriverVer=05/03/2005,5.1.2600.2300
+CatalogFile=XPAGPKX.cat
+
+[DestinationDirs]
+DefaultDestDir = 12        ; DIRID_DRIVERS
+
+[Manufacturer]
+%ULi_MFG%=ULI_AGP
+
+[AGP_Filter_Reg]
+HKR,,"UpperFilters", 0x00010000,"ULIAGPKX"
+HKLM,"SYSTEM\CurrentControlSet\Control\AGP","10B95246",0x00030003,80,00,00,00,00,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\Debug Print Filter","DEFAULT",0x00010001,08,00,00,00
+
+[pci_ServiceInstallSection]
+DisplayName    = %pci_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\pci.sys
+LoadOrderGroup = "Boot Bus Extender"
+
+[ULI_AGP]
+%PCI\VEN_10B9&DEV_5246.DeviceDesc%=ULIAGPKX_Install,PCI\VEN_10B9&DEV_5246
+
+[ULIAGPKX_Install]
+CopyFiles=@AGPKX.SYS
+
+[ULIAGPKX_Install.HW]
+AddReg = AGP_Filter_Reg
+
+[ULIAGPKX_Install.Services]
+AddService = uliagpkx,0,Uliagpkx_ServiceInstallSection
+AddService = pci, %SPSVCINST_ASSOCSERVICE%, pci_ServiceInstallSection
+
+[Uliagpkx_ServiceInstallSection]
+DisplayName    = %uliagpkx_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\agpkx.sys
+LoadOrderGroup = PnP Filter
+
+[SourceDisksNames]
+1=%ULiAGPKXInstallationDisk%,,
+
+[SourceDisksFiles]
+AGPKX.SYS=1
+
+; =================== STRINGS and CONSTANTS ========================
+
+[Strings]
+ULi_MFG = "ULi"
+ULiCorp = "ULi Electronics Inc."
+PCI\VEN_10B9&DEV_5246.DeviceDesc = "ULi AGP v3.0 Controller"
+ULiAGPKXInstallationDisk = "ULi AGP Driver Disk"
+
+;service descriptions
+uliagpkx_svcdesc = "ULi AGP Bus Filter Driver"
+pci_svcdesc = "PCI Bus Driver"
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+
+
+

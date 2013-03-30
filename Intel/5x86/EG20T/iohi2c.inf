@@ -1,0 +1,88 @@
+;/*++
+;
+;Copyright (c) 2009-2012, LAPIS SEMICONDUCTOR CO., LTD.  All rights reserved.
+;
+;Module Name:
+;
+;    iohi2c.inf
+;
+;Abstract:
+;    INF file for installing ioh I2C device driver
+;
+;--*/
+[Version]
+Signature="$WINDOWS NT$"
+Class=System 
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318} 
+Provider=%INTEL%
+DriverVer=07/20/2012,2.6.0.0
+CatalogFile=iohi2c.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+System_Dir = 11
+
+;*****************************************
+; PCH EG20T Device  Install Section
+;*****************************************
+
+[Manufacturer]
+%StdMfg%=INTEL
+
+[INTEL]
+; DisplayName       		Section           DeviceId
+; -----------       		-------           --------
+%INTEL.DeviceDesc%=INTEL_Device, PCI\VEN_8086&DEV_8817
+
+[INTEL_Device.NT]
+CopyFiles=INTEL_Device.NT.Copy
+
+[INTEL_Device.NT.Copy]
+iohi2c.sys
+
+[INTEL_Device.NT.HW]
+AddReg=INTEL_Device.NT.HW.AddReg
+
+[INTEL_Device.NT.HW.AddReg]
+HKR,,"I2CSpeed",0x00010001,0x64
+
+[INTEL_Device.NT.CoInstallers]
+CopyFiles=System_Dir
+AddReg = INTEL_Device.CoInstallers.reg
+
+[INTEL_Device.CoInstallers.reg]
+HKR,,CoInstallers32,0x00010000,"I2cco.dll,IohI2cCoInstaller"
+
+[System_Dir]
+I2cco.dll
+
+;-------------- Service installation
+
+[INTEL_Device.NT.Services]
+AddService = iohi2c, %SPSVCINST_ASSOCSERVICE%, INTEL_Device_Service_Inst
+
+[INTEL_Device_Service_Inst]
+DisplayName    = %INTEL.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\iohi2c.sys
+LoadOrderGroup = Extended Base
+
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+iohi2c.sys  = 1,,
+I2cco.DLL = 1,,
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+INTEL = "Intel" 
+StdMfg = "Intel" 
+ClassName = "Intel(R) Platform Controller Hub EG20T"
+DiskId1 = "Intel(R) Platform Controller Hub EG20T Installation Disk"
+INTEL.DeviceDesc = "Intel(R) Platform Controller Hub EG20T I2C Controller - 8817"
+INTEL.SVCDESC = "Intel(R) Platform Controller Hub EG20T I2C Device Driver"
+

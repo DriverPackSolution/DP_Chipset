@@ -1,0 +1,200 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; Abstract:
+; The Key value will overwrite the dll code and will be returned by the component dll.
+; Therefore, the key value should not be defined if the value is expected from the dll code.
+; The dat file (if used) should have the same prefix name of the dll file.
+; 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Component]
+;Default
+Name=AGP Gart Support
+;Arabic
+Name_ara=AGP Gart Support
+;Traditional Chinese
+Name_cht=AGP Gart Support
+;Simplified Chinese
+Name_chs=AGP Gart Support
+;Czech
+Name_csy=AGP Gart Support
+;Danish
+Name_dan=AGP Gart Support
+;Dutch
+Name_nld=AGP Gart Support
+;English
+Name_enu=AGP Gart Support
+;Finnish
+Name_fin=AGP Gart Support
+;French
+Name_fra=AGP Gart Support
+;German
+Name_deu=AGP Gart Support
+;Greek
+Name_ell=AGP Gart Support
+;Hebrew
+Name_heb=AGP Gart Support
+;Hungarian
+Name_hun=AGP Gart Support
+;Italian
+Name_ita=AGP Gart Support
+;Japanese
+Name_jpn=AGP Gart Support
+;Korean
+Name_kor=AGP Gart Support
+;Norwegian
+Name_nor=AGP Gart Support
+;Polish
+Name_plk=AGP Gart Support
+;Portuguese
+Name_ptg=AGP Gart Support
+;Russian
+Name_rus=AGP Gart Support
+;Spanish
+Name_esp=AGP Gart Support
+;Swedish
+Name_sve=AGP Gart Support
+;Thai
+Name_tha=AGP Gart Support
+;Turkish
+Name_trk=AGP Gart Support
+
+;Default
+Description=Install AGP Gart Support
+;Arabic
+Description_ara=Install AGP Gart Support
+;Traditional Chinese
+Description_cht=¶w∏À AGP Gart
+;Simplified Chinese
+Description_chs=∞≤◊∞ AGP Gart
+;Czech
+Description_csy=Instalovat AGP Gart
+;Danish
+Description_dan=InstallÈr AGP Gart
+;Dutch
+Description_nld=AGP Gart installeren
+;English
+Description_enu=Install AGP Gart
+;Finnish
+Description_fin=Asenna AGP Gart
+;French
+Description_fra=Installer les AGP Gart
+;German
+Description_deu=AGP Gart installieren
+;Greek
+Description_ell=≈„Í·Ù‹ÛÙ·ÛÁ AGP Gart
+;Hebrew
+Description_heb=‰˙˜Ô ‡˙ AGP Gart
+;Hungarian
+Description_hun=AGP Gart telepÌtÈse
+;Italian
+Description_ita=Installa AGP Gart
+;Japanese
+Description_jpn=AGP Gart ÇÉCÉ"ÉXÉgÅ[ÉãÇµÇ‹Ç∑
+;Korean
+Description_kor=AGP Gart º≥ƒ°
+;Norwegian
+Description_nor=Installer AGP Gart
+;Polish
+Description_plk=Zainstaluj AGP Gart
+;Portuguese
+Description_ptg=Instalar AGP Gart
+;Russian
+Description_rus=»ÌÒÚ‡ÎÎËÓ‚‡Ú¸ AGP Gart
+;Spanish
+Description_esp=Instalar AGP Gart
+;Swedish
+Description_sve=Installera AGP Gart
+;Thai
+Description_tha=µ‘¥µ—ÈßAGP Gart
+;Turkish
+Description_trk=AGP Gart Y¸kle
+
+; cds defines the path of the Component Detection Service
+CDS=..\bin
+
+;
+; Req_ASIC=<Device id 1>,<Device id 2>, ...
+; Gives the PCI device ID to check for requirement. 
+; If the ATI ASIC is found, then MeetsRequirement from the dll will return 1.
+; If the last 2 digits are 00, it means the last 2 digits are "don't care"
+; For example, R128 family - 5200; Rage PRO family - 4700
+;              Rage PRO (GB) - 4742
+;
+; U1/A3 - 4336,4136
+; RS200 - 4337,4137
+; RS250 - 4437
+; RS300 - 5830,5831,5832,5833 
+; RS350 - 7830,7831,7832,7833                
+;Req_ASIC=
+
+
+;North bridge device ID 
+NBDI=CAB0,CAB2,CBB2,CAB3,5830,5831,5832,5833,7830,7831,7832,7833
+
+;South bridge device  ID
+;SBDI=
+
+; !Req_ASIC=<Device id 1>,<Device id 2>, ...
+; Gives the PCI device ID to check for requirement. 
+; If the ATI ASIC is found, then MeetsRequirement from the dll will return 0.
+; If the last 2 digits are 00, it means the last 2 digits are "don't care"
+; For example, R128 family - 5200; Rage PRO family - 4700
+;              Rage PRO (GB) - 4742
+;!Req_ASIC=4700
+
+;
+; Req_Capture=<Vendor id Device id 1>,<Vendor id Device id 2>, ...
+; Gives the PCI vendor and device ID to check for requirement. 
+; If the Capture ASIC is found, then MeetsRequirement from the dll will return 1.
+; If the last 2 digits are 00, it means the last 2 digits are "don't care"
+; For example, BT878 - 109e0878 (where 109e is the vendor id, 878 is the device id)
+;Req_Capture=109e0878
+
+;
+; !Req_Capture=<Vendor id Device id 1>,<Vendor id Device id 2>, ...
+; Gives the PCI vendor and device ID to check for requirement. 
+; If the Capture ASIC is found, then MeetsRequirement from the dll will return 0.
+; If the last 2 digits are 00, it means the last 2 digits are "don't care"
+; For example, BT878 - 109e0878 (where 109e is the vendor id, 878 is the device id)
+;!Req_Capture=109e0878
+
+;
+; Req_Tuner=1,NTSC,PAL,SECAM,SCART,0
+; Check if the Tuner attached has the standard required, the MeetsRequirement will return 1
+;
+;Req_Tuner=PAL,SECAM
+
+; 0=no, 1=yes
+;MeetsRequirement=1
+;
+;CheckCard=1
+;CheckAGP=1
+
+; in KB         
+Size=1000
+
+; 0, 1, 2 ... where 0 is the highest order
+Order=0
+
+; 0=no, 1=yes
+Reboot=1
+
+; OS can be 1, WIN_95, WIN_95_OSR2_USB, WIN_98, WIN_NT351, WIN_NT4, WIN_NT5
+OS=WIN_NT5, WIN_XP, WIN_XP_MCE
+
+; 0=no, 1=yes
+Visible=1                  
+
+; 0=no, 1=yes
+WaitMessage=1
+
+; <Comp#1>,<Comp#2>
+;ReqComp=
+InstallCommandLine=setup.exe
+
+;Component Version
+Ver=1012
+
+;Requires Uninstall before installing this component
+;UninstallComp=ATI Display Driver,ATI Video Player

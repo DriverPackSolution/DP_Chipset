@@ -1,0 +1,195 @@
+
+; USB.INF  -- This file contains descriptions of all the HDC (USB controller)
+;
+;*** Created 10/2/95  (Creation Date)
+
+[Version]
+signature="$CHICAGO$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%String0%
+LayoutFile=LAYOUT.INF
+
+[DestinationDirs]
+DefaultDestDir=11               ; LDID_SYS
+
+; =================== Class Sections ===========================
+
+[ClassInstall]
+Addreg=USBClassReg
+
+[USBClassReg]
+HKR,,,,%USBClassName%
+HKR,,Icon,,-20
+
+
+; =================== Table of content =========================
+
+[Manufacturer]
+%Generic.Mfg%=Generic.Section
+%GenericHub.Mfg%=GenericHub.Section
+%Compaq.Mfg%=Compaq.Section
+%Intel.Mfg%=Intel.Section
+%Philips.Mfg%=Philips.Section
+%NEC.Mfg%=NEC.Section
+
+%PLX.Mfg%=PLX.Section
+
+%VIA.Mfg%=VIA.Section
+%ALI.Mfg%=ALI.Section
+
+; =================== Generic ==================================
+
+[Generic.Section]
+%PCI\CC_0C0310.DeviceDesc%=OpenHCD.Dev,PCI\CC_0C0310
+%PCI\CC_0C0300.DeviceDesc%=UniversalHCD.Dev,PCI\CC_0C0300
+%USB\ROOT_HUB.DeviceDesc%=StandardHub.Dev,USB\ROOT_HUB
+
+; --------------------------------------------------------------
+
+[OpenHCD.Dev]
+AddReg=OpenHCD.AddReg, USB.AddReg
+;CopyFiles=OpenHCD.CopyFiles,USB.CopyFiles
+
+[OpenHCD.AddReg]
+HKR,,NTMPDriver,,openhci.sys
+HKR,,EnumPropPages,,"sysclass.dll,USBEnumPropPages"
+
+[OpenHCD.CopyFiles]
+openhci.sys
+
+; --------------------------------------------------------------
+
+[UniversalHCD.Dev]
+AddReg=UniversalHCD.AddReg, USB.AddReg
+;CopyFiles=UniversalHCD.CopyFiles,USB.CopyFiles
+
+[UniversalHCD.AddReg]
+HKR,,NTMPDriver,,uhcd.sys
+HKR,,EnumPropPages,,"sysclass.dll,USBEnumPropPages"
+
+[UniversalHCD.CopyFiles]
+uhcd.sys
+
+; --------------------------------------------------------------
+
+[StandardHub.Dev]
+AddReg=Hub.AddReg
+;CopyFiles=Hub.CopyFiles
+
+; =================== Compaq ===================================
+
+[Compaq.Section]
+%PCI\VEN_0E11&DEV_A0F8.DeviceDesc%=OpenHCD.Dev,PCI\VEN_0E11&DEV_A0F8
+
+; =================== Intel ====================================
+
+[Intel.Section]
+%PCI\VEN_8086&DEV_7020.DeviceDesc%=UniversalHCD.Dev,PCI\VEN_8086&DEV_7020
+
+; ======================ALi=====================================
+
+[ALI.Section]
+%String1%=OpenHCD.Dev,PCI\VEN_10B9&DEV_5237
+%String2%=OpenHCD.Dev,PCI\CC_0C0310
+%String3%=UniversalHCD.Dev,PCI\CC_0C0300
+%String4%=StandardHub.Dev,USB\ROOT_HUB
+
+[ALiHCD.Dev]
+Reboot
+Restart
+
+; =================== Philips ==================================
+
+[Philips.Section]
+%USB\VID_0471&PID_0201.DeviceDesc%=StandardHub.Dev,USB\VID_0471&PID_0201
+
+; =================== NEC ==================================
+[NEC.Section]
+%USB\VID_0409&PID_55AA.DeviceDesc%=StandardHub.Dev,USB\VID_0409&PID_55AA
+
+; =================== Generic HUB ==================================
+[GenericHub.Section]
+%USB\CLASS_09&SUBCLASS_01.DeviceDesc%=StandardHub.Dev,USB\CLASS_09&SUBCLASS_01
+%USB\CLASS_09.DeviceDesc%=StandardHub.Dev,USB\CLASS_09
+
+
+; =================== PLX ======================================
+
+[PLX.Section]
+%PCI\VEN_10B5&DEV_9060.DeviceDesc%=PLX.Dev,PCI\VEN_10B5&DEV_9060
+
+[PLX.Dev]
+AddReg=PLX.AddReg, USB.AddReg
+CopyFiles=PLX.CopyFiles
+
+[PLX.AddReg]
+HKR,,NTMPDriver,,pcspeak.sys
+
+[PLX.CopyFiles]
+pcspeak.sys
+
+
+; =================== Intel ====================================
+
+[VIA.Section]
+%PCI\VEN_1106&DEV_3038.DeviceDesc%=UniversalHCD.Dev,PCI\VEN_1106&DEV_3038
+
+; =================== Global ==================================
+
+[USB.AddReg]
+HKR,,DevLoader,,*NTKERN
+
+[USB.CopyFiles]
+usbd.sys
+; BUGBUG add ",usbhub.sys" when hub driver is ready
+
+[HUB.AddReg]
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,usbhub.sys
+
+[HUB.CopyFiles]
+
+[ControlFlags]
+
+[DestinationDirs]
+DefaultDestDir = 11             ; System directory
+
+[Strings]
+String0="Acer_Lab_Inc"
+USBClassName="Universal serial bus controller"
+
+Generic.Mfg="(Standard USB Host Controller)"
+PCI\CC_0C0310.DeviceDesc="Standard OpenHCD USB Host Controller"
+PCI\CC_0C0300.DeviceDesc="Standard Universal PCI to USB Host Controller"
+USB\ROOT_HUB.DeviceDesc="USB Root Hub"
+
+Compaq.Mfg="Compaq"
+PCI\VEN_0E11&DEV_A0F8.DeviceDesc="Compaq PCI to USB Open Host Controller"
+
+Intel.Mfg="Intel"
+PCI\VEN_8086&DEV_7020.DeviceDesc="Intel 82371SB PCI to USB Universal Host Controller"
+
+Philips.Mfg="Philips"
+USB\VID_0471&PID_0201.DeviceDesc="Philips USB Hub"
+
+NEC.Mfg="NEC"
+USB\VID_0409&PID_55AA.DeviceDesc="NEC USB Hub"
+
+GenericHub.Mfg="(Generic USB Hub)"
+USB\CLASS_09&SUBCLASS_01.DeviceDesc="Generic USB Hub"
+USB\CLASS_09.DeviceDesc="Generic USB Hub"
+
+
+PLX.Mfg="PLX Technology"
+PCI\VEN_10B5&DEV_9060.DeviceDesc="PLX USB Test Board"
+
+
+VIA.Mfg="VIA Technologies"
+PCI\VEN_1106&DEV_3038.DeviceDesc="VIA VT83C572/VT82C586 PCI to USB Universal Host Controller"
+
+ALI.Mfg="Acer lab Inc(ALi)"
+String1="ALi OpenHCD USB Host Controller"
+String2="Standard OpenHCD USB Host Controller"
+String3="Stand Universal PCI to USB Host Controller"
+String4="USB Root Hub"

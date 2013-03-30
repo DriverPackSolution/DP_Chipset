@@ -1,0 +1,125 @@
+; ****************************************************************************
+; ****************************************************************************
+; **    Filename:  3100ESB.INF                                                 
+; **    Abstract:  Windows* 2K, XP, 2003 INF File for 
+; **		           3100 Memory I/O Controller Hub 
+; **    Last Update: May 15, 2005 (Version 7.4.0 Build 1005)
+; ****************************************************************************
+; ****************************************************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=3100ESB.cat
+DriverVer=05/15/2006, 7.4.0.1005
+
+[SourceDisksNames]
+[sourcedisksfiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL%=INTEL_SYS,NTamd64
+
+[INTEL_SYS]
+;Blackford
+%PCI\VEN_8086&DEV_35B0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_35B0
+%PCI\VEN_8086&DEV_35B1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_35B1
+%PCI\VEN_8086&DEV_35B5.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_35B5
+%PCI\VEN_8086&DEV_35B6.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_35B6
+%PCI\VEN_8086&DEV_35B7.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_35B7
+%PCI\VEN_8086&DEV_35C8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_35C8
+
+
+[INTEL_SYS.NTamd64]
+;Blackford
+%PCI\VEN_8086&DEV_35B0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_35B0
+%PCI\VEN_8086&DEV_35B1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_35B1
+%PCI\VEN_8086&DEV_35B5.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_35B5
+%PCI\VEN_8086&DEV_35B6.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_35B6
+%PCI\VEN_8086&DEV_35B7.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_35B7
+%PCI\VEN_8086&DEV_35C8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_35C8
+
+[INTEL_PCI]
+AddReg=INF_VER
+Include=machine.inf
+Needs=PCI_DRV
+
+[INTEL_PCI.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[INTEL_PCI.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+;**************************************************************************
+; Do-nothing section used to avoid "Unknown hardware" installation prompts.
+
+[NO_DRV]
+AddReg=INF_VER
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+;****************************************************
+; Generic ISA Root Bus / PCI-ISA Bridge / PCI-EISA Bridge
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[INF_VER]
+HKLM,Software\Intel\InfInst,Infver,,"7.4.0"
+
+[Strings]
+INTEL="Intel"
+
+PCI\VEN_8086&DEV_35B0.DeviceDesc="Intel(R) 3100 Chipset Memory I/O Controller Hub - 35B0"
+PCI\VEN_8086&DEV_35B1.DeviceDesc="Intel(R) 3100 Chipset DRAM Controller Error Reporting Registers - 35B1"
+PCI\VEN_8086&DEV_35B5.DeviceDesc="Intel(R) 3100 Chipset Enhanced DMA Controller - 35B5"
+PCI\VEN_8086&DEV_35B6.DeviceDesc="Intel(R) 3100 Chipset PCI Express Port A - 35B6"
+PCI\VEN_8086&DEV_35B7.DeviceDesc="Intel(R) 3100 Chipset PCI Express Port A1 - 35B7"
+PCI\VEN_8086&DEV_35C8.DeviceDesc="Intel(R) 3100 Chipset Extended Configuration Test Overflow Registers - 35C8"
+
+; Copyright (c) 2003-2006 Intel Corporation
+
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.

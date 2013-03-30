@@ -1,0 +1,101 @@
+; tpm.inf
+; Intel(R) TPM Driver Inf file
+; Copyright (c) 2007 Intel Corporation. All rights reserved.
+ 
+[Version] 
+Signature = "$Windows NT$" 
+Class=System
+ClassGUID={4d36e97d-e325-11ce-bfc1-08002be10318} 
+Provider=%INTC% 
+CatalogFile=tpm.cat
+DriverVer= 06/19/2008,5.0.1.1085
+
+[DestinationDirs] 
+TPM.Files.x86_12 = 12 
+TPM.Files.x64_12 = 12 
+TDDL.Files = 11
+
+[SourceDisksNames.x86]
+0=%Desc_x860%
+
+[SourceDisksFiles.x86]
+tpm.sys=0
+TDDL.dll=0
+
+[SourceDisksNames.amd64]
+0=%Desc_x860%
+
+[SourceDisksFiles.amd64]
+TpmX64.sys=0
+TDDL.dll=0,.\x64
+
+[Manufacturer] 
+%INTC%=INTC,ntamd64
+
+[INTC]
+%TPMDesc%=TPM_Inst,*PNP0C31,*INTC0102,*ICO0102
+
+[INTC.ntamd64]
+%TPMDesc%=TPM_Inst,*PNP0C31,*INTC0102,*ICO0102
+
+; --- x86 ---
+[TPM_Inst.ntx86] 
+CopyFiles = TPM.Files.x86_12 
+CopyFiles = TDDL.Files
+
+[TPM_Inst.ntx86.Services] 
+AddService = tpm,0x00000002,TPM_Service_Instx86, 
+
+[TPM_Service_Instx86] 
+ServiceType = %SERVICE_KERNEL_DRIVER% 
+StartType = %SERVICE_DEMAND_START% 
+ErrorControl = %SERVICE_ERROR_IGNORE% 
+ServiceBinary = %12%\tpm.sys 
+
+[TPM.Files.x86_12] 
+tpm.sys
+
+[TDDL.Files]
+TDDL.dll
+
+; --- x64 ---
+[TPM_Inst.ntamd64] 
+CopyFiles = TPM.Files.x64_12 
+CopyFiles = TDDL.Files
+
+[TPM_Inst.ntamd64.Services] 
+AddService = tpm,0x00000002,TPM_Service_Instx64, 
+
+[TPM_Service_Instx64] 
+ServiceType = %SERVICE_KERNEL_DRIVER% 
+StartType = %SERVICE_DEMAND_START% 
+ErrorControl = %SERVICE_ERROR_IGNORE% 
+ServiceBinary = %12%\TpmX64.sys 
+
+[TPM.Files.x64_12] 
+TpmX64.sys
+
+[Strings] 
+
+;  *******Localizable Strings******* 
+INTC= "Intel" 
+Desc_x860= "Intel Systemdrivers" 
+Desc_x640= "Intel Systemdrivers" 
+TPMDesc= "Intel(R) Trusted Platform Module" 
+
+;  *******Non Localizable Strings******* 
+
+SERVICE_BOOT_START = 0x0 
+SERVICE_SYSTEM_START = 0x1 
+SERVICE_AUTO_START = 0x2 
+SERVICE_DEMAND_START = 0x3 
+SERVICE_DISABLED = 0x4 
+
+SERVICE_KERNEL_DRIVER = 0x1 
+SERVICE_ERROR_IGNORE = 0x0 
+SERVICE_ERROR_NORMAL = 0x1 
+SERVICE_ERROR_SEVERE = 0x2 
+SERVICE_ERROR_CRITICAL = 0x3 
+
+REG_EXPAND_SZ = 0x00020000 
+REG_DWORD = 0x00010001 

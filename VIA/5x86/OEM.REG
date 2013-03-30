@@ -1,0 +1,6 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\VxD\VIAGART]
+"SideBand"=hex:01,00
+"OEMVersion"=hex:00,00
+

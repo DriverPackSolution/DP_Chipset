@@ -1,0 +1,718 @@
+
+; ATI GART chipsets: 1002:CAB0/CAB1/CAB2
+; Win2K/XP
+;[1002:0000]
+;Vendor=ATI
+[CAB0]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[CAB1]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[CAB2]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[CBB2]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[CAB3]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[5830]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[5831]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[5832]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[5833]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[7830]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[7831]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[7832]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+[7833]
+Exe2K=ATIGART.EXE GARTnt.inf
+
+
+
+; Default (English)
+[Strings]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Arabic
+[Strings.AR]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Chinese (Simplified)
+[Strings.CHS]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Chinese (Traditional)
+[Strings.CHT]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Czech
+[Strings.CS]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Danish
+[Strings.DA]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; German
+[Strings.DE]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Greek
+[Strings.EL]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Spanish
+[Strings.ES]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Finnish
+[Strings.FI]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; French
+[Strings.FR]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Hebrew
+[Strings.HE]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Hungarian
+[Strings.HU]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Italian
+[Strings.IT]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Japanese
+[Strings.JP]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Korean
+[Strings.KO]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Dutch
+[Strings.NL]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Norwegian
+[Strings.NO]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Polish
+[Strings.PL]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Portuguese
+[Strings.PT]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Russian
+[Strings.RU]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Swedish
+[Strings.SV]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Thai
+[Strings.TH]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+
+; Turkish
+[Strings.TR]
+IDS_CAPTION=ATI Software Setup
+IDS_MSG_DETECT_1=ATI Software Setup has found that your system uses a %s chipset.  
+IDS_MSG_DETECT_2=Please make sure you have the most recent %s AGP Gart drivers installed.
+IDS_MSG_URL=%s AGP Gart drivers can be downloaded from the company's website:
+IDS_VERSION_CONFLICT=Version Conflict
+IDS_VERSION_UPGRADE=Version Upgrade
+IDS_GART_OLDER_1=The %s AGP Gart driver being installed is older than the one currently on your system.
+IDS_GART_OLDER_2=It is recommended that you keep your existing version.
+IDS_GART_NEWER_1=ATI Software Setup has found an older version of %s AGP Gart driver on your system.
+IDS_GART_NEWER_2=Do you want to install a newer version?
+IDS_GART_NONE_1=ATI Software Setup was unable to find a version of %s AGP Gart driver on your system.
+IDS_GART_NONE_2=It is recommended that you install the driver.
+IDS_GART_DRIVERFILE=File name: %s
+IDS_GART_YOURVERSION=Your version: %s
+IDS_GART_NEWVERSION=Install version: %s
+IDS_GART_OLDER_SELECT=Do you want to keep your existing version?  Select:
+IDS_GART_OLDER_YES='Yes' to keep your existing version,
+IDS_GART_OLDER_NO='No' to install the older version,
+IDS_GART_NEWER_SELECT=Select:
+IDS_GART_NEWER_YES='Yes' to install the newer version,
+IDS_GART_NEWER_NO='No' to keep the older version,
+IDS_GART_NONE_SELECT=Select:
+IDS_GART_NONE_YES='Yes' to install the AGP Gart driver,
+IDS_GART_NONE_NO='No' to continue without installing the AGP Gart driver,
+IDS_GART_CANCEL='Cancel' to quit ATI Software Setup
+

@@ -1,0 +1,78 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  (c) Copyright ASIX Electronics Corporation
+;;  FILE : Nm2kUnus.inf
+;;  This inf file configures one UNUSABLE LPT Port device
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+CatalogFile=nmports.cat 
+Signature="$WINDOWS NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%ProviderName%
+DriverVer=12/18/2012,2.0.3.0
+
+
+
+;===============================
+; Driver Installation
+;===============================
+[Manufacturer]
+%ProviderName%=Multi_IO_Cards, NTAMD64
+
+;
+; Manufacturer Name Section
+;
+[Multi_IO_Cards.NTAMD64]
+%UnusablePortName%=UnusablePort,MF\PCI9710_UNUSABLE
+
+;----------------------------------------
+; UNUSABLE Card Install
+;----------------------------------------
+[UnusablePort.NT]
+AddReg=EcpPort.AddReg,LptPort.NT.AddReg
+
+[UnusablePort.NT.Services]
+AddService = NmPar, 0x00000002, NmPar_Service_Inst, NmPar_EventLog_Inst ; Port Driver (function driver for this device)
+
+;----------------------------------------
+; other sections
+;----------------------------------------
+
+[EcpPort.AddReg]
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,01
+
+[LptPort.NT.AddReg]
+HKR,,EnumPropPages32,,"PnpPorts.dll,ParallelPortPropPageProvider"
+
+
+; -------------- Parallel Port Driver install sections
+[NmPar_Service_Inst]
+DisplayName    = %UnusablePortName%
+ServiceType    = 1                ; SERVICE_KERNEL_DRIVER
+StartType      = 3                ; SERVICE_SYSTEM_START (BUGBUG--should be SERVICE_DEMAND_START, 0x3)
+ErrorControl   = 0                ; SERVICE_ERROR_IGNORE (BUGBUG--should be SERVICE_ERROR_NORMAL, 0x1)
+ServiceBinary  = %12%\NmPar.sys
+LoadOrderGroup = Parallel arbitrator
+
+[NmPar_EventLog_Inst]
+AddReg = NmPar_EventLog_AddReg
+
+[NmPar_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\nmpar.sys"
+HKR,,TypesSupported,0x00010001,7
+
+; User readable strings
+;----------------------------------------------------------
+[Strings]
+ProviderName="ASIX Electronics Corporation"
+UnusablePortName="Unusable Parallel Port"
+
+;-----------------------
+; END OF FILE
+;-----------------------
+

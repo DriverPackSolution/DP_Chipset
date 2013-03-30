@@ -1,0 +1,189 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: cougcore.inf                                           **
+; **           Abstract: Intel(R) 6 Series/C200 Series Chipset Family           **
+; **        Last Update: October 5, 2012 (Version 9.2.0 Build 1032)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=cougcore.cat
+DriverVer=10/05/2012, 9.2.0.1032
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_1C24.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1C24
+%PCI\VEN_8086&DEV_1C25.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C25
+%PCI\VEN_8086&DEV_1C10.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C10
+%PCI\VEN_8086&DEV_1C12.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C12
+%PCI\VEN_8086&DEV_1C14.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C14
+%PCI\VEN_8086&DEV_1C16.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C16
+%PCI\VEN_8086&DEV_1C18.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C18
+%PCI\VEN_8086&DEV_1C1A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C1A
+%PCI\VEN_8086&DEV_1C1C.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C1C
+%PCI\VEN_8086&DEV_1C1E.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C1E
+%PCI\VEN_8086&DEV_1C40.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C40
+%PCI\VEN_8086&DEV_1C41.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C41
+%PCI\VEN_8086&DEV_1C42.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C42
+%PCI\VEN_8086&DEV_1C43.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C43
+%PCI\VEN_8086&DEV_1C44.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C44
+%PCI\VEN_8086&DEV_1C46.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C46
+%PCI\VEN_8086&DEV_1C47.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C47
+%PCI\VEN_8086&DEV_1C49.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C49
+%PCI\VEN_8086&DEV_1C4A.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4A
+%PCI\VEN_8086&DEV_1C4B.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4B
+%PCI\VEN_8086&DEV_1C4C.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4C
+%PCI\VEN_8086&DEV_1C4D.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4D
+%PCI\VEN_8086&DEV_1C4E.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4E
+%PCI\VEN_8086&DEV_1C4F.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4F
+%PCI\VEN_8086&DEV_1C50.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C50
+%PCI\VEN_8086&DEV_1C52.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C52
+%PCI\VEN_8086&DEV_1C54.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C54
+%PCI\VEN_8086&DEV_1C56.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C56
+%PCI\VEN_8086&DEV_1C58.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C58
+%PCI\VEN_8086&DEV_1C59.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C59
+%PCI\VEN_8086&DEV_1C5A.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C5A
+%PCI\VEN_8086&DEV_1C5C.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C5C
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_1C24.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_1C24
+%PCI\VEN_8086&DEV_1C25.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C25
+%PCI\VEN_8086&DEV_1C10.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C10
+%PCI\VEN_8086&DEV_1C12.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C12
+%PCI\VEN_8086&DEV_1C14.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C14
+%PCI\VEN_8086&DEV_1C16.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C16
+%PCI\VEN_8086&DEV_1C18.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C18
+%PCI\VEN_8086&DEV_1C1A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C1A
+%PCI\VEN_8086&DEV_1C1C.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C1C
+%PCI\VEN_8086&DEV_1C1E.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_1C1E
+%PCI\VEN_8086&DEV_1C40.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C40
+%PCI\VEN_8086&DEV_1C41.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C41
+%PCI\VEN_8086&DEV_1C42.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C42
+%PCI\VEN_8086&DEV_1C43.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C43
+%PCI\VEN_8086&DEV_1C44.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C44
+%PCI\VEN_8086&DEV_1C46.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C46
+%PCI\VEN_8086&DEV_1C47.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C47
+%PCI\VEN_8086&DEV_1C49.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C49
+%PCI\VEN_8086&DEV_1C4A.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4A
+%PCI\VEN_8086&DEV_1C4B.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4B
+%PCI\VEN_8086&DEV_1C4C.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4C
+%PCI\VEN_8086&DEV_1C4D.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4D
+%PCI\VEN_8086&DEV_1C4E.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4E
+%PCI\VEN_8086&DEV_1C4F.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C4F
+%PCI\VEN_8086&DEV_1C50.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C50
+%PCI\VEN_8086&DEV_1C52.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C52
+%PCI\VEN_8086&DEV_1C54.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C54
+%PCI\VEN_8086&DEV_1C56.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C56
+%PCI\VEN_8086&DEV_1C58.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C58
+%PCI\VEN_8086&DEV_1C59.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C59
+%PCI\VEN_8086&DEV_1C5A.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C5A
+%PCI\VEN_8086&DEV_1C5C.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_1C5C
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_1C24.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family Thermal Control - 1C24"
+PCI\VEN_8086&DEV_1C25.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family DMI to PCI Bridge - 1C25"
+PCI\VEN_8086&DEV_1C10.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family PCI Express Root Port 1 - 1C10"
+PCI\VEN_8086&DEV_1C12.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family PCI Express Root Port 2 - 1C12"
+PCI\VEN_8086&DEV_1C14.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family PCI Express Root Port 3 - 1C14"
+PCI\VEN_8086&DEV_1C16.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family PCI Express Root Port 4 - 1C16"
+PCI\VEN_8086&DEV_1C18.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family PCI Express Root Port 5 - 1C18"
+PCI\VEN_8086&DEV_1C1A.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family PCI Express Root Port 6 - 1C1A"
+PCI\VEN_8086&DEV_1C1C.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family PCI Express Root Port 7 - 1C1C"
+PCI\VEN_8086&DEV_1C1E.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family PCI Express Root Port 8 - 1C1E"
+PCI\VEN_8086&DEV_1C40.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family LPC Interface Controller - 1C40"
+PCI\VEN_8086&DEV_1C41.DeviceDesc="Intel(R) Mobile SFF 6 Series Chipset Family LPC Interface Controller - 1C41"
+PCI\VEN_8086&DEV_1C42.DeviceDesc="Intel(R) 6 Series/C200 Series Chipset Family LPC Interface Controller - 1C42"
+PCI\VEN_8086&DEV_1C43.DeviceDesc="Intel(R) Mobile 6 Series Chipset Family LPC Interface Controller - 1C43"
+PCI\VEN_8086&DEV_1C44.DeviceDesc="Intel(R) Z68 Express Chipset Family LPC Interface Controller - 1C44"
+PCI\VEN_8086&DEV_1C46.DeviceDesc="Intel(R) P67 Express Chipset Family LPC Interface Controller - 1C46"
+PCI\VEN_8086&DEV_1C47.DeviceDesc="Intel(R) UM67 Express Chipset Family LPC Interface Controller - 1C47"
+PCI\VEN_8086&DEV_1C49.DeviceDesc="Intel(R) HM65 Express Chipset Family LPC Interface Controller - 1C49"
+PCI\VEN_8086&DEV_1C4A.DeviceDesc="Intel(R) H67 Express Chipset Family LPC Interface Controller - 1C4A"
+PCI\VEN_8086&DEV_1C4B.DeviceDesc="Intel(R) HM67 Express Chipset Family LPC Interface Controller - 1C4B"
+PCI\VEN_8086&DEV_1C4C.DeviceDesc="Intel(R) Q65 Express Chipset Family LPC Interface Controller - 1C4C"
+PCI\VEN_8086&DEV_1C4D.DeviceDesc="Intel(R) QS67 Express Chipset Family LPC Interface Controller - 1C4D"
+PCI\VEN_8086&DEV_1C4E.DeviceDesc="Intel(R) Q67 Express Chipset Family LPC Interface Controller - 1C4E"
+PCI\VEN_8086&DEV_1C4F.DeviceDesc="Intel(R) QM67 Express Chipset Family LPC Interface Controller - 1C4F"
+PCI\VEN_8086&DEV_1C50.DeviceDesc="Intel(R) B65 Express Chipset Family LPC Interface Controller - 1C50"
+PCI\VEN_8086&DEV_1C52.DeviceDesc="Intel(R) C202  Chipset Family LPC Interface Controller - 1C52"
+PCI\VEN_8086&DEV_1C54.DeviceDesc="Intel(R) C204 Chipset Family LPC Interface Controller - 1C54"
+PCI\VEN_8086&DEV_1C56.DeviceDesc="Intel(R) C206 Chipset Family LPC Interface Controller - 1C56"
+PCI\VEN_8086&DEV_1C58.DeviceDesc="Intel(R) Upgraded B65 Express Chipset Family LPC Interface Controller - 1C58"
+PCI\VEN_8086&DEV_1C59.DeviceDesc="Intel(R) Upgraded HM67 Express Chipset Family LPC Interface Controller - 1C59"
+PCI\VEN_8086&DEV_1C5A.DeviceDesc="Intel(R) Upgraded Q67 Express Chipset Family LPC Interface Controller - 1C5A"
+PCI\VEN_8086&DEV_1C5C.DeviceDesc="Intel(R) H61 Express Chipset Family LPC Interface Controller - 1C5C"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

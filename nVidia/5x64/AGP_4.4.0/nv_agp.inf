@@ -1,0 +1,106 @@
+;
+; nv_agp.inf
+;
+;
+; NVIDIA Windows 2000 AGP INF file
+; Copyright 1999-2002 NVIDIA Corporation.  All Rights Reserved.
+;
+
+[Version]
+CatalogFile=nv_agp.cat
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%NVIDIA%
+LayoutFile=layout.inf
+DriverVer = 03/18/2004, 4.3.4
+
+[DestinationDirs]
+DefaultDestDir = 12        ; DIRID_DRIVERS
+Uninstall.CoInst.FileList=11
+
+[SourceDisksNames]
+222=%DiskDescription%,,,
+
+[SourceDisksFiles]
+nv_agp.sys=222
+NVCOG.DLL=222
+
+[Manufacturer]
+%NVIDIA_MFG%=NVIDIA_AGP,NTamd64
+
+[AGP_Filter_Reg]
+HKR,,"UpperFilters", 0x00010000,"nv_agp"
+
+[pci_ServiceInstallSection]
+DisplayName    = %pci_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\pci.sys
+LoadOrderGroup = "Boot Bus Extender"
+
+
+[NVIDIA_AGP.NTamd64]
+%PCI\VEN_10DE&DEV_01B7.DeviceDesc%=NVIDIAAGP_Install,PCI\VEN_10DE&DEV_01B7
+%PCI\VEN_10DE&DEV_01E8.DeviceDesc%=NVIDIAAGP_Install,PCI\VEN_10DE&DEV_01E8
+%PCI\VEN_10DE&DEV_00D2.DeviceDesc%=NVIDIAAGP_Install,PCI\VEN_10DE&DEV_00D2
+%PCI\VEN_10DE&DEV_00E2.DeviceDesc%=NVIDIAAGP_Install,PCI\VEN_10DE&DEV_00E2
+
+;
+; NVIDIA AGP chipset
+;
+[NVIDIAAGP_Install]
+CopyFiles=@nv_agp.SYS
+
+[NVIDIAAGP_Install.HW]
+AddReg = AGP_Filter_Reg
+
+[NVIDIAAGP_Install.CoInstallers]
+AddReg=Uninstall.CoInst.AddReg
+CopyFiles=Uninstall.CoInst.FileList
+ 
+[Uninstall.CoInst.AddReg]
+HKR,,CoInstallers32,0x00010000,	"NVCOG.DLL,NVCoInstaller"
+HKR, Uninstall, Script,      0, "nvgart.nvu"
+HKR, Uninstall, Name,        0, "NVIDIA GART Driver"
+HKR, Uninstall, INFSrcDir,   0, %01% 
+HKR, Uninstall, Uninstaller, 0, "nvugart.exe"
+
+[Uninstall.CoInst.FileList]
+NVCOG.DLL
+
+[NVIDIAAGP_Install.Services]
+AddService = nv_agp,0,NVIDIAAGP_ServiceInstallSection
+AddService = pci, %SPSVCINST_ASSOCSERVICE%, pci_ServiceInstallSection
+
+[NVIDIAAGP_ServiceInstallSection]
+DisplayName    = %agpnvidia_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\nv_agp.sys
+LoadOrderGroup = PnP Filter
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Strings]
+NVIDIA="NVIDIA Corporation"
+NVIDIA_MFG="NVIDIA"
+PCI\VEN_10DE&DEV_01B7.DeviceDesc = "NVIDIA nForce AGP Host to PCI Bridge"
+PCI\VEN_10DE&DEV_01E8.DeviceDesc = "NVIDIA nForce2 AGP Host to PCI Bridge"
+PCI\VEN_10DE&DEV_00D2.DeviceDesc = "NVIDIA nForce3 AGP Host to PCI Bridge"
+PCI\VEN_10DE&DEV_00E2.DeviceDesc = "NVIDIA nForce3 250 AGP Host to PCI Bridge"
+DiskDescription  = "NVIDIA nForce Driver Disk"
+
+;service descriptions
+pci_svcdesc = "PCI Bus Driver"
+agpnvidia_svcdesc = "NVIDIA nForce AGP Bus Filter"
+
+;Handy macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1

@@ -1,0 +1,96 @@
+; Copyright 2005 ULi Electronics Inc.
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%ULiCorp%
+DriverVer = 03/28/2005, 5.1.2600.2114
+;CatalogFile=XPAGP.cat
+
+[DestinationDirs]
+DefaultDestDir = 12        ; DIRID_DRIVERS
+
+[Manufacturer]
+%ULi_MFG%=ULi_AGP
+
+[pci_ServiceInstallSection]
+DisplayName    = %pci_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\pci.sys
+LoadOrderGroup = "Boot Bus Extender"
+
+[ULi_AGP]
+%PCI\VEN_10B9&DEV_5243.DeviceDesc%=ULiAGP_Install,PCI\VEN_10B9&DEV_5243       ; ULi 1541
+%PCI\VEN_10B9&DEV_5247.DeviceDesc%=ULiAGP_Install,PCI\VEN_10B9&DEV_5247       ; ULi 1621
+%PCI\VEN_10B9&DEV_5247.DeviceDesc%=ULiAGP_Install,PCI\VEN_10B9&DEV_5246       ; ULi 1689
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[ULiAGP_Install]
+CopyFiles=@ULiAGP.SYS
+AddReg=ULiAGP.Add.Reg
+
+[ULiAGP.Add.Reg]
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,AGPDataRate,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,AGPTiming,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,DisablePCIReadPrefetch,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,FastWriteSetting,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,ForceAssertRequest,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,ForceSBADisable,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,FrameBufferDisable,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,FrameBufferSize,0,C
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,GATMode,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,GTLBAlwaysFetch,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,MaxPCIRetryCounter,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,PADInputLevel,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,PCIMode,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,AGP30DataRate,0,0
+HKLM,System\CurrentControlSet\Services\ALiAGP\Parameters,AGP30PCal_Cycle,0,8
+
+[AGP_Filter_Reg]
+HKR,,"UpperFilters", 0x00010000,"ULiAGP"
+
+[ULiAGP_Install.HW]
+AddReg = AGP_Filter_Reg
+
+[ULiAGP_Install.Services]
+DelService = ALiM1541
+AddService = ULiAGP,0,ULiAGP_ServiceInstallSection
+AddService = pci, %SPSVCINST_ASSOCSERVICE%, pci_ServiceInstallSection
+
+[ULiAGP_ServiceInstallSection]
+DisplayName    = %ULiAGP_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\ULiAGP.sys
+LoadOrderGroup = PnP Filter
+
+[SourceDisksNames]
+1=%ULiAGPInstallationDisk%,,
+
+[SourceDisksFiles]
+ULiAGP.SYS=1
+
+[Strings]
+ULiCorp = "ULi Electronics Inc."
+ULi_MFG = "ULi"
+PCI\VEN_10B9&DEV_5243.DeviceDesc = "ULi M1541 PCI to AGP Controller"
+PCI\VEN_10B9&DEV_5247.DeviceDesc = "ULi PCI to AGP Controller"
+ULiAGPInstallationDisk = "ULi AGP Driver Disk"
+
+;service descriptions
+ULiAGP_svcdesc = "ULi AGP Controller Bus Filter Driver"
+pci_svcdesc = "PCI Bus Driver"
+
+
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+

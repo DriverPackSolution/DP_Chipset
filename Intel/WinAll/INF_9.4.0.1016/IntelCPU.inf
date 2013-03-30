@@ -1,0 +1,143 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: IntelCPU.inf                                           **
+; **           Abstract: Windows* 2000, XP, Server 2003, Server 2008            **
+; **                     Vista INF File for CPU                                 **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=IntelCPU.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_2C01.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C01
+%PCI\VEN_8086&DEV_2C10.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C10
+%PCI\VEN_8086&DEV_2C11.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C11
+%PCI\VEN_8086&DEV_2C14.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C14
+%PCI\VEN_8086&DEV_2C15.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C15
+%PCI\VEN_8086&DEV_2C18.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C18
+%PCI\VEN_8086&DEV_2C19.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C19
+%PCI\VEN_8086&DEV_2C1A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C1A
+%PCI\VEN_8086&DEV_2C1C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C1C
+%PCI\VEN_8086&DEV_2C20.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C20
+%PCI\VEN_8086&DEV_2C21.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C21
+%PCI\VEN_8086&DEV_2C22.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C22
+%PCI\VEN_8086&DEV_2C23.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C23
+%PCI\VEN_8086&DEV_2C28.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C28
+%PCI\VEN_8086&DEV_2C29.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C29
+%PCI\VEN_8086&DEV_2C2A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C2A
+%PCI\VEN_8086&DEV_2C2B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C2B
+%PCI\VEN_8086&DEV_2C30.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C30
+%PCI\VEN_8086&DEV_2C31.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C31
+%PCI\VEN_8086&DEV_2C32.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C32
+%PCI\VEN_8086&DEV_2C33.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C33
+%PCI\VEN_8086&DEV_2C40.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C40
+%PCI\VEN_8086&DEV_2C41.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C41
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_2C01.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C01
+%PCI\VEN_8086&DEV_2C10.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C10
+%PCI\VEN_8086&DEV_2C11.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C11
+%PCI\VEN_8086&DEV_2C14.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C14
+%PCI\VEN_8086&DEV_2C15.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C15
+%PCI\VEN_8086&DEV_2C18.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C18
+%PCI\VEN_8086&DEV_2C19.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C19
+%PCI\VEN_8086&DEV_2C1A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C1A
+%PCI\VEN_8086&DEV_2C1C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C1C
+%PCI\VEN_8086&DEV_2C20.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C20
+%PCI\VEN_8086&DEV_2C21.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C21
+%PCI\VEN_8086&DEV_2C22.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C22
+%PCI\VEN_8086&DEV_2C23.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C23
+%PCI\VEN_8086&DEV_2C28.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C28
+%PCI\VEN_8086&DEV_2C29.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C29
+%PCI\VEN_8086&DEV_2C2A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C2A
+%PCI\VEN_8086&DEV_2C2B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C2B
+%PCI\VEN_8086&DEV_2C30.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C30
+%PCI\VEN_8086&DEV_2C31.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C31
+%PCI\VEN_8086&DEV_2C32.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C32
+%PCI\VEN_8086&DEV_2C33.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C33
+%PCI\VEN_8086&DEV_2C40.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C40
+%PCI\VEN_8086&DEV_2C41.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C41
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_2C01.DeviceDesc="Intel(R) QuickPath Architecture System Address Decoder - 2C01"
+PCI\VEN_8086&DEV_2C10.DeviceDesc="Intel(R) QuickPath Interconnect Link 0 - 2C10"
+PCI\VEN_8086&DEV_2C11.DeviceDesc="Intel(R) QuickPath Interconnect Physical 0 - 2C11"
+PCI\VEN_8086&DEV_2C14.DeviceDesc="Intel(R) QuickPath Interconnect Link 1 - 2C14"
+PCI\VEN_8086&DEV_2C15.DeviceDesc="Intel(R) QuickPath Interconnect Physical 1 - 2C15"
+PCI\VEN_8086&DEV_2C18.DeviceDesc="Integrated Memory Controller - 2C18"
+PCI\VEN_8086&DEV_2C19.DeviceDesc="Integrated Memory Controller Target Address Decoder - 2C19"
+PCI\VEN_8086&DEV_2C1A.DeviceDesc="Integrated Memory Controller RAS Registers - 2C1A"
+PCI\VEN_8086&DEV_2C1C.DeviceDesc="Integrated Memory Controller Test Registers - 2C1C"
+PCI\VEN_8086&DEV_2C20.DeviceDesc="Integrated Memory Controller Channel 0 Control Registers - 2C20"
+PCI\VEN_8086&DEV_2C21.DeviceDesc="Integrated Memory Controller Channel 0 Address Registers - 2C21"
+PCI\VEN_8086&DEV_2C22.DeviceDesc="Integrated Memory Controller Channel 0 Rank Registers - 2C22"
+PCI\VEN_8086&DEV_2C23.DeviceDesc="Integrated Memory Controller Channel 0 Thermal Control Registers - 2C23"
+PCI\VEN_8086&DEV_2C28.DeviceDesc="Integrated Memory Controller Channel 1 Control Registers - 2C28"
+PCI\VEN_8086&DEV_2C29.DeviceDesc="Integrated Memory Controller Channel 1 Address Registers - 2C29"
+PCI\VEN_8086&DEV_2C2A.DeviceDesc="Integrated Memory Controller Channel 1 Rank Registers - 2C2A"
+PCI\VEN_8086&DEV_2C2B.DeviceDesc="Integrated Memory Controller Channel 1 Thermal Control Registers - 2C2B"
+PCI\VEN_8086&DEV_2C30.DeviceDesc="Integrated Memory Controller Channel 2 Control Registers - 2C30"
+PCI\VEN_8086&DEV_2C31.DeviceDesc="Integrated Memory Controller Channel 2 Address Registers - 2C31"
+PCI\VEN_8086&DEV_2C32.DeviceDesc="Integrated Memory Controller Channel 2 Rank Registers - 2C32"
+PCI\VEN_8086&DEV_2C33.DeviceDesc="Integrated Memory Controller Channel 2 Thermal Control Registers - 2C33"
+PCI\VEN_8086&DEV_2C40.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C40"
+PCI\VEN_8086&DEV_2C41.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C41"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

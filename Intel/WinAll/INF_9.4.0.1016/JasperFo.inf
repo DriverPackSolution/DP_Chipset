@@ -1,0 +1,301 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: JasperFo.inf                                           **
+; **           Abstract: Windows                                                **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=JasperFo.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_2C58.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C58
+%PCI\VEN_8086&DEV_2C59.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C59
+%PCI\VEN_8086&DEV_2C5A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5A
+%PCI\VEN_8086&DEV_2C5B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5B
+%PCI\VEN_8086&DEV_2C5C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5C
+%PCI\VEN_8086&DEV_2C5D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5D
+%PCI\VEN_8086&DEV_2C5E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5E
+%PCI\VEN_8086&DEV_2C5F.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5F
+%PCI\VEN_8086&DEV_2CC1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CC1
+%PCI\VEN_8086&DEV_2CD0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD0
+%PCI\VEN_8086&DEV_2CD1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD1
+%PCI\VEN_8086&DEV_2CD4.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD4
+%PCI\VEN_8086&DEV_2CD5.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD5
+%PCI\VEN_8086&DEV_2CD8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD8
+%PCI\VEN_8086&DEV_2CD9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD9
+%PCI\VEN_8086&DEV_2CDA.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CDA
+%PCI\VEN_8086&DEV_2CDC.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CDC
+%PCI\VEN_8086&DEV_2CE0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE0
+%PCI\VEN_8086&DEV_2CE1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE1
+%PCI\VEN_8086&DEV_2CE2.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE2
+%PCI\VEN_8086&DEV_2CE3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE3
+%PCI\VEN_8086&DEV_2CE8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE8
+%PCI\VEN_8086&DEV_2CE9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE9
+%PCI\VEN_8086&DEV_2CEA.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CEA
+%PCI\VEN_8086&DEV_2CEB.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CEB
+%PCI\VEN_8086&DEV_2CF0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CF0
+%PCI\VEN_8086&DEV_2CF1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CF1
+%PCI\VEN_8086&DEV_2CF2.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CF2
+%PCI\VEN_8086&DEV_2CF3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CF3
+%PCI\VEN_8086&DEV_3700.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3700
+%PCI\VEN_8086&DEV_3701.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3701
+%PCI\VEN_8086&DEV_3702.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3702
+%PCI\VEN_8086&DEV_3703.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3703
+%PCI\VEN_8086&DEV_3704.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3704
+%PCI\VEN_8086&DEV_3705.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3705
+%PCI\VEN_8086&DEV_3706.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3706
+%PCI\VEN_8086&DEV_3707.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3707
+%PCI\VEN_8086&DEV_3708.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3708
+%PCI\VEN_8086&DEV_3709.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3709
+%PCI\VEN_8086&DEV_370A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370A
+%PCI\VEN_8086&DEV_370B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370B
+%PCI\VEN_8086&DEV_370C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370C
+%PCI\VEN_8086&DEV_370D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370D
+%PCI\VEN_8086&DEV_370E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370E
+%PCI\VEN_8086&DEV_370F.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370F
+%PCI\VEN_8086&DEV_3710.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3710
+%PCI\VEN_8086&DEV_3711.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3711
+%PCI\VEN_8086&DEV_3712.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3712
+%PCI\VEN_8086&DEV_3713.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3713
+%PCI\VEN_8086&DEV_3714.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3714
+%PCI\VEN_8086&DEV_3715.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3715
+%PCI\VEN_8086&DEV_3716.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3716
+%PCI\VEN_8086&DEV_3717.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3717
+%PCI\VEN_8086&DEV_3718.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3718
+%PCI\VEN_8086&DEV_3719.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3719
+%PCI\VEN_8086&DEV_371A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_371A
+%PCI\VEN_8086&DEV_371B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_371B
+%PCI\VEN_8086&DEV_371D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_371D
+%PCI\VEN_8086&DEV_3720.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3720
+%PCI\VEN_8086&DEV_3721.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3721
+%PCI\VEN_8086&DEV_3722.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3722
+%PCI\VEN_8086&DEV_3723.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3723
+%PCI\VEN_8086&DEV_3724.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3724
+%PCI\VEN_8086&DEV_3725.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3725
+%PCI\VEN_8086&DEV_3726.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3726
+%PCI\VEN_8086&DEV_3727.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3727
+%PCI\VEN_8086&DEV_3728.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3728
+%PCI\VEN_8086&DEV_3729.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3729
+%PCI\VEN_8086&DEV_372A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_372A
+%PCI\VEN_8086&DEV_372B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_372B
+%PCI\VEN_8086&DEV_372C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_372C
+%PCI\VEN_8086&DEV_373F.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_373F
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_2C58.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C58
+%PCI\VEN_8086&DEV_2C59.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C59
+%PCI\VEN_8086&DEV_2C5A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5A
+%PCI\VEN_8086&DEV_2C5B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5B
+%PCI\VEN_8086&DEV_2C5C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5C
+%PCI\VEN_8086&DEV_2C5D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5D
+%PCI\VEN_8086&DEV_2C5E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5E
+%PCI\VEN_8086&DEV_2C5F.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C5F
+%PCI\VEN_8086&DEV_2CC1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CC1
+%PCI\VEN_8086&DEV_2CD0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD0
+%PCI\VEN_8086&DEV_2CD1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD1
+%PCI\VEN_8086&DEV_2CD4.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD4
+%PCI\VEN_8086&DEV_2CD5.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD5
+%PCI\VEN_8086&DEV_2CD8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD8
+%PCI\VEN_8086&DEV_2CD9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CD9
+%PCI\VEN_8086&DEV_2CDA.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CDA
+%PCI\VEN_8086&DEV_2CDC.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CDC
+%PCI\VEN_8086&DEV_2CE0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE0
+%PCI\VEN_8086&DEV_2CE1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE1
+%PCI\VEN_8086&DEV_2CE2.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE2
+%PCI\VEN_8086&DEV_2CE3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE3
+%PCI\VEN_8086&DEV_2CE8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE8
+%PCI\VEN_8086&DEV_2CE9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CE9
+%PCI\VEN_8086&DEV_2CEA.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CEA
+%PCI\VEN_8086&DEV_2CEB.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CEB
+%PCI\VEN_8086&DEV_2CF0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CF0
+%PCI\VEN_8086&DEV_2CF1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CF1
+%PCI\VEN_8086&DEV_2CF2.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CF2
+%PCI\VEN_8086&DEV_2CF3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CF3
+%PCI\VEN_8086&DEV_3700.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3700
+%PCI\VEN_8086&DEV_3701.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3701
+%PCI\VEN_8086&DEV_3702.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3702
+%PCI\VEN_8086&DEV_3703.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3703
+%PCI\VEN_8086&DEV_3704.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3704
+%PCI\VEN_8086&DEV_3705.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3705
+%PCI\VEN_8086&DEV_3706.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3706
+%PCI\VEN_8086&DEV_3707.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3707
+%PCI\VEN_8086&DEV_3708.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3708
+%PCI\VEN_8086&DEV_3709.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3709
+%PCI\VEN_8086&DEV_370A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370A
+%PCI\VEN_8086&DEV_370B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370B
+%PCI\VEN_8086&DEV_370C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370C
+%PCI\VEN_8086&DEV_370D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370D
+%PCI\VEN_8086&DEV_370E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370E
+%PCI\VEN_8086&DEV_370F.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_370F
+%PCI\VEN_8086&DEV_3710.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3710
+%PCI\VEN_8086&DEV_3711.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3711
+%PCI\VEN_8086&DEV_3712.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3712
+%PCI\VEN_8086&DEV_3713.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3713
+%PCI\VEN_8086&DEV_3714.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3714
+%PCI\VEN_8086&DEV_3715.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3715
+%PCI\VEN_8086&DEV_3716.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3716
+%PCI\VEN_8086&DEV_3717.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3717
+%PCI\VEN_8086&DEV_3718.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3718
+%PCI\VEN_8086&DEV_3719.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3719
+%PCI\VEN_8086&DEV_371A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_371A
+%PCI\VEN_8086&DEV_371B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_371B
+%PCI\VEN_8086&DEV_371D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_371D
+%PCI\VEN_8086&DEV_3720.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3720
+%PCI\VEN_8086&DEV_3721.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3721
+%PCI\VEN_8086&DEV_3722.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3722
+%PCI\VEN_8086&DEV_3723.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3723
+%PCI\VEN_8086&DEV_3724.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3724
+%PCI\VEN_8086&DEV_3725.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3725
+%PCI\VEN_8086&DEV_3726.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3726
+%PCI\VEN_8086&DEV_3727.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3727
+%PCI\VEN_8086&DEV_3728.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3728
+%PCI\VEN_8086&DEV_3729.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3729
+%PCI\VEN_8086&DEV_372A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_372A
+%PCI\VEN_8086&DEV_372B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_372B
+%PCI\VEN_8086&DEV_372C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_372C
+%PCI\VEN_8086&DEV_373F.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_373F
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_2C58.DeviceDesc="Xeon 5500/3500 QPI Generic Non-core Registers - 2C58"
+PCI\VEN_8086&DEV_2C59.DeviceDesc="Xeon 5500/3500 QPI Generic Non-core Registers - 2C59"
+PCI\VEN_8086&DEV_2C5A.DeviceDesc="Xeon 5500/3500 QPI Generic Non-core Registers - 2C5A"
+PCI\VEN_8086&DEV_2C5B.DeviceDesc="Xeon 5500/3500 QPI Generic Non-core Registers - 2C5B"
+PCI\VEN_8086&DEV_2C5C.DeviceDesc="Xeon 5500/3500 QPI Generic Non-core Registers - 2C5C"
+PCI\VEN_8086&DEV_2C5D.DeviceDesc="Xeon 5500/3500 QPI Generic Non-core Registers - 2C5D"
+PCI\VEN_8086&DEV_2C5E.DeviceDesc="Xeon 5500/3500 QPI Generic Non-core Registers - 2C5E"
+PCI\VEN_8086&DEV_2C5F.DeviceDesc="Xeon 5500/3500 QPI Generic Non-core Registers - 2C5F"
+PCI\VEN_8086&DEV_2CC1.DeviceDesc="Xeon 5500/3500 QPI System Address Decoder - 2CC1"
+PCI\VEN_8086&DEV_2CD0.DeviceDesc="Xeon 5500/3500 QPI Link 0 - 2CD0"
+PCI\VEN_8086&DEV_2CD1.DeviceDesc="Xeon 5500/3500 QPI Physical 0 - 2CD1"
+PCI\VEN_8086&DEV_2CD4.DeviceDesc="Xeon 5500/3500 QPI Link 1 - 2CD4"
+PCI\VEN_8086&DEV_2CD5.DeviceDesc="Xeon 5500/3500 QPI Physical 1 - 2CD5"
+PCI\VEN_8086&DEV_2CD8.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Registers - 2CD8"
+PCI\VEN_8086&DEV_2CD9.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Target Address Decoder - 2CD9"
+PCI\VEN_8086&DEV_2CDA.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller RAS Registers - 2CDA"
+PCI\VEN_8086&DEV_2CDC.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Test Registers - 2CDC"
+PCI\VEN_8086&DEV_2CE0.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 0 Control - 2CE0"
+PCI\VEN_8086&DEV_2CE1.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 0 Address - 2CE1"
+PCI\VEN_8086&DEV_2CE2.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 0 Rank - 2CE2"
+PCI\VEN_8086&DEV_2CE3.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 0 Thermal Control - 2CE3"
+PCI\VEN_8086&DEV_2CE8.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 1 Control - 2CE8"
+PCI\VEN_8086&DEV_2CE9.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 1 Address - 2CE9"
+PCI\VEN_8086&DEV_2CEA.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 1 Rank - 2CEA"
+PCI\VEN_8086&DEV_2CEB.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 1 Thermal Control - 2CEB"
+PCI\VEN_8086&DEV_2CF0.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 2 Control - 2CF0"
+PCI\VEN_8086&DEV_2CF1.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 2 Address - 2CF1"
+PCI\VEN_8086&DEV_2CF2.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 2 Rank - 2CF2"
+PCI\VEN_8086&DEV_2CF3.DeviceDesc="Xeon 5500/3500 Integrated Memory Controller Channel 2 Thermal Control - 2CF3"
+PCI\VEN_8086&DEV_3700.DeviceDesc="Xeon 5500/3500 DMI - 3700"
+PCI\VEN_8086&DEV_3701.DeviceDesc="Xeon 5500/3500 DMI - 3701"
+PCI\VEN_8086&DEV_3702.DeviceDesc="Xeon 5500/3500 DMI - 3702"
+PCI\VEN_8086&DEV_3703.DeviceDesc="Xeon 5500/3500 DMI - 3703"
+PCI\VEN_8086&DEV_3704.DeviceDesc="Xeon 5500/3500 DMI - 3704"
+PCI\VEN_8086&DEV_3705.DeviceDesc="Xeon 5500/3500 DMI - 3705"
+PCI\VEN_8086&DEV_3706.DeviceDesc="Xeon 5500/3500 DMI - 3706"
+PCI\VEN_8086&DEV_3707.DeviceDesc="Xeon 5500/3500 DMI - 3707"
+PCI\VEN_8086&DEV_3708.DeviceDesc="Xeon 5500/3500 DMI - 3708"
+PCI\VEN_8086&DEV_3709.DeviceDesc="Xeon 5500/3500 DMI - 3709"
+PCI\VEN_8086&DEV_370A.DeviceDesc="Xeon 5500/3500 DMI - 370A"
+PCI\VEN_8086&DEV_370B.DeviceDesc="Xeon 5500/3500 DMI - 370B"
+PCI\VEN_8086&DEV_370C.DeviceDesc="Xeon 5500/3500 DMI - 370C"
+PCI\VEN_8086&DEV_370D.DeviceDesc="Xeon 5500/3500 DMI - 370D"
+PCI\VEN_8086&DEV_370E.DeviceDesc="Xeon 5500/3500 DMI - 370E"
+PCI\VEN_8086&DEV_370F.DeviceDesc="Xeon 5500/3500 DMI - 370F"
+PCI\VEN_8086&DEV_3710.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3710"
+PCI\VEN_8086&DEV_3711.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3711"
+PCI\VEN_8086&DEV_3712.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3712"
+PCI\VEN_8086&DEV_3713.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3713"
+PCI\VEN_8086&DEV_3714.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3714"
+PCI\VEN_8086&DEV_3715.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3715"
+PCI\VEN_8086&DEV_3716.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3716"
+PCI\VEN_8086&DEV_3717.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3717"
+PCI\VEN_8086&DEV_3718.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3718"
+PCI\VEN_8086&DEV_3719.DeviceDesc="Xeon 5500/3500 CB3 DMA - 3719"
+PCI\VEN_8086&DEV_371A.DeviceDesc="Xeon 5500/3500 QPI Link - 371A"
+PCI\VEN_8086&DEV_371B.DeviceDesc="Xeon 5500/3500 QPI Routing and Protocol - 371B"
+PCI\VEN_8086&DEV_371D.DeviceDesc="Xeon 5500/3500 QPI Routing and Protocol - 371D"
+PCI\VEN_8086&DEV_3720.DeviceDesc="Xeon 5500/3500 PCI Express Root Port 0 - 3720"
+PCI\VEN_8086&DEV_3721.DeviceDesc="Xeon 5500/3500 PCI Express Root Port 1 - 3721"
+PCI\VEN_8086&DEV_3722.DeviceDesc="Xeon 5500/3500 PCI Express Root Port 2 - 3722"
+PCI\VEN_8086&DEV_3723.DeviceDesc="Xeon 5500/3500 PCI Express Root Port 3 - 3723"
+PCI\VEN_8086&DEV_3724.DeviceDesc="Xeon 5500/3500 PCI Express Root Port 4 - 3724"
+PCI\VEN_8086&DEV_3725.DeviceDesc="Xeon 5500/3500 NTB Primary - 3725"
+PCI\VEN_8086&DEV_3726.DeviceDesc="Xeon 5500/3500 NTB Primary - 3726"
+PCI\VEN_8086&DEV_3727.DeviceDesc="Xeon 5500/3500 NTB Secondary - 3727"
+PCI\VEN_8086&DEV_3728.DeviceDesc="Xeon 5500/3500 Core - 3728"
+PCI\VEN_8086&DEV_3729.DeviceDesc="Xeon 5500/3500 Core - 3729"
+PCI\VEN_8086&DEV_372A.DeviceDesc="Xeon 5500/3500 Core - 372A"
+PCI\VEN_8086&DEV_372B.DeviceDesc="Xeon 5500/3500 Core - 372B"
+PCI\VEN_8086&DEV_372C.DeviceDesc="Xeon 5500/3500 Reserved - 372C"
+PCI\VEN_8086&DEV_373F.DeviceDesc="Xeon 5500/3500 IOxAPIC - 373F"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

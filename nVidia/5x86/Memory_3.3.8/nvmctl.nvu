@@ -1,0 +1,25 @@
+; Remove any NVIDIA device driver if present
+set MachineINF=machine.inf
+if {OS}=Win95 then set MachineINF=machine2.inf
+if {OS}=Win98 then set MachineINF=machine2.inf
+if {OS}=WinME then set MachineINF=machine2.inf
+RemoveDevice pci,VEN_10DE&DEV_01AA,SYSTEM,{windir}\inf\{MachineINF}
+RemoveDevice pci,VEN_10DE&DEV_01AB,SYSTEM,{windir}\inf\{MachineINF}
+RemoveDevice pci,VEN_10DE&DEV_01AC,SYSTEM,{windir}\inf\{MachineINF}
+RemoveDevice pci,VEN_10DE&DEV_01AD,SYSTEM,{windir}\inf\{MachineINF}
+RemoveDevice pci,VEN_10DE&DEV_01EA,SYSTEM,{windir}\inf\{MachineINF}
+RemoveDevice pci,VEN_10DE&DEV_01EB,SYSTEM,{windir}\inf\{MachineINF}
+RemoveDevice pci,VEN_10DE&DEV_01EC,SYSTEM,{windir}\inf\{MachineINF}
+RemoveDevice pci,VEN_10DE&DEV_01ED,SYSTEM,{windir}\inf\{MachineINF}
+RemoveDevice pci,VEN_10DE&DEV_01EE,SYSTEM,{windir}\inf\{MachineINF}
+RemoveDevice pci,VEN_10DE&DEV_01EF,SYSTEM,{windir}\inf\{MachineINF}
+
+; Now try to delete files used by Memory Controller driver
+DelOemInfs nv*,Version,Class,System,version,Provider,%Nvidia%
+
+DelBoot {sysdir}\nvmemctl.cat
+DelBoot {sysdir}\nvmemctl.inf
+DelBoot {windir}\INF\INTERNET\NVIDIAnvmemctl.inf
+
+; also delete its uninstaller binary
+DelBoot {sysdir}\nvumctl.exe

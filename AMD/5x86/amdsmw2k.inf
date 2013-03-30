@@ -1,0 +1,52 @@
+; AMDSMW2K.INF  -- This file contains descriptions of the AMD Power Management Controller for Win2K and WinXP
+;
+; Copyright (c) 1999-2002, AMD
+; Version 1.81 8/27/02
+
+
+[Version]
+CatalogFile=amdsmw2k.cat
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider="AMD"
+DriverVer=08/27/2002, 1.8.1.0
+
+[DestinationDirs]
+DefaultDestDir = 12        ; DIRID_DRIVERS
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD_MFG%=AMD_SYS
+
+[AMD_SYS]
+%PCI\VEN_1022&DEV_7413.DeviceDesc%=NO_DRV,PCI\VEN_1022&DEV_7413
+%PCI\VEN_1022&DEV_7443.DeviceDesc%=NO_DRV,PCI\VEN_1022&DEV_7443
+%PCI\VEN_1022&DEV_746B.DeviceDesc%=NO_DRV,PCI\VEN_1022&DEV_746B
+
+[SourceDisksNames]
+1=%DISK_ID%,,
+
+[SourceDisksFiles]
+
+
+; =================== DO NOTHING SECTION ============================
+[NO_DRV]
+
+[NO_DRV.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%   ; null service install
+
+[Strings]
+AMD_MFG = "AMD"
+PCI\VEN_1022&DEV_7413.DeviceDesc = "AMD-766 Power Management Controller"
+PCI\VEN_1022&DEV_7443.DeviceDesc = "AMD-768 Power Management Controller"
+PCI\VEN_1022&DEV_746B.DeviceDesc = "AMD-8111 System Management Controller"
+
+SystemClassName = "System devices"
+DISK_ID="AMD Installation Disk"
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002

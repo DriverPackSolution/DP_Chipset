@@ -1,0 +1,167 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: E7520.inf                                              **
+; **           Abstract: Windows* 2000, XP, 2003 INF File for Lindenhurst/Tumwater**
+; **                     Memory Controller Hub                                  **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=E7520.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_3590.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3590
+%PCI\VEN_8086&DEV_3591.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3591
+%PCI\VEN_8086&DEV_3592.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3592
+%PCI\VEN_8086&DEV_3593.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3593
+%PCI\VEN_8086&DEV_3594.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3594
+%PCI\VEN_8086&DEV_3595.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3595
+%PCI\VEN_8086&DEV_3596.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3596
+%PCI\VEN_8086&DEV_3597.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3597
+%PCI\VEN_8086&DEV_3598.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3598
+%PCI\VEN_8086&DEV_3599.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3599
+%PCI\VEN_8086&DEV_359A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_359A
+%PCI\VEN_8086&DEV_359B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_359B
+%PCI\VEN_8086&DEV_359E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_359E
+%PCI\VEN_8086&DEV_0326.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0326
+%PCI\VEN_8086&DEV_0327.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0327
+%PCI\VEN_8086&DEV_0329.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0329
+%PCI\VEN_8086&DEV_032A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_032A
+%PCI\VEN_8086&DEV_0330.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0330
+%PCI\VEN_8086&DEV_0331.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0331
+%PCI\VEN_8086&DEV_0332.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0332
+%PCI\VEN_8086&DEV_0333.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0333
+%PCI\VEN_8086&DEV_0334.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0334
+%PCI\VEN_8086&DEV_0370.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0370
+%PCI\VEN_8086&DEV_0371.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0371
+%PCI\VEN_8086&DEV_0372.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0372
+%PCI\VEN_8086&DEV_0373.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0373
+%PCI\VEN_8086&DEV_0374.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0374
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_3590.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3590
+%PCI\VEN_8086&DEV_3591.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3591
+%PCI\VEN_8086&DEV_3592.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3592
+%PCI\VEN_8086&DEV_3593.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3593
+%PCI\VEN_8086&DEV_3594.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3594
+%PCI\VEN_8086&DEV_3595.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3595
+%PCI\VEN_8086&DEV_3596.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3596
+%PCI\VEN_8086&DEV_3597.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3597
+%PCI\VEN_8086&DEV_3598.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3598
+%PCI\VEN_8086&DEV_3599.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3599
+%PCI\VEN_8086&DEV_359A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_359A
+%PCI\VEN_8086&DEV_359B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_359B
+%PCI\VEN_8086&DEV_359E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_359E
+%PCI\VEN_8086&DEV_0326.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0326
+%PCI\VEN_8086&DEV_0327.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0327
+%PCI\VEN_8086&DEV_0329.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0329
+%PCI\VEN_8086&DEV_032A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_032A
+%PCI\VEN_8086&DEV_0330.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0330
+%PCI\VEN_8086&DEV_0331.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0331
+%PCI\VEN_8086&DEV_0332.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0332
+%PCI\VEN_8086&DEV_0333.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0333
+%PCI\VEN_8086&DEV_0334.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0334
+%PCI\VEN_8086&DEV_0370.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0370
+%PCI\VEN_8086&DEV_0371.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0371
+%PCI\VEN_8086&DEV_0372.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0372
+%PCI\VEN_8086&DEV_0373.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0373
+%PCI\VEN_8086&DEV_0374.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0374
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_3590.DeviceDesc="Intel(R) E7520 Memory Controller Hub - 3590"
+PCI\VEN_8086&DEV_3591.DeviceDesc="Intel(R) E7525/E7520 Error Reporting Registers - 3591"
+PCI\VEN_8086&DEV_3592.DeviceDesc="Intel(R) E7320 Memory Controller Hub - 3592"
+PCI\VEN_8086&DEV_3593.DeviceDesc="Intel(R) E7320 Error Reporting Registers - 3593"
+PCI\VEN_8086&DEV_3594.DeviceDesc="Intel(R) E7520 DMA Controller - 3594"
+PCI\VEN_8086&DEV_3595.DeviceDesc="Intel(R) E7525/E7520/E7320 PCI Express Root Port A0 - 3595"
+PCI\VEN_8086&DEV_3596.DeviceDesc="Intel(R) E7525/E7520/E7320 PCI Express Root Port A1 - 3596"
+PCI\VEN_8086&DEV_3597.DeviceDesc="Intel(R) E7525/E7520 PCI Express Root Port B0 - 3597"
+PCI\VEN_8086&DEV_3598.DeviceDesc="Intel(R) E7520 PCI Express Root Port B1 - 3598"
+PCI\VEN_8086&DEV_3599.DeviceDesc="Intel(R) E7520 PCI Express Root Port C0 - 3599"
+PCI\VEN_8086&DEV_359A.DeviceDesc="Intel(R) E7520 PCI Express Root Port C1 - 359A"
+PCI\VEN_8086&DEV_359B.DeviceDesc="Intel(R) E7525/E7520/E7320 Extended Configuration Registers - 359B"
+PCI\VEN_8086&DEV_359E.DeviceDesc="Intel(R) E7525 Memory Controller Hub - 359E"
+PCI\VEN_8086&DEV_0326.DeviceDesc="Intel(R) 6700/6702PXH I/OxAPIC Interrupt Controller A - 0326"
+PCI\VEN_8086&DEV_0327.DeviceDesc="Intel(R) 6700PXH I/OxAPIC Interrupt Controller B - 0327"
+PCI\VEN_8086&DEV_0329.DeviceDesc="Intel(R) 6700PXH PCI Express-to-PCI Bridge A - 0329"
+PCI\VEN_8086&DEV_032A.DeviceDesc="Intel(R) 6700PXH PCI Express-to-PCI Bridge B - 032A"
+PCI\VEN_8086&DEV_0330.DeviceDesc="Intel(R) 80332 PCI Express-to-PCI Bridge A - 0330"
+PCI\VEN_8086&DEV_0331.DeviceDesc="Intel(R) 80332 I/OxAPIC Interrupt Controller A - 0331"
+PCI\VEN_8086&DEV_0332.DeviceDesc="Intel(R) 8 PCI Express-to-PCI Bridge B - 0332"
+PCI\VEN_8086&DEV_0333.DeviceDesc="Intel(R) 80332 I/OxAPIC Interrupt Controller B - 0333"
+PCI\VEN_8086&DEV_0334.DeviceDesc="Intel(R) 80332 Memory Controller - 0334"
+PCI\VEN_8086&DEV_0370.DeviceDesc="Intel(R) 80333 PCI Express-to-PCI Bridge A - 0370"
+PCI\VEN_8086&DEV_0371.DeviceDesc="Intel(R) 80333 I/OxAPIC Interrupt Controller A - 0371"
+PCI\VEN_8086&DEV_0372.DeviceDesc="Intel(R) 80333 PCI Express-to-PCI Bridge B - 0372"
+PCI\VEN_8086&DEV_0373.DeviceDesc="Intel(R) 80333 I/OxAPIC Interrupt Controller B - 0373"
+PCI\VEN_8086&DEV_0374.DeviceDesc="Intel(R) 80333 Memory Controller - 0374"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

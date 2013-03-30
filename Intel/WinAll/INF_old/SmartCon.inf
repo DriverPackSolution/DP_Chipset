@@ -1,0 +1,97 @@
+; ****************************************************************************
+; ****************************************************************************
+; **    Filename:  SmartCon.INF                                              
+; **    Abstract:  Null driver for Intel(R) Smart Connect Technology
+; **    Last Update: January 16, 2011 (Version 9.3.0 Build 1021)
+; ****************************************************************************
+; ****************************************************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=SmartCon.cat
+DriverVer=01/16/2011, 9.3.0.1021
+
+[SourceDisksNames] 
+[SourceDisksFiles]
+
+Name=Chipset
+Condition=Provider(Microsoft)||InstallDriverName(Chipset)||Provider()
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+; =================== Table of content =========================
+
+[Manufacturer]
+%INTEL%=Intel,NT.5.1,NT.6.1,NTamd64,NTamd64.6.1
+
+; =================== Intel ====================================
+
+[Intel]
+%ACPI\INT33A0%=NO_DRV,ACPI\INT33A0
+
+[Intel.NT.5.1]
+%ACPI\INT33A0%=NO_DRV,ACPI\INT33A0
+
+[Intel.NT.6.1]
+
+[Intel.NTamd64]
+%ACPI\INT33A0%=NO_DRV,ACPI\INT33A0
+
+[Intel.NTamd64.6.1]
+
+;**************************************************************************
+; Do-nothing section used to avoid "Unknown hardware" installation prompts.
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+; =================== Strings ==================================
+
+[Strings]
+INTEL="Intel"
+ACPI\INT33A0="Intel(R) Smart Connect Technology"
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+REG_DWORD              = 0x00010001
+
+; Copyright (c) 2006-2011 Intel Corporation
+
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.

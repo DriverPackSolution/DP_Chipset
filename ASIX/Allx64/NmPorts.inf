@@ -1,0 +1,174 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  (c) Copyright ASIX Electronics Corporation
+;;  FILE : NmPorts.inf
+;;  Description: Installs the serial/parallel ports
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[version]
+CatalogFile=nmports.cat 
+signature="$Chicago$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%ProviderName%
+DriverVer=12/18/2012,2.0.3.0
+
+
+[DestinationDirs]
+DefaultDestDir  = 11        ;LDID_SYS
+ComPort.NT.Copy = 12        ;DIRID_DRIVERS
+
+[SourceDisksNames]
+0=%DiskName%,,
+
+[SourceDisksFiles]
+NmPar.sys=0,AMD64,
+nmserial.sys=0,AMD64,
+NmXpMf.inf=0,AMD64,
+NmPorts.inf=0,AMD64, 
+Nm2kUnus.inf=0,AMD64,
+Nm2kNull.inf=0,AMD64,
+pnpports.dll=0,AMD64,
+NmCoInst.dll=0
+
+
+
+;===============================
+; Driver Installation
+;===============================
+[Manufacturer]
+%ProviderName%=Multi_IO_Cards, NTAMD64
+
+[Multi_IO_Cards.NTAMD64]
+%ComPortName%=ComPort,MF\PCI9710_COM
+%EcpPortName%=EcpPort,MF\PCI9710_ECP
+
+;----------------------------------------
+; COM Port Install
+;----------------------------------------
+[ComPort.NT]
+CopyFiles=ComPort.NT.Copy
+AddReg=ComPort.AddReg, ComPort.NT.AddReg
+
+[ComPort.NT.HW]
+AddReg=ComPort.NT.HW.AddReg
+
+[ComPort.NT.Services]
+AddService = nmserial, 0x00000002, nmserial_Service_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+[ComPort.NT.CoInstallers]
+CopyFiles=MCS98xxPCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+; -------------- NmSerial Port Driver install sections
+[nmserial_Service_Inst]
+DisplayName    = %ComPortName%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 0               ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %12%\nmserial.sys
+LoadOrderGroup = Extended base
+
+; -------------- Serenum Driver install section
+[Serenum_Service_Inst]
+DisplayName    = "Serenum Filter Driver"
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\serenum.sys
+LoadOrderGroup = PNP Filter
+
+
+;----------------------------------------------------------
+; Other sections
+;----------------------------------------------------------
+[ComPort.AddReg]
+HKR,,PortSubClass,1,01
+
+[ComPort.NT.Copy]
+;;nothing
+;;serenum.sys
+
+[ComPort.NT.AddReg]
+HKR,,EnumPropPages32,,"PnpPorts.dll,SerialPortPropPageProvider"
+
+
+[ComPort.NT.HW.AddReg]
+HKR,,"UpperFilters",0x00010000,"serenum"
+HKR,,"TranceiverMode", 0x10001, 0
+HKR,,"EnableHwFlowControl", 0x10001, 0
+
+
+;----------------------------------------
+; ECPPort Install
+;----------------------------------------
+[EcpPort.NT]
+AddReg=EcpPort.AddReg,LptPort.NT.AddReg
+
+[EcpPort.NT.HW]
+AddReg=EcpPort.NT.HW.AddReg
+
+[EcpPort.NT.HW.AddReg]
+HKR,,"ModeSelected",0x00000000,"1"
+
+[EcpPort.NT.Services]
+AddService = NmPar, 0x00000002, NmPar_Service_Inst, NmPar_EventLog_Inst ; Port Driver (function driver for this device)
+
+[EcpPort.NT.CoInstallers]
+CopyFiles=MCS98xxPCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+;----------------------------------------
+; other sections
+;----------------------------------------
+
+[EcpPort.AddReg]
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,01
+
+[LptPort.NT.AddReg]
+HKR,,EnumPropPages32,,"PnpPorts.dll,ParallelPortPropPageProvider" 
+
+
+; -------------- Parallel Port Driver install sections
+[NmPar_Service_Inst]
+DisplayName    = %EcpPortName%
+ServiceType    = 1                ; SERVICE_KERNEL_DRIVER
+StartType      = 3                ; SERVICE_DEMAND_START 
+ErrorControl   = 0                ; SERVICE_ERROR_IGNORE 
+ServiceBinary  = %12%\NmPar.sys
+LoadOrderGroup = Parallel arbitrator
+
+[NmPar_EventLog_Inst]
+AddReg = NmPar_EventLog_AddReg
+
+[NmPar_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\nmpar.sys"
+HKR,,TypesSupported,0x00010001,7
+
+
+; -------------- Co Installer sections
+[MCS98xxPCICoInstallCopyFileSection]
+NmCoInst.dll
+
+[CoClass.CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"NmCoInst.dll,NmCoInstaller"
+
+
+; User readable strings
+;----------------------------------------------------------
+[Strings]
+DiskName="PCI Multi-IO Drivers Disk"
+ProviderName="ASIX Electronics Corporation"
+ComPortName="PCI Serial Port"
+EcpPortName="PCI Parallel Port"
+
+
+
+;-----------------------
+; END OF FILE
+;-----------------------
+

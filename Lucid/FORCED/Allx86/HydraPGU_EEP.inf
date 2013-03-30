@@ -1,0 +1,191 @@
+;/*++
+;
+;Copyright (c) Lucid Information Technology.  All rights reserved.
+;
+;Module Name:	HydraPGU_EEP.INF
+;
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%Lucid%
+DriverVer=11/14/2010,1.0.1.14613
+CatalogFile=HydraPGU.cat
+
+[DestinationDirs]
+DLLCopyFiles = 11
+DefaultDestDir = 12
+
+;*****************************************
+; Lucid End Point Device Install Section
+;*****************************************
+
+[Manufacturer]
+%Lucid%=Lucid,NTx86
+
+
+; For XP and later
+[Lucid.NTx86]
+;-------------- HYDRA 100-----------------------------------------------------------------------
+%PCI\VEN_1FC8&DEV_0140&DEV_1010.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1010&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_1011.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1011&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_1012.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1012&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_1013.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1013&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_1014.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1014&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_1015.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1015&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_1016.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1016&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_1017.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1017&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_1018.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1018&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_1019.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_1019&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_101A.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_101A&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_101B.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_101B&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_101C.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_101C&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_101D.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_101D&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_101E.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_101E&CC_FF00
+%PCI\VEN_1FC8&DEV_0140&DEV_101F.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1fc8&DEV_101F&CC_FF00
+
+;-------------- HYDRA 200--------------------------------------------------------------
+%PCI\VEN_1FC8&DEV_0BC0.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BC0&CC_FF00
+%PCI\VEN_1FC8&DEV_0BC1.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BC1&CC_FF00
+%PCI\VEN_1FC8&DEV_0BC2.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BC2&CC_FF00
+%PCI\VEN_1FC8&DEV_0BC3.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BC3&CC_FF00
+%PCI\VEN_1FC8&DEV_0BD0.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BD0&CC_FF00
+%PCI\VEN_1FC8&DEV_0BD1.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BD1&CC_FF00
+%PCI\VEN_1FC8&DEV_0BD2.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BD2&CC_FF00
+%PCI\VEN_1FC8&DEV_0BD3.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BD3&CC_FF00
+%PCI\VEN_1FC8&DEV_0BE0.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BE0&CC_FF00
+%PCI\VEN_1FC8&DEV_0BE1.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BE1&CC_FF00
+%PCI\VEN_1FC8&DEV_0BE2.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BE2&CC_FF00
+%PCI\VEN_1FC8&DEV_0BE3.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BE3&CC_FF00
+%PCI\VEN_1FC8&DEV_0BF0.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BF0&CC_FF00
+%PCI\VEN_1FC8&DEV_0BF1.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BF1&CC_FF00
+%PCI\VEN_1FC8&DEV_0BF2.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BF2&CC_FF00
+%PCI\VEN_1FC8&DEV_0BF3.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BF3&CC_FF00
+
+;-------------- HYDRA 220--------------------------------------------------------------
+%PCI\VEN_1FC8&DEV_0BC4.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BC4&CC_FF00
+%PCI\VEN_1FC8&DEV_0BD4.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BD4&CC_FF00
+%PCI\VEN_1FC8&DEV_0BE4.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BE4&CC_FF00
+%PCI\VEN_1FC8&DEV_0BF4.DeviceDesc% = HydraPGU_EEP_Device, PCI\VEN_1FC8&DEV_0BF4&CC_FF00
+
+
+[HydraPGU_EEP_Device.NTx86]
+CopyFiles=HydraPGU_EEP_Device.Copy, DLLCopyFiles 
+
+[HydraPGU_EEP_Device.Copy]
+HydraPGU_EEP.sys
+
+
+[DLLCopyFiles]
+HydraPGU.dll
+
+
+;-------------- Service installation
+
+[HydraPGU_EEP_Device.NTx86.Services]
+AddService = HydraPGU_EEP, %SPSVCINST_ASSOCSERVICE%, wdfHydraPGU_EEP_Service_Inst
+
+[wdfHydraPGU_EEP_Service_Inst]
+DisplayName    = %HydraPGU_EEP.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\HydraPGU_EEP.sys
+LoadOrderGroup = Extended Base
+
+
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+HydraPGU_EEP.sys = 1,,
+HydraPGU.dll=1
+
+
+;
+;--- HydraPGU_EEP_Device WDF Coinstaller installation ------
+;
+[DestinationDirs]
+HydraPGU_EEP_Device_CoInstaller_CopyFiles = 11
+
+[HydraPGU_EEP_Device.NTx86.CoInstallers]
+AddReg=HydraPGU_EEP_Device_CoInstaller_AddReg
+CopyFiles=HydraPGU_EEP_Device_CoInstaller_CopyFiles
+
+[HydraPGU_EEP_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller","LucidHwCoInstaller.dll,LucidCoInstaller"
+
+[HydraPGU_EEP_Device_CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+LucidHwCoInstaller.dll
+
+[SourceDisksFiles]
+WdfCoInstaller01009.dll=1 ; make sure the number matches with SourceDisksNames
+LucidHwCoInstaller.dll=1 
+
+[HydraPGU_EEP_Device.NTx86.Wdf]
+KmdfService = HydraPGU_EEP, wdfHydraPGU_EEP_wdfsect 	
+[wdfHydraPGU_EEP_wdfsect]
+KmdfLibraryVersion = 1.9
+
+
+
+;
+;---  Lucid Custom Coinstaller installation ------
+;
+
+
+
+
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+Lucid= "Lucid Information Technology"
+StdMfg = "(Standard system devices)"
+DiskId1 = "Lucid End Point Control Device Installation Disk #1"
+
+PCI\VEN_1FC8&DEV_0140&DEV_1010.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_1011.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_1012.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_1013.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_1014.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_1015.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_1016.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_1017.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_1018.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_1019.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_101A.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_101B.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_101C.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_101D.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_101E.DeviceDesc = "HYDRA 100"
+PCI\VEN_1FC8&DEV_0140&DEV_101F.DeviceDesc = "HYDRA 100"
+
+PCI\VEN_1FC8&DEV_0BC0.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BC1.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BC2.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BC3.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BD0.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BD1.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BD2.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BD3.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BE0.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BE1.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BE2.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BE3.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BF0.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BF1.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BF2.DeviceDesc = "HYDRA 200"
+PCI\VEN_1FC8&DEV_0BF3.DeviceDesc = "HYDRA 200"
+
+PCI\VEN_1FC8&DEV_0BC4.DeviceDesc = "HYDRA 220"
+PCI\VEN_1FC8&DEV_0BD4.DeviceDesc = "HYDRA 220"
+PCI\VEN_1FC8&DEV_0BE4.DeviceDesc = "HYDRA 220"
+PCI\VEN_1FC8&DEV_0BF4.DeviceDesc = "HYDRA 220"
+
+
+HydraPGU_EEP.SVCDESC = "Hydra PGU EEP KMDF Device Driver"
+

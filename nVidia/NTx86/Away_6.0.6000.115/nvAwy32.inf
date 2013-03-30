@@ -1,0 +1,113 @@
+; 
+; NVIDIA Away Mode inf
+; Copyright (C) 2009    NVIDIA Corporation
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System 
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%NV%
+CatalogFile=nvaway.cat
+DriverVer=11/24/2009,6.0.6000.115
+
+[SourceDisksNames]
+1=%DiskId%
+
+[SourceDisksFiles]
+nvamacpi.sys=1
+NVCOAWY.DLL=1
+nvuawy.exe=1
+nvawy.nvu=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+Uninstall.CoInst.FileList = 11
+Uninstall.Uninstaller.FileList = 16422,NVIDIA Corporation\Uninstall
+
+[Manufacturer]
+%NV%=NV,NTx86,NTx86.6.0,NTx86.6.1
+
+[NVAMACPI]
+CopyFiles=NVAmacpiCopyFiles2
+CopyFiles = Uninstall.Uninstaller.FileList
+
+[NVAmacpiCopyFiles2]
+nvamacpi.sys
+
+[NVAMACPI.Services]
+AddService = nvamacpi,%SPSVCINST_ASSOCSERVICE%,NVAMACPI_Service_Inst
+
+[NV.NTx86]
+%*pnpffff.DeviceDesc% = NULL_DRIVER, *pnpffff
+%*pnpffff.DeviceDesc% = NULL_DRIVER, ACPI\AWY0001
+
+[NV.NTx86.6.0]
+%NVAMACPI.SvcDesc% = NVAMACPI, ACPI\AWY0001
+
+[NV.NTx86.6.1]
+%NVAMACPI.SvcDesc% = NVAMACPI, ACPI\AWY0001
+
+[NULL_DRIVER]
+CopyFiles = Uninstall.Uninstaller.FileList
+null.sys
+
+[NULL_DRIVER.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%   ; null service install 
+
+[ControlFlags]
+;
+; Exclude all devices from Select Device list
+;
+ExcludeFromSelect = *
+
+[NVAMACPI_Service_Inst]
+DisplayName    = %NVAMACPI.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_CRITICAL%
+ServiceBinary  = %12%\NVAMACPI.sys
+
+[NVAMACPI.CoInstallers]
+AddReg=Uninstall.CoInst.AddReg
+CopyFiles=Uninstall.CoInst.FileList
+
+[NULL_DRIVER.CoInstallers]
+AddReg=Uninstall.CoInst.AddReg
+CopyFiles=Uninstall.CoInst.FileList
+
+[Uninstall.CoInst.AddReg]
+HKR,,CoInstallers32,0x00010000,	"NVCOAWY.DLL,NVCoInstaller"
+HKR, Uninstall, Script,      0, "nvawy.nvu"
+HKR, Uninstall, Name,        0, "NVIDIA Away Mode Driver"
+HKR, Uninstall, INFSrcDir,   0, %01% 
+HKR, Uninstall, Uninstaller, 0, "nvuawy.exe"
+
+[Uninstall.CoInst.FileList]
+NVCOAWY.DLL
+
+[Uninstall.Uninstaller.FileList]
+nvuawy.exe
+nvawy.nvu
+
+[strings]
+NV                     = "NVIDIA Corporation"
+*pnpffff.DeviceDesc    = "NVIDIA AwayMode"
+DeviceDesc	       = "NVIDIA AwayMode"
+DiskId                 = "NVIDIA AMACPI Driver Install Disk (1)"
+ClassName              = "Away Mode Devices"
+NVAMACPI.SvcDesc       = "NVIDIA Away Mode System"
+;ACPI.SvcDesc          = "NVIDIA Away Mode ACPI Driver"
+
+SPSVCINST_TAGTOFRONT   = 0x00000003
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3
+REG_EXPAND_SZ          = 0x00020000
+REG_DWORD              = 0x00010001
+REG_SZ                 = 0x00000000

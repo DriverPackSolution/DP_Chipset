@@ -1,0 +1,300 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  (c) Copyright ASIX Electronics Corporation
+;;  File : PciMf.inf
+;;  OS Supported : Development version Inf, Not tested.
+;;  This inf file configures PCI multi I/O (COM ) ports
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[Version]
+Signature  = "$Windows NT$"
+Provider  = %ProviderName%
+Class = MultiFunction
+ClassGUID = {4d36e971-e325-11ce-bfc1-08002be10318}
+CatalogFile=pciports.cat 
+DriverVer=12/13/2012, 1.0.1.0
+
+
+[Manufacturer]
+%ProviderName% = Multi_IOCards, NTamd64
+
+[Multi_IOCards]
+%MultiFunctionName%= PCIISA_0P4S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3004A000&REV_00 
+%MultiFunctionName%= PCIISA_0P3S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3003A000&REV_00 
+%MultiFunctionName%= PCIISA_0P2S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3002A000&REV_00 
+%MultiFunctionName%= PCIISA_0P1S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3001A000&REV_00 
+%MultiFunctionName%= PCIISA_1P1S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3011A000&REV_00 
+%MultiFunctionName%= PCIISA_1P2S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3012A000&REV_00 
+%MultiFunctionName%= PCIISA_2P0S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3020A000&REV_00 
+
+
+[Multi_IOCards.NTamd64]
+%MultiFunctionName%= PCIISA_0P4S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3004A000&REV_00 
+%MultiFunctionName%= PCIISA_0P3S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3003A000&REV_00 
+%MultiFunctionName%= PCIISA_0P2S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3002A000&REV_00 
+%MultiFunctionName%= PCIISA_0P1S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3001A000&REV_00 
+%MultiFunctionName%= PCIISA_1P1S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3011A000&REV_00 
+%MultiFunctionName%= PCIISA_1P2S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3012A000&REV_00 
+%MultiFunctionName%= PCIISA_2P0S.MF, PCI\VEN_9710&DEV_9865&SUBSYS_3020A000&REV_00 
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;; X86 32-Bit OS ;;;;;;;;;;;;;;;
+
+[PCIISA_0P4S.MF.NT]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_0P4S.MF.NT.HW]
+AddReg=PCI_0P4S.RegHW
+
+[PCIISA_0P4S.MF.NT.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_0P3S.MF.NT]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_0P3S.MF.NT.HW]
+AddReg=PCI_0P3S.RegHW
+
+[PCIISA_0P3S.MF.NT.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_0P2S.MF.NT]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_0P2S.MF.NT.HW]
+AddReg=PCI_0P2S.RegHW
+
+[PCIISA_0P2S.MF.NT.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_0P1S.MF.NT]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_0P1S.MF.NT.HW]
+AddReg=PCI_0P1S.RegHW
+
+[PCIISA_0P1S.MF.NT.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_1P2S.MF.NT]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_1P2S.MF.NT.HW]
+AddReg=PCI_1P2S.RegHW
+
+[PCIISA_1P2S.MF.NT.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_1P1S.MF.NT]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_1P1S.MF.NT.HW]
+AddReg=PCI_1P1S.RegHW
+
+[PCIISA_1P1S.MF.NT.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_2P0S.MF.NT]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_2P0S.MF.NT.HW]
+AddReg=PCI_2P0S.RegHW
+
+[PCIISA_2P0S.MF.NT.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+
+
+
+;;;;;;;;;;;;;;; Amd64 64-Bit OS ;;;;;;;;;;;;;;;
+
+[PCIISA_0P4S.MF.NTamd64]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_0P4S.MF.NTamd64.HW]
+AddReg=PCI_0P4S.RegHW
+
+[PCIISA_0P4S.MF.NTamd64.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_0P3S.MF.NTamd64]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_0P3S.MF.NTamd64.HW]
+AddReg=PCI_0P3S.RegHW
+
+[PCIISA_0P3S.MF.NTamd64.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_0P2S.MF.NTamd64]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_0P2S.MF.NTamd64.HW]
+AddReg=PCI_0P2S.RegHW
+
+[PCIISA_0P2S.MF.NTamd64.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_0P1S.MF.NTamd64]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_0P1S.MF.NTamd64.HW]
+AddReg=PCI_0P1S.RegHW
+
+[PCIISA_0P1S.MF.NTamd64.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_1P2S.MF.NTamd64]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_1P2S.MF.NTamd64.HW]
+AddReg=PCI_1P2S.RegHW
+
+[PCIISA_1P2S.MF.NTamd64.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_1P1S.MF.NTamd64]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_1P1S.MF.NTamd64.HW]
+AddReg=PCI_1P1S.RegHW
+
+[PCIISA_1P1S.MF.NTamd64.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+;;;;;
+
+[PCIISA_2P0S.MF.NTamd64]
+Include=mf.inf
+Needs=MFINSTALL.mf
+
+[PCIISA_2P0S.MF.NTamd64.HW]
+AddReg=PCI_2P0S.RegHW
+
+[PCIISA_2P0S.MF.NTamd64.Services]
+Include=mf.inf
+Needs=MFINSTALL.mf.services
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[PCI_0P4S.RegHW]
+HKR,Child0000,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0000,ResourceMap,1,06,0A
+HKR,Child0001,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0001,ResourceMap,1,04,0A
+HKR,Child0002,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0002,ResourceMap,1,02,0A
+HKR,Child0003,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0003,ResourceMap,1,00,08,0A
+
+
+[PCI_0P3S.RegHW]
+HKR,Child0000,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0000,ResourceMap,1,04,0A
+HKR,Child0001,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0001,ResourceMap,1,02,0A
+HKR,Child0002,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0002,ResourceMap,1,00,08,0A
+
+[PCI_0P2S.RegHW]
+HKR,Child0000,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0000,ResourceMap,1,02,0A
+HKR,Child0001,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0001,ResourceMap,1,00,08,0A
+
+
+[PCI_0P1S.RegHW]
+HKR,Child0000,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0000,ResourceMap,1,00,08,0A
+
+
+[PCI_1P2S.RegHW] 					
+HKR,Child0000,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0000,ResourceMap,1,02,0A
+HKR,Child0001,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0001,ResourceMap,1,00,08,0A
+HKR,Child0002,HardwareID,,MCS9000MF\PCI_LPT
+HKR,Child0002,ResourceMap,1,04,06,0A
+
+
+[PCI_1P1S.RegHW] 					
+HKR,Child0000,HardwareID,,MCS9000MF\PCI_COM
+HKR,Child0000,ResourceMap,1,00,08,0A
+HKR,Child0002,HardwareID,,MCS9000MF\PCI_LPT
+HKR,Child0002,ResourceMap,1,04,06,0A
+
+
+[PCI_2P0S.RegHW] 					
+HKR,Child0000,HardwareID,,MCS9000MF\PCI_LPT
+HKR,Child0000,ResourceMap,1,00,02,0A
+HKR,Child0001,HardwareID,,MCS9000MF\PCI_LPT
+HKR,Child0001,ResourceMap,1,04,06,0A
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Strings]
+ProviderName="ASIX Electronics Corporation"
+MultiFunctionName="PCI Multifunction-IO Controller"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;   END OF FILE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+

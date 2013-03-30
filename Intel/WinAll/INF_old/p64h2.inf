@@ -1,0 +1,92 @@
+; ****************************************************************************
+; ****************************************************************************
+; **    Filename:  p64h2.INF                                                 
+; **    Abstract:  Windows* XP INF Update File for P64H core devices
+; **    Last Update:  October 2, 2000 (Version 3.00 Build 001)
+; ****************************************************************************
+; ****************************************************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=p64h2.cat
+DriverVer=07/02/2001, 3.00.001
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL%=INTEL_SYS
+
+[INTEL_SYS]
+%PCI\VEN_8086&DEV_1460.DeviceDesc% = INTEL_PCI, PCI\VEN_8086&DEV_1460
+%PCI\VEN_8086&DEV_1461.DeviceDesc% = NO_DRV, PCI\VEN_8086&DEV_1461
+%PCI\VEN_8086&DEV_1462.DeviceDesc% = NO_DRV, PCI\VEN_8086&DEV_1462
+
+[INTEL_PCI]
+Include=machine.inf
+Needs=PCI_DRV
+
+[INTEL_PCI.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[INTEL_PCI.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+;**************************************************************************
+; Do-nothing section used to avoid "Unknown hardware" installation prompts.
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+
+[Strings]
+INTEL           = "Intel"
+
+;*******************************************
+;device descriptions
+PCI\VEN_8086&DEV_1460.DeviceDesc="Intel(R) P64H2 PCI to PCI Bridge - 1460"
+PCI\VEN_8086&DEV_1461.DeviceDesc="Intel(R) P64H2 I/O Advanced Programmable Interrupt Controller - 1461"
+PCI\VEN_8086&DEV_1462.DeviceDesc="Intel(R) P64H2 PCI Hot Plug Controller - 1462"
+
+; Copyright (c) 2000 Intel Corporation
+
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.
+
+

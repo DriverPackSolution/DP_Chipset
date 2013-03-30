@@ -1,0 +1,181 @@
+; AMDAGP8X.INF  -- This file contains descriptions of the AMD-8151 AGP Driver
+;                  supported in Windows 9x, 2000, XP
+;
+; Copyright (c) 1999-2003, AMD
+; Version 1.11  08/21/2003
+
+
+[Version]
+CatalogFile=amdagp8x.cat
+signature="$CHICAGO$"
+Class=System
+ClassGUID={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider="AMD"
+DriverVer=08/21/2003, 8.1.2
+
+
+[Manufacturer]
+%AMD_MFG%=AMD_AGP,NTx86.5.1
+
+[DestinationDirs]
+DefaultDestDir             = 12          ; DIRID_DRIVERS
+AMD_XP_COPYFILES           = 12          ; DIRID_DRIVERS
+AMD_NT_COPYFILES           = 12          ; DIRID_DRIVERS
+AMD_9X_COPYFILES           = 11          ; LDID_SYS
+
+[SourceDisksFiles]
+amdagp8k.sys=1
+amdagp8p.sys=1
+amdmp8x.sys=1
+pnpagp.vxd=1
+amdagp8x.inf=1
+
+[SourceDisksNames]
+1=%DISK_ID%,,
+
+
+; =================== AMD AGP ========================
+[AMD_AGP]
+%PCI\VEN_1022&DEV_7454.DeviceDesc%=AMDAGP_Install,PCI\VEN_1022&DEV_7454
+%PCI\VEN_1022&DEV_7455.DeviceDesc%=AMD2k_Install,PCI\VEN_1022&DEV_7455
+
+[AMD_AGP.NTx86.5.1]
+%PCI\VEN_1022&DEV_7455.DeviceDesc%=AMDXP_Install,PCI\VEN_1022&DEV_7455
+
+
+; =================== WinXP ========================
+
+[AMDXP_Install]
+DriverVer=08/21/2003, 8.1.2.0
+CopyFiles=AMD_XP_COPYFILES
+
+[AMDXP_Install.HW]
+AddReg = AGPXP_Filter_Reg
+
+[AMDXP_Install.Services]
+AddService = amdagp8p,0,amdagpxp_ServiceInstallSection
+AddService = pci, %SPSVCINST_ASSOCSERVICE%, pci_ServiceInstallSection
+
+[amdagpxp_ServiceInstallSection]
+DisplayName    = %agp_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\amdagp8p.sys
+LoadOrderGroup = PnP Filter
+AddReg         = AGPXP_Parameters_Reg
+
+[AGPXP_Filter_Reg]
+HKR,,"UpperFilters", 0x00010000,"AMDAGP8P"
+
+[AGPXP_Parameters_Reg]
+
+[AMD_XP_COPYFILES]
+amdagp8p.sys
+
+
+[pci_ServiceInstallSection]
+DisplayName    = %pci_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\pci.sys
+LoadOrderGroup = "Boot Bus Extender"
+
+
+
+; =================== Win2k ========================
+
+[AMD2k_Install.NT]
+DriverVer=08/21/2003, 8.1.2.0
+CopyFiles=AMD_NT_COPYFILES
+
+[AMD2k_Install.NT.HW]
+AddReg = AGP2k_Filter_Reg
+
+[AMD2k_Install.NT.Services]
+AddService = amdagp8k,0,amdagp_ServiceInstallSection
+AddService = pci, %SPSVCINST_ASSOCSERVICE%, pci_ServiceInstallSection
+
+[amdagp_ServiceInstallSection]
+DisplayName    = %agp_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\amdagp8k.sys
+LoadOrderGroup = PnP Filter
+
+[AGP2k_Filter_Reg]
+HKR,,"UpperFilters", 0x00010000,"AMDAGP8K"
+
+[AMD_NT_COPYFILES]
+amdagp8k.sys
+
+
+; =================== Win9x ========================
+
+[AMDDefaultInstall]
+DelReg = AGP_DRV_DelReg
+AddReg = AGP_DRV_AddReg
+
+[AMDDefaultUninstall]
+DelReg = AGP_DRV_DelReg
+
+[ClassInstall]
+AddReg = AGP_DRV_AddReg
+
+[AGP_DRV_AddReg]
+; AGP GART Miniport Data
+HKLM,System\CurrentControlSet\Services\VxD\PCI\GARTMiniports\74541022,Name,, "AMD-8151 AGP3.0 Driver"
+HKLM,System\CurrentControlSet\Services\VxD\PCI\GARTMiniports\74541022,Path,, "AMDMP8X.SYS"
+HKLM,System\CurrentControlSet\Services\VxD\PCI\GARTMiniports\74541022,Instance,1,00,00,00,00
+HKR,,DevLoader,,*CONFIGMG
+HKR,,DeviceDriver,,pnpagp.vxd
+
+[AGP_DRV_DelReg]
+HKLM,Enum\PCI\VEN_1022&DEV_7454&SUBSYS_00000000&REV_00
+HKLM,Enum\PCI\VEN_1022&DEV_7454&SUBSYS_00000000&REV_10
+HKLM,Enum\PCI\VEN_1022&DEV_7454&SUBSYS_00000000&REV_11
+HKLM,Enum\PCI\VEN_1022&DEV_7454&SUBSYS_00000000&REV_20
+HKLM,Enum\PCI\VEN_1022&DEV_7454&SUBSYS_00000000&REV_21
+HKLM,System\CurrentControlSet\Services\VxD\PCI\GARTMiniports\74541022
+HKLM,System\CurrentControlSet\Services\VxD\VGARTD
+HKLM,System\CurrentControlSet\Services\VxD\PNPAGP
+
+[ControlFlags]
+ExcludeFromSelect=PCI\VEN_1022&DEV_7454
+
+[AMDAGP_Install]
+DriverVer = 08/21/2003, 8.1.2.0
+CopyFiles = AMD_9X_COPYFILES
+AddReg = AGP_DRV_AddReg
+reboot=0
+
+[AMD_9X_COPYFILES]
+amdmp8x.sys
+pnpagp.vxd
+
+
+; =================== STRINGS and CONSTANTS ========================
+
+[Strings]
+AMD_MFG = "AMD"
+PCI\VEN_1022&DEV_7454.DeviceDesc="AMD-8151 HyperTransport(tm) AGP3.0 Graphics Tunnel"
+PCI\VEN_1022&DEV_7455.DeviceDesc="AMD-8151 HyperTransport(tm) AGP3.0 Graphics Tunnel"
+DISK_ID="Installation Disk for AMD AGP"
+
+;service descriptions
+agp_svcdesc = "AMD NB AGP Bus Filter"
+pci_svcdesc = "PCI Bus Driver"
+
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+REG_EXPAND_SZ          = 0x00020000
+REG_DWORD              = 0x00010001
+

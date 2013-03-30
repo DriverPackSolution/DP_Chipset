@@ -1,0 +1,91 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: CentSMB.inf                                            **
+; **           Abstract: Windows* SMB INF for Intel(R) Centeron                 **
+; **        Last Update: October 5, 2012 (Version 9.3.1 Build 1009)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=CentSMB.cat
+DriverVer=10/05/2012, 9.3.1.1009
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_0C59.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C59
+%PCI\VEN_8086&DEV_0C5A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5A
+%PCI\VEN_8086&DEV_0C5B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5B
+%PCI\VEN_8086&DEV_0C5C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5C
+%PCI\VEN_8086&DEV_0C5D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5D
+%PCI\VEN_8086&DEV_0C5E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5E
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_0C59.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C59
+%PCI\VEN_8086&DEV_0C5A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5A
+%PCI\VEN_8086&DEV_0C5B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5B
+%PCI\VEN_8086&DEV_0C5C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5C
+%PCI\VEN_8086&DEV_0C5D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5D
+%PCI\VEN_8086&DEV_0C5E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0C5E
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_0C59.DeviceDesc="Intel(R) Atom Processor S1200 Series SMBus 2.0 Controller 0 - 0C59"
+PCI\VEN_8086&DEV_0C5A.DeviceDesc="Intel(R) Atom Processor S1200 Series SMBus 2.0 Controller 1 - 0C5A"
+PCI\VEN_8086&DEV_0C5B.DeviceDesc="Intel(R) Atom Processor S1200 Series SMBus Controller 2 - 0C5B"
+PCI\VEN_8086&DEV_0C5C.DeviceDesc="Intel(R) Atom Processor S1200 Series SMBus Controller 3 - 0C5C"
+PCI\VEN_8086&DEV_0C5D.DeviceDesc="Intel(R) Atom Processor S1200 Series SMBus Controller 4 - 0C5D"
+PCI\VEN_8086&DEV_0C5E.DeviceDesc="Intel(R) Atom Processor S1200 Series SMBus Controller 5 - 0C5E"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

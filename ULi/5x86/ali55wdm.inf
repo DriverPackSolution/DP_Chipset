@@ -1,0 +1,330 @@
+;Copyright (c) 1998-2002 ALi Corporation All rights Reserved
+;
+;Module Name:
+;   ali55wdm.INF
+;
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%ProviderName%
+DriverVer=27/08/2004,5.12.01.7006
+//CatalogFile=ali55wdm.cat 
+
+[SourceDisksNames]
+222=%DiskDescription%,,,
+
+[SourceDisksFiles]
+ali55wdm.sys=222
+ali55prp.dll=222
+ali55cpl.cpl=222
+ali55wdm.inf=222
+
+[Manufacturer]
+%MfgName%=ALi
+
+[ControlFlags]
+
+ExcludeFromSelect = *
+
+[ALi]
+%AC97ALI.DeviceDesc%=AC97ALI, PCI\VEN_10B9&DEV_5455
+%AC97ALI.DeviceDesc%=AC97ALI, PCI\VEN_10B9&DEV_5455&subsys_545510B9
+
+[DestinationDirs]
+AC97ALI.CopyList=10,system32\drivers
+AC97PROP.CopyList=10,system32
+AC97CPL.CopyList=10,system
+AC97CPL32.CopyList=10,system32  
+
+[AC97ALI]
+AlsoInstall=KS.Registration(ks.inf), WDMAUDIO.Registration(wdmaudio.inf)
+CopyFiles=AC97ALI.CopyList, AC97CPL.CopyList
+AddReg=AC97ALI.AddReg,AC97ALI_NAMES.AddReg,AC97ALI_OEM.AddReg
+KnownRegEntries=AC97.KnownRegEntries
+
+[AC97.KnownRegEntries]
+IsWin98Gold=keep
+
+[IsWin98Gold]
+1=HKLM,Software\Microsoft\Windows\CurrentVersion,VersionNumber,0,4.10.1998
+
+[AC97ALI.CopyList]
+ali55wdm.sys
+
+[AC97CPL.CopyList]
+ali55cpl.cpl
+
+[AC97CPL32.CopyList]
+ali55cpl.cpl
+
+[AC97ALI.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,AC97ALI.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,AC97ALI.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,AC97ALI.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,AC97ALI.Interface.Topology
+
+[AC97ALI.Interface.Wave]
+AddReg=AC97ALI.I.Wave.AddReg
+
+[AC97ALI.I.Wave.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%AC97ALI.Wave.szPname%
+
+[AC97ALI.Interface.Topology]
+AddReg=AC97ALI.I.Topo.AddReg
+
+[AC97ALI.I.Topo.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%AC97ALI.Topology.szPname%
+
+[AC97ALI.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,ali55wdm.sys
+HKR,,NTMPDriver,,"ali55wdm.sys,sbemul.sys"
+
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv,Description,,%AC97ALI.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv, Description,,%AC97ALI.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%AC97ALI.DeviceDesc%
+
+[AC97ALI.Services]
+AddService = AC97ALI, 0x00000002, AC97ALI_Service_Inst
+
+[AC97ALI_Service_Inst]
+DisplayName   = %AC97ALI.SvcDesc%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %10%\system32\drivers\ali55wdm.sys
+
+[AC97ALI_NAMES.AddReg]
+;; Nodes
+HKLM,%MediaCategories%\%ALIGUID.PhoneVolume%,Name,,%ALINode.PhoneVolume%
+HKLM,%MediaCategories%\%ALIGUID.PhoneVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.PhoneMute%,Name,,%ALINode.PhoneMute%
+HKLM,%MediaCategories%\%ALIGUID.PhoneMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.LineInMute%,Name,,%ALINode.LineInMute%
+HKLM,%MediaCategories%\%ALIGUID.LineInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.MainMix%,Name,,%ALINode.MainMix%
+HKLM,%MediaCategories%\%ALIGUID.MainMix%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.3DBypass%,Name,,%ALINode.3DBypass%
+HKLM,%MediaCategories%\%ALIGUID.3DBypass%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.3DEnable%,Name,,%ALINode.3DEnable%
+HKLM,%MediaCategories%\%ALIGUID.3DEnable%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.BeepMix%,Name,,%ALINode.BeepMix%
+HKLM,%MediaCategories%\%ALIGUID.BeepMix%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.HPVolume%,Name,,%ALINode.HPVolume%
+HKLM,%MediaCategories%\%ALIGUID.HPVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.HPMute%,Name,,%ALINode.HPMute%
+HKLM,%MediaCategories%\%ALIGUID.HPMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.MonoOutSelect%,Name,,%ALINode.MonoOutSelect%
+HKLM,%MediaCategories%\%ALIGUID.MonoOutSelect%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.WaveInSelect%,Name,,%ALINode.WaveInSelect%
+HKLM,%MediaCategories%\%ALIGUID.WaveInSelect%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.MasterInVolume%,Name,,%ALINode.MasterInVolume%
+HKLM,%MediaCategories%\%ALIGUID.MasterInVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.MasterInMute%,Name,,%ALINode.MasterInMute%
+HKLM,%MediaCategories%\%ALIGUID.MasterInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.MicInVolume%,Name,,%ALINode.MicInVolume%
+HKLM,%MediaCategories%\%ALIGUID.MicInVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.MicInMute%,Name,,%ALINode.MicInMute%
+HKLM,%MediaCategories%\%ALIGUID.MicInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.SimulStereo%,Name,,%ALINode.SimulStereo%
+HKLM,%MediaCategories%\%ALIGUID.SimulStereo%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.SurroundVolume%,Name,,%ALINode.SurroundVolume%
+HKLM,%MediaCategories%\%ALIGUID.SurroundVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.SurroundMute%,Name,,%ALINode.SurroundMute%
+HKLM,%MediaCategories%\%ALIGUID.SurroundMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.CenterVolume%,Name,,%ALINode.CenterVolume%
+HKLM,%MediaCategories%\%ALIGUID.CenterVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.CenterMute%,Name,,%ALINode.CenterMute%
+HKLM,%MediaCategories%\%ALIGUID.CenterMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.LFEVolume%,Name,,%ALINode.LFEVolume%
+HKLM,%MediaCategories%\%ALIGUID.LFEVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.LFEMute%,Name,,%ALINode.LFEMute%
+HKLM,%MediaCategories%\%ALIGUID.LFEMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.FrontVolume%,Name,,%ALINode.FrontVolume%
+HKLM,%MediaCategories%\%ALIGUID.FrontVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.FrontMute%,Name,,%ALINode.FrontMute%
+HKLM,%MediaCategories%\%ALIGUID.FrontMute%,Display,1,00,00,00,00
+;; Pins
+HKLM,%MediaCategories%\%ALIGUID.Surround%,Name,,%ALIPin.Surround%
+HKLM,%MediaCategories%\%ALIGUID.Surround%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.Center%,Name,,%ALIPin.Center%
+HKLM,%MediaCategories%\%ALIGUID.Center%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.LFE%,Name,,%ALIPin.LFE%
+HKLM,%MediaCategories%\%ALIGUID.LFE%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ALIGUID.Front%,Name,,%ALIPin.Front%
+HKLM,%MediaCategories%\%ALIGUID.Front%,Display,1,00,00,00,00
+
+
+[AC97ALI_OEM.AddReg]
+;;Default register value at driver startup
+;;Uncomment some one of the lines if you want to overwrite the default setting
+;;The value in these outcommented lines is the driver default. You can change
+;;the register values (and uncomment the line) to overwrite the driver default.
+;;low byte comes first, values are hexadezimal.
+;HKR,Settings,MasterVolume,1,0,0 		;0dB
+;HKR,Settings,HeadphoneVolume,1,0,0,02,1F	;0dB
+;HKR,Settings,MonooutVolume,1,0,0		;0dB
+;HKR,Settings,ToneControls,1,F,F		;bypass
+;HKR,Settings,BeepVolume,1,0,0			;0dB
+;HKR,Settings,PhoneVolume,1,8,80		;muted
+;HKR,Settings,MicVolume,1,8,80			;muted
+;HKR,Settings,LineInVolume,1,8,8,01		;0dB
+;HKR,Settings,CDVolume,1,8,8,01,1F		;0dB
+;HKR,Settings,VideoVolume,1,8,8			;0dB
+;HKR,Settings,AUXVolume,1,8,8			;0dB
+;HKR,Settings,WaveOutVolume,1,8,8		;0dB. This register is never touched by the system.
+;HKR,Settings,RecordSelect,1,4,4		;select LiniIn
+;HKR,Settings,RecordGain,1,0,0,7,0		;0dB
+;HKR,Settings,RecordGainMic,1,0,0		;0dB
+;HKR,Settings,GeneralPurpose,1,0,0		;pre 3D, 3D off, loudness off, mono=mix, mic1
+;HKR,Settings,3DControl,1,0,0			;0%
+;HKR,Settings,PowerDown,1,0,0			;no power down
+;HKR,Settings,ExtAudioCtrl,1,01,40	        ;VRA, DACs on, MicIn off
+;HKR,Settings,CenterLFEVolume,1,0,0	        ;0dB
+;HKR,Settings,SurroundVolume,1,0,0	        ;0dB
+
+;;Configuration
+;;You can disable some of the input lines by outcommenting some of the lines
+;;below. This could be necessary if you have a AC97 codec on board that for
+;;example supports Video input, but you don't have the Video input accessable
+;;for the user (no plug in).
+;HKR,Settings,DisablePCBeep,1,1
+;HKR,Settings,DisablePhone,1,1
+;HKR,Settings,DisableMic2,1,1
+;HKR,Settings,DisableVideo,1,1
+;HKR,Settings,DisableAUX,1,1
+;HKR,Settings,DisableHeadphone,1,1
+;HKR,Settings,DisableMonoOut,1,1
+HKR,Settings,DisableMicIn,1,1
+;HKR,Settings,DisableMic,1,1		;disables all MIC lines, including MIC record.
+;HKR,Settings,DisableLineIn,1,1
+;HKR,Settings,DisableCD,1,1
+;HKR,Settings,DisableSurround,1,1
+;HKR,Settings,DisableCenterLFE,1,1      ;This is not supported in Win98SE, Win2k, Millennium
+;HKR,Settings,DisableCodecSPDIF,1,1	;disables AC97 2.2 codec S/PDIF output
+                                        ;enables 5455 S/PDIF output 
+
+;HKR,Settings,ChannelConfig,1,3,0,0,0   ;ChannelConfig set to stereo speakers.
+
+;; 5455 OEM configuration
+;; All 5455 hardware and software features can be set here
+
+;HKR,Settings,DisableHWSRC,1,1		;enable codec HW SRC
+;HKR,Settings,EnableSWSRC,1,1		;enable driver SW SRC	  
+;HKR,Settings,EnableDigitalOut,1,1 	;enable digital output
+
+;;================= Windows 2000 ====================
+[AC97ALI.NTX86]
+Include=ks.inf,wdmaudio.inf
+Needs=KS.Registration,WDMAUDIO.Registration
+CopyFiles=AC97ALI.CopyList,AC97CPL32.CopyList,AC97PROP.CopyList
+AddReg=AC97ALI.AddReg,AC97ALI_NAMES.AddReg,AC97ALI_OEM.AddReg,AC97PROP.AddReg
+
+[AC97ALI.NTX86.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,AC97ALI.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,AC97ALI.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,AC97ALI.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,AC97ALI.Interface.Topology
+
+[AC97ALI.NTX86.Services]
+AddService = AC97ALI, 0x00000002, AC97ALI_Service_Inst
+
+[AC97PROP.CopyList]
+ali55prp.dll
+
+[AC97PROP.AddReg]
+HKR,,EnumPropPages32,,"ali55prp.dll,AC97PropPageProvider"
+
+
+[Strings]
+ProviderName="ULi Corporation"
+MfgName="ULi Corporation"
+DiskDescription="AC'97 WDM Driver Disk"
+AC97ALI.DeviceDesc="ULi M5455 Audio Controller"
+
+AC97ALI.Wave.szPname="ULi Audio Wave"
+AC97ALI.Topology.szPname="ULi Audio Mixer"
+
+MediaCategories="SYSTEM\CurrentControlSet\Control\MediaCategories"
+
+Proxy.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSNAME_Wave="Wave"
+KSNAME_Topology="Topology"
+
+AC97ALI.SvcDesc = "Service for AC'97 Driver (WDM)"
+
+;; Nodes (non-localizeable)
+ALIGUID.PhoneVolume     ="{0A8C1A87-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.PhoneMute       ="{0A8C1A88-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.LineInMute      ="{0A8C1A91-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.MainMix         ="{0A8C1A9B-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.3DBypass        ="{0A8C1A9E-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.3DEnable        ="{766DB5A4-6E94-11D2-9ADE-00C04F8EFB68}"
+ALIGUID.BeepMix         ="{0A8C1A9F-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.HPVolume        ="{0A8C1AA5-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.HPMute          ="{0A8C1AA6-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.MonoOutSelect   ="{0A8C1AA9-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.WaveInSelect    ="{0A8C1AAE-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.MasterInVolume  ="{0A8C1AAF-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.MasterInMute    ="{0A8C1AB0-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.MicInVolume     ="{0A8C1AB2-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.MicInMute       ="{0A8C1AB3-42B0-11D2-95D2-00C04FB925D3}"
+ALIGUID.SimulStereo     ="{B3AD50B5-3849-4983-ADD7-25E6268F912D}"
+ALIGUID.SurroundVolume  ="{A4B68BA4-6958-4ab4-BB01-E23C6F027C88}"
+ALIGUID.SurroundMute    ="{22654FBC-AC8F-4224-B19F-D858D2E10BDD}"
+ALIGUID.CenterVolume    ="{9B0F1946-ABD2-47a8-A778-BB86CDE1A167}"
+ALIGUID.CenterMute      ="{BEEF51ED-1041-43f8-9B96-5863D0A9342D}"
+ALIGUID.LFEVolume       ="{455FA6F2-21EC-4df4-B1E4-3155209797F3}"
+ALIGUID.LFEMute         ="{4A4D9210-C780-4768-BFD2-525FDBF4FCB4}"
+ALIGUID.FrontVolume     ="{9F4801BD-F746-4c7a-8A9D-F6E99004CC98}"
+ALIGUID.FrontMute       ="{C8E03B2A-EBD9-4554-A750-8E4472750A5B}"
+;; Pins (non-localizeable)
+ALIGUID.Surround        ="{81FBB14B-1BEE-4bf5-92EE-FFC4F75F326D}"
+ALIGUID.Center          ="{2D97372F-9CF6-4fd6-9E56-C68BACDF360D}"
+ALIGUID.LFE             ="{B60C4274-3BFD-430b-8364-D947E7D304B1}"
+ALIGUID.Front           ="{070395E2-BE7C-4b4d-B529-40CB9BFCF995}"
+
+
+;; Nodes (localizeable)
+ALINode.PhoneVolume     ="Phone Volume"
+ALINode.PhoneMute       ="Phone Mute"
+ALINode.LineInMute      ="Line In Mute"
+ALINode.MainMix         ="Main Mix"
+ALINode.3DBypass        ="3D Bypass"
+ALINode.3DEnable        ="3D Enable"
+ALINode.BeepMix         ="Beep Mix"
+ALINode.HPVolume        ="Headphone Volume"
+ALINode.HPMute          ="Headphone Mute"
+ALINode.MonoOutSelect   ="Mono Out Select"
+ALINode.WaveInSelect    ="Wave In Select"
+ALINode.MasterInVolume  ="Wave In Volume"
+ALINode.MasterInMute    ="Wave In Mute"
+ALINode.MicInVolume     ="Mic In Volume"
+ALINode.MicInMute       ="Mic In Mute"
+ALINode.SimulStereo     ="Simulated Stereo"
+ALINode.SurroundVolume  ="Rear Speaker Volume"
+ALINode.SurroundMute    ="Rear Speaker Mute"
+ALINode.CenterVolume    ="Center Volume"
+ALINode.CenterMute      ="Center Mute"
+ALINode.LFEVolume       ="Subwoofer Volume"
+ALINode.LFEMute         ="Subwoofer Mute"
+ALINode.FrontVolume     ="Front Volume"
+ALINode.FrontMute       ="Front Mute"
+;; Pins
+ALIPin.Surround         ="Rear Speaker"
+ALIPin.Center           ="Center"
+ALIPin.LFE              ="Subwoofer"
+ALIPin.Front            ="Front Speaker"
+

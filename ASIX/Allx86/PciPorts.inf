@@ -1,0 +1,423 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  (c) Copyright ASIX Electronics Corporation
+;;  File : PciPorts.inf
+;;  This inf file configures Pci multi I/O (COM & LPT ) ports
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[version]
+CatalogFile=Pciports.cat 
+signature="$Chicago$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%ProviderName%
+DriverVer=12/13/2012, 1.0.1.0
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[SourceDisksNames]
+0=%DiskName%,,
+
+[SourceDisksNames.amd64]
+0=%DiskName%,,
+
+[SourceDisksFiles]
+PciSPorts.sys=0,X86,
+PciPPorts.sys=0,X86,
+PciPorts.dll=0,X86,
+PciCoInst.dll=0,X86,
+PciIsaSerial.sys=0,X86, 
+M65Lang.ini=0
+
+
+[SourceDisksFiles.amd64]
+PciSPorts.sys=0,AMD64,
+PciPPorts.sys=0,AMD64,
+PciPorts.dll=0,AMD64,
+PciCoInst.dll=0,AMD64, 
+PciIsaSerial.sys=0,AMD64, 
+M65Lang.ini=0
+
+[DestinationDirs]
+Common.Files.x86_11 = 11
+Sys.Files.x86_12 = 12 
+
+Common.Files.Amd64_11 = 11 
+Sys.Files.Amd64_12 = 12 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  Driver Installation
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Manufacturer]
+%ProviderName%=PCIPorts, NTamd64
+
+[PCIPorts]
+%PCI.SerialPort%=ComCard,PCI\VEN_9710&DEV_9865&SUBSYS_1000A000&REV_00
+%PCI.ParallelPort%=LptCard,PCI\VEN_9710&DEV_9865&SUBSYS_2000A000&REV_00
+%PCI.ComPort%=ISAComPort, MCS9000MF\PCI_COM
+%PCI.EcpPort%=ISAEcpPort, MCS9000MF\PCI_LPT
+
+
+[PCIPorts.NTamd64]
+%PCI.SerialPort%=ComCard,PCI\VEN_9710&DEV_9865&SUBSYS_1000A000&REV_00
+%PCI.ParallelPort%=LptCard,PCI\VEN_9710&DEV_9865&SUBSYS_2000A000&REV_00
+%PCI.ComPort%=ISAComPort, MCS9000MF\PCI_COM
+%PCI.EcpPort%=ISAEcpPort, MCS9000MF\PCI_LPT
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  COM Port Install
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;  X86 ;;;; 
+
+[ISAComPort.NT]
+CopyFiles=Common.Files.x86_11, Sys.Files.x86_12
+AddReg=ComPort.AddReg, ComPort.NT.AddReg, Uninstall.AddReg
+Include=msports.inf 
+Needs=ComPort.NT.Copy
+
+[ISAComPort.NT.HW]
+AddReg=ComPort.NT.HW.AddReg
+
+[ISAComPort.NT.Services]
+AddService = PciIsaSerial, 0x00000002, PCI_ISASerial_Service_Inst,PCI_ISASerial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+[ISAComPort.NT.CoInstallers]
+CopyFiles=MCS9865PCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+;;;;  AMD64 ;;;; 
+
+[ISAComPort.NTamd64]
+CopyFiles=Common.Files.Amd64_11, Sys.Files.Amd64_12
+AddReg=ComPort.AddReg, ComPort.NT.AddReg, Uninstall.AddReg
+Include=msports.inf 
+Needs=ComPort.NT.Copy
+
+[ISAComPort.NTamd64.HW]
+AddReg=ComPort.NT.HW.AddReg
+
+[ISAComPort.NTamd64.Services]
+AddService = PciIsaSerial, 0x00000002, PCI_ISASerial_Service_Inst,PCI_ISASerial_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+[ISAComPort.NTamd64.CoInstallers]
+CopyFiles=MCS9865PCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+
+; -------------- ISASerial Port Driver install sections
+[PCI_ISASerial_Service_Inst]
+DisplayName    = %PCI.ComPort%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START (1-SERVICE_SYSTEM_START)
+ErrorControl   = 0               ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %12%\PciIsaSerial.sys
+LoadOrderGroup = Extended base
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  EcpPort Install
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[ISAEcpPort.NT]
+CopyFiles=Common.Files.x86_11
+AddReg=EcpPort.AddReg,EcpPort.NT.AddReg
+
+[ISAEcpPort.NT.Services]
+Include=msports.inf
+Needs=EcpPort.NT.Services
+
+[ISAEcpPort.NT.CoInstallers]
+CopyFiles=MCS9865PCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+[ISAEcpPort.NTamd64]
+CopyFiles=Common.Files.x86_11
+AddReg=EcpPort.AddReg,EcpPort.NT.AddReg
+
+[ISAEcpPort.NTamd64.Services]
+Include=msports.inf
+Needs=EcpPort.NT.Services
+
+[ISAEcpPort.NTamd64.CoInstallers]
+CopyFiles=MCS9865PCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+
+
+[PCI_ISASerial_EventLog_Inst]
+AddReg=ISAComPort.DriverParams
+
+[ISAComPort.DriverParams]
+HKLM,"System\CurrentControlSet\Services\PciIsaSerial", "SetRtsOnWake", 0x10001, 1
+HKLM,"System\CurrentControlSet\Services\PciIsaSerial", "RetainPowerOnClose", 0x10001, 1
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PCI COM Card Install
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;  X86 ;;;; 
+
+[ComCard.NT]
+CopyFiles=Common.Files.x86_11, Sys.Files.x86_12
+AddReg=ComPort.AddReg, ComCard.NT.AddReg, Uninstall.AddReg
+
+[ComCard.NT.HW]
+AddReg=ComCard.NT.HW.AddReg
+
+[ComCard.NT.Services]
+AddService = PciSPorts, 0x00000002, PCISPorts_Service_Inst,PCISPorts_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+[ComCard.NT.CoInstallers]
+CopyFiles=MCS9865PCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+
+
+
+;;;;  AMD64 ;;;; 
+
+[ComCard.NTamd64]
+CopyFiles=Common.Files.Amd64_11, Sys.Files.Amd64_12
+AddReg=ComPort.AddReg, ComCard.NT.AddReg, Uninstall.AddReg
+
+
+[ComCard.NTamd64.HW]
+AddReg=ComCard.NT.HW.AddReg
+
+[ComCard.NTamd64.Services]
+AddService = PciSPorts, 0x00000002, PCISPorts_Service_Inst,PCISPorts_EventLog_Inst
+AddService = Serenum,,Serenum_Service_Inst
+
+[ComCard.NTamd64.CoInstallers]
+CopyFiles=MCS9865PCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  General Sections for all Installations   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[ComPort.AddReg]
+HKR,,PortSubClass,1,01
+
+[ComPort.NT.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[ComPort.NT.HW.AddReg]
+HKR,,"UpperFilters",0x00010000,"serenum"
+HKR,,"CUSTNAME",0x00010000,%CustomerName%
+
+[EcpPort.AddReg]
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,01
+
+[EcpPort.NT.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,ParallelPortPropPageProvider"
+
+[PCISPorts_EventLog_Inst]
+AddReg=ComCard.DriverParams
+
+[ComCard.NT.HW.AddReg]
+HKR,,"UpperFilters",0x00010000,"serenum"
+HKR,,"MaskLowBaudToHigh", 0x10001, 0
+HKR,,"UARTMode", 0x10001, 9
+HKR,,"RxFIFO", 0x10001, 64
+HKR,,"TxFIFO", 0x10001, 64
+HKR,,"RxHighWaterMark", 0x10001, 240
+HKR,,"RxLowWaterMark", 0x10001, 16
+HKR,,"EnableHwFlowControl", 0x10001, 0
+HKR,,"HwFlowControl", 0x10001, 0
+HKR,,"UseClockPrescalar", 0x10001, 0
+HKR,,"CPRRegValue", 0x10001, 1
+HKR,,"UseBaudMultiplier", 0x10001, 0
+HKR,,"TCRRegValue", 0x10001, 16
+HKR,,"XOnChar", 0x10001, 17
+HKR,,"XOffChar", 0x10001, 19
+HKR,,"TranceiverMode", 0x10001, 0
+HKR,,"RS485Mode", 0x10001, 1
+HKR,,"SampleStartBit", 0x10001, 0
+HKR,,"StartBitLength", 0x10001, 4
+HKR,,"SampleDataBit", 0x10001, 0
+HKR,,"DataBitLength", 0x10001, 4
+HKR,,"TxFifoAmount", 0x10001, 64
+HKR,,"TxDmaEnable", 0x10001, 0
+HKR,,"TxDmaLength", 0x10001, 4096
+HKR,,"RxDmaEnable", 0x10001, 0
+HKR,,"RxDmaLength", 0x10001, 4096
+HKR,,"Limit4k", 0x10001, 1
+HKR,,"SerialDebugLevel", 0x10001, 0
+HKR,,"PowerUpTime", 0x10001, 1000
+HKR,,"EnableICG", 0x10001, 0
+HKR,,"InterCharGap", 0x10001, 0
+HKR,,"UseCustomBaudrate", 0x10001, 0
+HKR,,"DLLValue", 0x10001, 0
+HKR,,"DLMValue", 0x10001, 0
+HKR,,"InputClock", 0x10001, 0
+HKR,,"UseExternalClock", 0x10001, 0
+HKR,,"ExternalClock", 0x10001, 14745600
+HKR,,"UseExtPCIeClockSource", 0x10001, 0
+HKR,,"RemoteWakeOn", 0x10001, 0x09000000
+HKR,,"CUSTNAME",0x00010000,%CustomerName%
+
+[ComCard.DriverParams]
+HKLM,"System\CurrentControlSet\Services\PciSPorts", "EnableTranceiverShutdown", 0x10001, 0
+HKLM,"System\CurrentControlSet\Services\PciSPorts", "UseExtPCIeClockSource", 0x10001, 0
+HKLM,"System\CurrentControlSet\Services\PciSPorts", "RetainPowerOnClose", 0x10001, 1
+
+
+
+[ComCard.NT.AddReg]
+HKR,,EnumPropPages32,,"PciPorts.dll,SerialPortPropPageProvider"
+
+
+[PCISPorts_Service_Inst]
+DisplayName = %PCI.SerialPort%
+ServiceType  = 1             ; SERVICE_KERNEL_DRIVER
+StartType      = 3           ; SERVICE_DEMAND_START (1-SERVICE_SYSTEM_START)
+ErrorControl = 0             ; SERVICE_ERROR_IGNORE
+ServiceBinary = %12%\PciSPorts.sys
+LoadOrderGroup = Extended base
+
+; -------------- Serenum Driver install section
+[Serenum_Service_Inst]
+DisplayName    = %Serenum.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\serenum.sys
+LoadOrderGroup = PNP Filter
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PCI LPT Card Install
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;  X86 ;;;; 
+
+[LptCard.NT]
+CopyFiles=Common.Files.x86_11, Sys.Files.x86_12
+AddReg=LptCard.AddReg,LptCard.NT.AddReg,Uninstall.AddReg
+
+[LptCard.NT.HW]
+AddReg = LptCard.NT.HW.AddReg
+
+[LptCard.NT.Services]
+AddService = PciPPorts, 0x00000002, PCIPPorts_Service_Inst, PCIPPorts_EventLog_Inst 
+
+[LptCard.NT.CoInstallers]
+CopyFiles=MCS9865PCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+
+
+;;;;  AMD64 ;;;; 
+
+[LptCard.NTamd64]
+CopyFiles=Common.Files.Amd64_11, Sys.Files.Amd64_12
+AddReg=LptCard.AddReg,LptCard.NT.AddReg,Uninstall.AddReg
+
+[LptCard.NT.HW]
+AddReg = LptCard.NT.HW.AddReg
+
+[LptCard.NTamd64.Services]
+AddService = PciPPorts, 0x00000002, PCIPPorts_Service_Inst, PCIPPorts_EventLog_Inst 
+
+[LptCard.NTamd64.CoInstallers]
+CopyFiles=MCS9865PCICoInstallCopyFileSection
+AddReg = CoClass.CoInstallers_AddReg
+
+
+
+;;; Other sections
+
+[LptCard.NT.HW.AddReg]
+HKR,,"CUSTNAME",0x00010000,%CustomerName%
+
+[LptCard.AddReg]
+HKR,,PortSubClass,1,00
+HKR,,ECPDevice,1,01
+
+[LptCard.NT.AddReg]
+HKR,,EnumPropPages32,,"PciPorts.dll,ParallelPortPropPageProvider"
+
+; -------------- Parallel Port Driver install sections
+[PCIPPorts_Service_Inst]
+DisplayName    = %PCI.ParallelPort%
+ServiceType    = 1                ; SERVICE_KERNEL_DRIVER
+StartType      = 3                ; SERVICE_DEMAND_START (1-SERVICE_SYSTEM_START)
+ErrorControl   = 0                ; SERVICE_ERROR_IGNORE  ;; Check
+ServiceBinary  = %12%\PciPPorts.sys
+LoadOrderGroup = Parallel arbitrator
+
+[PCIPPorts_EventLog_Inst]
+AddReg = PCIPPorts_EventLog_AddReg
+
+[PCIPPorts_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\PciPPorts.sys"
+HKR,,TypesSupported,0x00010001,7
+
+
+[Uninstall.AddReg]
+;; NOTHING
+
+
+[Common.Files.x86_11] 
+M65Lang.ini
+PciPorts.dll
+
+[Sys.Files.x86_12] 
+PciSPorts.sys
+PciPPorts.sys
+PciIsaSerial.sys
+
+[Common.Files.AMD64_11] 
+M65Lang.ini
+PciPorts.dll
+
+[Sys.Files.AMD64_12] 
+PciSPorts.sys
+PciPPorts.sys
+PciIsaSerial.sys
+
+;;; Other sections
+
+[MCS9865PCICoInstallCopyFileSection]
+PciCoInst.dll
+
+[CoClass.CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"PciCoInst.dll,CoInstaller"
+
+; User readable strings
+;----------------------------------------------------------
+[Strings]
+CustomerName="MOSCHIP"
+ProviderName="ASIX Electronics Corporation"
+DiskName="PCI Multi-IO Drivers Disk"
+PCI.SerialPort="High-Speed PCI Serial Port"
+PCI.ParallelPort="PCI ECP Parallel Port"
+PCI.ComPort="PCI-ISA Communication Port"
+PCI.EcpPort="PCI-ISA Parallel Port"
+Serenum.SVCDESC = "Serenum Filter Driver"
+
+;-----------------------
+; END OF FILE
+;-----------------------
+

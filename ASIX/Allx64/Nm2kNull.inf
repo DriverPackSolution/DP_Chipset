@@ -1,0 +1,55 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  (c) Copyright ASIX Electronics Corporation
+;;  FILE : Nm2kNull.inf
+;;  This inf file configures one IO-BRIDGE device
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[Version]
+CatalogFile=nmports.cat 
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%ProviderName%
+DriverVer=12/18/2012,2.0.3.0
+
+;===============================
+; Driver Installation
+;===============================
+[Manufacturer]
+%ProviderName%=Multi_IO_Cards, NTAMD64
+
+;
+; Manufacturer Name Section
+;
+[Multi_IO_Cards.NTAMD64]
+%IOBridgeName%=IO_BRIDGE,MF\PCI9710_BRIDGE
+
+;----------------------------------------
+; BRIDGE Port Install
+;----------------------------------------
+[IO_BRIDGE]
+AddReg=Nothing.AddReg
+
+
+[IO_BRIDGE.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%   ; null service install
+
+[Nothing.AddReg]
+;No entries required to add
+
+
+; User readable strings
+;----------------------------------------------------------
+[Strings]
+SystemClassName = "System devices"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ProviderName="ASIX Electronics Corporation"
+IOBridgeName="PCI-IO Bridge"
+
+;-----------------------
+; END OF FILE
+;-----------------------
+

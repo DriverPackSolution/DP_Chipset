@@ -1,0 +1,107 @@
+13.03.4
+-------
++ Добавлены драйверы Realtek I2S Audio Codec 6.2.9200.3058
++ Добавлены драйверы Intel SST Audio Device (WDM) 6.2.9200.28947
++ Добавлены драйверы Intel Corporation I2C CODEC Device 6.2.9200.26767
+* Обновлены драйверы Intel(R) Centeron Atom Processor S1200 Series 9.3.1.1009
+* Обновлены драйверы Intel(R) Dynamic Platform & Thermal Framework 06.00.05.1080
+
+
+13.03.3
+-------
++ Добавлены драйверы AMD Audio Bus Lower Filter 9.011.0.0000 
+
+
+13.03.2
+-------
++ Добавлены драйверы ASIX PCI/PCI-E
++ Добавлены драйверы SINOSUN TPM 2.2.0.6
++ Добавлены драйверы Broadcom TPM 3.0.0.2
++ Добавлены драйверы Atmel TPM 03.00.00.16
++ Добавлены драйверы STMicro TPM 1.00.04.15
++ Добавлены драйверы Winbond TPM 6.1.42.2035
++ Добавлены драйверы WIlocity ICH Family PCI Express 1.09.270
+* Устранено пересечение HWID с пакетом Misc
+* Обновлены драйверы Lucidlogix Virtu MVP 3.0.105.26373
+* Обновлены драйверы Intel Chipset Device Software 9.4.0.1016
+
+
+13.02.5
+-------
++ Добавлены драйверы Intel(R) Management Engine Interface 2.5.29.1090
+* Обновлены драйверы Intel(R) Active Management Technology SOL 5.3.0.1083
+
+
+13.02.4
+-------
+* Обновлены драйверы Lucidlogix Virtu MVP 2.1.223.26219
+* Обновлены драйверы Intel(R) Management Engine Interface 9.0.0.1287
+* Обновлены драйверы Intel(R) Active Management Technology SOL 9.0.0.1287
+
+
+13.02.3
+-------
+* Обновлены драйверы Lucidlogix VIRTU MVP 3.0.104.26112
+
+
+13.02.2
+-------
+* Обновлены драйверы Intel Chipset Device Software 9.4.0.1014
+* Обновлены драйверы Intel Active Management Technology 8.1.10.1275
+
+
+13.02.1
+-------
+* Обновлены драйверы Intel Chipset Device Software 9.3.2.1008
+
+
+13.01.5
+-------
++ Добавлен драйвер nVIDIA nForce PCI System Management 4.6.9
++ Добавлены твиканные драйверы для устройств чипсетов nVidia
+* Обновлены драйверы Intel Chipset Device Software 9.4.0.1007
+* Обновлены драйверы Intel(R) Atom(TM) Processor Z27xx Family
+
+
+13.01.4
+-------
++ Добавлен драйвер Intel PCH EG20T Chipset 2.6.0.0
++ Добавлен драйвер Lucid Hydra PGU EEP KMDF Device 1.0.1.14613
+
+
+13.01.3
+-------
++ Добавлен маркер STRICT для nVidia SMBUS 4.7.9 дабы пресечь установку драйвера Vista под Win7
+* Обновлен драйвер Intel(R) 5400 Chipset QuickData Technology 1.2.76.0
+* Обновлен драйвер NVIDIA nForce System Management Controller 5.1.2600.0171
+* Обновлены драйверы AMD 13.1
+
+
+13.01.2
+-------
+* Дополнен недостающим файлом NVIDIA PCI to PCI Bridge Filter
+
+
+13.00.3
+-------
+* Обновлены драйверы NVIDIA nForce Bus
+
+
+13.00.2
+-------
+* Введен системный маркер для отображения драйверов в окне установки оболочек
+
+
+13.00.1
+-------
+* Обновлены драйверы Intel Chipset Device Software 9.4.0.1005
+
+
+13.00.0
+-------
+* Каталогизация драйверов по вендорам и удаление дубликатов
+
+
+12.12.2
+-------
+* Блокирована установка драйвера Intel USB 3.0 под Windows 8 т.к. Intel пока не добавила поддержку этой системы

@@ -1,0 +1,148 @@
+##########################################
+# MCS9865 driver release notes 
+##########################################
+
+Version_1.0.1.0 Date: 13th Dec 2012
+=================================================
+1) Added Windows 8 support.
+2) Added a co-installer DLL file to sort the port 
+   sequence.
+
+Version_1.0.0.11 Date: 11th Mar 2010 
+=================================================
+1) Setup Utility modified so as support Windows 
+   server 2008 64bit OS.
+2) Safe removal icon is removed.
+
+Version_1.0.0.10 Date: 19th Oct 2009 
+=================================================
+- Setup Utility was not compatible with Windows 7 
+  64 Bit OS, is made compatible by updating the OS 
+  version information. Bugs 5673 are fixed.
+
+Version_1.0.0.9 Date: 23rd july 2009
+=================================================
+1) These drivers compatible with Windows 7 Os apart 
+   from Vista and XP.
+2) Setup and Uninstall utilities are modified to 
+   support Windows 7 OS.
+
+Version_1.0.0.8
+=================================================
+1) Resolved the errors showing in the event log 
+   viewer corresponding Serial and ISASerial ports.
+2) Incorporated the fix for the bug 5514 of MCS98XX.
+   (100% CPU utilization while printing )
+3) Released Mass-Production utility.
+
+Version_1.0.0.7
+=================================================
+1) Fix made for the Win2K Embedded board fails to 
+   shut down when MCS9865 drivers are installed. 
+   (BugId: 5508)
+
+Version 1.0.0.6 Date: 23Rd May, 2008
+=================================================
+1) Fixed the issue which System is failed to go 
+   hibernate and sleep mode for internal serial 
+   port and mouse and modem not working when system 
+   comes out of standby for ISA serial port.  
+   BugID: 4935
+
+Version_1.0.0.6W_Localised / 
+Version_1.0.0.6_Localised
+======================
+3:49 PM 8/21/2008
+
+- Changes are done in Setup, Uninstall and PCIPorts.dll 
+  to support localization of strings that appear on 
+  the GUI.
+  Now they can show different language strings in 
+  different language operating systems. 
+- These changes cover VISTA, XP 32 bit and 64 bit 
+  operating systems.
+
+Note:
+------- 
+- Since PCIPorts.dll (property page) is modified, Windows XP 
+  is displaying a message "The software you are installing 
+  for this HW not passed Windows Logo Testing" message.
+  (Though it shows in the device manager as digitally signed). 
+  Such behavior is not seen in VISTA operating system and 
+  installs silently.
+
+Version 1.0.0.5 Data: 25th April, 2008
+=================================================
+1) Fix made for the bug, Serial mouse doesnot work 
+   when PC returns from Stand By or Hybernate mode 
+   in ISA serial port. BugID: 4991
+2) Fix made to work EEPROM utility in parallel mode.
+   BugID: 4990
+3) Fix made to resolve the IrDA link establishment 
+   after wakeup the PC from StandBy. BugID: 5051
+
+Version 1.0.0.4 Date: 3rd April 2008
+=================================================
+1) Toshiba fix we made in driver is causing the 
+   system hang issue when the port is in DMA mode.
+   This issue is resolved by running the loop back 
+   test in 450 mode (No FIFO mode)
+
+Version 1.0.0.3 Date: 1st April 2008
+=================================================
+1) Hardware Initialization code path which we made 
+   in the version 1.0.0.2 causing system hang issue 
+   when the port is open in RS422/485 modes. This 
+   issue resolved by keeping the Hardware Initialization 
+   code and loop back test at the end of serial open 
+   sequence.
+
+Version 1.0.0.2 Date: 28th Mar 2008
+=================================================
+1) Added a 1 byte loop back test, this loop back 
+   will be invoked whenever there is a change in 
+   LCR data bits.
+2) Hardware Initialization code path is modified 
+   to accommodate the above loop back test in 
+   appropriate place in the driver. 
+
+Version 1.0.0.1 Date: 25th Mar 2008
+=================================================
+1)Soft reset code is commented in the internal 
+  serial driver; instead of soft reset we are 
+  writing the default values in to common set 
+  registers. (Toshiba application issue fix)
+
+Version 1.0.0.0 Date: 21st Mar 2008
+=================================================
+1) Property sheet for the Internal Serial/Parallel 
+   ports changed (Property sheet will appear like 
+   StarExSerial/Parallel property sheet)
+2) Fixed the Standby disable issue. (Bug ID: 4703)
+3) Fixed the PC restart issue with the uninstall 
+   application (Bug ID: 4759)
+4) Programmed the IO Pads with the proper value in 
+   Parallel port driver. (Bug ID: 4790)
+5) Fixed the uninstall issue under 64-Bit operating 
+   systems. (Bug ID: 4934)
+
+Version 0.0.0.3 Date: 4th Jan 2008
+=================================================
+1) Fixed system crash issue with the GPIO and Eeprom 
+   utilities.(Bug 4572 and 4778)
+2) Fixed the rebooting issue with the Uninstall 
+   utility.(Bug 4759)
+
+Version 0.0.0.2 Date: 31th Oct 2007
+=================================================
+1)Modified the GPIO,setup,uninstall utilities as 
+  per the requirements.
+2)Fixed issue in BurnIn loopback test for parallel 
+  port driver.
+3)Added powermanagement support in serial port driver.
+4)Hardcoded RxTriggerLevel value to 0x14 in Advanced 
+  mode when RxDma is enabled
+
+Version 0.0.0.1 Date: 15th Oct 2007
+=================================================
+1) Initial version of the driver.

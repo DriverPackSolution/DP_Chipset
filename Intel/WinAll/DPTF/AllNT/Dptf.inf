@@ -1,0 +1,821 @@
+//-----------------------------------------------------------------------------
+//
+// INTEL CONFIDENTIAL
+// Copyright (2000 - 2012)
+// Intel Corporation All Rights Reserved.
+//
+// The source code contained or described herein and all documents related to
+// the source code ("Material") are owned by Intel Corporation or its suppliers
+// or licensors. Title to the Material remains with Intel Corporation or its
+// suppliers and licensors. The Material contains trade secrets and proprietary
+// and confidential information of Intel or its suppliers and licensors. The
+// Material is protected by worldwide copyright and trade secret laws and treaty
+// provisions. No part of the Material may be used, copied, reproduced, modified,
+// published, uploaded, posted, transmitted, distributed, or disclosed in any way
+// without Intel’s prior express written permission.
+//
+// No license under any patent, copyright, trade secret or other intellectual
+// property right is granted to or conferred upon you by disclosure or delivery
+// of the Materials, either expressly, by implication, inducement, estoppel or
+// otherwise. Any license under such intellectual property rights must be express
+// and approved by Intel in writing.
+//
+//-----------------------------------------------------------------------------
+
+
+[version]
+Signature       = "$Windows NT$"
+Class           = System
+ClassGUID       = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider        = %Mfg%
+CatalogFile     = dptf.cat
+DriverVer       = 07/13/2012, 06.00.05.1080
+
+[DestinationDirs]
+DefaultDestDir                  = 12
+
+[Manufacturer]
+%Mfg%                           = IntelDevice, NTx86, NTamd64
+
+
+;-----------------------------------------------------------------------------
+;
+; As of DPTF 6.0 we have moved to the generic installer.  Our previous
+; installer would list all of our drivers during the install.  The generic
+; installer will only list the first driver on the install screen.  So,
+; make sure the DptfManager is listed first since it is based on the inf.
+; 
+; It will display the following during the install:
+;
+; "Intel(R) Dynamic Platform & Thermal Framework Driver"
+;
+;-----------------------------------------------------------------------------
+
+
+[IntelDevice.NTx86]
+%INT3400.DeviceDesc%            = DptfManager,*INT3400
+%INT3402.DeviceDesc%            = DptfDevDram,*INT3402
+%INT3403.DeviceDesc%            = DptfDevGen,*INT3403
+%INT3404.DeviceDesc%            = DptfDevFan,*INT3404
+%INT1C24.DeviceDesc%            = DptfDevPch,PCI\VEN_8086&DEV_1C24
+%INT1E24.DeviceDesc%            = DptfDevPch,PCI\VEN_8086&DEV_1E24
+%INT0103.DeviceDesc%            = DptfDevProc,PCI\VEN_8086&DEV_0103
+%INT0153.DeviceDesc%            = DptfDevProc,PCI\VEN_8086&DEV_0153
+%INT3405.DeviceDesc%            = DptfDevProc,*INT3405
+
+[IntelDevice.NTamd64]
+%INT3400.DeviceDesc%            = DptfManager,*INT3400
+%INT3402.DeviceDesc%            = DptfDevDram,*INT3402
+%INT3403.DeviceDesc%            = DptfDevGen,*INT3403
+%INT3404.DeviceDesc%            = DptfDevFan,*INT3404
+%INT1C24.DeviceDesc%            = DptfDevPch,PCI\VEN_8086&DEV_1C24
+%INT1E24.DeviceDesc%            = DptfDevPch,PCI\VEN_8086&DEV_1E24
+%INT0103.DeviceDesc%            = DptfDevProc,PCI\VEN_8086&DEV_0103
+%INT0153.DeviceDesc%            = DptfDevProc,PCI\VEN_8086&DEV_0153
+%INT3405.DeviceDesc%            = DptfDevProc,*INT3405
+
+
+
+;----------------------------------------------------------------------
+; DptfManager
+;----------------------------------------------------------------------
+
+
+
+[DptfManager.NTx86]
+CopyFiles                       = DptfManager.CopyDriver
+CopyFiles                       = DptfManager.CopyDLLs
+CopyFiles                       = DptfManagerServices.CopyFiles32
+CopyFiles                       = DptfInvalidPolicyRemover.CopyFiles32
+AddPowerSetting                 = DptfPolicyCoolingPowerLimitDppeSettings
+AddPowerSetting                 = DptfPolicyCoolingAcousticsLimitDppeSettings
+AddPowerSetting                 = DptfPolicyConfigTdpLevelDppeSettings
+AddPowerSetting                 = DptfPolicyLpmModeDppeSettings
+AddReg                          = DptfManagerAutorun32.AddReg
+DelReg                          = DptfManagerAutorun32.DelReg
+;AddReg                          = DptfInvalidPolicyRemover32.AddReg
+
+[DptfManager.NTamd64]
+CopyFiles                       = DptfManager.CopyDriver
+CopyFiles                       = DptfManager.CopyDLLs
+CopyFiles                       = DptfManagerServices.CopyFiles64
+CopyFiles                       = DptfInvalidPolicyRemover.CopyFiles64
+AddPowerSetting                 = DptfPolicyCoolingPowerLimitDppeSettings
+AddPowerSetting                 = DptfPolicyCoolingAcousticsLimitDppeSettings
+AddPowerSetting                 = DptfPolicyConfigTdpLevelDppeSettings
+AddPowerSetting                 = DptfPolicyLpmModeDppeSettings
+AddReg                          = DptfManagerAutorun64.AddReg
+DelReg                          = DptfManagerAutorun64.DelReg
+;AddReg                          = DptfInvalidPolicyRemover64.AddReg
+
+[DptfManager.NTx86.HW]
+AddReg                          = DptfManagerHw.AddReg
+DelReg                          = DptfManagerHw.DelReg
+
+[DptfManager.NTamd64.HW]
+AddReg                          = DptfManagerHw.AddReg
+DelReg                          = DptfManagerHw.DelReg
+
+[DptfManager.CopyDriver]
+DptfManager.sys,,,2
+
+[DptfManager.NTx86.Services]
+AddService                      = DptfManager,2,DptfManagerDriverService,DptfDriverEventLog
+AddService                      = DptfPolicyCriticalService,0,DptfPolicyCriticalService32
+AddService                      = DptfPolicyLpmService,0,DptfPolicyLpmService32
+AddService                      = DptfPolicyConfigTDPService,0,DptfPolicyConfigTDPService32
+
+[DptfManager.NTamd64.Services]
+AddService                      = DptfManager,2,DptfManagerDriverService,DptfDriverEventLog
+AddService                      = DptfPolicyCriticalService,0,DptfPolicyCriticalService64
+AddService                      = DptfPolicyLpmService,0,DptfPolicyLpmService64
+AddService                      = DptfPolicyConfigTDPService,0,DptfPolicyConfigTDPService64
+
+[DptfManagerDriverService]
+ServiceType                     = %SERVICE_KERNEL_DRIVER%
+StartType                       = %SERVICE_DEMAND_START%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %12%\DptfManager.sys
+
+[DptfDriverEventLog]
+AddReg                          = DptfDriverEventLog_AddReg
+DelReg                          = DptfDriverEventLog_DelReg
+
+[DptfDriverEventLog_AddReg]
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll"
+HKR,,TypesSupported,%REG_DWORD%,7
+
+[DptfDriverEventLog_DelReg]
+HKR,,EventMessageFile
+HKR,,TypesSupported
+
+[DptfManager.NTx86.Wdf]
+KmdfService = DptfManager, KMDFVersion
+
+[DptfManager.NTamd64.Wdf]
+KmdfService = DptfManager, KMDFVersion
+
+;----------------------------------------------------------------------
+; DptfManager registry settings.
+;----------------------------------------------------------------------
+
+[DptfManagerHw.AddReg]
+
+; Cooling Policy Settings
+HKR,%GUID_POLICY_COOLING%, PolicyName, %REG_SZ%, "Cooling Policy"
+
+; Active Policy Settings
+HKR,%GUID_POLICY_ACTIVE%, PolicyName, %REG_SZ%, "Active Policy"
+
+; Critical Policy Settings
+HKR,%GUID_POLICY_CRITICAL%, PolicyName, %REG_SZ%, "Critical Policy"
+
+; Passive Policy Settings
+HKR,%GUID_POLICY_PASSIVE%, PolicyName, %REG_SZ%, "Passive Policy"
+HKR,%GUID_POLICY_PASSIVE%, UtilThreshold, %REG_DWORD%, 0
+HKR,%GUID_POLICY_PASSIVE%, LPOStartPState, %REG_DWORD%, 0
+HKR,%GUID_POLICY_PASSIVE%, LPOTurboModeSetting, %REG_DWORD%, 1
+HKR,%GUID_POLICY_PASSIVE%, LPONonTurboModeSetting, %REG_DWORD%, 2
+
+; ConfigTDP Policy Settings
+HKR,%GUID_POLICY_CONFIGTDP%, PolicyName, %REG_SZ%, "ConfigTDP Policy"
+
+; LPM Policy Settings
+HKR,%GUID_POLICY_LPM%, PolicyName, %REG_SZ%, "LPM Policy"
+HKR,%GUID_POLICY_LPM%, NumAppSpecificEntries, %REG_DWORD%, 0
+HKR,%GUID_POLICY_LPM%, StandardMode\CpuOffLiningMode, %REG_DWORD%, 2
+HKR,%GUID_POLICY_LPM%, StandardMode\CpuPercentageActiveLogicalProcessors, %REG_DWORD%, 1
+HKR,%GUID_POLICY_LPM%, StandardMode\CpuTargetFrequency, %REG_DWORD%, 0
+HKR,%GUID_POLICY_LPM%, StandardMode\CpuUseTStateThrottling, %REG_DWORD%, 0
+HKR,%GUID_POLICY_LPM%, StandardMode\GfxTargetFrequency, %REG_DWORD%, 0xFFFFFFFF
+HKR,%GUID_POLICY_LPM%, StandardMode\PackagePowerLimit, %REG_SZ%, """i.-3...U"":12500;""i7-3...XM"":35000;12500;"
+
+[DptfManagerHw.DelReg]
+
+; Cooling Policy Settings
+HKR,%GUID_POLICY_COOLING%, PolicyName
+HKR,%GUID_POLICY_COOLING%
+
+; Active Policy Settings
+HKR,%GUID_POLICY_ACTIVE%, PolicyName
+HKR,%GUID_POLICY_ACTIVE%
+
+; Critical Policy Settings
+HKR,%GUID_POLICY_CRITICAL%, PolicyName
+HKR,%GUID_POLICY_CRITICAL%
+
+; Passive Policy Settings
+HKR,%GUID_POLICY_PASSIVE%, PolicyName
+HKR,%GUID_POLICY_PASSIVE%, UtilThreshold
+HKR,%GUID_POLICY_PASSIVE%, LPOStartPState
+HKR,%GUID_POLICY_PASSIVE%, LPOTurboModeSetting
+HKR,%GUID_POLICY_PASSIVE%, LPONonTurboModeSetting
+HKR,%GUID_POLICY_PASSIVE%
+
+; ConfigTDP Policy Settings
+HKR,%GUID_POLICY_CONFIGTDP%, PolicyName
+HKR,%GUID_POLICY_CONFIGTDP%
+
+; LPM Policy Settings
+HKR,%GUID_POLICY_LPM%, PolicyName
+HKR,%GUID_POLICY_LPM%, NumAppSpecificEntries
+HKR,%GUID_POLICY_LPM%, StandardMode\CpuOffLiningMode
+HKR,%GUID_POLICY_LPM%, StandardMode\CpuPercentageActiveLogicalProcessors
+HKR,%GUID_POLICY_LPM%, StandardMode\CpuTargetFrequency
+HKR,%GUID_POLICY_LPM%, StandardMode\CpuUseTStateThrottling
+HKR,%GUID_POLICY_LPM%, StandardMode\GfxTargetFrequency
+HKR,%GUID_POLICY_LPM%, StandardMode\PackagePowerLimit
+HKR,%GUID_POLICY_LPM%
+
+[DptfManagerAutorun32.AddReg]
+HKLM, %AUTORUN_AT_LOGIN%, DptfPolicyLpmServiceHelper, %REG_SZ%, %11%\DptfPolicyLpmServiceHelper.exe
+
+[DptfManagerAutorun32.DelReg]
+HKLM, %AUTORUN_AT_LOGIN%, DptfPolicyLpmServiceHelper
+
+[DptfManagerAutorun64.AddReg]
+HKLM, %AUTORUN_AT_LOGIN%, DptfPolicyLpmServiceHelper, %REG_SZ%, %11%\DptfPolicyLpmServiceHelper.exe
+
+[DptfManagerAutorun64.DelReg]
+HKLM, %AUTORUN_AT_LOGIN%, DptfPolicyLpmServiceHelper
+
+;[DptfInvalidPolicyRemover32.AddReg]
+;HKLM, %AUTORUN_ONCE_AT_LOGIN_32%\0001, DptfInvalidPolicyRemover, %REG_SZ%, "%11%\DptfInvalidPolicyRemover.exe %11%\DptfInvalidPolicyRemover.ini"
+
+;[DptfInvalidPolicyRemover64.AddReg]
+;HKLM, %AUTORUN_ONCE_AT_LOGIN_64%\0001, DptfInvalidPolicyRemover, %REG_SZ%, "%16425%\DptfInvalidPolicyRemover.exe %16425%\DptfInvalidPolicyRemover.ini"
+
+
+;----------------------------------------------------------------------
+; DptfManager DPPE settings.
+;----------------------------------------------------------------------
+
+[DptfPolicyCoolingPowerLimitDppeSettings]
+SubGroup    = %GUID_DPTF_GROUP%,"Intel(R) Dynamic Platform & Thermal Framework Settings", "Intel(R) Dynamic Platform & Thermal Framework Settings"
+Setting     = %GUID_DPTF_PWRLIMIT%,"Power Limit","Specify the power limit for Intel(R) Dynamic Platform & Thermal Framework"
+ValueRange  = 1, 5, 1, "Level"
+Default     = %GUID_MAX_POWER_SAVINGS%, %AC%, 1
+Default     = %GUID_MAX_POWER_SAVINGS%, %DC%, 1
+Default     = %GUID_TYP_POWER_SAVINGS%, %AC%, 3
+Default     = %GUID_TYP_POWER_SAVINGS%, %DC%, 3
+Default     = %GUID_MIN_POWER_SAVINGS%, %AC%, 5
+Default     = %GUID_MIN_POWER_SAVINGS%, %DC%, 5
+
+[DptfPolicyCoolingAcousticsLimitDppeSettings]
+SubGroup    = %GUID_DPTF_GROUP%
+Setting     = %GUID_DPTF_ACSLIMIT%,"Acoustics Limit","Specify the acoustics cooling limit for Intel(R) Dynamic Platform & Thermal Framework"
+ValueRange  = 1, 5, 1, "Level"
+Default     = %GUID_MAX_POWER_SAVINGS%, %AC%, 1
+Default     = %GUID_MAX_POWER_SAVINGS%, %DC%, 1
+Default     = %GUID_TYP_POWER_SAVINGS%, %AC%, 3
+Default     = %GUID_TYP_POWER_SAVINGS%, %DC%, 3
+Default     = %GUID_MIN_POWER_SAVINGS%, %AC%, 5
+Default     = %GUID_MIN_POWER_SAVINGS%, %DC%, 5
+
+; The default config TDP AC/DC settings are index 0, they will be overwritten when the config TDP service is started 
+[DptfPolicyConfigTdpLevelDppeSettings]
+SubGroup    = %GUID_DPTF_GROUP%
+Setting     = %GUID_DPTF_CONFIGTDP_LEVEL%,"Config TDP Level","Specify the Config TDP Level for Intel(R) Dynamic Platform & Thermal Framework"
+Value       = 0, "High TDP", "Configure High TDP Level", %REG_DWORD%, 0
+Value       = 1, "Nominal TDP", "Configure Nominal TDP Level", %REG_DWORD%, 1
+Value       = 2, "Low TDP", "Configure Low TDP Level", %REG_DWORD%, 2
+Default     = %GUID_MAX_POWER_SAVINGS%, %AC%, 0
+Default     = %GUID_MAX_POWER_SAVINGS%, %DC%, 0
+Default     = %GUID_TYP_POWER_SAVINGS%, %AC%, 0
+Default     = %GUID_TYP_POWER_SAVINGS%, %DC%, 0
+Default     = %GUID_MIN_POWER_SAVINGS%, %AC%, 0
+Default     = %GUID_MIN_POWER_SAVINGS%, %DC%, 0
+
+[DptfPolicyLpmModeDppeSettings]
+SubGroup    = %GUID_DPTF_GROUP%
+Setting     = %GUID_DPTF_LPM_MODE%,"Low Power Mode Setting","Specify the Lower Power Mode setting for Intel(R) Dynamic Platform & Thermal Framework"
+Value       = 0, "Disable", "Disable LPM Mode", %REG_DWORD%, 0
+Value       = 1, "Enable", "Enable LPM Mode", %REG_DWORD%, 1
+Value       = 2, "Application Specific", "Set Application Specific LPM Mode", %REG_DWORD%, 2
+Default     = %GUID_MAX_POWER_SAVINGS%, %AC%, 0
+Default     = %GUID_MAX_POWER_SAVINGS%, %DC%, 0
+Default     = %GUID_TYP_POWER_SAVINGS%, %AC%, 0
+Default     = %GUID_TYP_POWER_SAVINGS%, %DC%, 0
+Default     = %GUID_MIN_POWER_SAVINGS%, %AC%, 0
+Default     = %GUID_MIN_POWER_SAVINGS%, %DC%, 0
+
+
+;----------------------------------------------------------------------
+; DPTF Manager Services
+;
+; The DPTf Manager itself doesn't have a service, but each policy
+; can (and they are compiled in with the DPTF Manager).  So, they are
+; listed here.
+;----------------------------------------------------------------------
+
+[DestinationDirs]
+DptfManager.CopyDLLs = 11
+DptfManagerServices.CopyFiles32 = 11
+DptfManagerServices.CopyFiles64 = 11
+DptfInvalidPolicyRemover.CopyFiles32 = 11
+DptfInvalidPolicyRemover.CopyFiles64 = 16425
+
+
+[DptfManager.CopyDLLs]
+DptfPolicyConfigTDPDll.dll,,,2
+DptfPolicyLpmDll.dll,,,2
+
+
+[DptfManagerServices.CopyFiles32]
+DptfPolicyCriticalService.exe,,,2
+DptfPolicyLpmService.exe,,,2
+DptfPolicyLpmServiceHelper.exe,,,2
+DptfPolicyConfigTDPService.exe,,,2
+
+
+[DptfManagerServices.CopyFiles64]
+DptfPolicyCriticalService.exe,,,2
+DptfPolicyLpmService.exe,,,2
+DptfPolicyLpmServiceHelper.exe,,,2
+DptfPolicyConfigTDPService.exe,,,2
+
+
+[DptfInvalidPolicyRemover.CopyFiles32]
+DptfInvalidPolicyRemover.exe,,,2
+DptfInvalidPolicyRemover.ini,,,2
+
+[DptfInvalidPolicyRemover.CopyFiles64]
+DptfInvalidPolicyRemover.exe,,,2
+DptfInvalidPolicyRemover.ini,,,2
+
+
+;
+; policy critical service
+;
+
+[DptfPolicyCriticalService32]
+Description                     = %WIN32_DPTF_POLICY_CRITICAL_SERVICE_DESCRIPTION%
+DisplayName                     = %WIN32_DPTF_POLICY_CRITICAL_SERVICE_DISPLAY_NAME%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %11%\DptfPolicyCriticalService.exe
+ServiceType                     = %SERVICE_WIN32_OWN_PROCESS%
+StartType                       = %SERVICE_AUTO_START%
+AddReg                          = DptfPolicyCriticalService.AddReg
+
+[DptfPolicyCriticalService64]
+Description                     = %WIN32_DPTF_POLICY_CRITICAL_SERVICE_DESCRIPTION%
+DisplayName                     = %WIN32_DPTF_POLICY_CRITICAL_SERVICE_DISPLAY_NAME%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %11%\DptfPolicyCriticalService.exe
+ServiceType                     = %SERVICE_WIN32_OWN_PROCESS%
+StartType                       = %SERVICE_AUTO_START%
+AddReg                          = DptfPolicyCriticalService.AddReg
+
+[DptfPolicyCriticalService.AddReg]
+HKR,,ObjectName,,"LocalSystem"
+
+;
+; policy lpm service
+;
+
+[DptfPolicyLpmService32]
+Description                     = %WIN32_DPTF_POLICY_LPM_SERVICE_DESCRIPTION%
+DisplayName                     = %WIN32_DPTF_POLICY_LPM_SERVICE_DISPLAY_NAME%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %11%\DptfPolicyLpmService.exe
+ServiceType                     = %SERVICE_WIN32_OWN_PROCESS%
+StartType                       = %SERVICE_AUTO_START%
+AddReg                          = DptfPolicyLpmService.AddReg
+
+[DptfPolicyLpmService64]
+Description                     = %WIN32_DPTF_POLICY_LPM_SERVICE_DESCRIPTION%
+DisplayName                     = %WIN32_DPTF_POLICY_LPM_SERVICE_DISPLAY_NAME%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %11%\DptfPolicyLpmService.exe
+ServiceType                     = %SERVICE_WIN32_OWN_PROCESS%
+StartType                       = %SERVICE_AUTO_START%
+AddReg                          = DptfPolicyLpmService.AddReg
+
+[DptfPolicyLpmService.AddReg]
+HKR,,ObjectName,,"LocalSystem"
+
+;
+; policy config TDP service
+;
+
+[DptfPolicyConfigTDPService32]
+Description                     = %WIN32_DPTF_POLICY_CONFIGTDP_SERVICE_DESCRIPTION%
+DisplayName                     = %WIN32_DPTF_POLICY_CONFIGTDP_SERVICE_DISPLAY_NAME%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %11%\DptfPolicyConfigTDPService.exe
+ServiceType                     = %SERVICE_WIN32_OWN_PROCESS%
+StartType                       = %SERVICE_AUTO_START%
+AddReg                          = DptfPolicyConfigTDPService.AddReg
+
+[DptfPolicyConfigTDPService64]
+Description                     = %WIN32_DPTF_POLICY_CONFIGTDP_SERVICE_DESCRIPTION%
+DisplayName                     = %WIN32_DPTF_POLICY_CONFIGTDP_SERVICE_DISPLAY_NAME%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %11%\DptfPolicyConfigTDPService.exe
+ServiceType                     = %SERVICE_WIN32_OWN_PROCESS%
+StartType                       = %SERVICE_AUTO_START%
+AddReg                          = DptfPolicyConfigTDPService.AddReg
+
+[DptfPolicyConfigTDPService.AddReg]
+HKR,,ObjectName,,"LocalSystem"
+
+
+
+;----------------------------------------------------------------------
+; DptfDevProc
+;----------------------------------------------------------------------
+
+
+
+[DptfDevProc.NTx86]
+CopyFiles                       = DptfDevProc.CopyDriver
+CopyFiles                       = DptfParticipantProcessorServices.CopyFiles32
+
+[DptfDevProc.NTamd64]
+CopyFiles                       = DptfDevProc.CopyDriver
+CopyFiles                       = DptfParticipantProcessorServices.CopyFiles64
+
+[DptfDevProc.NTx86.HW]
+AddReg                          = DptfDevProcHW.AddReg
+DelReg                          = DptfDevProcHW.DelReg
+
+[DptfDevProc.NTamd64.HW]
+AddReg                          = DptfDevProcHW.AddReg
+DelReg                          = DptfDevProcHW.DelReg
+
+[DptfDevProc.CopyDriver]
+DptfDevProc.sys,,,2
+
+[DptfDevProc.NTx86.Services]
+AddService                      = DptfDevProc,2,DptfDevProcDriverService
+AddService                      = DptfParticipantProcessorService,0,DptfParticipantProcessorService32
+
+[DptfDevProc.NTamd64.Services]
+AddService                      = DptfDevProc,2,DptfDevProcDriverService
+AddService                      = DptfParticipantProcessorService,0,DptfParticipantProcessorService64
+
+[DptfDevProcDriverService]
+ServiceType                     = %SERVICE_KERNEL_DRIVER%
+StartType                       = %SERVICE_DEMAND_START%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %12%\DptfDevProc.sys
+LoadOrderGroup                  = Base
+
+[DptfDevProcHW.AddReg]
+HKR,,"LPOExclusionListXP", %REG_MULTI_SZ%, ""
+HKR,,"LPOExclusionListVista", %REG_MULTI_SZ%, "svchost.exe", "dllhost.exe"
+HKR,,"LPOExclusionListWindows7", %REG_MULTI_SZ%, "svchost.exe", "dllhost.exe", "smss.exe", "WinSAT.exe"
+     
+[DptfDevProcHW.DelReg]
+HKR,,"LPOExclusionListXP"
+HKR,,"LPOExclusionListVista"
+HKR,,"LPOExclusionListWindows7"
+
+[DptfDevProc.NTx86.Wdf]
+KmdfService                     = DptfDevProc, KMDFVersion
+
+[DptfDevProc.NTamd64.Wdf]
+KmdfService                     = DptfDevProc, KMDFVersion
+
+;----------------------------------------------------------------------
+; DptfDevProc Service
+;----------------------------------------------------------------------
+
+[DestinationDirs]
+DptfParticipantProcessorServices.CopyFiles32    = 11
+DptfParticipantProcessorServices.CopyFiles64    = 11
+
+[DptfParticipantProcessorServices.CopyFiles32]
+DptfParticipantProcessorService.exe,,,2
+
+[DptfParticipantProcessorServices.CopyFiles64]
+DptfParticipantProcessorService.exe,,,2
+
+[DptfParticipantProcessorService32]
+Description                     = %WIN32_DPTF_PARTICIPANT_PROC_SERVICE_DESCRIPTION%
+DisplayName                     = %WIN32_DPTF_PARTICIPANT_PROC_SERVICE_DISPLAY_NAME%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %11%\DptfParticipantProcessorService.exe
+ServiceType                     = %SERVICE_WIN32_OWN_PROCESS%
+StartType                       = %SERVICE_AUTO_START%
+AddReg                          = DptfParticipantProcessorService.AddReg
+
+[DptfParticipantProcessorService64]
+Description                     = %WIN32_DPTF_PARTICIPANT_PROC_SERVICE_DESCRIPTION%
+DisplayName                     = %WIN32_DPTF_PARTICIPANT_PROC_SERVICE_DISPLAY_NAME%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %11%\DptfParticipantProcessorService.exe
+ServiceType                     = %SERVICE_WIN32_OWN_PROCESS%
+StartType                       = %SERVICE_AUTO_START%
+AddReg                          = DptfParticipantProcessorService.AddReg
+
+[DptfParticipantProcessorService.AddReg]
+HKR,,ObjectName,,"LocalSystem"
+
+
+
+;----------------------------------------------------------------------
+; DptfDevPch
+;----------------------------------------------------------------------
+
+
+
+[DptfDevPch]
+CopyFiles                       = DptfDevPch.CopyDriver
+
+[DptfDevPch.CopyDriver]
+DptfDevPch.sys,,,2
+
+[DptfDevPch.Services]
+AddService                      = DptfDevPch,2,DptfDevPchDriverService
+
+[DptfDevPchDriverService]
+ServiceType                     = %SERVICE_KERNEL_DRIVER%
+StartType                       = %SERVICE_DEMAND_START%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %12%\DptfDevPch.sys
+LoadOrderGroup                  = Base
+
+[DptfDevPch.Wdf]
+KmdfService                     = DptfDevPch, KMDFVersion
+
+
+
+;----------------------------------------------------------------------
+; DptfDevDram
+;----------------------------------------------------------------------
+
+
+
+[DptfDevDram]
+CopyFiles                       = DptfDevDram.CopyDriver
+
+[DptfDevDram.CopyDriver]
+DptfDevDram.sys,,,2
+
+[DptfDevDram.Services]
+AddService                      = DptfDevDram,2,DptfDevDramDriverService
+
+[DptfDevDramDriverService]
+ServiceType                     = %SERVICE_KERNEL_DRIVER%
+StartType                       = %SERVICE_DEMAND_START%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %12%\DptfDevDram.sys
+LoadOrderGroup                  = Base
+
+[DptfDevDram.Wdf]
+KmdfService                     = DptfDevDram, KMDFVersion
+
+
+
+;----------------------------------------------------------------------
+; DptfDevFan
+;----------------------------------------------------------------------
+
+
+
+[DptfDevFan]
+CopyFiles                       = DptfDevFan.CopyDriver
+
+[DptfDevFan.CopyDriver]
+DptfDevFan.sys,,,2
+
+[DptfDevFan.Services]
+AddService                      = DptfDevFan,2,DptfDevFanDriverService
+
+[DptfDevFanDriverService]
+ServiceType                     = %SERVICE_KERNEL_DRIVER%
+StartType                       = %SERVICE_DEMAND_START%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %12%\DptfDevFan.sys
+LoadOrderGroup                  = Base
+
+[DptfDevFan.Wdf]
+KmdfService                     = DptfDevFan, KMDFVersion
+
+
+
+;----------------------------------------------------------------------
+; DptfDevGen
+;----------------------------------------------------------------------
+
+
+
+[DptfDevGen]
+CopyFiles                       = DptfDevGen.CopyDriver
+
+[DptfDevGen.CopyDriver]
+DptfDevGen.sys,,,2
+
+[DptfDevGen.Services]
+AddService                      = DptfDevGen,2,DptfDevGenDriverService
+
+[DptfDevGenDriverService]
+ServiceType                     = %SERVICE_KERNEL_DRIVER%
+StartType                       = %SERVICE_DEMAND_START%
+ErrorControl                    = %SERVICE_ERROR_NORMAL%
+ServiceBinary                   = %12%\DptfDevGen.sys
+LoadOrderGroup                  = Base
+
+[DptfDevGen.Wdf]
+KmdfService                     = DptfDevGen, KMDFVersion
+
+
+
+;----------------------------------------------------------------------
+; Co-installer section
+;----------------------------------------------------------------------
+
+
+
+[DestinationDirs]
+WdfCoInstaller_CopyFiles          = 11
+DptfCoInstaller_CopyFiles         = 11
+
+[DptfManager.NTx86.CoInstallers]
+AddReg=WdfCoInstaller_AddReg
+AddReg=DptfCoInstaller_AddReg
+DelReg=WdfCoInstaller_DelReg
+DelReg=DptfCoInstaller_DelReg
+CopyFiles=WdfCoInstaller_CopyFiles
+CopyFiles=DptfCoInstaller_CopyFiles
+
+[DptfManager.NTamd64.CoInstallers]
+AddReg=WdfCoInstaller_AddReg
+AddReg=DptfCoInstaller_AddReg
+DelReg=WdfCoInstaller_DelReg
+DelReg=DptfCoInstaller_DelReg
+CopyFiles=WdfCoInstaller_CopyFiles
+CopyFiles=DptfCoInstaller_CopyFiles
+
+[DptfDevProc.NTx86.CoInstallers]
+AddReg=WdfCoInstaller_AddReg
+DelReg=WdfCoInstaller_DelReg
+CopyFiles=WdfCoInstaller_CopyFiles
+
+[DptfDevProc.NTamd64.CoInstallers]
+AddReg=WdfCoInstaller_AddReg
+DelReg=WdfCoInstaller_DelReg
+CopyFiles=WdfCoInstaller_CopyFiles
+
+[DptfDevPch.CoInstallers]
+AddReg=WdfCoInstaller_AddReg
+DelReg=WdfCoInstaller_DelReg
+CopyFiles=WdfCoInstaller_CopyFiles
+
+[DptfDevDram.CoInstallers]
+AddReg=WdfCoInstaller_AddReg
+DelReg=WdfCoInstaller_DelReg
+CopyFiles=WdfCoInstaller_CopyFiles
+
+[DptfDevFan.CoInstallers]
+AddReg=WdfCoInstaller_AddReg
+DelReg=WdfCoInstaller_DelReg
+CopyFiles=WdfCoInstaller_CopyFiles
+
+[DptfDevGen.CoInstallers]
+AddReg=WdfCoInstaller_AddReg
+DelReg=WdfCoInstaller_DelReg
+CopyFiles=WdfCoInstaller_CopyFiles
+
+[WdfCoInstaller_CopyFiles]
+wdfcoinstaller01009.dll
+
+[WdfCoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "wdfcoinstaller01009.dll,WdfCoInstaller"
+
+[WdfCoInstaller_DelReg]
+HKR,,CoInstallers32
+
+[KMDFVersion]
+KmdfLibraryVersion              = 1.9
+
+[DptfCoInstaller_CopyFiles]
+DptfCoInstaller.dll,,,2
+
+[DptfCoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010008, "DptfCoInstaller.dll,DptfCoInstallerHandler"
+
+[DptfCoInstaller_DelReg]
+HKR,,CoInstallers32
+
+
+;----------------------------------------------------------------------
+; Source file information
+;----------------------------------------------------------------------
+
+
+
+[SourceDisksNames]
+1 = %DiskId%,,,""
+
+[SourceDisksFiles]
+DptfManager.sys                     = 1,Drivers\x32
+DptfDevProc.sys                     = 1,Drivers\x32
+DptfDevFan.sys                      = 1,Drivers\x32
+DptfDevGen.sys                      = 1,Drivers\x32
+DptfDevDram.sys                     = 1,Drivers\x32
+DptfDevPch.sys                      = 1,Drivers\x32
+DptfPolicyCriticalService.exe       = 1,Services\x32
+DptfPolicyLpmService.exe            = 1,Services\x32
+DptfPolicyLpmServiceHelper.exe      = 1,Services\x32
+DptfPolicyConfigTDPService.exe      = 1,Services\x32
+DptfParticipantProcessorService.exe = 1,Services\x32
+DptfInvalidPolicyRemover.exe        = 1,CoInstallers
+DptfInvalidPolicyRemover.ini        = 1,CoInstallers
+wdfcoinstaller01009.dll             = 1,CoInstallers\x32
+DptfCoInstaller.dll                 = 1,CoInstallers\x32
+DptfPolicyConfigTDPDll.dll          = 1,Dlls\x32
+DptfPolicyLpmDll.dll                = 1,Dlls\x32
+
+[SourceDisksFiles.amd64]
+DptfManager.sys                     = 1,Drivers\x64
+DptfDevProc.sys                     = 1,Drivers\x64
+DptfDevFan.sys                      = 1,Drivers\x64
+DptfDevGen.sys                      = 1,Drivers\x64
+DptfDevDram.sys                     = 1,Drivers\x64
+DptfDevPch.sys                      = 1,Drivers\x64
+DptfPolicyCriticalService.exe       = 1,Services\x64
+DptfPolicyLpmService.exe            = 1,Services\x64
+DptfPolicyLpmServiceHelper.exe      = 1,Services\x64
+DptfPolicyConfigTDPService.exe      = 1,Services\x64
+DptfParticipantProcessorService.exe = 1,Services\x64
+DptfInvalidPolicyRemover.exe        = 1,CoInstallers
+DptfInvalidPolicyRemover.ini        = 1,CoInstallers
+wdfcoinstaller01009.dll             = 1,CoInstallers\x64
+DptfCoInstaller.dll                 = 1,CoInstallers\x64
+DptfPolicyConfigTDPDll.dll          = 1,Dlls\x64
+DptfPolicyLpmDll.dll                = 1,Dlls\x64
+
+
+
+;----------------------------------------------------------------------
+; String Constants
+;----------------------------------------------------------------------
+
+
+
+[Strings]
+
+REG_DWORD                       = 0x00010001
+REG_MULTI_SZ                    = 0x00010000
+REG_EXPAND_SZ                   = 0x00020000
+REG_SZ                          = 0x00000000
+
+SERVICE_DEMAND_START            = 3
+SERVICE_KERNEL_DRIVER           = 1
+SERVICE_ERROR_NORMAL            = 1
+
+AC                              = 0
+DC                              = 1
+
+Mfg                             = "Intel"
+
+AUTORUN_AT_LOGIN                = "Software\Microsoft\Windows\CurrentVersion\Run"
+;AUTORUN_ONCE_AT_LOGIN_32        = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx"
+;AUTORUN_ONCE_AT_LOGIN_64        = "SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\RunOnceEx"
+
+INT3400.DeviceDesc              = "Intel(R) Dynamic Platform & Thermal Framework Driver"
+INT3402.DeviceDesc              = "Intel(R) Dynamic Platform & Thermal Framework Memory Participant Driver"
+INT3403.DeviceDesc              = "Intel(R) Dynamic Platform & Thermal Framework Generic Participant Driver"
+INT3404.DeviceDesc              = "Intel(R) Dynamic Platform & Thermal Framework Fan Participant Driver"
+INT1C24.DeviceDesc              = "Intel(R) Dynamic Platform & Thermal Framework PCH Participant Driver"
+INT1E24.DeviceDesc              = "Intel(R) Dynamic Platform & Thermal Framework PCH Participant Driver"
+INT0103.DeviceDesc              = "Intel(R) Dynamic Platform & Thermal Framework Processor Participant Driver"
+INT0153.DeviceDesc              = "Intel(R) Dynamic Platform & Thermal Framework Processor Participant Driver"
+INT3405.DeviceDesc              = "Intel(R) Dynamic Platform & Thermal Framework Processor Participant Driver"
+
+GUID_MAX_POWER_SAVINGS          = "{a1841308-3541-4fab-bc81-f71556f20b4a}"  ; Power Saver mode
+GUID_TYP_POWER_SAVINGS          = "{381b4222-f694-41f0-9685-ff5bb260df2e}"  ; Balanced
+GUID_MIN_POWER_SAVINGS          = "{8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c}"  ; High Performance
+
+GUID_DPTF_GROUP                 = "{48df9d60-4f68-11dc-8314-0800200c9a66}"
+GUID_DPTF_PWRLIMIT              = "{4a44b800-4f72-11dc-8314-0800200c9a66}"
+GUID_DPTF_ACSLIMIT              = "{63c39116-4f72-11dc-8314-0800200c9a66}"
+GUID_DPTF_CONFIGTDP_LEVEL       = "{07029cd8-4664-4698-95d8-43b2e9666596}"
+GUID_DPTF_LPM_MODE              = "{b29c73e0-1a8b-46fd-b4ae-1ce5a3d6d871}"
+
+
+GUID_POLICY_PASSIVE             = "{42A441D6-AE6A-462B-A84B-4A8CE79027D3}"
+GUID_POLICY_COOLING             = "{16CAF1B7-DD38-40ED-B1C1-1B8A1913D531}"
+GUID_POLICY_CRITICAL            = "{97C68AE7-15FA-499C-B8C9-5DA81D606E0A}"
+GUID_POLICY_ACTIVE              = "{3A95C389-E4B8-4629-A526-C52C88626BAE}"
+GUID_POLICY_CONFIGTDP           = "{E145970A-E4C1-4D73-900E-C9C5A69DD067}"
+GUID_POLICY_LPM                 = "{B9455B06-7949-40C6-ABF2-363A70C8706C}"
+
+SERVICE_WIN32_OWN_PROCESS       = 0x00000010
+SERVICE_AUTO_START              = 2
+
+WIN32_DPTF_POLICY_CRITICAL_SERVICE_DESCRIPTION      = "Intel(R) Dynamic Platform & Thermal Framework Critical Service Application"
+WIN32_DPTF_POLICY_CRITICAL_SERVICE_DISPLAY_NAME     = "Intel(R) Dynamic Platform & Thermal Framework Critical Service Application"
+
+WIN32_DPTF_POLICY_LPM_SERVICE_DESCRIPTION           = "Intel(R) Dynamic Platform & Thermal Framework Low Power Mode Service Application"
+WIN32_DPTF_POLICY_LPM_SERVICE_DISPLAY_NAME          = "Intel(R) Dynamic Platform & Thermal Framework Low Power Mode Service Application"
+
+WIN32_DPTF_POLICY_CONFIGTDP_SERVICE_DESCRIPTION      = "Intel(R) Dynamic Platform & Thermal Framework Config TDP Service Application"
+WIN32_DPTF_POLICY_CONFIGTDP_SERVICE_DISPLAY_NAME     = "Intel(R) Dynamic Platform & Thermal Framework Config TDP Service Application"
+
+WIN32_DPTF_PARTICIPANT_PROC_SERVICE_DESCRIPTION     = "Intel(R) Dynamic Platform & Thermal Framework Processor Participant Service Application"
+WIN32_DPTF_PARTICIPANT_PROC_SERVICE_DISPLAY_NAME    = "Intel(R) Dynamic Platform & Thermal Framework Processor Participant Service Application"
+
+DiskId                                              = "Intel(R) Dynamic Platform & Thermal Framework"

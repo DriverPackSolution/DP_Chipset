@@ -1,0 +1,208 @@
+;/*++
+;
+;Copyright (c) Broadcom Corporation  All rights reserved.
+;
+;Module Name:
+;
+;    btpmwin.inf
+;
+;Abstract:
+;    INF file for installing TPM device drivers
+;
+;--*/
+[Version]
+Signature=$Windows NT$
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%MFGNAME%
+CatalogFile=btpmw32.cat
+CatalogFile.ntx86=btpmw32.cat
+CatalogFile.nt=btpmw32.cat
+CatalogFile.ntamd64=btpmwx64.cat
+DriverVer=11/19/2009,3.0.0.2
+
+[Manufacturer]
+%MFGNAME%=Company, NT.5.1, NTamd64
+
+[Company]
+%DEVICEDESCRIPTION% = DriverInstall,ACPI\BCM0101,ACPI\BCM0102,*BCM0101,*BCM0102,BCM0000
+%DEVICEDESCRIPTIONA2% = DriverInstall,ACPI\BCM0102,*BCM0102,BCM0000
+
+[Company.NT.5.1]
+%DEVICEDESCRIPTIONXP% = DriverInstallXP,ACPI\BCM0101,ACPI\BCM0102,*BCM0101,*BCM0102,BCM0000
+%DEVICEDESCRIPTIONXPA2% = DriverInstallXP,ACPI\BCM0102,*BCM0102,BCM0000
+
+[Company.NTAMD64]
+%DEVICEDESCRIPTION64% = DriverInstall64,ACPI\BCM0101,ACPI\BCM0102,*BCM0101,*BCM0102,BCM0000
+%DEVICEDESCRIPTION64A2% = DriverInstall64,ACPI\BCM0102,*BCM0102,BCM0000
+
+[ControlFlags]
+;ExcludeFromSelect = ACPI\BCM0101
+
+[DestinationDirs]
+DefaultDestDir=12		;it's %windir/system32/drivers
+
+Win2KCopyDriver	= 12
+WinXPCopyDriver	= 12
+Win64CopyDriver = 12
+
+[SourceDisksFiles]
+btpmw32.sys=1
+btpmwx64.sys=1
+
+[SourceDisksNames]
+1=%INSTDISK%,,,
+
+;------------------------------------------------------------------------------
+;  Windows 2000 Sections
+;------------------------------------------------------------------------------
+
+
+[DriverInstall.NTx86]
+CopyFiles=Win2KCopyDriver
+LogConfig=PortIO, MemmapIO
+
+[Win2KCopyDriver]
+btpmw32.sys,,COPYFLG_NOPRUNE | COPYFLG_IN_USE_RENAME
+
+[DriverInstall.NTx86.Services]
+AddService=BCMTPM,2,DriverService,EventLog
+
+[DriverService]
+DisplayName	= BCMTPM
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\btpmw32.sys
+
+[EventLog]
+AddReg = AddEventLogReg
+
+[AddEventLogReg]
+HKR, , EventMessageFile, 0x00020000,"%%SystemRoot%%\System32\drivers\btpmw32.sys"
+HKR, , TypesSupported  , 0x00010001, 7
+
+[DriverInstall.NTx86.hw]
+AddReg=DriverHwAddReg
+
+[DriverHwAddReg]
+HKR,,FriendlyName,,%FRIENDLYNAME%
+
+;------------------------------------------------------------------------------
+;  Windows XP Sections
+;------------------------------------------------------------------------------
+
+[DriverInstallXP.NT]
+CopyFiles=WinXPCopyDriver
+LogConfig=PortIO, MemmapIO
+
+[WinXPCopyDriver]
+btpmw32.sys,,COPYFLG_NOPRUNE | COPYFLG_IN_USE_RENAME
+
+[DriverInstallXP.NT.Services]
+AddService=BCMTPM,2,WinXPServiceInstallSection,EventLogXP
+
+[WinXPServiceInstallSection]
+DisplayName	= BCMTPM
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\btpmw32.sys
+
+[EventLogXP]
+AddReg = EventLogAddRegXP
+
+[EventLogAddRegXP]
+HKR, , EventMessageFile, 0x00020000,"%%SystemRoot%%\System32\drivers\btpmw32.sys"
+HKR, , TypesSupported  , 0x00010001, 7
+
+[DriverInstallXP.nt.hw]
+AddReg=DriverHwAddRegXP
+
+[DriverHwAddRegXP]
+HKR,,FriendlyName,,%FRIENDLYNAMEXP%
+
+
+
+;------------------------------------------------------------------------------
+;  Windows 64 bit Sections
+;------------------------------------------------------------------------------
+
+[DriverInstall64.NTamd64]
+CopyFiles=Win64CopyDriver
+LogConfig=PortIO, MemmapIO
+
+[Win64CopyDriver]
+btpmwx64.sys,,COPYFLG_NOPRUNE | COPYFLG_IN_USE_RENAME
+
+[DriverInstall64.NTamd64.Services]
+AddService=BCMTPM,2,Win64ServiceInstallSection,EventLog64
+
+[Win64ServiceInstallSection]
+DisplayName	= BCMTPM
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\btpmwx64.sys
+
+[EventLog64]
+AddReg = EventLogAddReg64
+
+[EventLogAddReg64]
+HKR, , EventMessageFile, 0x00020000,"%%SystemRoot%%\System32\drivers\btpmwx64.sys"
+HKR, , TypesSupported  , 0x00010001, 7
+
+[DriverInstall64.NTamd64.hw]
+AddReg=DriverHwAddReg64
+
+[DriverHwAddReg64]
+HKR,,FriendlyName,,%FRIENDLYNAME64%
+
+;------------------------------------------------------------------------------
+;  IO/IRQ - port i/o
+;------------------------------------------------------------------------------
+
+[PortIO]
+ConfigPriority=NORMAL
+IOConfig=CB0-CB1
+IrqConfig=LS:3,4,5,6,7,8,9,10,11,12,13,14,15
+
+;------------------------------------------------------------------------------
+;  IO/IRQ - memmap i/o
+;------------------------------------------------------------------------------
+
+[MemmapIO]
+ConfigPriority=DESIRED
+IrqConfig=LS:3,4,5,6,7,8,9,10,11,12,13,14,15
+MemConfig = FED40000-FED44FFF
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+
+[Strings]
+MFGNAME="Broadcom"
+INSTDISK="Broadcom Installation Disc"
+DEVICEDESCRIPTION="Broadcom TPM Device"
+DEVICEDESCRIPTIONA2="Broadcom TPM Device"
+DEVICEDESCRIPTIONXP="Broadcom TPM Device"
+DEVICEDESCRIPTIONXPA2="Broadcom TPM Device"
+DEVICEDESCRIPTION64="Broadcom TPM Device"
+DEVICEDESCRIPTION64A2="Broadcom TPM Device"
+FRIENDLYNAME="Broadcom TPM"
+FRIENDLYNAMEXP="Broadcom TPM"
+FRIENDLYNAME64="Broadcom TPM"
+CLASSNAME="Trusted Platform Modules"
+;
+; directive defines
+;
+COPYFLG_WARN_IF_SKIP = 0x00000001
+COPYFLG_NOSKIP = 0x00000002
+COPYFLG_NOVERSIONCHECK = 0x00000004
+COPYFLG_FORCE_FILE_IN_USE = 0x00000008
+COPYFLG_NO_OVERWRITE = 0x00000010
+COPYFLG_NO_VERSION_DIALOG = 0x00000020
+COPYFLG_OVERWRITE_OLDER_ONLY = 0x00000040
+COPYFLG_REPLACEONLY = 0x00000400
+COPYFLG_REPLACE_BOOT_FILE = 0x00001000
+COPYFLG_NOPRUNE = 0x00002000

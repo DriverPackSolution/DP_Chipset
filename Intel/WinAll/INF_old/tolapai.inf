@@ -1,0 +1,148 @@
+; ****************************************************************************
+; ****************************************************************************
+; **    Filename:  tolapai.inf (82XXX Integrated Processor)                                                 
+; **    Abstract:  Windows* 2K, XP, 2003 INF File for 
+; **		           Memory I/O Controller Hub 
+; **    Last Update: November 28, 2007 (Version 8.8.0 Build 1009)
+; ****************************************************************************
+; ****************************************************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=tolapai.cat
+DriverVer=11/28/2007, 8.8.0.1009
+
+[SourceDisksNames]
+[sourcedisksfiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL%=INTEL_SYS,NTamd64
+
+[INTEL_SYS]
+%PCI\VEN_8086&DEV_5020.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_5020
+%PCI\VEN_8086&DEV_5031.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_5031
+%PCI\VEN_8086&DEV_5024.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_5024
+%PCI\VEN_8086&DEV_5025.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_5025
+%PCI\VEN_8086&DEV_503B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_503B
+%PCI\VEN_8086&DEV_503D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_503D
+%PCI\VEN_8086&DEV_5021.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_5021
+%PCI\VEN_8086&DEV_5037.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_5037
+%PCI\VEN_8086&DEV_5023.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_5023
+%PCI\VEN_8086&DEV_502C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_502C
+%PCI\VEN_8086&DEV_502D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_502D
+%PCI\VEN_8086&DEV_503F.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_503F
+%PCI\VEN_8086&DEV_504C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_504C
+%PCI\VEN_8086&DEV_5030.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_5030
+
+[INTEL_SYS.NTamd64]
+%PCI\VEN_8086&DEV_5020.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_5020
+%PCI\VEN_8086&DEV_5031.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_5031
+%PCI\VEN_8086&DEV_5024.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_5024
+%PCI\VEN_8086&DEV_5025.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_5025
+%PCI\VEN_8086&DEV_503B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_503B
+%PCI\VEN_8086&DEV_503D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_503D
+%PCI\VEN_8086&DEV_5021.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_5021
+%PCI\VEN_8086&DEV_5037.DeviceDesc%=INTEL_PCI,PCI\VEN_8086&DEV_5037
+%PCI\VEN_8086&DEV_5023.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_5023
+%PCI\VEN_8086&DEV_502C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_502C
+%PCI\VEN_8086&DEV_502D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_502D
+%PCI\VEN_8086&DEV_503F.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_503F
+%PCI\VEN_8086&DEV_504C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_504C
+%PCI\VEN_8086&DEV_5030.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_5030
+
+
+[INTEL_PCI]
+Include=machine.inf
+Needs=PCI_DRV
+
+[INTEL_PCI.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[INTEL_PCI.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+;**************************************************************************
+; Do-nothing section used to avoid "Unknown hardware" installation prompts.
+
+[NO_DRV]
+AddReg=INF_VER
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+;****************************************************
+; Generic ISA Root Bus / PCI-ISA Bridge / PCI-EISA Bridge
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[INF_VER]
+HKLM,Software\Intel\InfInst,Infver,,"8.8.0"
+
+[Strings]
+INTEL="Intel"
+
+PCI\VEN_8086&DEV_5020.DeviceDesc="Intel(R) EP80579 Memory Controller Hub - 5020"
+PCI\VEN_8086&DEV_5031.DeviceDesc="Intel(R) EP80579 LPC Bus - 5031"
+PCI\VEN_8086&DEV_5024.DeviceDesc="Intel(R) EP80579 PCI Express Port PEA0 - 5024"
+PCI\VEN_8086&DEV_5025.DeviceDesc="Intel(R) EP80579 PCI Express Port PEA1 - 5025"
+PCI\VEN_8086&DEV_503B.DeviceDesc="Intel(R) EP80579 SSP Controller - 503B"
+PCI\VEN_8086&DEV_503D.DeviceDesc="Intel(R) EP80579 Lower Expansion Bus - 503D"
+PCI\VEN_8086&DEV_5021.DeviceDesc="Intel(R) EP80579 DRAM Error Reporting Registers - 5021"
+PCI\VEN_8086&DEV_5037.DeviceDesc="Intel(R) EP80579 Configuration Bridge - 5037"
+PCI\VEN_8086&DEV_5023.DeviceDesc="Intel(R) EP80579 EDMA Controller - 5023"
+
+PCI\VEN_8086&DEV_502C.DeviceDesc="Intel(R) EP80579 Microengine Cluster (with SSM) - 502C"
+PCI\VEN_8086&DEV_502D.DeviceDesc="Intel(R) EP80579 Microengine Cluster (without SSM) - 502D"
+PCI\VEN_8086&DEV_503F.DeviceDesc="Intel(R) EP80579 Ring Controller - 503F"
+PCI\VEN_8086&DEV_504C.DeviceDesc="Intel(R) EP80579 Network Processing Engine - 504C"
+PCI\VEN_8086&DEV_5030.DeviceDesc="Intel(R) EP80579 ME Complex CHAP Counter - 5030"
+
+
+; Copyright (c) 2003-2007 Intel Corporation
+
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.

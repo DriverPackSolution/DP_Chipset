@@ -1,0 +1,77 @@
+; ****************************************************************************
+; ****************************************************************************
+; **    Filename:  ICH2SMB.INF                                                  
+; **    Abstract:  Windows* XP INF Update File for Intel(R) 82801BA/BAM SMBus
+; **               component                              
+; **    Last Update:  March 24, 2000 (Version 2.30 Build 0017)
+; ****************************************************************************
+; ****************************************************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=ich2smb.cat
+DriverVer=03/24/2001,2.30.0017
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL_MFG%=INTEL_SYS
+
+[INTEL_SYS]
+%PCI\VEN_8086&DEV_2443.DeviceDesc%         = NO_DRV, PCI\VEN_8086&DEV_2443
+
+;**************************************************************************
+; Do-nothing section used to avoid "Unknown hardware" installation prompts.
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Strings]
+SystemClassName = "System devices"
+INTEL           = "Intel"
+
+;*******************************************
+;device descriptions
+
+INTEL_MFG = "Intel"
+PCI\VEN_8086&DEV_2443.DeviceDesc         = "Intel(R) 82801BA/BAM SMBus Controller - 2443"
+
+; Copyright (c) 2000 Intel Corporation
+
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.

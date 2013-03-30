@@ -1,0 +1,65 @@
+
+[Version]
+Signature="$WINDOWS NT$"
+Provider=%LCD%
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+HydraWDDM.sys  = 1,,
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;*****************************************
+; Filter Driver Install Section
+;*****************************************
+
+[DefaultInstall]
+CopyFiles=DriverCopyFiles
+
+[DriverCopyFiles]
+HydraWDDM.sys,,,0x60		; replace newer, suppress dialog
+
+;-------------- Service installation
+
+[DefaultInstall.Services]
+AddService=HydraWDDM,,HydraWDDMService
+
+[HydraWDDMService]
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\HydraWDDM.sys
+AddReg         = HydraWDDMAddReg
+
+[HydraWDDMAddReg]
+HKLM,%HydraWDDMSubKey%,"LowerFilters",0x10008,"HydraWDDM"
+
+;*****************************************
+; Filter Driver Uninstall Section
+;*****************************************
+
+[DefaultUninstall]
+DelFiles=DriverDelFiles
+DelReg=HydraWDDMDelReg
+
+[DriverDelFiles]
+HydraWDDM.sys,,,0x01 		
+
+[HydraWDDMDelReg]
+HKLM,%HydraWDDMSubKey%,"LowerFilters",,"HydraWDDM"
+
+;-------------- Service removal
+
+[DefaultUninstall.Services]
+DelService=HydraWDDM,
+
+
+[Strings]
+LCD = "Lucid"
+DiskId1 = "Lucid Hydra Kernel Mode Driver Installation Disk #1"
+HydraWDDMSubKey = "system\currentcontrolset\control\class\{4D36E968-E325-11CE-BFC1-08002BE10318}"
+
+

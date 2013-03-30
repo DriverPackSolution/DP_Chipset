@@ -1,0 +1,212 @@
+;/*++
+;
+;Copyright (c) 2009-2012, LAPIS SEMICONDUCTOR CO., LTD.  All rights reserved.
+;
+;Module Name:
+;
+;     netioh.INF
+;
+;Abstract:
+;     INF file for installing Giga bit Ether device driver
+;
+;--*/
+
+[version]
+;Layoutfile parameter is reserved for internal Microsoft use only
+;LayoutFile = layout.inf
+Signature   = "$Chicago$"
+Class       = Net
+ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider    = %INTEL%
+Compatible  = 1
+DriverVer   = 07/20/2012,2.6.0.0
+CatalogFile = netioh.cat
+
+[Manufacturer]
+%INTEL%     = IOHGBE,NTx86
+
+[ControlFlags]
+ExcludeFromSelect = PCI\VEN_10DB&DEV_800E
+
+[IOHGBE.NTx86]
+; DisplayName        Section       DeviceID
+; -----------        -------       --------
+%IOHGBE.DeviceDesc%   = IOHGBE.ndi,      PCI\VEN_8086&DEV_8802 ; Intel(R) Platform Controller Hub EG20T Gigabit Ethernet Controller
+
+
+;------------------------------------------------------------------------------
+;Entry for LSI
+;------------------------------------------------------------------------------
+; Windows NT specific entry
+[IOHGBE.ndi.NT]
+Characteristics = 0x84
+BusType         = 5
+AddReg          = Speed100.reg, params.reg, IOHGBE.reg
+CopyFiles       = IOHGBE.CopyFiles
+
+[IOHGBE.ndi.NT.Services]
+AddService = iohgbe, 2, IOHGBE.Service, common.EventLog
+
+;-----------------------------------------------------------------------------
+; common base for 10/100Mb Adapters
+;
+[Speed100.reg]
+HKR, Ndi\params\SpeedDuplex,       ParamDesc,  0, %SpeedDuplex%
+HKR, Ndi\params\SpeedDuplex,       default,    0, "0"
+HKR, Ndi\params\SpeedDuplex,       type,       0, "enum"
+HKR, Ndi\params\SpeedDuplex\enum,  "0",        0, %AutoDetect%
+HKR, Ndi\params\SpeedDuplex\enum,  "1",        0, %10Mb-Half-Duplex%
+HKR, Ndi\params\SpeedDuplex\enum,  "2",        0, %10Mb-Full-Duplex%
+HKR, Ndi\params\SpeedDuplex\enum,  "3",        0, %100Mb-Half-Duplex%
+HKR, Ndi\params\SpeedDuplex\enum,  "4",        0, %100Mb-Full-Duplex%
+
+;PARAMS
+
+;-----------------------------------------------------------------------------
+; FLOW CONTROL
+;-----------------------------------------------------------------------------
+[params.reg]
+HKR, Ndi\params\FlowControl,          ParamDesc,  0, %FlowControl%
+HKR, Ndi\params\FlowControl,          default,    0, "3"
+HKR, Ndi\params\FlowControl,          type,       0, "enum"
+HKR, Ndi\params\FlowControl\enum,     "0",        0, %OFF%
+HKR, Ndi\params\FlowControl\enum,     "1",        0, %Respond%
+HKR, Ndi\params\FlowControl\enum,     "2",        0, %Generate%
+HKR, Ndi\params\FlowControl\enum,     "3",        0, %Full%
+
+
+HKR, Ndi\params\NetworkAddress,       ParamDesc,  0, %NetworkAddress%
+HKR, Ndi\params\NetworkAddress,       type,       0, "edit"
+HKR, Ndi\params\NetworkAddress,       default,    0, "0"
+HKR, Ndi\params\NetworkAddress,       LimitText,  0, "12"
+HKR, Ndi\params\NetworkAddress,       UpperCase,  0, "1"
+HKR, Ndi\params\NetworkAddress,       Optional,   0, "1"
+
+HKR, Ndi\params\OffloadOptions,       ParamDesc,  0, %OffloadOptions%
+HKR, Ndi\params\OffloadOptions,       default,    0, "1"
+HKR, Ndi\params\OffloadOptions,       type,       0, "enum"
+HKR, Ndi\params\OffloadOptions\enum,  "0",        0, %Disable%
+HKR, Ndi\params\OffloadOptions\enum,  "1",        0, %Enable%
+
+HKR, Ndi\params\NumTxDs,              ParamDesc,  0, "%NumTxDs%"
+HKR, Ndi\params\NumTxDs,              default,    0, "32"
+HKR, Ndi\params\NumTxDs,              min,        0, "8"
+HKR, Ndi\params\NumTxDs,              max,        0, "64"
+HKR, Ndi\params\NumTxDs,              step,       0, "1"
+HKR, Ndi\params\NumTxDs,              Base,       0, "10"
+HKR, Ndi\params\NumTxDs,              type,       0, "int"
+
+HKR, Ndi\params\NumRxDs,              ParamDesc,  0, "%NumRxDs%"
+HKR, Ndi\params\NumRxDs,              default,    0, "64"
+HKR, Ndi\params\NumRxDs,              min,        0, "8"
+HKR, Ndi\params\NumRxDs,              max,        0, "256"
+HKR, Ndi\params\NumRxDs,              step,       0, "1"
+HKR, Ndi\params\NumRxDs,              Base,       0, "10"
+HKR, Ndi\params\NumRxDs,              type,       0, "int"
+
+HKR, Ndi\params\JumboFrames,          ParamDesc,  0, "%JumboFrames%"
+HKR, Ndi\params\JumboFrames,          default,    0, "0"
+HKR, Ndi\params\JumboFrames,          type,       0, "enum"
+HKR, Ndi\params\JumboFrames\enum,     "0",        0, %Disable%
+HKR, Ndi\params\JumboFrames\enum,     "1",        0, %Enable%
+
+HKR, Ndi\params\TxFrameSz,            ParamDesc,  0, "%TxFrameSz%"
+HKR, Ndi\params\TxFrameSz,            default,    0, "10318"
+HKR, Ndi\params\TxFrameSz,            min,        0, "1518"
+HKR, Ndi\params\TxFrameSz,            max,        0, "10318"
+HKR, Ndi\params\TxFrameSz,            step,       0, "1"
+HKR, Ndi\params\TxFrameSz,            Base,       0, "10"
+HKR, Ndi\params\TxFrameSz,            type,       0, "int"
+
+HKR, Ndi\params\RxFrameSz,            ParamDesc,  0, "%RxFrameSz%"
+HKR, Ndi\params\RxFrameSz,            default,    0, "10318"
+HKR, Ndi\params\RxFrameSz,            min,        0, "1518"
+HKR, Ndi\params\RxFrameSz,            max,        0, "10318"
+HKR, Ndi\params\RxFrameSz,            step,       0, "1"
+HKR, Ndi\params\RxFrameSz,            Base,       0, "10"
+HKR, Ndi\params\RxFrameSz,            type,       0, "int"
+
+HKR, Ndi\params\PhyAddr,              ParamDesc,  0, "%PhyAddr%"
+HKR, Ndi\params\PhyAddr,              default,    0, "-1"
+HKR, Ndi\params\PhyAddr,              min,        0, "-1"
+HKR, Ndi\params\PhyAddr,              max,        0, "31"
+HKR, Ndi\params\PhyAddr,              step,       0, "1"
+HKR, Ndi\params\PhyAddr,              Base,       0, "10"
+HKR, Ndi\params\PhyAddr,              type,       0, "int"
+
+
+;------------------------------------------------------------------------------
+[IOHGBE.reg]
+HKR, Ndi,                       Service,    0, "iohgbe"  ; use ndis5 as the upper bound because NT supports it
+HKR, Ndi\Interfaces,            UpperRange, 0, "ndis5"
+HKR, Ndi\Interfaces,            LowerRange, 0, "ethernet"
+HKR, ,                          RGMII     , 0, "1"
+
+[IOHGBE.Service]
+DisplayName     = %IOHGBE.Service.DispName%
+ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType       = 3 ;%SERVICE_DEMAND_START%
+ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary   = %12%\iohgbe.sys
+LoadOrderGroup  = NDIS
+Dependencies    = +NDIS init
+
+[common.EventLog]
+AddReg = common.AddEventLog.reg
+
+[common.AddEventLog.reg]
+HKR, , EventMessageFile, 0x00020000, "%%SystemRoot%%\System32\netevent.dll"
+HKR, , TypesSupported,   0x00010001, 7
+
+;-----------------------------------------------------------------------------
+; DestinationDirs
+;-----------------------------------------------------------------------------
+[IOHGBE.CopyFiles]
+iohgbe.sys,,,2
+
+
+[SourceDisksNames]
+;
+; diskid = description[, [tagfile] [, <unused>, subdir]]
+;
+1 = %DiskDescription%,iohgbe.sys,,
+
+[SourceDisksFiles]
+;
+; filename_on_source = diskID[, [subdir][, size]]
+;
+iohgbe.sys = 1,, ; on distribution disk 1
+
+
+[DestinationDirs]
+IOHGBE.CopyFiles     = 12
+DefaultDestDirs     = 11
+
+[Strings]
+INTEL                       = "Intel"
+FlowControl                 = "Flow Control"
+OFF                         = "No Flow Control"
+Respond                     = "Respond to Flow Control"
+Generate                    = "Generate Flow Control"
+Full                        = "Full Flow Control"
+NetworkAddress              = "Network Address"
+OffloadOptions              = "TCP/IP Offload Options"
+Enable                      = "Enable"
+Disable                     = "Disable"
+NumTxDs                     = "Number of Transmit Descriptors"
+NumRxDs                     = "Number of Receive Descriptors"
+JumboFrames                 = "Jumbo Frames"
+TxFrameSz                   = "Size of Transmit Frames"
+RxFrameSz                   = "Size of Receive Frames"
+AutoDetect                  = "Auto Detect"
+SpeedDuplex                 = "Link Speed & Duplex"
+10Mb-Half-Duplex            = "10Mbps/Half Duplex"
+10Mb-Full-Duplex            = "10Mbps/Full Duplex"
+100Mb-Half-Duplex           = "100Mbps/Half Duplex"
+100Mb-Full-Duplex           = "100Mbps/Full Duplex"
+PhyAddr                     = "PHY Address"
+
+IOHGBE.DeviceDesc           = "Intel(R) Platform Controller Hub EG20T Gigabit Ethernet Controller - 8802"
+IOHGBE.Service.DispName     = "Intel(R) Platform Controller Hub EG20T Gigabit Ethernet Controller Driver"
+DiskDescription             = "Intel(R) Platform Controller Hub EG20T Driver Disk 1"
+

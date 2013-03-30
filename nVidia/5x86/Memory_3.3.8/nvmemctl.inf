@@ -1,0 +1,66 @@
+
+; nvmemctl.INF
+
+; Copyright (c) 2001-2002, NVIDIA
+; Version 1.00
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%NVIDIA%
+CatalogFile=nvmemctl.cat
+DriverVer = 04/09/2003, 3.3.8
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%NVIDIA_MFG%=NVIDIA_SYS
+
+[SourceDisksFiles]
+
+[NVIDIA_SYS]
+%PCI\VEN_10DE&DEV_01AA.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01AA
+%PCI\VEN_10DE&DEV_01AB.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01AB
+%PCI\VEN_10DE&DEV_01AC.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01AC
+%PCI\VEN_10DE&DEV_01AD.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01AD
+%PCI\VEN_10DE&DEV_01EA.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01EA
+%PCI\VEN_10DE&DEV_01EA&REV_C1.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01EA&REV_C1
+%PCI\VEN_10DE&DEV_01EB.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01EB
+%PCI\VEN_10DE&DEV_01EB&REV_C1.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01EB&REV_C1
+%PCI\VEN_10DE&DEV_01EB.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01EC
+%PCI\VEN_10DE&DEV_01ED.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01ED
+%PCI\VEN_10DE&DEV_01EE.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01EE
+%PCI\VEN_10DE&DEV_01EF.DeviceDesc% = NO_DRV, PCI\VEN_10DE&DEV_01EF
+
+;**************************************************************************
+; Do-nothing section used to avoid "Unknown hardware" installation prompts.
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[NO_DRV.HW]
+Include=machine.inf
+Needs=NO_DRV.HW
+
+[Strings]
+SystemClassName = "System devices"
+NVIDIA          = "NVIDIA"
+NVIDIA_MFG      = "NVIDIA"
+PCI\VEN_10DE&DEV_01AA.DeviceDesc="NVIDIA nForce 220/230 Memory Controller (DDR)"
+PCI\VEN_10DE&DEV_01AB.DeviceDesc="NVIDIA nForce 415/420/430 Memory Controller (DDR)"
+PCI\VEN_10DE&DEV_01AC.DeviceDesc="NVIDIA nForce 220/230/415/420/430 Memory Controller"
+PCI\VEN_10DE&DEV_01AD.DeviceDesc="NVIDIA nForce 220/230/415/420/430 Memory Controller"
+PCI\VEN_10DE&DEV_01EA.DeviceDesc="NVIDIA nForce2 Memory Controller"
+PCI\VEN_10DE&DEV_01EA&REV_C1.DeviceDesc="NVIDIA nForce2 400 Memory Controller"
+PCI\VEN_10DE&DEV_01EB.DeviceDesc="NVIDIA nForce2 Memory Controller"
+PCI\VEN_10DE&DEV_01EB&REV_C1.DeviceDesc="NVIDIA nForce2 Ultra 400 Memory Controller"
+PCI\VEN_10DE&DEV_01EC.DeviceDesc="NVIDIA nForce2 Memory Controller"
+PCI\VEN_10DE&DEV_01ED.DeviceDesc="NVIDIA nForce2 Memory Controller"
+PCI\VEN_10DE&DEV_01EE.DeviceDesc="NVIDIA nForce2 Memory Controller"
+PCI\VEN_10DE&DEV_01EF.DeviceDesc="NVIDIA nForce2 Memory Controller"

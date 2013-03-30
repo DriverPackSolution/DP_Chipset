@@ -1,0 +1,89 @@
+;
+; Copyright (c) 2012  AMD
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%AMD%
+
+DriverVer=11/16/2012, 9.011.0.0000
+
+CatalogFile=amdkmafd.cat
+
+;[ClassInstall32]
+;AddReg=system_class_addreg
+
+;[system_class_addreg]
+;HKR,,,,%SystemClassName%
+;HKR,,Icon,,"-27"
+
+[DestinationDirs]
+Drivers_Dir = 12
+
+[SourceDisksNames.x86]
+1 = %DISK_NAME%,,,""
+
+[SourceDisksNames.amd64]
+1 = %DISK_NAME%,,,""
+
+
+[SourceDisksFiles]
+amdkmafd.sys  = 1,,
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD%=AMD_KMAFD,NTx86
+
+[AMD_KMAFD.NTx86]
+%PCI\AMDPCIE.DeviceDesc%=AMDKMAFD_Install, PCI\VEN_1002&CC_0403
+%PCI\AMDPCIE.DeviceDesc%=AMDKMAFD_Install, PCI\VEN_1002&CC_040300
+%PCI\AMDPCIE.DeviceDesc%=AMDKMAFD_Install, PCI\VEN_8086&CC_0403
+%PCI\AMDPCIE.DeviceDesc%=AMDKMAFD_Install, PCI\VEN_8086&CC_040300
+
+[AMDKMAFD_Install]
+Include = hdaudbus.inf				; The function driver
+Needs = HDAudio_Device.NT			; Install section for the function driver
+
+CopyFiles=Drivers_Dir
+;Reboot
+
+[Drivers_Dir]
+amdkmafd.sys,,,2
+
+[AMDKMAFD_Install.HW]
+AddReg = AMDKMAFD_Filter_Reg
+Include = hdaudbus.inf				; The function driver
+Needs = HDAudio_Device.NT		; Install section for the function driver
+
+[AMDKMAFD_Filter_Reg]
+HKR,,"LowerFilters", 0x00010008,"amdkmafd"
+
+[AMDKMAFD_Install.Services]
+AddService = amdkmafd,,AMDKMAFD_ServiceInstallSection
+Include = hdaudbus.inf				; The function driver
+Needs = HDAudio_Device.NT.Services		; Install section for the function driver
+
+[AMDKMAFD_ServiceInstallSection]
+DisplayName    = %AMDKMAFD_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\amdkmafd.sys
+LoadOrderGroup = PnP Filter
+
+
+[Strings]
+AMD = "AMD"
+PCI\AMDPCIE.DeviceDesc = "High Definition Audio Bus"
+SystemClassName = "System devices"
+AMDKMAFD_svcdesc = "AMD Audio Bus Lower Filter"
+DISK_NAME = "AMD Audio Install Disk"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1

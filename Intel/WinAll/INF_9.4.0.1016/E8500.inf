@@ -1,0 +1,233 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: E8500.inf                                              **
+; **           Abstract: Windows* 2000, XP, 2003 INF File for Twin Castle       **
+; **                     Memory Controller Hub                                  **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=E8500.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NT.5.1,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_2600.DeviceDesc%=NO_DRV_2K,PCI\VEN_8086&DEV_2600
+%PCI\VEN_8086&DEV_2601.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2601
+%PCI\VEN_8086&DEV_2602.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2602
+%PCI\VEN_8086&DEV_2603.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2603
+%PCI\VEN_8086&DEV_2604.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2604
+%PCI\VEN_8086&DEV_2605.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2605
+%PCI\VEN_8086&DEV_2606.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2606
+%PCI\VEN_8086&DEV_2607.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2607
+%PCI\VEN_8086&DEV_2608.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2608
+%PCI\VEN_8086&DEV_2609.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2609
+%PCI\VEN_8086&DEV_260A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_260A
+%PCI\VEN_8086&DEV_260C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_260C
+%PCI\VEN_8086&DEV_2610.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2610
+%PCI\VEN_8086&DEV_2611.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2611
+%PCI\VEN_8086&DEV_2612.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2612
+%PCI\VEN_8086&DEV_2613.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2613
+%PCI\VEN_8086&DEV_2614.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2614
+%PCI\VEN_8086&DEV_2615.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2615
+%PCI\VEN_8086&DEV_2617.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2617
+%PCI\VEN_8086&DEV_2618.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2618
+%PCI\VEN_8086&DEV_2619.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2619
+%PCI\VEN_8086&DEV_261A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261A
+%PCI\VEN_8086&DEV_261B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261B
+%PCI\VEN_8086&DEV_261C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261C
+%PCI\VEN_8086&DEV_261D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261D
+%PCI\VEN_8086&DEV_261E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261E
+%PCI\VEN_8086&DEV_2620.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2620
+%PCI\VEN_8086&DEV_2621.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2621
+%PCI\VEN_8086&DEV_2622.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2622
+%PCI\VEN_8086&DEV_2623.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2623
+%PCI\VEN_8086&DEV_2624.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2624
+%PCI\VEN_8086&DEV_2625.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2625
+%PCI\VEN_8086&DEV_2626.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2626
+%PCI\VEN_8086&DEV_2627.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2627
+
+
+[INTEL.NT.5.1]
+%PCI\VEN_8086&DEV_2601.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2601
+%PCI\VEN_8086&DEV_2602.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2602
+%PCI\VEN_8086&DEV_2603.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2603
+%PCI\VEN_8086&DEV_2604.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2604
+%PCI\VEN_8086&DEV_2605.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2605
+%PCI\VEN_8086&DEV_2606.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2606
+%PCI\VEN_8086&DEV_2607.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2607
+%PCI\VEN_8086&DEV_2608.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2608
+%PCI\VEN_8086&DEV_2609.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2609
+%PCI\VEN_8086&DEV_260A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_260A
+%PCI\VEN_8086&DEV_260C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_260C
+%PCI\VEN_8086&DEV_2610.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2610
+%PCI\VEN_8086&DEV_2611.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2611
+%PCI\VEN_8086&DEV_2612.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2612
+%PCI\VEN_8086&DEV_2613.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2613
+%PCI\VEN_8086&DEV_2614.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2614
+%PCI\VEN_8086&DEV_2615.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2615
+%PCI\VEN_8086&DEV_2617.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2617
+%PCI\VEN_8086&DEV_2618.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2618
+%PCI\VEN_8086&DEV_2619.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2619
+%PCI\VEN_8086&DEV_261A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261A
+%PCI\VEN_8086&DEV_261B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261B
+%PCI\VEN_8086&DEV_261C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261C
+%PCI\VEN_8086&DEV_261D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261D
+%PCI\VEN_8086&DEV_261E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261E
+%PCI\VEN_8086&DEV_2620.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2620
+%PCI\VEN_8086&DEV_2621.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2621
+%PCI\VEN_8086&DEV_2622.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2622
+%PCI\VEN_8086&DEV_2623.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2623
+%PCI\VEN_8086&DEV_2624.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2624
+%PCI\VEN_8086&DEV_2625.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2625
+%PCI\VEN_8086&DEV_2626.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2626
+%PCI\VEN_8086&DEV_2627.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2627
+%PCI\VEN_8086&DEV_2600.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2600
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_2601.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2601
+%PCI\VEN_8086&DEV_2602.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2602
+%PCI\VEN_8086&DEV_2603.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2603
+%PCI\VEN_8086&DEV_2604.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2604
+%PCI\VEN_8086&DEV_2605.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2605
+%PCI\VEN_8086&DEV_2606.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2606
+%PCI\VEN_8086&DEV_2607.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2607
+%PCI\VEN_8086&DEV_2608.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2608
+%PCI\VEN_8086&DEV_2609.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2609
+%PCI\VEN_8086&DEV_260A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_260A
+%PCI\VEN_8086&DEV_260C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_260C
+%PCI\VEN_8086&DEV_2610.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2610
+%PCI\VEN_8086&DEV_2611.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2611
+%PCI\VEN_8086&DEV_2612.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2612
+%PCI\VEN_8086&DEV_2613.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2613
+%PCI\VEN_8086&DEV_2614.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2614
+%PCI\VEN_8086&DEV_2615.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2615
+%PCI\VEN_8086&DEV_2617.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2617
+%PCI\VEN_8086&DEV_2618.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2618
+%PCI\VEN_8086&DEV_2619.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2619
+%PCI\VEN_8086&DEV_261A.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261A
+%PCI\VEN_8086&DEV_261B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261B
+%PCI\VEN_8086&DEV_261C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261C
+%PCI\VEN_8086&DEV_261D.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261D
+%PCI\VEN_8086&DEV_261E.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_261E
+%PCI\VEN_8086&DEV_2620.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2620
+%PCI\VEN_8086&DEV_2621.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2621
+%PCI\VEN_8086&DEV_2622.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2622
+%PCI\VEN_8086&DEV_2623.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2623
+%PCI\VEN_8086&DEV_2624.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2624
+%PCI\VEN_8086&DEV_2625.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2625
+%PCI\VEN_8086&DEV_2626.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2626
+%PCI\VEN_8086&DEV_2627.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2627
+%PCI\VEN_8086&DEV_2600.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2600
+
+
+[PCI_DRV_2K]
+Include=machine.inf
+Needs=NO_DRV
+
+[PCI_DRV_2K.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_2600.DeviceDesc="Intel(R) E8500/E8501 Hub Interface - 2600"
+PCI\VEN_8086&DEV_2601.DeviceDesc="Intel(R) E8500/E8501 PCI Express x4 Port D - 2601"
+PCI\VEN_8086&DEV_2602.DeviceDesc="Intel(R) E8500/E8501 PCI Express x4 Port C0 - 2602"
+PCI\VEN_8086&DEV_2603.DeviceDesc="Intel(R) E8500/E8501 PCI Express x4 Port C1 - 2603"
+PCI\VEN_8086&DEV_2604.DeviceDesc="Intel(R) E8500/E8501 PCI Express x4 Port B0 - 2604"
+PCI\VEN_8086&DEV_2605.DeviceDesc="Intel(R) E8500/E8501 PCI Express x4 Port B1 - 2605"
+PCI\VEN_8086&DEV_2606.DeviceDesc="Intel(R) E8500/E8501 PCI Express x4 Port A0 - 2606"
+PCI\VEN_8086&DEV_2607.DeviceDesc="Intel(R) E8500/E8501 PCI Express x4 Port A1 - 2607"
+PCI\VEN_8086&DEV_2608.DeviceDesc="Intel(R) E8500/E8501 PCI Express x8 Port C - 2608"
+PCI\VEN_8086&DEV_2609.DeviceDesc="Intel(R) E8500/E8501 PCI Express x8 Port B - 2609"
+PCI\VEN_8086&DEV_260A.DeviceDesc="Intel(R) E8500/E8501 PCI Express x8 Port A - 260A"
+PCI\VEN_8086&DEV_260C.DeviceDesc="Intel(R) E8500/E8501 IMI Registers - 260C"
+PCI\VEN_8086&DEV_2610.DeviceDesc="Intel(R) E8500/E8501 Interrupt Registers - 2610"
+PCI\VEN_8086&DEV_2611.DeviceDesc="Intel(R) E8500/E8501 Address Mapping Registers - 2611"
+PCI\VEN_8086&DEV_2612.DeviceDesc="Intel(R) E8500/E8501 RAS Registers - 2612"
+PCI\VEN_8086&DEV_2613.DeviceDesc="Intel(R) E8500/E8501 Registers - 2613"
+PCI\VEN_8086&DEV_2614.DeviceDesc="Intel(R) E8500/E8501 Registers - 2614"
+PCI\VEN_8086&DEV_2615.DeviceDesc="Intel(R) E8500/E8501 Registers - 2615"
+PCI\VEN_8086&DEV_2617.DeviceDesc="Intel(R) E8500/E8501 Registers - 2617"
+PCI\VEN_8086&DEV_2618.DeviceDesc="Intel(R) E8500/E8501 Registers - 2618"
+PCI\VEN_8086&DEV_2619.DeviceDesc="Intel(R) E8500/E8501 Registers - 2619"
+PCI\VEN_8086&DEV_261A.DeviceDesc="Intel(R) E8500/E8501 Registers - 261A"
+PCI\VEN_8086&DEV_261B.DeviceDesc="Intel(R) E8500/E8501 Registers - 261B"
+PCI\VEN_8086&DEV_261C.DeviceDesc="Intel(R) E8500/E8501 Registers - 261C"
+PCI\VEN_8086&DEV_261D.DeviceDesc="Intel(R) E8500/E8501 Registers - 261D"
+PCI\VEN_8086&DEV_261E.DeviceDesc="Intel(R) E8500/E8501 Registers - 261E"
+PCI\VEN_8086&DEV_2620.DeviceDesc="Intel(R) E8500/E8501 eXternal Memory Bridge - 2620"
+PCI\VEN_8086&DEV_2621.DeviceDesc="Intel(R) E8500/E8501 XMB Control Registers - 2621"
+PCI\VEN_8086&DEV_2622.DeviceDesc="Intel(R) E8500/E8501 XMB Memory Interleaving Registers - 2622"
+PCI\VEN_8086&DEV_2623.DeviceDesc="Intel(R) E8500/E8501 XMB DDR Initialization and Calibration - 2623"
+PCI\VEN_8086&DEV_2624.DeviceDesc="Intel(R) E8500/E8501 XMB Registers - 2624"
+PCI\VEN_8086&DEV_2625.DeviceDesc="Intel(R) E8500/E8501 XMB Registers - 2625"
+PCI\VEN_8086&DEV_2626.DeviceDesc="Intel(R) E8500/E8501 XMB Registers - 2626"
+PCI\VEN_8086&DEV_2627.DeviceDesc="Intel(R) E8500/E8501 XMB Registers - 2627"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

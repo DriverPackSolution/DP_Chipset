@@ -1,0 +1,95 @@
+; ****************************************************************************
+; ****************************************************************************
+; **    Filename:  E7500.INF                                                 
+; **    Abstract:  Windows* XP INF File for Plumas Memory Controller Hub
+; **    Last Update:  Nov 19, 2001 (Version 3.30 Build 1004)
+; ****************************************************************************
+; ****************************************************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=E7500.cat
+DriverVer=07/02/2001, 3.30.1004
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL_MFG%=INTEL_SYS
+
+[INTEL_SYS]
+%PCI\VEN_8086&DEV_2540.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2540
+%PCI\VEN_8086&DEV_2541.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2541
+%PCI\VEN_8086&DEV_2544.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2544
+%PCI\VEN_8086&DEV_2546.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2546
+%PCI\VEN_8086&DEV_2548.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2548
+%PCI\VEN_8086&DEV_2543.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2543
+%PCI\VEN_8086&DEV_2545.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2545
+%PCI\VEN_8086&DEV_2547.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2547
+
+;****************************************************
+; Generic PCI Root Bus/PCI-PCI Bridge
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+;**************************************************************************
+; Do-nothing section used to avoid "Unknown hardware" installation prompts.
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Strings]
+INTEL         ="Intel"
+INTEL_MFG="Intel"
+PCI\VEN_8086&DEV_2540.DeviceDesc="Intel(R) E7500 Chipset Host Controller - 2540"
+PCI\VEN_8086&DEV_2541.DeviceDesc="Intel(R) E7000 Series Host RASUM Controller - 2541"
+PCI\VEN_8086&DEV_2544.DeviceDesc="Intel(R) E7000 Series Hub Interface B RASUM Controller - 2544"
+PCI\VEN_8086&DEV_2546.DeviceDesc="Intel(R) E7000 Series Hub Interface C RASUM Controller - 2546"
+PCI\VEN_8086&DEV_2548.DeviceDesc="Intel(R) E7000 Series Hub Interface D RASUM Controller - 2548"
+PCI\VEN_8086&DEV_2543.DeviceDesc="Intel(R) E7000 Series Hub Interface B PCI-to-PCI Bridge - 2543"
+PCI\VEN_8086&DEV_2545.DeviceDesc="Intel(R) E7000 Series Hub Interface C PCI-to-PCI Bridge - 2545"
+PCI\VEN_8086&DEV_2547.DeviceDesc="Intel(R) E7000 Series Hub Interface D PCI-to-PCI Bridge - 2547"
+
+; Copyright (c) 2000 Intel Corporation
+
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.

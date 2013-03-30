@@ -1,0 +1,26 @@
+; INF file for ALi 7101 Power Management Controller.
+; Modified ALi Taiwan 4/21/97
+
+[Version]
+Class=System
+Signature="$CHICAGO$"
+Provider=%Mfg%
+
+;----------------------------------------
+; Manufacturers
+
+[Manufacturer]
+"%String1%"=ALI     
+
+;----------------------------------------
+; Driver sections
+
+[ALI]
+%PCI\VEN_10B9&DEV_7101.DeviceDesc%= NO_DRV, PCI\VEN_10B9&DEV_7101
+
+; User visible strings
+
+[Strings]
+ClassName="System"
+String1="ALi"
+PCI\VEN_10B9&DEV_7101.DeviceDesc= "ALi 7101 Power Management Controller"

@@ -1,0 +1,79 @@
+;/*++
+;
+;Copyright (c) SinoSun Technology Co.,Ltd.  All rights reserved.
+;
+;Module Name:
+;
+;    SinoTpm.INF
+;
+;Abstract:
+;    INF file for installing TPM device drivers
+;	 For Windows 64Bit OS.
+;--*/
+
+;--------- Version Section ---------------------------------------------------
+[Version]
+Signature=$Windows NT$
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%MFGNAME%
+CatalogFile=SinoTpm.cat
+DriverVer=06/06/2006,2.2.0.6
+
+;--------- DestinationDirs Section -------------------------------------------
+
+[DestinationDirs]
+DefaultDestDir=12			; %windir/system32/drivers
+
+WinXP64CopyDriver = 12
+
+[SourceDisksNames]
+1=%INSTDISK%,
+
+[SourceDisksFiles]
+SinoTpm.SYS=1
+
+;--------- Manufacturer and Models Sections ----------------------------------
+[Manufacturer]
+%MFGNAME%=Company, NTamd64
+
+[Company.NTamd64]
+%DeviceDesc% = DriverInstall,ACPI\SNO3504
+
+
+;---------- DDInstall Sections -----------------------------------------------
+; --------- Windows x64 Section -----------------
+
+[DriverInstall.NTamd64]
+AddReg=CommonAddReg
+CopyFiles=WinXP64CopyDriver
+
+[WinXP64CopyDriver]
+SinoTpm.sys
+
+[DriverInstall.NTamd64.Services]
+AddService = SINOTPM, 2, WinXP64ServiceInstallSection
+[WinXP64ServiceInstallSection]
+DisplayName    = %SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; 
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\SinoTpm.sys
+
+;--------------------------------------------------------------
+; common section.
+[CommonAddReg]
+HKLM, "%REG_PATH_SINOSUN_PARAM%", "StartupTpmWhenLoad", 0x00010001, 1
+HKLM, "%REG_PATH_SINOSUN_PARAM%", "ContinueSelfTestWhenLoad", 0x00010001, 1
+
+
+;--------- Strings Section ---------------------------------------------------
+[Strings]
+INSTDISK="SINOSUN Technology Ltd. install disk"
+ProviderName="SINOSUN Technology Ltd."
+MFGNAME="SINOSUN Technology Ltd."
+DeviceDesc="SINOSUN TPM Device"
+DeviceDescXP="SINOSUN TPM Device"
+DeviceClassName="Trusted Platform Module"
+SvcDesc="Driver For SINOSUN Trusted Platform Module"
+REG_PATH_SINOSUN_PARAM = "System\CurrentControlSet\Services\SinoTPM\Parameters"

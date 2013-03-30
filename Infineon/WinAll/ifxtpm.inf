@@ -1,0 +1,192 @@
+;/*++
+;
+;Copyright (c) Infineon TEchnologies AG.  All rights reserved.
+;
+;Module Name:
+;
+;    IFXTPM.INF
+;
+;Abstract:
+;    INF file for installing TPM device drivers
+;
+;--*/
+[Version]
+Signature=$Windows NT$
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%MFGNAME%
+CatalogFile=IFXTPM.cat
+DriverVer=12/14/2007,2.01.0001.00 ;mm/dd/yyyy[,w.x.y.z]
+
+[DestinationDirs]
+DefaultDestDir=12		;it's %windir/system32/drivers
+
+CopyDriver	= 12
+
+[SourceDisksNames]
+1=%INSTDISK%,
+
+[SourceDisksFiles]
+IFXTPM.SYS=1
+
+[SourceDisksFiles.amd64]
+IFXTPM.SYS=1, amd64
+
+[Manufacturer]
+%MFGNAME%=Company, NT.5.1, NTamd64.5.1, NT.6.0, NTamd64.6.0
+
+[Company]
+%DEVICEDESCRIPTION% = DriverInstall,ACPI\IFX0101,ACPI\IFX0102,*IFX0101,*IFX0102,IFX0000,*PNP0C31
+[Company.NT.5.1]
+%DEVICEDESCRIPTION% = DriverInstall.NT.5.1,ACPI\IFX0101,ACPI\IFX0102,*IFX0101,*IFX0102,IFX0000,*PNP0C31
+[Company.NTamd64.5.1]
+%DEVICEDESCRIPTION% = DriverInstall.NTamd64.5.1,ACPI\IFX0101,ACPI\IFX0102,*IFX0101,*IFX0102,IFX0000,*PNP0C31
+[Company.NT.6.0]
+%DEVICEDESCRIPTION% = DriverInstall.NT.6.0,ACPI\IFX0101,ACPI\IFX0102,*IFX0101,*IFX0102,IFX0000
+[Company.NTamd64.6.0]
+%DEVICEDESCRIPTION% = DriverInstall.NTamd64.6.0,ACPI\IFX0101,ACPI\IFX0102,*IFX0101,*IFX0102,IFX0000
+
+[ControlFlags]
+;ExcludeFromSelect = ACPI\IFX0101
+
+;------------------------------------------------------------------------------
+;  Windows 2000 Sections
+;------------------------------------------------------------------------------
+[DriverInstall.NTx86]
+AddReg=CommonAddReg
+DelReg=CommonDelReg
+CopyFiles=CopyDriver
+LogConfig=PortIO.LC0, PortIO.LC1
+
+[DriverInstall.NTx86.Services]
+AddService=IFXTPM,2,ServiceInstallSection,EventLogging
+
+[DriverInstall.NTx86.hw]
+AddReg=DriverHwAddReg
+
+;------------------------------------------------------------------------------
+;  Windows XP Sections
+;------------------------------------------------------------------------------
+[DriverInstall.NT.5.1]
+AddReg=CommonAddReg
+DelReg=CommonDelReg
+CopyFiles=CopyDriver
+LogConfig=PortIO.LC0, PortIO.LC1
+
+[DriverInstall.NT.5.1.Services]
+AddService=IFXTPM,2,ServiceInstallSection,EventLogging
+
+[DriverInstall.NT.5.1.hw]
+AddReg=DriverHwAddReg
+
+;------------------------------------------------------------------------------
+;  Windows XP NTamd64.5.1 Sections
+;------------------------------------------------------------------------------
+[DriverInstall.NTamd64.5.1]
+AddReg=CommonAddReg
+DelReg=CommonDelReg
+CopyFiles=CopyDriver
+LogConfig=PortIO.LC0, PortIO.LC1
+
+[DriverInstall.NTamd64.5.1.Services]
+AddService=IFXTPM,2,ServiceInstallSection,EventLogging
+
+[DriverInstall.NTamd64.5.1.hw]
+AddReg=DriverHwAddReg
+
+;------------------------------------------------------------------------------
+;  Windows Vista Sections
+;------------------------------------------------------------------------------
+[DriverInstall.NT.6.0]
+AddReg=CommonAddReg
+DelReg=CommonDelReg
+CopyFiles=CopyDriver
+LogConfig=PortIO.LC0
+
+[DriverInstall.NT.6.0.Services]
+AddService=IFXTPM,2,ServiceInstallSection,EventLogging
+
+[DriverInstall.NT.6.0.hw]
+AddReg=DriverHwAddReg
+DelReg=DriverHwDelReg
+
+;------------------------------------------------------------------------------
+;  Windows Vista amd64 Sections
+;------------------------------------------------------------------------------
+[DriverInstall.NTamd64.6.0]
+AddReg=CommonAddReg
+DelReg=CommonDelReg
+CopyFiles=CopyDriver
+LogConfig=PortIO.LC0
+
+[DriverInstall.NTamd64.6.0.Services]
+AddService=IFXTPM,2,ServiceInstallSection,EventLogging
+
+[DriverInstall.NTamd64.6.0.hw]
+AddReg=DriverHwAddReg
+DelReg=DriverHwDelReg
+
+
+;------------------------------------------------------------------------------
+;  Common Sections
+;------------------------------------------------------------------------------
+[CopyDriver]
+ifxtpm.sys
+
+[ServiceInstallSection]
+DisplayName	= IFXTPM
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\IFXTPM.SYS
+
+[EventLogging]
+AddReg=EventLogAddReg
+
+[EventLogAddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\system32\drivers\Ifxtpm.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[DriverHwAddReg]
+HKR,,FriendlyName,,%FRIENDLYNAME%
+
+[DriverHwDelReg]
+HKR,,Security
+
+[CommonAddReg]
+HKLM,"%REG_PATH_IFXTPM_PARAMS%","InitHW",0x00010001,0
+HKLM,"%REG_PATH_IFXTPM_PARAMS%","InterruptModus",0x00010001,0
+
+[CommonDelReg]
+HKLM,"%REG_PATH_IFXTPM_PARAMS%","SerIRQModus"
+HKLM,"%REG_PATH_IFXTPM_PARAMS%","LogEvent"
+HKLM,"%REG_PATH_IFXTPM_PARAMS%","LogPerformance"
+HKLM,"%REG_PATH_IFXTPM_PARAMS%","PollingDelay"
+HKLM,"%REG_PATH_IFXTPM_PARAMS%","PollingSendReceiveDelay"
+HKLM,"%REG_PATH_IFXTPM_PARAMS%","FirmwareDownLoadDelay"
+HKLM,"%REG_PATH_IFXTPM_PARAMS%","FirmwareDownLoadSendReceiveDelay"
+HKLM,"%REG_PATH_IFXTPM_CLASS_PARAMS%"
+
+
+[PortIO.LC0]
+ConfigPriority=NORMAL 
+IOConfig=04C0-04C7(FFFF::), 4700-4707(FFFF::)  
+IRQConfig=5,6,7,8,9,10,11,12,13,14,15
+
+[PortIO.LC1]
+ConfigPriority=NORMAL
+MemConfig=FED40000-FED44FFF
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+[Strings]
+MFGNAME="Infineon Technologies AG"
+INSTDISK="Infineon Technologies AG Installation Disc"
+DEVICEDESCRIPTION="Infineon Trusted Platform Module"
+FRIENDLYNAME="Infineon Trusted Platform Module"
+CLASSNAME="Trusted Platform Modules"
+REG_PATH_IFXTPM_PARAMS	= "SYSTEM\CurrentControlSet\Services\IFXTPM"
+REG_PATH_IFXTPM_CLASS_PARAMS = "SYSTEM\CurrentControlSet\Control\Class\{A75750F8-4FAB-4813-A873-A36C44AB2635}"
+
+

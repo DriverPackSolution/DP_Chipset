@@ -1,0 +1,184 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: IntelIOH.inf                                           **
+; **           Abstract: Windows* 2000, XP, 2003, Vista INF File for IOH        **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=IntelIOH.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_3400.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3400
+%PCI\VEN_8086&DEV_3401.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3401
+%PCI\VEN_8086&DEV_3402.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3402
+%PCI\VEN_8086&DEV_3403.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3403
+%PCI\VEN_8086&DEV_3404.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3404
+%PCI\VEN_8086&DEV_3405.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3405
+%PCI\VEN_8086&DEV_3406.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3406
+%PCI\VEN_8086&DEV_3407.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3407
+%PCI\VEN_8086&DEV_3408.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3408
+%PCI\VEN_8086&DEV_3409.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3409
+%PCI\VEN_8086&DEV_340a.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340a
+%PCI\VEN_8086&DEV_340b.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340b
+%PCI\VEN_8086&DEV_340c.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340c
+%PCI\VEN_8086&DEV_340d.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340d
+%PCI\VEN_8086&DEV_340e.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340e
+%PCI\VEN_8086&DEV_340f.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340f
+%PCI\VEN_8086&DEV_3410.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3410
+%PCI\VEN_8086&DEV_3411.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3411
+%PCI\VEN_8086&DEV_3418.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3418
+%PCI\VEN_8086&DEV_3419.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3419
+%PCI\VEN_8086&DEV_3420.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3420
+%PCI\VEN_8086&DEV_3421.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3421
+%PCI\VEN_8086&DEV_3422.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3422
+%PCI\VEN_8086&DEV_3423.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3423
+%PCI\VEN_8086&DEV_3424.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3424
+%PCI\VEN_8086&DEV_3425.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3425
+%PCI\VEN_8086&DEV_3426.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3426
+%PCI\VEN_8086&DEV_3427.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3427
+%PCI\VEN_8086&DEV_3428.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3428
+%PCI\VEN_8086&DEV_342d.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_342d
+%PCI\VEN_8086&DEV_342e.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_342e
+%PCI\VEN_8086&DEV_342f.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_342f
+%PCI\VEN_8086&DEV_3438.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3438
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_3400.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3400
+%PCI\VEN_8086&DEV_3401.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3401
+%PCI\VEN_8086&DEV_3402.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3402
+%PCI\VEN_8086&DEV_3403.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3403
+%PCI\VEN_8086&DEV_3404.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3404
+%PCI\VEN_8086&DEV_3405.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3405
+%PCI\VEN_8086&DEV_3406.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3406
+%PCI\VEN_8086&DEV_3407.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3407
+%PCI\VEN_8086&DEV_3408.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3408
+%PCI\VEN_8086&DEV_3409.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3409
+%PCI\VEN_8086&DEV_340a.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340a
+%PCI\VEN_8086&DEV_340b.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340b
+%PCI\VEN_8086&DEV_340c.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340c
+%PCI\VEN_8086&DEV_340d.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340d
+%PCI\VEN_8086&DEV_340e.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340e
+%PCI\VEN_8086&DEV_340f.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_340f
+%PCI\VEN_8086&DEV_3410.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3410
+%PCI\VEN_8086&DEV_3411.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3411
+%PCI\VEN_8086&DEV_3418.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3418
+%PCI\VEN_8086&DEV_3419.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3419
+%PCI\VEN_8086&DEV_3420.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3420
+%PCI\VEN_8086&DEV_3421.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3421
+%PCI\VEN_8086&DEV_3422.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3422
+%PCI\VEN_8086&DEV_3423.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3423
+%PCI\VEN_8086&DEV_3424.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3424
+%PCI\VEN_8086&DEV_3425.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3425
+%PCI\VEN_8086&DEV_3426.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3426
+%PCI\VEN_8086&DEV_3427.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3427
+%PCI\VEN_8086&DEV_3428.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3428
+%PCI\VEN_8086&DEV_342d.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_342d
+%PCI\VEN_8086&DEV_342e.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_342e
+%PCI\VEN_8086&DEV_342f.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_342f
+%PCI\VEN_8086&DEV_3438.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3438
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_3400.DeviceDesc="Intel(R) 5520/5500/X58 I/O Hub to ESI Port - 3400"
+PCI\VEN_8086&DEV_3401.DeviceDesc="Intel(R) 5520/5500/X58 I/O Hub to ESI Port - 3401"
+PCI\VEN_8086&DEV_3402.DeviceDesc="Intel(R) 5520/5500/X58 I/O Hub to ESI Port - 3402"
+PCI\VEN_8086&DEV_3403.DeviceDesc="Intel(R) 5520/5500/X58 I/O Hub to ESI Port - 3403"
+PCI\VEN_8086&DEV_3404.DeviceDesc="Intel(R) 5520/5500/X58 I/O Hub to ESI Port - 3404"
+PCI\VEN_8086&DEV_3405.DeviceDesc="Intel(R) 5520/5500/X58 I/O Hub to ESI Port - 3405"
+PCI\VEN_8086&DEV_3406.DeviceDesc="Intel(R) 5520/5500/X58 I/O Hub to ESI Port - 3406"
+PCI\VEN_8086&DEV_3407.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub to ESI Port - 3407"
+PCI\VEN_8086&DEV_3408.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 1 - 3408"
+PCI\VEN_8086&DEV_3409.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 2 - 3409"
+PCI\VEN_8086&DEV_340a.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 3 - 340A - 340a"
+PCI\VEN_8086&DEV_340b.DeviceDesc="Intel(R) 7500/5520/X58 I/O Hub PCI Express Root Port 4 - 340B - 340b"
+PCI\VEN_8086&DEV_340c.DeviceDesc="Intel(R) 7500/5520/X58 I/O Hub PCI Express Root Port 5 - 340C - 340c"
+PCI\VEN_8086&DEV_340d.DeviceDesc="Intel(R) 7500/5520/X58 I/O Hub PCI Express Root Port 6 - 340D - 340d"
+PCI\VEN_8086&DEV_340e.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 7 - 340E - 340e"
+PCI\VEN_8086&DEV_340f.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 8 - 340F - 340f"
+PCI\VEN_8086&DEV_3410.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 9 - 3410"
+PCI\VEN_8086&DEV_3411.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 10 - 3411"
+PCI\VEN_8086&DEV_3418.DeviceDesc="Intel(R) 7500/5520/5500/X58 Physical Layer Port 0 - 3418"
+PCI\VEN_8086&DEV_3419.DeviceDesc="Intel(R) 7500/5520/5500 Physical Layer Port 1 - 3419"
+PCI\VEN_8086&DEV_3420.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 0 - 3420"
+PCI\VEN_8086&DEV_3421.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 0 - 3421"
+PCI\VEN_8086&DEV_3422.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub GPIO and Scratch Pad Registers - 3422"
+PCI\VEN_8086&DEV_3423.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub Control Status and RAS Registers - 3423"
+PCI\VEN_8086&DEV_3424.DeviceDesc="Intel(R) 5520/5500/X58 Performance Monitor - 3424"
+PCI\VEN_8086&DEV_3425.DeviceDesc="Intel(R) 7500/5520/5500/X58 Physical and Link Layer Registers Port 0 - 3425"
+PCI\VEN_8086&DEV_3426.DeviceDesc="Intel(R) 7500/5520/5500/X58 Routing and Protocol Layer Registers Port 0 - 3426"
+PCI\VEN_8086&DEV_3427.DeviceDesc="Intel(R) 7500/5520/5500 Physical and Link Layer Registers Port 1 - 3427"
+PCI\VEN_8086&DEV_3428.DeviceDesc="Intel(R) 7500/5520/5500 Routing and Protocol Layer Register Port 1 - 3428"
+PCI\VEN_8086&DEV_342d.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub I/OxAPIC Interrupt Controller - 342D - 342d"
+PCI\VEN_8086&DEV_342e.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub System Management Registers - 342E - 342e"
+PCI\VEN_8086&DEV_342f.DeviceDesc="Intel(R) 7500/5520/5500/X58 Trusted Execution Technology Registers - 342F - 342f"
+PCI\VEN_8086&DEV_3438.DeviceDesc="Intel(R) 7500/5520/5500/X58 I/O Hub Throttle Registers - 3438"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

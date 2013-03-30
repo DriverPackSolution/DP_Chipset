@@ -1,0 +1,118 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: ich5core.inf                                           **
+; **           Abstract: Windows* 2K, XP, 2003 INF Update File for              **
+; **                     Intel(R) 82801 core devices                            **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=ich5core.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_24D0.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_24D0
+%PCI\VEN_8086&DEV_24DC.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_24DC
+%PCI\VEN_8086&DEV_24D3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_24D3
+%PCI\VEN_8086&DEV_25A1.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_25A1
+%PCI\VEN_8086&DEV_25A4.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25A4
+%PCI\VEN_8086&DEV_25AB.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25AB
+%PCI\VEN_8086&DEV_25AE.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25AE
+%PCI\VEN_8086&DEV_25AC.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25AC
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_24D0.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_24D0
+%PCI\VEN_8086&DEV_24DC.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_24DC
+%PCI\VEN_8086&DEV_24D3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_24D3
+%PCI\VEN_8086&DEV_25A1.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_25A1
+%PCI\VEN_8086&DEV_25A4.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25A4
+%PCI\VEN_8086&DEV_25AB.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25AB
+%PCI\VEN_8086&DEV_25AE.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25AE
+%PCI\VEN_8086&DEV_25AC.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25AC
+
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_24D0.DeviceDesc="Intel(R) 82801EB LPC Interface Controller - 24D0"
+PCI\VEN_8086&DEV_24DC.DeviceDesc="Intel(R) 82801EB LPC Interface Controller - 24DC"
+PCI\VEN_8086&DEV_24D3.DeviceDesc="Intel(R) 82801EB SMBus Controller - 24D3"
+PCI\VEN_8086&DEV_25A1.DeviceDesc="Intel(R) 6300ESB LPC Interface Controller - 25A1"
+PCI\VEN_8086&DEV_25A4.DeviceDesc="Intel(R) 6300ESB SMBus Controller - 25A4"
+PCI\VEN_8086&DEV_25AB.DeviceDesc="Intel(R) 6300ESB Watchdog Timer - 25AB"
+PCI\VEN_8086&DEV_25AE.DeviceDesc="Intel(R) 6300ESB 64-bit PCI-X Bridge - 25AE"
+PCI\VEN_8086&DEV_25AC.DeviceDesc="Intel(R) 6300ESB I/O Advanced Programmable Interrupt Controller - 25AC"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

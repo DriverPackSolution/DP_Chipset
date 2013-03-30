@@ -1,0 +1,274 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: IntelCP2.inf                                           **
+; **           Abstract: Windows* 2K, XP, 2003, 2008 Vista INF File for         **
+; **                     82XXX Memory Controller Hub                            **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=IntelCP2.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_2C50.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C50
+%PCI\VEN_8086&DEV_2C51.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C51
+%PCI\VEN_8086&DEV_2C52.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C52
+%PCI\VEN_8086&DEV_2C53.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C53
+%PCI\VEN_8086&DEV_2C54.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C54
+%PCI\VEN_8086&DEV_2C55.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C55
+%PCI\VEN_8086&DEV_2C56.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C56
+%PCI\VEN_8086&DEV_2C57.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C57
+%PCI\VEN_8086&DEV_2C81.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C81
+%PCI\VEN_8086&DEV_2C90.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C90
+%PCI\VEN_8086&DEV_2C91.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C91
+%PCI\VEN_8086&DEV_2C98.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C98
+%PCI\VEN_8086&DEV_2C99.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C99
+%PCI\VEN_8086&DEV_2C9C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C9C
+%PCI\VEN_8086&DEV_2CA0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA0
+%PCI\VEN_8086&DEV_2CA1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA1
+%PCI\VEN_8086&DEV_2CA2.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA2
+%PCI\VEN_8086&DEV_2CA3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA3
+%PCI\VEN_8086&DEV_2CA8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA8
+%PCI\VEN_8086&DEV_2CA9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA9
+%PCI\VEN_8086&DEV_2CAA.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CAA
+%PCI\VEN_8086&DEV_2CAB.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CAB
+%PCI\VEN_8086&DEV_D130.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D130
+%PCI\VEN_8086&DEV_D131.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D131
+%PCI\VEN_8086&DEV_D132.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D132
+%PCI\VEN_8086&DEV_D133.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D133
+%PCI\VEN_8086&DEV_D134.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D134
+%PCI\VEN_8086&DEV_D135.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D135
+%PCI\VEN_8086&DEV_D136.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D136
+%PCI\VEN_8086&DEV_D137.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D137
+%PCI\VEN_8086&DEV_D138.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_D138
+%PCI\VEN_8086&DEV_D139.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_D139
+%PCI\VEN_8086&DEV_D13A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_D13A
+%PCI\VEN_8086&DEV_D13B.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_D13B
+%PCI\VEN_8086&DEV_D150.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D150
+%PCI\VEN_8086&DEV_D151.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D151
+%PCI\VEN_8086&DEV_D155.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D155
+%PCI\VEN_8086&DEV_D156.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D156
+%PCI\VEN_8086&DEV_D157.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D157
+%PCI\VEN_8086&DEV_D158.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D158
+%PCI\VEN_8086&DEV_27BC.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_27BC
+%PCI\VEN_8086&DEV_A000.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_A000
+%PCI\VEN_8086&DEV_A010.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_A010
+%PCI\VEN_8086&DEV_0040.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0040
+%PCI\VEN_8086&DEV_0041.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0041
+%PCI\VEN_8086&DEV_0043.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0043
+%PCI\VEN_8086&DEV_0044.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0044
+%PCI\VEN_8086&DEV_0045.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0045
+%PCI\VEN_8086&DEV_0047.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0047
+%PCI\VEN_8086&DEV_0048.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0048
+%PCI\VEN_8086&DEV_0050.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0050
+%PCI\VEN_8086&DEV_2C61.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C61
+%PCI\VEN_8086&DEV_2C62.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C62
+%PCI\VEN_8086&DEV_2D01.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D01
+%PCI\VEN_8086&DEV_2D10.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D10
+%PCI\VEN_8086&DEV_2D11.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D11
+%PCI\VEN_8086&DEV_2D12.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D12
+%PCI\VEN_8086&DEV_2D13.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D13
+%PCI\VEN_8086&DEV_0049.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0049
+%PCI\VEN_8086&DEV_004B.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_004B
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_2C50.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C50
+%PCI\VEN_8086&DEV_2C51.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C51
+%PCI\VEN_8086&DEV_2C52.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C52
+%PCI\VEN_8086&DEV_2C53.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C53
+%PCI\VEN_8086&DEV_2C54.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C54
+%PCI\VEN_8086&DEV_2C55.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C55
+%PCI\VEN_8086&DEV_2C56.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C56
+%PCI\VEN_8086&DEV_2C57.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C57
+%PCI\VEN_8086&DEV_2C81.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C81
+%PCI\VEN_8086&DEV_2C90.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C90
+%PCI\VEN_8086&DEV_2C91.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C91
+%PCI\VEN_8086&DEV_2C98.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C98
+%PCI\VEN_8086&DEV_2C99.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C99
+%PCI\VEN_8086&DEV_2C9C.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C9C
+%PCI\VEN_8086&DEV_2CA0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA0
+%PCI\VEN_8086&DEV_2CA1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA1
+%PCI\VEN_8086&DEV_2CA2.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA2
+%PCI\VEN_8086&DEV_2CA3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA3
+%PCI\VEN_8086&DEV_2CA8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA8
+%PCI\VEN_8086&DEV_2CA9.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CA9
+%PCI\VEN_8086&DEV_2CAA.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CAA
+%PCI\VEN_8086&DEV_2CAB.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2CAB
+%PCI\VEN_8086&DEV_D130.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D130
+%PCI\VEN_8086&DEV_D131.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D131
+%PCI\VEN_8086&DEV_D132.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D132
+%PCI\VEN_8086&DEV_D133.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D133
+%PCI\VEN_8086&DEV_D134.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D134
+%PCI\VEN_8086&DEV_D135.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D135
+%PCI\VEN_8086&DEV_D136.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D136
+%PCI\VEN_8086&DEV_D137.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D137
+%PCI\VEN_8086&DEV_D138.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_D138
+%PCI\VEN_8086&DEV_D139.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_D139
+%PCI\VEN_8086&DEV_D13A.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_D13A
+%PCI\VEN_8086&DEV_D13B.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_D13B
+%PCI\VEN_8086&DEV_D150.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D150
+%PCI\VEN_8086&DEV_D151.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D151
+%PCI\VEN_8086&DEV_D155.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D155
+%PCI\VEN_8086&DEV_D156.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D156
+%PCI\VEN_8086&DEV_D157.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D157
+%PCI\VEN_8086&DEV_D158.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_D158
+%PCI\VEN_8086&DEV_27BC.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_27BC
+%PCI\VEN_8086&DEV_A000.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_A000
+%PCI\VEN_8086&DEV_A010.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_A010
+%PCI\VEN_8086&DEV_0040.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0040
+%PCI\VEN_8086&DEV_0041.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0041
+%PCI\VEN_8086&DEV_0043.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0043
+%PCI\VEN_8086&DEV_0044.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0044
+%PCI\VEN_8086&DEV_0045.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0045
+%PCI\VEN_8086&DEV_0047.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0047
+%PCI\VEN_8086&DEV_0048.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0048
+%PCI\VEN_8086&DEV_0050.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_0050
+%PCI\VEN_8086&DEV_2C61.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C61
+%PCI\VEN_8086&DEV_2C62.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2C62
+%PCI\VEN_8086&DEV_2D01.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D01
+%PCI\VEN_8086&DEV_2D10.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D10
+%PCI\VEN_8086&DEV_2D11.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D11
+%PCI\VEN_8086&DEV_2D12.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D12
+%PCI\VEN_8086&DEV_2D13.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_2D13
+%PCI\VEN_8086&DEV_0049.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_0049
+%PCI\VEN_8086&DEV_004B.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_004B
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_2C50.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C50"
+PCI\VEN_8086&DEV_2C51.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C51"
+PCI\VEN_8086&DEV_2C52.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C52"
+PCI\VEN_8086&DEV_2C53.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C53"
+PCI\VEN_8086&DEV_2C54.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C54"
+PCI\VEN_8086&DEV_2C55.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C55"
+PCI\VEN_8086&DEV_2C56.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C56"
+PCI\VEN_8086&DEV_2C57.DeviceDesc="Intel(R) QuickPath Architecture Generic Non-Core Registers - 2C57"
+PCI\VEN_8086&DEV_2C81.DeviceDesc="Intel(R) QuickPath Architecture System Address Decoder - 2C81"
+PCI\VEN_8086&DEV_2C90.DeviceDesc="Intel(R) QPI Link - 2C90"
+PCI\VEN_8086&DEV_2C91.DeviceDesc="Intel(R) QPI Physical 0 - 2C91"
+PCI\VEN_8086&DEV_2C98.DeviceDesc="Intel(R) processor Integrated Memory Controller - 2C98"
+PCI\VEN_8086&DEV_2C99.DeviceDesc="Intel(R) processor Integrated Memory Controller Target Address Decoder - 2C99"
+PCI\VEN_8086&DEV_2C9C.DeviceDesc="Intel(R) processor Integrated Memory Controller Test Registers - 2C9C"
+PCI\VEN_8086&DEV_2CA0.DeviceDesc="Intel(R) processor Integrated Memory Controller Channel 0 Control Registers - 2CA0"
+PCI\VEN_8086&DEV_2CA1.DeviceDesc="Intel(R) processor Integrated Memory Controller Channel 0 Address Registers - 2CA1"
+PCI\VEN_8086&DEV_2CA2.DeviceDesc="Intel(R) processor Integrated Memory Controller Channel 0 Rank Registers - 2CA2"
+PCI\VEN_8086&DEV_2CA3.DeviceDesc="Intel(R) processor Integrated Memory Controller Channel 0 Thermal Control Registers - 2CA3"
+PCI\VEN_8086&DEV_2CA8.DeviceDesc="Intel(R) processor Integrated Memory Controller Channel 1 Control Registers - 2CA8"
+PCI\VEN_8086&DEV_2CA9.DeviceDesc="Intel(R) processor Integrated Memory Controller Channel 1 Address Registers - 2CA9"
+PCI\VEN_8086&DEV_2CAA.DeviceDesc="Intel(R) processor Integrated Memory Controller Channel 1 Rank Registers - 2CAA"
+PCI\VEN_8086&DEV_2CAB.DeviceDesc="Intel(R) processor Integrated Memory Controller Channel 1 Thermal Control Registers - 2CAB"
+PCI\VEN_8086&DEV_D130.DeviceDesc="Intel(R) processor DMI - D130"
+PCI\VEN_8086&DEV_D131.DeviceDesc="Intel(R) processor DMI - D131"
+PCI\VEN_8086&DEV_D132.DeviceDesc="Intel(R) processor DMI - D132"
+PCI\VEN_8086&DEV_D133.DeviceDesc="Intel(R) processor DMI - D133"
+PCI\VEN_8086&DEV_D134.DeviceDesc="Intel(R) processor DMI - D134"
+PCI\VEN_8086&DEV_D135.DeviceDesc="Intel(R) processor DMI - D135"
+PCI\VEN_8086&DEV_D136.DeviceDesc="Intel(R) processor DMI - D136"
+PCI\VEN_8086&DEV_D137.DeviceDesc="Intel(R) processor DMI - D137"
+PCI\VEN_8086&DEV_D138.DeviceDesc="Intel(R) processor PCI Express Root Port 1 - D138"
+PCI\VEN_8086&DEV_D139.DeviceDesc="Intel(R) processor PCI Express Root Port 2 - D139"
+PCI\VEN_8086&DEV_D13A.DeviceDesc="Intel(R) processor PCI Express Root Port 3 - D13A"
+PCI\VEN_8086&DEV_D13B.DeviceDesc="Intel(R) processor PCI Express Root Port 4 - D13B"
+PCI\VEN_8086&DEV_D150.DeviceDesc="Intel(R) QuickPath Interconnect - D150"
+PCI\VEN_8086&DEV_D151.DeviceDesc="Intel(R) QuickPath Interconnect - D151"
+PCI\VEN_8086&DEV_D155.DeviceDesc="Intel(R) processor System Management Registers - D155"
+PCI\VEN_8086&DEV_D156.DeviceDesc="Intel(R) processor Semaphore and Scratchpad Registers - D156"
+PCI\VEN_8086&DEV_D157.DeviceDesc="Intel(R) processor System Control and Status Registers - D157"
+PCI\VEN_8086&DEV_D158.DeviceDesc="Intel(R) processor Miscellaneous Registers - D158"
+PCI\VEN_8086&DEV_27BC.DeviceDesc="Intel(R) NM10 Family LPC Interface Controller - 27BC"
+PCI\VEN_8086&DEV_A000.DeviceDesc="Intel(R) N10 Family DMI Bridge - A000"
+PCI\VEN_8086&DEV_A010.DeviceDesc="Intel(R) N10 Family DMI Bridge - A010"
+PCI\VEN_8086&DEV_0040.DeviceDesc="Intel(R) processor DRAM Controller - 0040"
+PCI\VEN_8086&DEV_0041.DeviceDesc="Intel(R) processor PCI Express Root Port - 0041"
+PCI\VEN_8086&DEV_0043.DeviceDesc="Intel(R) processor PCI Express Root Port - 0043"
+PCI\VEN_8086&DEV_0044.DeviceDesc="Intel(R) processor DRAM Controller - 0044"
+PCI\VEN_8086&DEV_0045.DeviceDesc="Intel(R) processor PCI Express Root Port - 0045"
+PCI\VEN_8086&DEV_0047.DeviceDesc="Intel(R) processor PCI Express Root Port - 0047"
+PCI\VEN_8086&DEV_0048.DeviceDesc="Intel(R) processor DRAM Controller - 0048"
+PCI\VEN_8086&DEV_0050.DeviceDesc="Intel(R) processor Thermal Management Controller - 0050"
+PCI\VEN_8086&DEV_2C61.DeviceDesc="QuickPath Architecture Generic Non-core Registers - 2C61"
+PCI\VEN_8086&DEV_2C62.DeviceDesc="QuickPath Architecture Generic Non-core Registers - 2C62"
+PCI\VEN_8086&DEV_2D01.DeviceDesc="QuickPath Architecture System Address Decoder - 2D01"
+PCI\VEN_8086&DEV_2D10.DeviceDesc="QPI Link 0 - 2D10"
+PCI\VEN_8086&DEV_2D11.DeviceDesc="QPI Physical 0 - 2D11"
+PCI\VEN_8086&DEV_2D12.DeviceDesc="Reserved - 2D12"
+PCI\VEN_8086&DEV_2D13.DeviceDesc="Reserved - 2D13"
+PCI\VEN_8086&DEV_0049.DeviceDesc="Intel(R) processor PCI Express x16 Root Port - 0049"
+PCI\VEN_8086&DEV_004B.DeviceDesc="Intel(R) processor Secondary PCI Express Root Port - 004B"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

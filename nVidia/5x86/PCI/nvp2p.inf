@@ -1,0 +1,95 @@
+;
+; Copyright (C) 2003  NVIDIA Corporation
+;
+; nvp2p.inf - Installs the PCI-to-PCI filter driver
+;
+
+[Version]
+Signature="$Windows NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%NVDA%
+CatalogFile.ntx86=nvp2p.cat
+DriverVer=02/23/2004,5.10.2848.656
+
+[SourceDisksNames]
+1 = %P2PUPDATE%
+
+[SourceDisksFiles]
+nvp2p.sys = 1
+
+
+[DestinationDirs]
+DefaultDestDir=12
+NVP2P.CopyFiles=12
+NVP2PMON.CopyFiles=12
+
+[Manufacturer]
+%NVDA%=NVIDIA.Section, NTx86.5.1
+
+[NVIDIA.Section]
+; Windows 2000 Only - XP uses NTx86.5.1
+%NVDA_SUBP2P%=NVP2PMON,PCI\VEN_10DE&DEV_00DD
+
+[NVIDIA.Section.NTx86.5.1]
+%NVDA_SUBP2P%=NVP2PMON,PCI\VEN_10DE&DEV_00DD
+%NVDA_SUBP2P%=NVP2P,PCI\VEN_10DE&DEV_008B
+%NVDA_SUBP2P%=NVP2P,PCI\VEN_10DE&DEV_00ED&REV_A2
+
+
+; NVP2P filter setting
+
+[NVP2PMON]
+Include=machine.inf
+Needs=PCI_DRV
+CopyFiles=NVP2PMON.CopyFiles
+
+[NVP2PMON.HW]
+AddReg=NVP2PMON.HW.AddReg
+
+[NVP2PMON.CopyFiles]
+nvp2p.sys
+
+
+[NVP2PMON.HW.AddReg]
+HKR,,"LowerFilters",0x00010000,"nvp2p"
+HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run","PCMCIA Resource Monitor",0x00000000,"nvp2pmon.exe"
+
+[NVP2PMON.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+AddService=nvp2p,,NVP2P.AddService
+
+; NVP2P filter setting
+
+[NVP2P.ntx86]
+Include=machine.inf
+Needs=PCI_DRV
+CopyFiles=NVP2P.CopyFiles
+
+[NVP2P.ntx86.HW]
+AddReg=NVP2P.HW.AddReg
+
+[NVP2P.CopyFiles]
+nvp2p.sys
+
+[NVP2P.HW.AddReg]
+HKR,,"LowerFilters",0x00010000,"nvp2p"
+
+[NVP2P.ntx86.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+AddService=nvp2p,,NVP2P.AddService
+
+[NVP2P.AddService]
+DisplayName    = %NVP2PFILTER.SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\nvp2p.sys
+
+[Strings]
+NVDA = "NVIDIA"
+NVDA_SUBP2P = "NVIDIA nForce Standard PCI to PCI Bridge - Legacy Enhanced"
+NVP2PFILTER.SvcDesc = "NVIDIA PCI to PCI Bridge Filter"
+P2PUPDATE = "NVIDIA PCI to PCI Bridge Update Disk"

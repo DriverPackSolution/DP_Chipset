@@ -1,0 +1,96 @@
+;
+; Copyright (c) 2000-2004 ATI Technologies Corporation
+;
+; GartNt.INF  -- This file contains descriptions of all the AGP Miniports
+;             supported in Windows NT
+;
+; In order to install this driver, go to device manager, right-click on the PCI-PCI
+; bridge which represents your AGP bridge and select "Properties". Then select the
+; "Driver" page and push the "Update Driver" button. Go through the update driver
+; wizard and on the "Locate Driver Files" page select "Specify a location" and then
+; enter the location of your new INF and driver.
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%ATI%
+DriverVer=04/15/2005,5.0.2196.1015
+CatalogFile = atisgkaf.cat
+
+; =================== Common for all AGP devices =========================
+[DestinationDirs]
+DefaultDestDir = 12        ; DIRID_DRIVERS
+
+[Manufacturer]
+%ATI_MFG%=ATI_AGP
+
+[SourceDisksNames.x86]
+1 = %DiskId%,,,""
+
+[SourceDisksFiles]
+atisgkaf.SYS=1
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[AGP_Filter_Reg]
+HKR,,"UpperFilters", 0x00010000,"CABOAGP"
+HKLM,"SYSTEM\CurrentControlSet\Services\caboagp","FW_SafeVideoCards",0x00030001,10,02
+
+[pci_ServiceInstallSection]
+DisplayName    = %pci_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\pci.sys
+LoadOrderGroup = "Boot Bus Extender"
+
+; =================== ATI Chipset ========================
+[ATI_AGP]
+%PCI\VEN_1002&DEV_7010.DeviceDesc%=CABO_Install,PCI\VEN_1002&DEV_7010
+%PCI\VEN_1002&DEV_5838.DeviceDesc%=CABO_Install,PCI\VEN_1002&DEV_5838
+%PCI\VEN_1002&DEV_7838.DeviceDesc%=CABO_Install,PCI\VEN_1002&DEV_7838
+
+[CABO_Install]
+CopyFiles=@atisgkaf.SYS
+
+[CABO_Install.HW]
+AddReg = AGP_Filter_Reg
+
+[CABO_Install.Services]
+AddService = caboagp,0,caboagp_ServiceInstallSection
+AddService = pci, %SPSVCINST_ASSOCSERVICE%, pci_ServiceInstallSection
+
+[caboagp_ServiceInstallSection]
+DisplayName    = %caboagp_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\atisgkaf.sys
+LoadOrderGroup = PnP Filter
+
+
+; =================== STRINGS and CONSTANTS ========================
+
+[Strings]
+ATI_MFG = "ATI"
+ATI = "ATI"
+PCI\VEN_1002&DEV_7010.DeviceDesc = "ATI RADEON IGP 340/340M/MOBILITY RADEON 7000 IGP AGP"
+PCI\VEN_1002&DEV_5838.DeviceDesc = "ATI RADEON 9000/9100 IGP AGP"
+PCI\VEN_1002&DEV_7838.DeviceDesc = "ATI RADEON 9000/9100 PRO IGP AGP"
+DiskId       = "ATI Technologies Inc. Installation DISK (AGP)"
+
+;service descriptions
+caboagp_svcdesc = "ATI Cabo AGP Filter"
+pci_svcdesc = "PCI Bus Driver"
+
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1

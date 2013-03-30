@@ -1,0 +1,125 @@
+; Copyright (c) 1999-2000 Intel Corporation
+;
+; INF for Metolious device driver
+;
+
+[version]
+Signature="$Chicago$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%Mfg%
+DriverVer=05/05/2000,1.0.4.0
+CatalogFile=mt.cat
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[DestinationDirs]
+DefaultDestDir=12
+MTCopyFilesSensor=11          ; put in system32\drivers even under win98
+MTCopyFilesSensor.nt=12       ; load from system32\drivers
+MTCopyFilesWatchdog=11        ; put in system32\drivers even under win98
+MTCopyFilesWatchdog.nt=12     ; load from system32\drivers
+
+[Manufacturer]
+%Mfg%=IntelDevice
+
+[IntelDevice]
+%DeviceDesc1%=MTInstallSensor,ACPI\MGMT101
+%DeviceDesc2%=MTInstallSensor,ACPI\MGMT102
+%DeviceDesc3%=MTInstallSensor,ACPI\MGMT103
+%DeviceDesc4%=MTInstallSensor,ACPI\MGMT104
+%DeviceDesc5%=MTInstallWatchdog,ACPI\MGMT201
+%DeviceDesc6%=MTInstallWatchdog,ACPI\MGMT202
+%DeviceDesc7%=MTInstallSensor,ACPI\MGMT180
+%DeviceDesc7%=MTInstallSensor,ACPI\MGMT181
+%DeviceDesc7%=MTInstallSensor,ACPI\MGMT182
+%DeviceDesc8%=MTInstallWatchdog,ACPI\MGMT280
+
+[SourceDisksNames]
+1=%InstallDisk%,,,
+
+[SourceDisksFiles]
+mtsensor.sys = 1
+mtwatch.sys = 1
+mt.cat = 1
+
+; SENSORS
+;----------------------------------------------------------------------
+; Memphis install sections:
+
+[MTInstallSensor]
+AddReg=MTAddRegSensor
+CopyFiles=MTCopyFilesSensor
+
+[MTAddRegSensor]
+HKR,,NTMPDriver,,MTsensor.sys
+HKR,,DevLoader,,*NTKERN
+
+[MTCopyFilesSensor]
+MTsensor.sys
+
+;----------------------------------------------------------------------
+; NT install sections:
+
+[MTInstallSensor.nt]
+CopyFiles=MTCopyFilesSensor.nt
+
+[MTCopyFilesSensor.nt]
+MTsensor.sys
+
+[MTInstallSensor.nt.Services]
+AddService=MTsensor,2,MTServiceSensor
+
+[MTServiceSensor]
+ServiceType=1           ; SERVICE_KERNEL_DRIVER
+StartType=3             ; SERVICE_DEMAND_START
+ErrorControl=1          ; SERVICE_ERROR_NORMAL
+ServiceBinary=%12%\MTsensor.sys
+
+; WATCHDOGS
+;----------------------------------------------------------------------
+; Memphis install sections:
+
+[MTInstallWatchdog]
+AddReg=MTAddRegWatchdog
+CopyFiles=MTCopyFilesWatchdog
+
+[MTAddRegWatchdog]
+HKR,,NTMPDriver,,MTwatch.sys
+HKR,,DevLoader,,*NTKERN
+
+[MTCopyFilesWatchdog]
+MTwatch.sys
+
+;----------------------------------------------------------------------
+; NT install sections:
+
+[MTInstallWatchdog.nt]
+CopyFiles=MTCopyFilesWatchdog.nt
+
+[MTCopyFilesWatchdog.nt]
+MTwatch.sys
+
+[MTInstallWatchdog.nt.Services]
+AddService=MTwatch,2,MTServiceWatchdog
+
+[MTServiceWatchdog]
+ServiceType=1           ; SERVICE_KERNEL_DRIVER
+StartType=3             ; SERVICE_DEMAND_START
+ErrorControl=1          ; SERVICE_ERROR_NORMAL
+ServiceBinary=%12%\MTwatch.sys
+
+;----------------------------------------------------------------------
+
+[Strings]
+Mfg="Intel Corporation"
+DeviceDesc1="Metolious Thermal Sensor"
+DeviceDesc2="Metolious Cooling Device Sensor"
+DeviceDesc3="Metolious Power Quality Sensor"
+DeviceDesc4="Metolious Physical Security Sensor"
+DeviceDesc5="Metolious System Hang Watchdog"
+DeviceDesc6="Metolious Heartbeat Watchdog"
+DeviceDesc7="Metolious Vendor-Defined Sensor"
+DeviceDesc8="Metolious Vendor-Defined Watchdog"
+InstallDisk="Metolious Install Disk"

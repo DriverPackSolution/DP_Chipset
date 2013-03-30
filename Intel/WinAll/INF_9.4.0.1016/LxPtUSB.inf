@@ -1,0 +1,96 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: LxPtUSB.inf                                            **
+; **           Abstract: Intel(R) USB devices                                   **
+; **        Last Update: October 23, 2012 (Version 9.4.0 Build 1011)            **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%INTEL%
+CatalogFile=LxPtUSB.cat
+DriverVer=10/23/2012, 9.4.0.1011
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NT.5.1,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_8C26.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_8C26
+%PCI\VEN_8086&DEV_8C2D.DeviceDesc%=USB_2K,PCI\VEN_8086&DEV_8C2D
+
+
+[INTEL.NT.5.1]
+%PCI\VEN_8086&DEV_8C26.DeviceDesc%=USB2,PCI\VEN_8086&DEV_8C26
+%PCI\VEN_8086&DEV_8C2D.DeviceDesc%=USB2,PCI\VEN_8086&DEV_8C2D
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_8C26.DeviceDesc%=USB2,PCI\VEN_8086&DEV_8C26
+%PCI\VEN_8086&DEV_8C2D.DeviceDesc%=USB2,PCI\VEN_8086&DEV_8C2D
+
+
+[USB_2K.NT]
+Include=usb.inf
+Needs=UniversalHCD.Dev.NT
+
+[USB_2K.NT.Services]
+Include=usb.inf
+Needs=UniversalHCD.Dev.NT.Services
+
+[USB2.NT]
+Include=usbport.inf
+Needs=EHCI.Dev.NT
+
+[USB2.NT.Services]
+Include=usbport.inf
+Needs=EHCI.Dev.NT.Services
+
+[USB2.NT.CoInstallers]
+Include=usbport.inf
+Needs=EHCI.Dev.NT.CoInstallers
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_8C26.DeviceDesc="Intel(R) 8 Series/C220 Series USB Enhanced Host Controller #1 - 8C26"
+PCI\VEN_8086&DEV_8C2D.DeviceDesc="Intel(R) 8 Series/C220 Series USB Enhanced Host Controller #2 - 8C2D"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

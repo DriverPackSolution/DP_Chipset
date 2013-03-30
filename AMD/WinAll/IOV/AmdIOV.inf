@@ -1,0 +1,57 @@
+;*******************************************
+; AmdIOV.inf
+; Null INF for IOMMU devices
+; Copyright © 2008-2011 AMD, Inc. All rights reserved.
+;*******************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System 
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%AMD%
+DriverVer=08/12/2011, 1.0.3.0020
+CatalogFile=AmdIOV.cat
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD_MFG% = AMDIOV,NTamd64
+
+[DestinationDirs]
+DefaultDestDir = 12
+ 
+[SourceDisksNames]
+
+[SourceDisksFiles]  
+
+[AMDIOV]
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1002&DEV_5A23
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1419
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1423
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1437
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1449
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1611
+
+[AMDIOV.NTamd64]
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1002&DEV_5A23
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1419
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1423
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1437
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1449
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1611
+
+[NULL_DRIVER]
+
+[NULL_DRIVER.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%		; null service install
+
+[Strings]
+AMD = "AMD"
+AMD_MFG = "AMD"
+IOMMU.DeviceDesc = "AMD IOMMU Device"
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+;*******************************************
+SPSVCINST_ASSOCSERVICE = 0x00000002

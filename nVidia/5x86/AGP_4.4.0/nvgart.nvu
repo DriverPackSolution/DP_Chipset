@@ -1,0 +1,61 @@
+; adds installer for any of the drivers if hardware and driver are present
+UninstallService nv_agp
+
+set RemoveDeviceArgs=system,{windir}\inf\machine.inf
+if {OS}=Win98 then set RemoveDeviceArgs=system,{windir}\inf\machine2.inf
+if {OS}=WinME then set RemoveDeviceArgs=system
+if {OS}=Win2K then set RemoveDeviceArgs=system
+
+set OSType=2k
+if {OS}=WinME then set OSType=9x
+if {OS}=Win98 then set OSType=9x
+
+; Remove any NVIDIA device driver if present
+Call RemoveGartDevices{OSType}
+
+; Now try to delete files used by GART driver
+DelOemInfs nv*,Version,Class,System,SourceDisksFiles,nvcog.dll,222
+DelBoot {windir}\INF\INTERNET\NVIDIAnvgart.inf
+
+Call Clean up registry
+Call DeleteFiles
+
+[DeleteFiles]
+DelBoot {sysdir}\nvgart.cat
+DelBoot {sysdir}\nvgart.inf
+DelBoot {sysdir}\nvgart.sys
+DelBoot {sysdir}\nv_agp.sys
+DelBoot {sysdir}\Drivers\nv_agp.sys
+
+; also delete its uninstaller binary
+DelBoot {sysdir}\nvugart.exe
+DelBoot {SysDir}\nvcog.dll
+
+DelBoot {windir}\APPLOG\NVUGART.LGD
+DelBoot {windir}\APPLOG\NVUGART.LGC
+DelBoot {windir}\APPLOG\NVUNINST.LGD
+DelBoot {windir}\APPLOG\NVUNINST.LGC
+
+; If we are here we have uninstalled nvgart, let nvuninst know user that hi/her system needs two reboots.
+set Two reboot required=yes
+
+[Clean up registry]
+
+Delreg HKLM\System\CurrentControlSet\Services\VxD\PCI\GARTMiniports
+DelReg HKLM\SYSTEM\{*ControlSet}\Services\nv_agp
+DelReg HKLM\SYSTEM\{*ControlSet}\Services\EventLog\System\nv_agp
+
+[RemoveGartDevices9x]
+RemoveDevice pci,VEN_10DE&DEV_01A4,{RemoveDeviceArgs}
+RemoveDevice pci,VEN_10DE&DEV_01A5,{RemoveDeviceArgs}
+RemoveDevice pci,VEN_10DE&DEV_01A6,{RemoveDeviceArgs}
+RemoveDevice pci,VEN_10DE&DEV_01E0,{RemoveDeviceArgs}
+RemoveDevice pci,VEN_10DE&DEV_01E1,{RemoveDeviceArgs}
+RemoveDevice pci,VEN_10DE&DEV_00D1,{RemoveDeviceArgs}
+RemoveDevice pci,VEN_10DE&DEV_00E1,{RemoveDeviceArgs}
+
+[RemoveGartDevices2K]
+RemoveDevice pci,VEN_10DE&DEV_01B7,{RemoveDeviceArgs}
+RemoveDevice pci,VEN_10DE&DEV_01E8,{RemoveDeviceArgs}
+RemoveDevice pci,VEN_10DE&DEV_00D2,{RemoveDeviceArgs}
+RemoveDevice pci,VEN_10DE&DEV_00E2,{RemoveDeviceArgs}

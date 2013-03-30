@@ -1,0 +1,91 @@
+;
+; Copyright (c) 2005 VIA Technologies, Inc.
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%VIA%
+DriverVer=09/23/2005,5.2.0.3450
+CatalogFile=VIAAGP1.CAT
+
+; =================== Common for all AGP devices =========================
+[DestinationDirs]
+DefaultDestDir = 12        ; DIRID_DRIVERS
+
+[SourceDisksNames]
+1=%Distribution%,,,
+
+[SourceDisksFiles]
+VIAAGP1.SYS=1
+
+[Manufacturer]
+%VIA_MFG%=VIA_SYS, NTamd64
+
+[AGP_Filter_Reg]
+HKR,,"UpperFilters", 0x00010000,"VIAAGP1"
+
+[pci_ServiceInstallSection]
+DisplayName    = %pci_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\pci.sys
+LoadOrderGroup = "Boot Bus Extender"
+
+; =================== VIA SYS ========================
+[VIA_SYS.NTamd64]
+%PCI\VEN_1106&DEV_B198.DeviceDesc% = VIAAGP_Install,PCI\VEN_1106&DEV_B198
+
+[VIAAGP_Install]
+CopyFiles=@VIAAGP1.SYS
+
+[VIAAGP_Install.HW]
+AddReg = AGP_Filter_Reg
+
+[VIAAGP_Install.Services]
+AddService = viaagp1,0,viaagp1_ServiceInstallSection
+AddService = pci, %SPSVCINST_ASSOCSERVICE%, pci_ServiceInstallSection
+
+[viaagp1_ServiceInstallSection]
+DisplayName    = %viaagp1_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\viaagp1.sys
+LoadOrderGroup = PnP Filter
+
+; =================== STRINGS and CONSTANTS ========================
+[Strings]
+VIA_MFG = "VIA"
+Distribution="VIA AGP Filter Driver Disk"
+VIA = "VIA Technologies, Inc."
+
+PCI\VEN_1106&DEV_B198.DeviceDesc = "VIA CPU to AGP2.0/AGP3.0 Controller"
+
+;Service descriptions
+viaagp1_svcdesc = "VIA AGP Filter"
+pci_svcdesc = "PCI Bus Driver"
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+

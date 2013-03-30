@@ -1,0 +1,269 @@
+; ********************************************************************************
+; ********************************************************************************
+; **           FileName: 5000XZVP.inf                                           **
+; **           Abstract: Windows* 2K, XP, 2003, 2008, Vista INF File for        **
+; **                     Memory I/O Controller Hub                              **
+; **        Last Update: October 5, 2012 (Version 9.1.9 Build 1002)             **
+; ********************************************************************************
+; ********************************************************************************
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=5000XZVP.cat
+DriverVer=10/05/2012, 9.1.9.1002
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+Condition=Provider(Microsoft)||InstalledDriverName(Chipset)||Provider()
+
+[Manufacturer]
+%INTEL%=INTEL,NT.5.1,NTamd64
+
+[INTEL]
+%PCI\VEN_8086&DEV_25C0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25C0
+%PCI\VEN_8086&DEV_25D0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25D0
+%PCI\VEN_8086&DEV_25D4.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25D4
+%PCI\VEN_8086&DEV_25D8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25D8
+%PCI\VEN_8086&DEV_25E2.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E2
+%PCI\VEN_8086&DEV_25E3.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E3
+%PCI\VEN_8086&DEV_25E4.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E4
+%PCI\VEN_8086&DEV_25E5.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E5
+%PCI\VEN_8086&DEV_25E6.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E6
+%PCI\VEN_8086&DEV_25E7.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E7
+%PCI\VEN_8086&DEV_25F0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F0
+%PCI\VEN_8086&DEV_25F1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F1
+%PCI\VEN_8086&DEV_25F3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F3
+%PCI\VEN_8086&DEV_25F5.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F5
+%PCI\VEN_8086&DEV_25F6.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F6
+%PCI\VEN_8086&DEV_25F7.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25F7
+%PCI\VEN_8086&DEV_25F8.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25F8
+%PCI\VEN_8086&DEV_25F9.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25F9
+%PCI\VEN_8086&DEV_25FA.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25FA
+%PCI\VEN_8086&DEV_3500.DeviceDesc%=PCI_DRV_2K,PCI\VEN_8086&DEV_3500
+%PCI\VEN_8086&DEV_3501.DeviceDesc%=PCI_DRV_2K,PCI\VEN_8086&DEV_3501
+%PCI\VEN_8086&DEV_3504.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3504
+%PCI\VEN_8086&DEV_3505.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3505
+%PCI\VEN_8086&DEV_350C.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_350C
+%PCI\VEN_8086&DEV_350D.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_350D
+%PCI\VEN_8086&DEV_3510.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3510
+%PCI\VEN_8086&DEV_3511.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3511
+%PCI\VEN_8086&DEV_3514.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3514
+%PCI\VEN_8086&DEV_3515.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3515
+%PCI\VEN_8086&DEV_3518.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3518
+%PCI\VEN_8086&DEV_3519.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3519
+%PCI\VEN_8086&DEV_2670.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2670
+%PCI\VEN_8086&DEV_269B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_269B
+%PCI\VEN_8086&DEV_2690.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2690
+%PCI\VEN_8086&DEV_2692.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2692
+%PCI\VEN_8086&DEV_2694.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2694
+%PCI\VEN_8086&DEV_2696.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2696
+
+
+[INTEL.NT.5.1]
+%PCI\VEN_8086&DEV_25C0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25C0
+%PCI\VEN_8086&DEV_25D0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25D0
+%PCI\VEN_8086&DEV_25D4.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25D4
+%PCI\VEN_8086&DEV_25D8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25D8
+%PCI\VEN_8086&DEV_25E2.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E2
+%PCI\VEN_8086&DEV_25E3.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E3
+%PCI\VEN_8086&DEV_25E4.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E4
+%PCI\VEN_8086&DEV_25E5.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E5
+%PCI\VEN_8086&DEV_25E6.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E6
+%PCI\VEN_8086&DEV_25E7.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E7
+%PCI\VEN_8086&DEV_25F0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F0
+%PCI\VEN_8086&DEV_25F1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F1
+%PCI\VEN_8086&DEV_25F3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F3
+%PCI\VEN_8086&DEV_25F5.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F5
+%PCI\VEN_8086&DEV_25F6.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F6
+%PCI\VEN_8086&DEV_25F7.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25F7
+%PCI\VEN_8086&DEV_25F8.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25F8
+%PCI\VEN_8086&DEV_25F9.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25F9
+%PCI\VEN_8086&DEV_25FA.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25FA
+%PCI\VEN_8086&DEV_3504.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3504
+%PCI\VEN_8086&DEV_3505.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3505
+%PCI\VEN_8086&DEV_350C.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_350C
+%PCI\VEN_8086&DEV_350D.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_350D
+%PCI\VEN_8086&DEV_3510.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3510
+%PCI\VEN_8086&DEV_3511.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3511
+%PCI\VEN_8086&DEV_3514.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3514
+%PCI\VEN_8086&DEV_3515.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3515
+%PCI\VEN_8086&DEV_3518.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3518
+%PCI\VEN_8086&DEV_3519.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3519
+%PCI\VEN_8086&DEV_2670.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2670
+%PCI\VEN_8086&DEV_269B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_269B
+%PCI\VEN_8086&DEV_2690.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2690
+%PCI\VEN_8086&DEV_2692.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2692
+%PCI\VEN_8086&DEV_2694.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2694
+%PCI\VEN_8086&DEV_2696.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2696
+%PCI\VEN_8086&DEV_3500.DeviceDesc%=PCI_DRV_XPUP,PCI\VEN_8086&DEV_3500
+%PCI\VEN_8086&DEV_3501.DeviceDesc%=PCI_DRV_XPUP,PCI\VEN_8086&DEV_3501
+
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_25C0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25C0
+%PCI\VEN_8086&DEV_25D0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25D0
+%PCI\VEN_8086&DEV_25D4.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25D4
+%PCI\VEN_8086&DEV_25D8.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25D8
+%PCI\VEN_8086&DEV_25E2.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E2
+%PCI\VEN_8086&DEV_25E3.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E3
+%PCI\VEN_8086&DEV_25E4.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E4
+%PCI\VEN_8086&DEV_25E5.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E5
+%PCI\VEN_8086&DEV_25E6.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E6
+%PCI\VEN_8086&DEV_25E7.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25E7
+%PCI\VEN_8086&DEV_25F0.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F0
+%PCI\VEN_8086&DEV_25F1.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F1
+%PCI\VEN_8086&DEV_25F3.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F3
+%PCI\VEN_8086&DEV_25F5.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F5
+%PCI\VEN_8086&DEV_25F6.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_25F6
+%PCI\VEN_8086&DEV_25F7.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25F7
+%PCI\VEN_8086&DEV_25F8.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25F8
+%PCI\VEN_8086&DEV_25F9.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25F9
+%PCI\VEN_8086&DEV_25FA.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_25FA
+%PCI\VEN_8086&DEV_3504.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3504
+%PCI\VEN_8086&DEV_3505.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_3505
+%PCI\VEN_8086&DEV_350C.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_350C
+%PCI\VEN_8086&DEV_350D.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_350D
+%PCI\VEN_8086&DEV_3510.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3510
+%PCI\VEN_8086&DEV_3511.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3511
+%PCI\VEN_8086&DEV_3514.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3514
+%PCI\VEN_8086&DEV_3515.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3515
+%PCI\VEN_8086&DEV_3518.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3518
+%PCI\VEN_8086&DEV_3519.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_3519
+%PCI\VEN_8086&DEV_2670.DeviceDesc%=ISAPNP_DRV,PCI\VEN_8086&DEV_2670
+%PCI\VEN_8086&DEV_269B.DeviceDesc%=NO_DRV,PCI\VEN_8086&DEV_269B
+%PCI\VEN_8086&DEV_2690.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2690
+%PCI\VEN_8086&DEV_2692.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2692
+%PCI\VEN_8086&DEV_2694.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2694
+%PCI\VEN_8086&DEV_2696.DeviceDesc%=PCI_DRV,PCI\VEN_8086&DEV_2696
+%PCI\VEN_8086&DEV_3500.DeviceDesc%=PCI_DRV_XPUP,PCI\VEN_8086&DEV_3500
+%PCI\VEN_8086&DEV_3501.DeviceDesc%=PCI_DRV_XPUP,PCI\VEN_8086&DEV_3501
+
+
+[NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[PCI_DRV_2K]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV_2K.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV_2K.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[PCI_DRV_XPUP]
+Include=machine.inf
+Needs=PCI_DRV
+
+[PCI_DRV_XPUP.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[PCI_DRV_XPUP.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Strings]
+INTEL="Intel"
+PCI\VEN_8086&DEV_25C0.DeviceDesc="Intel(R) 5000X Chipset Memory Controller Hub - 25C0"
+PCI\VEN_8086&DEV_25D0.DeviceDesc="Intel(R) 5000Z Chipset Memory Controller Hub - 25D0"
+PCI\VEN_8086&DEV_25D4.DeviceDesc="Intel(R) 5000V Chipset Memory Controller Hub - 25D4"
+PCI\VEN_8086&DEV_25D8.DeviceDesc="Intel(R) 5000P Chipset Memory Controller Hub - 25D8"
+PCI\VEN_8086&DEV_25E2.DeviceDesc="Intel(R) 5000 Series Chipset PCI Express x4 Port 2 - 25E2"
+PCI\VEN_8086&DEV_25E3.DeviceDesc="Intel(R) 5000 Series Chipset PCI Express x4 Port 3 - 25E3"
+PCI\VEN_8086&DEV_25E4.DeviceDesc="Intel(R) 5000 Series Chipset PCI Express x4 Port 4 - 25E4"
+PCI\VEN_8086&DEV_25E5.DeviceDesc="Intel(R) 5000 Series Chipset PCI Express x4 Port 5 - 25E5"
+PCI\VEN_8086&DEV_25E6.DeviceDesc="Intel(R) 5000 Series Chipset PCI Express x4 Port 6 - 25E6"
+PCI\VEN_8086&DEV_25E7.DeviceDesc="Intel(R) 5000 Series Chipset PCI Express x4 Port 7 - 25E7"
+PCI\VEN_8086&DEV_25F0.DeviceDesc="Intel(R) 5000 Series Chipset Error Reporting Registers - 25F0"
+PCI\VEN_8086&DEV_25F1.DeviceDesc="Intel(R) 5000 Series Chipset Reserved Registers - 25F1"
+PCI\VEN_8086&DEV_25F3.DeviceDesc="Intel(R) 5000 Series Chipset Reserved Registers - 25F3"
+PCI\VEN_8086&DEV_25F5.DeviceDesc="Intel(R) 5000 Series Chipset FBD Registers - 25F5"
+PCI\VEN_8086&DEV_25F6.DeviceDesc="Intel(R) 5000 Series Chipset FBD Registers - 25F6"
+PCI\VEN_8086&DEV_25F7.DeviceDesc="Intel(R) 5000 Series Chipset PCI Express x8 Port 2-3 - 25F7"
+PCI\VEN_8086&DEV_25F8.DeviceDesc="Intel(R) 5000 Series Chipset PCI Express x8 Port 4-5 - 25F8"
+PCI\VEN_8086&DEV_25F9.DeviceDesc="Intel(R) 5000 Series Chipset PCI Express x8 Port 6-7 - 25F9"
+PCI\VEN_8086&DEV_25FA.DeviceDesc="Intel(R) 5000X Chipset PCI Express x16 Port 4-7 - 25FA"
+PCI\VEN_8086&DEV_3500.DeviceDesc="Intel(R) 6311ESB/6321ESB PCI Express Upstream Port - 3500"
+PCI\VEN_8086&DEV_3501.DeviceDesc="Intel(R) 6310ESB PCI Express Upstream Port - 3501"
+PCI\VEN_8086&DEV_3504.DeviceDesc="Intel(R) 6311ESB/6321ESB I/OxAPIC Interrupt Controller - 3504"
+PCI\VEN_8086&DEV_3505.DeviceDesc="Intel(R) 6310ESB I/OxAPIC Interrupt Controller - 3505"
+PCI\VEN_8086&DEV_350C.DeviceDesc="Intel(R) 6311ESB/6321ESB PCI Express to PCI-X Bridge - 350C"
+PCI\VEN_8086&DEV_350D.DeviceDesc="Intel(R) 6310ESB PCI Express to PCI-X Bridge - 350D"
+PCI\VEN_8086&DEV_3510.DeviceDesc="Intel(R) 6311ESB/6321ESB PCI Express Downstream Port E1 - 3510"
+PCI\VEN_8086&DEV_3511.DeviceDesc="Intel(R) 6310ESB PCI Express Downstream Port E1 - 3511"
+PCI\VEN_8086&DEV_3514.DeviceDesc="Intel(R) 6311ESB/6321ESB PCI Express Downstream Port E2 - 3514"
+PCI\VEN_8086&DEV_3515.DeviceDesc="Intel(R) 6310ESB PCI Express Downstream Port E2 - 3515"
+PCI\VEN_8086&DEV_3518.DeviceDesc="Intel(R) 6311ESB/6321ESB PCI Express Downstream Port E3 - 3518"
+PCI\VEN_8086&DEV_3519.DeviceDesc="Intel(R) 6310ESB PCI Express Downstream Port E3 - 3519"
+PCI\VEN_8086&DEV_2670.DeviceDesc="Intel(R) 631xESB/6321ESB/3100 Chipset LPC Interface Controller - 2670"
+PCI\VEN_8086&DEV_269B.DeviceDesc="Intel(R) 631xESB/6321ESB/3100 Chipset SMBus Controller - 269B"
+PCI\VEN_8086&DEV_2690.DeviceDesc="Intel(R) 631xESB/6321ESB/3100 Chipset PCI Express Root Port 1 - 2690"
+PCI\VEN_8086&DEV_2692.DeviceDesc="Intel(R) 631xESB/6321ESB/3100 Chipset PCI Express Root Port 2 - 2692"
+PCI\VEN_8086&DEV_2694.DeviceDesc="Intel(R) 631xESB/6321ESB/3100 Chipset PCI Express Root Port 3 - 2694"
+PCI\VEN_8086&DEV_2696.DeviceDesc="Intel(R) 631xESB/6321ESB/3100 Chipset PCI Express Root Port 4 - 2696"
+REG_DWORD =0x00010001
+
+
+; Copyright (c) 2003-2012 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

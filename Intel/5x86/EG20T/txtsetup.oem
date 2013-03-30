@@ -1,0 +1,34 @@
+; This file installs the Intel(R) Platform Controller Hub EG20T AHCI Serial ATA driver as part
+; of text mode setup on Windows XP.
+;
+; Copyright (c) 2009-2012,  LAPIS SEMICONDUCTOR Co., LTD.
+; All rights reserved
+
+[Disks]
+disk1 = "Intel(R) PCH EG20T SATA AHCI Driver Installation Disk",\iohsata.SYS,\
+
+[Defaults]
+SCSI = IOHSATA_XP
+
+[SCSI]
+IOHSATA_XP = "Intel(R) PCH EG20T SATA AHCI Controller For Windows XP"
+
+[Files.SCSI.IOHSATA_XP]
+driver = disk1,iohsata.sys, IOHSATA
+inf = disk1,iohsata.inf
+catalog = disk1, iohsata.cat
+
+[HardwareIds.SCSI.IOHSATA_XP]
+id = "PCI\VEN_8086&DEV_880B&CC_010601", "IOHSATA"
+id = "PCI\VEN_10DB&DEV_8021&CC_010601", "IOHSATA"
+id = "USB\VID_03F0&PID_2001", "usbstor" #--HP
+id = "USB\VID_054C&PID_002C", "usbstor" #--Sony
+id = "USB\VID_057B&PID_0001", "usbstor" #--Y-E Data
+id = "USB\VID_0409&PID_0040", "usbstor" #--NEC
+id = "USB\VID_0424&PID_0FDC", "usbstor" #--SMSC
+id = "USB\VID_08BD&PID_1100", "usbstor" #--Iomega
+
+[Config.IOHSATA]
+value = Parameters\PnpInterface,5,REG_DWORD,1
+value = Parameters\Device,MaximumSGList,REG_DWORD,32
+value = Parameters\Device,NumberOfRequests,REG_DWORD,64
